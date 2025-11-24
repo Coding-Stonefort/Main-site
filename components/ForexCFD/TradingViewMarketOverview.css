@@ -1,0 +1,43 @@
+/* Market Overview Widget Section */
+
+.tv-mo-section {
+  padding: 60px 0 120px 0;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+.tv-mo-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Title – same style as section titles in hero */
+.tv-mo-title {
+  font-size: 40px;         /* matches sm:text-[40px] hero scale */
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  color: #0A1015;          /* same dark heading color */
+  font-family: "Inter", sans-serif;
+}
+
+/* Subtitle – same body styling as hero subtitle */
+.tv-mo-subtitle {
+  font-size: 18px;         /* matches hero subtitle (tablet) */
+  line-height: 1.45;
+  color: #425160;          /* same muted color */
+  margin-bottom: 24px;
+  max-width: 640px;
+}
+
+/* TradingView container cosmetics */
+.tradingview-widget-container {
+  width: 100%;
+  border-radius: 16px;                     /* same roundness as CTAs */
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);      /* soft border like modern UI */
+  box-shadow: 0 10px 30px rgba(15,23,42,0.10); /* soft shadow like cards */
+}

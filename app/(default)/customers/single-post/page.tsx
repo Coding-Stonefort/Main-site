@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Illustration from '@/public/images/page-illustration.svg'
 import CustomerBadge from '@/public/images/customer-badge.svg'
 import Particles from '@/components/particles'
-import RelatedPosts from './related-posts'
+import RelatedPosts from './CustomerRelatedPosts'
 
 export default function CustomerSingle() {
   return (
