@@ -7,7 +7,7 @@ import MegaMenu from "../MegaMenu";
 
 export default function Header() {
 return (
-<header className="absolute w-full z-30">
+<header className="absolute w-full z-30 bg-white">
 <div className="max-w-6xl mx-auto px-4 sm:px-6">
 <div className="flex items-center justify-between h-16 md:h-20">
 
@@ -35,7 +35,7 @@ return (
                 {
                   heading: "Markets",
                   items: [
-                    { label: "Forex CFD", href: "/markets/forex" },
+                    { label: "Forex CFD", href: "/markets/forex-cfd" },
                     { label: "Indices CFD", href: "/markets/indices" },
                     { label: "Metal CFD", href: "/markets/metals" },
                     { label: "Stock CFD", href: "/markets/stocks" },
