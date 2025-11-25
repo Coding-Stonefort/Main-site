@@ -1,5 +1,6 @@
 // Server component – NO "use client"
 import Link from "next/link";
+import Image from "next/image";             
 import PostDate from "./post-date";
 import { getAllUpdates } from "@/lib/updates";
 import "./related-posts.css";
@@ -39,6 +40,20 @@ export default async function ChangelogRelatedPosts({
         <div className="rp-grid">
           {items.map((post) => (
             <article key={post.slug} className="rp-card">
+              {/*  Featured image (optional) */}
+              {post.image && (
+                <div className="rp-card-media">
+                  <Image
+                    src={post.image as string}
+                    alt={post.title}
+                    width={480}
+                    height={260}
+                    className="rp-card-img"
+                  />
+                </div>
+              )}
+
+
               <div className="rp-meta">
                 {post.publishedAt && (
                   <PostDate dateString={post.publishedAt} />

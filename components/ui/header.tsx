@@ -136,7 +136,7 @@ return (
                     { label: "Articles", href: "/academy/articles" },
                     { label: "E-Book", href: "/academy/ebook" },
                     { label: "Trading Terms", href: "/academy/terms" },
-                    { label: "Blogs", href: "/academy/blogs" },
+                    { label: "Blogs", href: "/blog" },
                     { label: "Glossary", href: "/academy/glossary" },
                   ],
                 },

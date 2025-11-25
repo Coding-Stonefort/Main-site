@@ -3,24 +3,24 @@ import { notFound } from "next/navigation";
 import { getAllUpdates } from "@/lib/updates";
 import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import Image from "next/image";
+import "./changelog-article.css";
 
-// The real shape of params
-type ChangelogParams = {
-  slug: string;
-};
+type ChangelogParams = { slug: string };
 
 export function generateStaticParams() {
   const posts = getAllUpdates();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-// ✅ Next 15 expects `params` as a Promise in typed routes
-export async function generateMetadata(
-  { params }: { params: Promise<ChangelogParams> }
-): Promise<Metadata> {
-  const { slug } = await params; // 👈 await the Promise
-
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<ChangelogParams>;
+}): Promise<Metadata> {
+  const { slug } = await params;
   const post = getAllUpdates().find((p) => p.slug === slug);
+
   if (!post) return { title: "Article not found" };
 
   return {
@@ -29,40 +29,53 @@ export async function generateMetadata(
   };
 }
 
-// ✅ Same idea for the page component: params is a Promise
 export default async function ChangelogPostPage({
   params,
 }: {
   params: Promise<ChangelogParams>;
 }) {
-  const { slug } = await params; // 👈 await here too
+  const { slug } = await params;
 
-  const posts = getAllUpdates();
-  const post = posts.find((p) => p.slug === slug);
-
+  const post = getAllUpdates().find((p) => p.slug === slug);
   if (!post) notFound();
 
   return (
-    <main className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
-      {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
+    <main className="cl-article">
+      <div className="cl-inner">
+        
+        {/* ⭐ HERO IMAGE */}
+        {post.image && (
+          <div className="cl-hero">
+            <Image
+              src={post.image}
+              alt={post.title}
+              width={1200}
+              height={600}
+              className="cl-hero-img"
+            />
+          </div>
+        )}
 
-      {/* Date */}
-      {post.publishedAt && (
-        <p className="text-sm text-slate-400 mb-6">{post.publishedAt}</p>
-      )}
+        {/* Title */}
+        <h1 className="cl-title">{post.title}</h1>
 
-      {/* Short description */}
-      {post.description && (
-        <p className="text-base text-slate-300 mb-8">{post.description}</p>
-      )}
+        {/* Date */}
+        {post.publishedAt && (
+          <p className="cl-date">{post.publishedAt}</p>
+        )}
 
-      {/* 🔥 Full body */}
-      {post.body && (
-        <article className="prose prose-invert max-w-none">
-          <MDXRemote source={post.body} />
-        </article>
-      )}
+        {/* Description */}
+        {post.description && (
+          <p className="cl-intro">{post.description}</p>
+        )}
+
+        {/* Body */}
+        {post.body && (
+          <article className="cl-body prose max-w-none">
+            <MDXRemote source={post.body} />
+          </article>
+        )}
+      </div>
     </main>
   );
 }

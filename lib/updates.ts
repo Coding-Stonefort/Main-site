@@ -2,8 +2,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+
 export type UpdateMeta = {
-  body: string;            // ⬅ add this
+  image?: string;      
+  body: string;
   title: string;
   slug: string;
   publishedAt: string;
@@ -31,7 +33,7 @@ export function getAllUpdates(): UpdateMeta[] {
       (data.slug as string | undefined) ?? file.replace(/\.mdx$/, "");
 
     return {
-      body: content, // ⬅ store full markdown / mdx body here
+      body: content,
       title: (data.title as string) ?? slug,
       slug,
       publishedAt:
@@ -40,6 +42,7 @@ export function getAllUpdates(): UpdateMeta[] {
         "",
       description: (data.description as string | undefined) ?? "",
       tags: (data.tags as string[] | undefined) ?? [],
+      image: data.image as string | undefined,    
     };
   });
 
