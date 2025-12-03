@@ -1,33 +1,27 @@
-.section {
+.markets-section {
   padding: 60px 0 80px;
   background: #f9fafb;
 }
 
-.inner {
+.markets-inner {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 32px;
 }
 
-/* Heading */
-
-.header {
+.markets-header {
   text-align: center;
   margin-bottom: 24px;
 }
 
-.title {
+.markets-title {
   font-size: 28px;
   font-weight: 800;
   color: #002c86;
   margin-bottom: 8px;
 }
 
-.title span {
-  color: #002c86;
-}
-
-.subtitle {
+.markets-subtitle {
   max-width: 680px;
   margin: 0 auto;
   font-size: 14px;
@@ -37,15 +31,15 @@
 
 /* Tabs */
 
-.tabsRow {
+.markets-tabs-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin: 22px 0 18px;
+  margin-bottom: 18px;
 }
 
-.tab {
+.markets-tab {
   padding: 8px 16px;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.7);
@@ -58,80 +52,26 @@
     box-shadow 0.15s ease-out, transform 0.15s ease-out;
 }
 
-.tab:hover {
+.markets-tab:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.16);
 }
 
-.tabActive {
+.markets-tab--active {
   border-color: #4d6e55;
   background: #e6f0ea;
   box-shadow: 0 12px 30px rgba(77, 110, 85, 0.35);
 }
 
-.tabLabel {
-  white-space: nowrap;
-}
-
 /* Widget card */
 
-.widgetCard {
+.markets-widget-card {
   border-radius: 18px;
   background: #ffffff;
   box-shadow: 0 14px 40px rgba(15, 23, 42, 0.14);
   overflow: hidden;
 }
 
-.tradingViewContainer {
+.tradingview-widget-container {
   width: 100%;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
-}
-
-/* Footer under widget */
-
-.footerLine {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 18px 12px;
-  background: #f9fafb;
-}
-
-.currentMarketLabel {
-  font-size: 12px;
-  color: #4b5563;
-}
-
-.viewMoreLink {
-  font-size: 13px;
-  font-weight: 600;
-  color: #4d6e55;
-  text-decoration: none;
-}
-
-.viewMoreLink:hover {
-  text-decoration: underline;
-}
-
-/* Disclaimer */
-
-.disclaimer {
-  margin-top: 14px;
-  font-size: 11px;
-  line-height: 1.5;
-  color: #6b7280;
-}
-
-/* Responsive */
-
-@media (max-width: 768px) {
-  .inner {
-    padding: 0 20px;
-  }
-
-  .footerLine {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
 }

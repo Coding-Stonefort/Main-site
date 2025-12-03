@@ -6,7 +6,7 @@ export const metadata = {
 import PricingSection from './pricing-section'
 import Features from '@/components/features-05'
 import Customers from '@/components/customers'
-import Faqs from '@/components/faqs'
+// import Faqs from '@/components/Faqs'
 import Cta from '@/components/cta'
 
 export default function Pricing() {
@@ -15,7 +15,7 @@ export default function Pricing() {
       <PricingSection />
       <Features />
       <Customers />
-      <Faqs />
+      {/* <Faqs /> */}
       <Cta />
     </>
   )

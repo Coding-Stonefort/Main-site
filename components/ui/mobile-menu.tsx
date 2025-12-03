@@ -25,10 +25,10 @@ const menuData: MobileMenuGroup[] = [
       {
         title: "Markets",
         items: [
-          { label: "Forex CFD", href: "/markets/forex" },
+          { label: "Forex CFD", href: "/markets/forex-cfd" },
           { label: "Indices CFD", href: "/markets/indices" },
-          { label: "Metal CFD", href: "/markets/metals" },
-          { label: "Stock CFD", href: "/markets/stocks" },
+          { label: "Metal CFD", href: "/markets/metal" },
+          { label: "Stock CFD", href: "/markets/stock" },
           { label: "Commodity CFD", href: "/markets/commodities" },
           { label: "Crypto CFD", href: "/markets/crypto" },
         ],

@@ -1,24 +1,46 @@
-/* components/market/MarketHero.module.css */
-
+/* === HERO SECTION === */
 .hero {
-  position: relative;          /* so the image can be absolutely positioned */
-  overflow: hidden;            /* hide any overflow from the image */
-  padding: 120px 0;
+  position: relative;
+  width: 100%;
+  height: 120vh;        /* FULL SCREEN HERO */
+  overflow: hidden;
   background: #ffffff;
   color: #0f172a;
+  padding: 0;  
+ 
 }
 
-/* 1240 CONTAINER ONLY FOR LEFT CONTENT */
+/* === FULL BACKGROUND IMAGE === */
+.media {
+  position: absolute;
+  inset: 0;            /* top:0 left:0 right:0 bottom:0 */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroImage {
+  object-fit: cover !important;
+  object-position: 70% center;
+  z-index: 1;
+}
+
+/* OPTIONAL DARK OVERLAY FOR READABILITY */
+
+
+/* === CONTENT WRAPPER (STAYS ON TOP) === */
 .inner {
   position: relative;
-  z-index: 2;                  /* keep text above the image */
+  z-index: 3;          /* above image & overlay */
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 32px;
+  height: 100%;        /* match hero height */
+  display: flex;
+  align-items: center; /* vertically center text */
 }
 
 /* LEFT CONTENT */
-
 .content {
   max-width: 780px;
 }
@@ -27,7 +49,7 @@
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 12px;
-  color: #111827;
+  color: #000; /* make visible on background */
 }
 
 .heading {
@@ -35,7 +57,7 @@
   line-height: 1.2;
   font-weight: 800 !important;
   margin: 0 0 16px;
-  color: #000; /* deep blue like reference */
+  color: #000;
 }
 
 .heading span {
@@ -45,8 +67,9 @@
 .subtitle {
   font-size: 16px;
   line-height: 1.6;
-  color: #4b5563;
+  color: #000;     /* light grey */
   margin-bottom: 24px;
+  max-width: 450px;;
 }
 
 .ctaButton {
@@ -61,66 +84,30 @@
 .ctaButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 18px 40px rgba(77, 110, 85, 0.55);
-
-
   opacity: 0.95;
 }
 
-/* RIGHT IMAGE = FULL-WIDTH PANEL ON THE RIGHT HALF OF HERO */
-
-.media {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-
-  /* controls how much of the screen the image takes */
-  width: 55%;                  /* adjust to taste: 50–60% usually looks good */
-  min-width: 480px;            /* so it still looks nice on larger screens */
-
-  z-index: 1;
-}
-
-.heroImage {
-  object-fit: cover;
-  object-position: center right;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-/* RESPONSIVE */
-
+/* === MOBILE RESPONSIVE === */
 @media (max-width: 900px) {
+  .heading {
+    font-size: 42px;
+  }
+
   .hero {
-    padding: 56px 0 40px;
+    height: 80vh;       /* reduce height for smaller screens */
   }
 
   .inner {
     padding: 0 20px;
   }
-
-  .content {
-    max-width: none;
-  }
-
-  .heading {
-    font-size: 34px;
-  }
-
-  .media {
-    position: static;          /* stack below content on mobile */
-    width: 100%;
-    min-width: 0;
-    min-height: 260px;
-  }
-
-  .heroImage {
-    position: relative;        /* required when media is no longer absolute */
-  }
 }
 
 @media (max-width: 600px) {
   .heading {
-    font-size: 28px;
+    font-size: 32px;
+  }
+
+  .hero {
+    height: 70vh;
   }
 }
