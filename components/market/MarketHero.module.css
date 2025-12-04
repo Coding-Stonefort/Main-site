@@ -2,42 +2,42 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 120vh;        /* FULL SCREEN HERO */
+  height: 120vh;
   overflow: hidden;
   background: #ffffff;
   color: #0f172a;
-  padding: 0;  
- 
+  padding: 0;
 }
 
-/* === FULL BACKGROUND IMAGE === */
+/* === BACKGROUND IMAGE WRAPPER === */
 .media {
   position: absolute;
-  inset: 0;            /* top:0 left:0 right:0 bottom:0 */
+  inset: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
 }
 
+/* === BACKGROUND IMAGE === */
 .heroImage {
+  width: 100%;
+  height: 100%;
   object-fit: cover !important;
-  object-position: 70% center;
+  object-position: 70% center; 
   z-index: 1;
+  transition: all 0.4s ease;
 }
 
-/* OPTIONAL DARK OVERLAY FOR READABILITY */
-
-
-/* === CONTENT WRAPPER (STAYS ON TOP) === */
+/* === CONTENT WRAPPER === */
 .inner {
   position: relative;
-  z-index: 3;          /* above image & overlay */
+  z-index: 3;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 32px;
-  height: 100%;        /* match hero height */
+  height: 100%;
   display: flex;
-  align-items: center; /* vertically center text */
+  align-items: center;
 }
 
 /* LEFT CONTENT */
@@ -49,7 +49,7 @@
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 12px;
-  color: #000; /* make visible on background */
+  color: #000;
 }
 
 .heading {
@@ -65,11 +65,11 @@
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.6;
-  color: #000;     /* light grey */
+  color: #000;
   margin-bottom: 24px;
-  max-width: 450px;;
+  max-width: 450px;
 }
 
 .ctaButton {
@@ -81,33 +81,67 @@
   text-decoration: none;
 }
 
-.ctaButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(77, 110, 85, 0.55);
-  opacity: 0.95;
-}
 
-/* === MOBILE RESPONSIVE === */
+/* ==============================
+   RESPONSIVE (Tablet)
+   ============================== */
 @media (max-width: 900px) {
-  .heading {
-    font-size: 42px;
-  }
-
   .hero {
-    height: 80vh;       /* reduce height for smaller screens */
+    height: 95vh;
   }
 
   .inner {
     padding: 0 20px;
   }
-}
 
-@media (max-width: 600px) {
   .heading {
-    font-size: 32px;
+    font-size: 48px;
   }
 
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .heroImage {
+    object-position: center center;
+  }
+}
+
+
+/* ==============================
+   RESPONSIVE (Mobile)
+   ============================== */
+@media (max-width: 600px) {
+
   .hero {
-    height: 70vh;
+    height: 85vh;
+  }
+
+  /* Bigger zoom so important part of image remains visible */
+  .heroImage {
+    object-fit: cover !important;
+    object-position: center top;
+    transform: scale(2.65);
+  }
+
+  .inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .heading {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    max-width: 100%;
+    line-height: 1.5;
+  }
+
+  .ctaButton {
+    padding: 12px 26px;
+    font-size: 15px;
   }
 }

@@ -19,20 +19,19 @@ export default function ForexHero() {
         {/* LEFT TEXT BLOCK */}
         <div className="fx-left">
           <h1 className="fx-title">
-            Forex trading with low and stable spreads<span className="fx-sup">¹</span>
+            Forex Trading with<br/> Stonefort
           </h1>
 
           <p className="fx-subtitle">
-            Access the global forex market and trade the world’s most popular
-            currency pairs with better-than-market conditions.
+            Trade FX CFDs on 90+ currency pairs with spreads starting from 0.4 pips. Elevate your trading with our advanced, high-performance platforms and experience the world’s largest financial market with competitive pricing and fast execution on 60+ major, minor, and exotic pairs.
           </p>
 
           <div className="fx-cta-row">
             <Link href="/register" className="fx-btn-primary">
-              Register
+              Open an Account
             </Link>
             <Link href="/demo" className="fx-btn-secondary">
-              Try free demo
+              Trade Now
             </Link>
           </div>
           <div className="fx-right">

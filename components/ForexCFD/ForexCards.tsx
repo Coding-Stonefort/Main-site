@@ -10,11 +10,11 @@ type Quote = {
 };
 
 const PAIRS = [
-  { symbol: "EURUSD", leverage: "Up to 1:1000" },
-  { symbol: "USDJPY", leverage: "Up to 1:1000" },
-  { symbol: "GBPUSD", leverage: "Up to 1:1000" },
-  { symbol: "AUDUSD", leverage: "Up to 1:1000" },
-  { symbol: "USDCAD", leverage: "Up to 1:1000" },
+  { symbol: "EURUSD", leverage: "Up to 1:500" },
+  { symbol: "USDJPY", leverage: "Up to 1:500" },
+  { symbol: "GBPUSD", leverage: "Up to 1:500" },
+  { symbol: "AUDUSD", leverage: "Up to 1:500" },
+  { symbol: "USDCAD", leverage: "Up to 1:500" },
 ];
 
 export default function ForexCards() {
@@ -43,6 +43,18 @@ export default function ForexCards() {
 
   return (
     <section className="fc-section">
+
+      <div className="fc-header">
+        <h2 className="fc-heading">Major Currency Pairs</h2>
+        <p className="fc-desc">
+          Trade the world’s most actively traded currency pairs with spreads
+          designed to support efficient execution. All majors are quoted against
+          the US Dollar, offering clear pricing and stable market depth.
+          Stonefort’s competitive spread environment helps you navigate these
+          highly liquid markets with confidence and precision.
+        </p>
+      </div>
+
       <div className="fc-row">
         {PAIRS.map((pair) => {
           const q = quotes[pair.symbol];

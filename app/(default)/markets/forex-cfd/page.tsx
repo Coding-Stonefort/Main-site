@@ -1,6 +1,10 @@
 import ForexHero from "@/components/ForexCFD/ForexHero";
 import ForexCards from "@/components/ForexCFD/ForexCards";
 import MarketsLiveOverview from "@/components/market/MarketsLiveOverview";
+import WhyTradeCFDsForex from "@/components/ForexCFD/WhyTradeCFDsForex";
+import FlipCards from "@/components/ForexCFD/FlipCards";
+import WhyTradeForex from "@/components/ForexCFD/WhyTradeForex";
+import MarketsCatalogHero from "@/components/ForexCFD/MarketsCatalogHero";
 import RelatedPosts from "@/components/ChangelogRelatedPosts";
 import Faqs, { FAQItem } from "@/components/Faqs";
 
@@ -37,16 +41,20 @@ export default function ForexCfdPage() {
   return (
     <>
         <ForexHero />
-        <ForexCards />
         <section id="forex-pairs">
-                  <MarketsLiveOverview />
+          <MarketsLiveOverview />
         </section>
-
-              <RelatedPosts
+        <WhyTradeCFDsForex />
+        <FlipCards />
+        <ForexCards />
+        <WhyTradeForex />
+        <MarketsCatalogHero />
+        <RelatedPosts
         title="Learn more about Forex & CFDs"
         limit={3}
          tag="forex" 
       />
+
         <Faqs
             badgeLabel="Range of Markets FAQs"
             title="Forex FAQs – Understand the Markets Better "
