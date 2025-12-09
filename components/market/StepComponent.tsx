@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./StepComponent.module.css";
-import tabletImg from "@/public/images/lockImg.webp";
+import tabletImg from "@/public/images/registerrightimg.webp";
 
 export default function StepComponent() {
   const steps = [

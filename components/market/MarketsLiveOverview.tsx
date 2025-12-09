@@ -195,7 +195,7 @@ function getTabIdFromPath(pathname: string): MarketTabId {
     <section className="markets-section">
       <div className="markets-inner">
         <div className="markets-header">
-          <h2 className="markets-title">Our Markets at a Glance</h2>
+          <h2 className="markets-title"><span>Our Markets</span> at a Glance</h2>
           <p className="markets-subtitle">
             Explore live pricing across Forex, Indices, Metals, Stocks, Commodities and Crypto — all from one Stonefort account.
           </p>

@@ -65,11 +65,13 @@ export default function WhyTradeForex() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <header className={styles.header}>
+      <header className={styles.header}>
+        {/* LEFT: text */}
+        <div className={styles.headerContent}>
           <span className={styles.badge}>OUR FOREX EDGE</span>
 
           <div className={styles.headingRow}>
-            <h2 className={styles.title}>Why Trade Forex with Stonefort?</h2>
+            <h2 className={styles.title}>Why Trade Forex with <span>Stonefort?</span></h2>
             <span className={styles.headingLine} />
           </div>
 
@@ -77,12 +79,27 @@ export default function WhyTradeForex() {
             Access institutional-grade trading conditions, advanced technology,
             and a regulated environment designed to support your forex strategies.
           </p>
-        </header>
+        </div>
+
+        {/* RIGHT: image */}
+        <div className={styles.headerImageWrap}>
+          <Image
+            src="/images/lock.webp"      // put your shield+coins image here
+            alt="Secure funds with Stonefort"
+            width={480}
+            height={360}
+            className={styles.headerImage}
+            priority
+          />
+        </div>
+      </header>
+
 
         {/* 8 cards */}
         <div className={styles.grid}>
           {REASONS.map((item) => (
-            <article key={item.id} className={styles.card}>
+          <article key={item.id} className={styles.card}>
+            <div className={styles.cardIcon}>
               <Image
                 src={item.icon}
                 alt={item.title}
@@ -90,10 +107,12 @@ export default function WhyTradeForex() {
                 height={48}
                 className={styles.iconImage}
               />
+            </div>
 
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardText}>{item.text}</p>
-            </article>
+            <h3 className={styles.cardTitle}>{item.title}</h3>
+            <p className={styles.cardText}>{item.text}</p>
+          </article>
+
           ))}
         </div>
       </div>

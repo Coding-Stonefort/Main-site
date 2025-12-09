@@ -1,25 +1,25 @@
 "use client";
-import styles from "./FlipCards.module.css";
+import styles from "../ForexCFD/FlipCards.module.css";
 import Image from "next/image";
 
-export default function FlipCards() {
+export default function MetalsFlipCards() {
   const cards = [
     {
       id: 1,
-      title: "Ultra-tight Spreads",
-      text: "Ultra-tight spreads and lightning-fast execution for precision trading.",
+      title: "Ultra-tight Spread",
+      text: "Ultra-tight spreads and efficient execution designed to support smoother trading.",
       icon: "/images/forexSpread.webp",
     },
     {
       id: 2,
-      title: "Up to 1:500 Leverage",
-      text: "Leverage of up to 1:500, giving you enhanced flexibility and efficient capital usage.",
-      icon: "/images/forexleverage.webp",
+      title: "Up to 1:1000 Leverage",
+      text: "Flexible leverage options up to 1:1000, allowing you to manage positions with greater adaptability. ",
+      icon: "/images/metalflipleverage.webp",
     },
     {
       id: 3,
       title: "MetaTrader 5",
-      text: "Access powerful trading platforms, including MetaTrader 5, built for speed and advanced market analysis.",
+      text: "Access to advanced platforms, including MetaTrader 5 and the Stonefort Trader App, for a seamless and intuitive trading experience. ",
       icon: "/images/forexMt5.webp",
     },
   ];

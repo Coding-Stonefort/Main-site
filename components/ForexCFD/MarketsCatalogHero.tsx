@@ -6,55 +6,55 @@ type MarketItem = {
   symbol: string;
 };
 
-// 6 rows x 5 icons (you can change symbols as you like)
+// 6 rows x 5 FX pairs (all currency-related)
 const ROWS: MarketItem[][] = [
-  // Row 0: far back
-  [
-    { symbol: "SPX" },
-    { symbol: "NDX" },
-    { symbol: "DJI" },
-    { symbol: "DAX" },
-    { symbol: "FTSE" },
-  ],
-  // Row 1
-  [
-    { symbol: "XAU" },
-    { symbol: "XAG" },
-    { symbol: "USOIL" },
-    { symbol: "UKOIL" },
-    { symbol: "NGAS" },
-  ],
-  // Row 2
+  // Row 0: far back – Majors
   [
     { symbol: "EURUSD" },
     { symbol: "GBPUSD" },
     { symbol: "USDJPY" },
+    { symbol: "USDCHF" },
     { symbol: "USDCAD" },
+  ],
+  // Row 1: Majors / popular minors
+  [
     { symbol: "AUDUSD" },
+    { symbol: "NZDUSD" },
+    { symbol: "EURGBP" },
+    { symbol: "EURJPY" },
+    { symbol: "GBPJPY" },
   ],
-  // Row 3
+  // Row 2: Crosses
   [
-    { symbol: "BTC" },
-    { symbol: "ETH" },
-    { symbol: "SOL" },
-    { symbol: "XRP" },
-    { symbol: "LTC" },
+    { symbol: "AUDJPY" },
+    { symbol: "CADJPY" },
+    { symbol: "CHFJPY" },
+    { symbol: "EURAUD" },
+    { symbol: "EURNZD" },
   ],
-  // Row 4
+  // Row 3: More crosses
   [
-    { symbol: "GOOGL" },
-    { symbol: "NFLX" },
-    { symbol: "ADBE" },
-    { symbol: "INTC" },
-    { symbol: "CSCO" },
+    { symbol: "GBPAUD" },
+    { symbol: "GBPCAD" },
+    { symbol: "GBPNZD" },
+    { symbol: "AUDCAD" },
+    { symbol: "AUDNZD" },
   ],
-  // Row 5: closest/front row
+  // Row 4: Exotics vs USD
   [
-    { symbol: "AAPL" },
-    { symbol: "TSLA" },
-    { symbol: "NVDA" },
-    { symbol: "AMZN" },
-    { symbol: "MSFT" },
+    { symbol: "USDTRY" },
+    { symbol: "USDZAR" },
+    { symbol: "USDMXN" },
+    { symbol: "USDSEK" },
+    { symbol: "USDNOK" },
+  ],
+  // Row 5: Exotics vs EUR
+  [
+    { symbol: "EURTRY" },
+    { symbol: "EURZAR" },
+    { symbol: "EURPLN" },
+    { symbol: "EURSEK" },
+    { symbol: "EURNOK" },
   ],
 ];
 
@@ -63,9 +63,13 @@ export default function MarketsCatalogHero() {
     <section className={styles.hero}>
       <div className={styles.inner}>
         <header className={styles.header}>
-          <h2 className={styles.title}>Trade with Clarity and Control </h2>
+          <h2 className={styles.title}>Trade with <span>Clarity</span> and <span>Control</span> </h2>
           <p className={styles.subtitle}>
-            At Stonefort, transparency is built into every trade. Our pricing model is designed to offer consistently competitive spreads across major currency pairs, giving you clearer market access and a smoother trading experience. With Stonefort, you stay focused on your strategy, not hidden costs.
+            At Stonefort, transparency is built into every trade. Our pricing
+            model is designed to offer consistently competitive spreads across
+            major currency pairs, giving you clearer market access and a smoother
+            trading experience. With Stonefort, you stay focused on your
+            strategy, not hidden costs.
           </p>
         </header>
 
@@ -101,15 +105,22 @@ type IconTileProps = {
 
 function IconTile({ symbol, index }: IconTileProps) {
   const variant =
-    index % 3 === 0 ? "variantOne" : index % 3 === 1 ? "variantTwo" : "variantThree";
+    index % 3 === 0
+      ? "variantOne"
+      : index % 3 === 1
+      ? "variantTwo"
+      : "variantThree";
 
   return (
     <div className={styles.tileWrap}>
       <div className={`${styles.tile} ${styles[variant]}`}>
-    <div className={`${styles.tileInner} ${styles[`brand-${symbol.toLowerCase()}`]}`}>
-    <span className={styles.symbol}>{symbol}</span>
-    </div>
-
+        <div
+          className={`${styles.tileInner} ${
+            styles[`brand-${symbol.toLowerCase()}`]
+          }`}
+        >
+          <span className={styles.symbol}>{symbol}</span>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,180 @@
+/* =============================
+   SECTION WRAPPER
+============================= */
+.section {
+  position: relative;
+  width: 100%;
+  padding: 96px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Background image */
+.bgImage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgImageObject {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Aurora glow */
+.aurora {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(
+    closest-side,
+    rgba(77, 110, 85, 0.2),
+    transparent 70%
+  );
+  filter: blur(38px);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =============================
+   GRID
+============================= */
+.grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr; /* mobile: 1 column */
+}
+
+/* =============================
+   SHINY CORNER BORDER CARD
+============================= */
+.card {
+  --sf-green-strong: #00b37a;
+  --sf-green-soft: #4d6e55;
+  --border-angle: 0deg;
+
+  position: relative;
+  background: #ffffff;
+  padding: 38px 15px;
+  border-radius: 22px;
+  border: 1px solid #e6e6e6;
+  overflow: hidden;
+
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.09);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    --border-angle 0.45s ease;
+}
+
+.card:hover {
+  --border-angle: 90deg;
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Conic shiny border */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    rgba(0, 179, 122, 0.15) 25deg,
+    var(--sf-green-strong) 45deg,
+    rgba(0, 179, 122, 0.15) 65deg,
+    transparent 90deg,
+    transparent 180deg,
+    rgba(0, 179, 122, 0.15) 205deg,
+    var(--sf-green-strong) 225deg,
+    rgba(0, 179, 122, 0.15) 250deg,
+    transparent 270deg,
+    transparent 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+
+
+/* =============================
+   CARD CONTENT
+============================= */
+.cardTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+.cardDesc {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #4b5563;
+}
+
+/* =============================
+   CTA BUTTON
+============================= */
+.ctaWrapper {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 40px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  background: #4d6e55;
+  box-shadow: 0 10px 25px rgba(77, 110, 85, 0.35);
+  transition: 0.3s ease;
+}
+
+.ctaButton:hover {
+  scale: 1.05;
+  box-shadow: 0 15px 35px rgba(77, 110, 85, 0.55);
+}
+
+.ctaButton:active {
+  scale: 0.95;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* tablet: 2 columns */
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* desktop: 4 columns */
+  }
+}

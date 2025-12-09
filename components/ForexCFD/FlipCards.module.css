@@ -16,12 +16,15 @@
   letter-spacing: -0.02em;
 }
 
+.heading span {
+  color: #4d6e55;
+}
+
 /* === GRID === */
 .grid {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 32px;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;

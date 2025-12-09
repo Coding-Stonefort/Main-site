@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import "./ForexCards.css";
+import "../ForexCFD/ForexCards.css"; // Using same CSS for layout
 
 type Quote = {
   symbol: string;
@@ -9,15 +9,13 @@ type Quote = {
   ask: number;
 };
 
-const PAIRS = [
-  { symbol: "EURUSD", leverage: "Up to 1:500" },
-  { symbol: "USDJPY", leverage: "Up to 1:500" },
-  { symbol: "GBPUSD", leverage: "Up to 1:500" },
-  { symbol: "AUDUSD", leverage: "Up to 1:500" },
-  { symbol: "USDCAD", leverage: "Up to 1:500" },
+const METALS = [
+  { name: "GOLD", symbol: "XAUUSD", color: "#D33A2C", leverage: "Up to 1:1000" },
+  { name: "SILVER", symbol: "XAGUSD", color: "#00A67E", leverage: "Up to 1:1000" },
+  { name: "PLATINUM", symbol: "XPTUSD", color: "#D33A2C", leverage: "Up to 1:1000" },
 ];
 
-export default function ForexCards() {
+export default function MetalsCards() {
   const [quotes, setQuotes] = useState<Record<string, Quote>>({});
 
   useEffect(() => {
@@ -45,51 +43,58 @@ export default function ForexCards() {
     <section className="fc-section">
 
       <div className="fc-header">
-        <h2 className="fc-heading">Major Currency <span>Pairs</span></h2>
+        <h2 className="fc-heading">Precious <span>Metals</span></h2>
         <p className="fc-desc">
-          Trade the world’s most actively traded currency pairs with spreads
-          designed to support efficient execution. All majors are quoted against
-          the US Dollar, offering clear pricing and stable market depth.
-          Stonefort’s competitive spread environment helps you navigate these
-          highly liquid markets with confidence and precision.
+          Trade Gold, Silver, and Platinum with institutional-grade spreads,
+          deep liquidity, and ultra-fast execution. Ideal for diversification
+          and safe-haven market strategies.
         </p>
       </div>
 
       <div className="fc-row">
-        {PAIRS.map((pair) => {
-          const q = quotes[pair.symbol];
+        {METALS.map((metal) => {
+          const q = quotes[metal.symbol];
           const bid = q?.bid ?? 0;
           const ask = q?.ask ?? 0;
           const spread = ask && bid ? ask - bid : 0;
 
           return (
-            <div className="fc-card" key={pair.symbol}>
-              <h3 className="fc-symbol">{pair.symbol}</h3>
+            <div className="fc-card" key={metal.symbol}>
+              {/* TOP METAL TITLE */}
+              <h3
+                className="fc-symbol"
+                style={{ color: metal.color, fontWeight: 700 }}
+              >
+                {metal.name}
+              </h3>
+
+              {/* Instrument Code */}
+              <p className="fc-code">{metal.symbol}</p>
 
               <div className="fc-line">
                 <span>Bid</span>
                 <span className="fc-green">
-                  {bid ? bid.toFixed(5) : "--"}
+                  {bid ? bid.toFixed(2) : "--"}
                 </span>
               </div>
 
               <div className="fc-line">
                 <span>Ask</span>
                 <span className="fc-green">
-                  {ask ? ask.toFixed(5) : "--"}
+                  {ask ? ask.toFixed(2) : "--"}
                 </span>
               </div>
 
               <div className="fc-line">
                 <span>Spread</span>
                 <span className="fc-dark">
-                  {spread ? spread.toFixed(5) : "--"}
+                  {spread ? spread.toFixed(2) : "--"}
                 </span>
               </div>
 
               <div className="fc-line">
                 <span>Leverage</span>
-                <span className="fc-dark">{pair.leverage}</span>
+                <span className="fc-dark">{metal.leverage}</span>
               </div>
 
               <div className="fc-buttons">

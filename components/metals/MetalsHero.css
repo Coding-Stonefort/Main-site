@@ -1,0 +1,139 @@
+/* ============================
+   METALS HERO (WHITE BACKGROUND)
+============================ */
+
+.metals-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Background image on right */
+.metals-hero-bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: right center;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Content container */
+.metals-hero-content {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+/* LEFT CONTENT */
+.metals-left {
+
+  padding: 180px 0 80px 0;
+
+}
+
+
+
+.metals-title {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.37;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.metals-title .metals-sup {
+  font-size: 24px;
+  vertical-align: super;
+}
+
+.metals-subtitle {
+  font-size: 20px;
+  line-height: 1.45;
+  color: #fff;
+  margin-bottom: 32px;
+  max-width: 700px;
+  width: 100%;
+}
+
+/* CTA ROW */
+.metals-cta-row {
+  display: flex;
+  gap: 16px;
+}
+
+.metals-btn-primary {
+  padding: 14px 32px;
+  background: #4d6e55;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.metals-btn-secondary {
+  padding: 14px 32px;
+  background: #4d6e55;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .metals-hero {
+    height: auto;
+    padding: 60px 0;
+  }
+
+  .metals-hero-bg {
+    width: 100%;
+    opacity: 0.35;
+    background-position: center;
+  }
+
+  .metals-left {
+    max-width: 100%;
+    padding: 60px 15px;
+  }
+
+  .metals-right {
+    max-width: 100%;
+  }
+
+  .metals-title {
+    font-size: 42px;
+  }
+
+  .metals-subtitle {
+    font-size: 18px;
+  }
+
+  .metals-cta-row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 700px) {
+  .metals-left {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .metals-right {
+    max-width: 0px;
+  }
+}

@@ -3,7 +3,7 @@
   margin: 20px 20px;
   border-radius: 50px;
   padding: 80px 0;
-  background: #f8f9fa; /* dark blue/green like your ref */
+  background: #f8f9fa;
 }
 
 .inner {
@@ -14,7 +14,10 @@
 
 /* Header */
 .header {
-  max-width: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
   margin-bottom: 40px;
 }
 
@@ -22,7 +25,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 6px 16px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -43,10 +45,13 @@
 .title {
   font-size: 56px;
   line-height: 1.2;
-  font-weight: 800;
+  font-weight: 700;
   color: #000;
 }
 
+.title span {
+  color: #4d6e55;
+}
 .headingLine {
   flex: 1;
   height: 1px;
@@ -57,10 +62,31 @@
 
 .subtitle {
   margin-top: 14px;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.7;
   color: #000;
 }
+
+.headerContent {
+  flex: 1;
+  max-width: 620px; /* keeps text column nice and narrow */
+}
+
+.headerImageWrap {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.headerImage {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.22));
+}
+
 
 /* Grid */
 .grid {
@@ -68,60 +94,146 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
-
-/* Card */
+/* =============================
+   CARD – SAME ANIMATION AS TradableMarkets
+============================= */
 .card {
+  --sf-green-strong: #00b37a; /* bright neon green */
+  --sf-green-soft: #4d6e55;
+  --border-angle: 0deg;       /* TL + BR */
+
   position: relative;
   padding: 24px 22px;
   border-radius: 18px;
-  background:#fff;
-  border: 1px solid rgba(148, 163, 184, 0.26);
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.4);
+
+  /* your soft top-left background */
+  /* background: linear-gradient(135deg, rgba(0,179,122,0.08), #ffffff 40%); */
+
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
   color: #000;
   overflow: hidden;
+
   transition:
-    transform 180ms ease-out,
-    box-shadow 180ms ease-out,
-    border-color 180ms ease-out,
-    background 180ms ease-out;
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    --border-angle 0.45s ease;
 }
 
+/*  SHINY CORNER BORDER (same as TradableMarkets) */
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 18px;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    conic-gradient(
+      from var(--border-angle),
+
+      /* Corner 1 */
+      transparent 0deg,
+      rgba(0, 179, 122, 0.15) 15deg,
+      var(--sf-green-strong) 45deg,
+      rgba(0, 179, 122, 0.15) 65deg,
+      transparent 90deg,
+
+      /* gap */
+      transparent 180deg,
+
+      /* Corner 2 */
+      rgba(0, 179, 122, 0.15) 195deg,
+      var(--sf-green-strong) 225deg,
+      rgba(0, 179, 122, 0.15) 255deg,
+      transparent 270deg,
+      transparent 360deg
+    );
+
+  /* punch out inside so only border remains */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* 🌫 Soft radial highlight (what you had before) */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
   background: radial-gradient(
     circle at top,
-    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.3),
     transparent 55%
   );
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease-out;
+  z-index: 1;
 }
 
+/* HOVER — same animation as TradableMarkets */
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.75);
- 
+  --border-angle: 90deg; /* TR + BL */
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.18);
 }
 
-.card:hover::before {
+.card:hover::after {
   opacity: 1;
 }
 
 .cardIcon {
-  width: 26px;
-  height: 26px;
-  margin-bottom: 20px;
-  border-radius: 999px;
-  display: inline-flex;
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 10px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-  background: radial-gradient(circle, #fbbf24, #f97316);
-  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8);
+
+  /* your icon itself (SVG / img) sits inside here */
+  background: none;
+  box-shadow: none;
+  z-index: 1; /* icon ABOVE the glow */
+}
+
+/* big soft green glow behind the icon */
+.cardIcon::before {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(0, 179, 122, 0.28) 0%,
+    rgba(0, 179, 122, 0.12) 40%,
+    rgba(0, 179, 122, 0.04) 70%,
+    transparent 100%
+  );
+  filter: blur(18px);
+  border-radius: 50%;
+
+  opacity: 0;                 /* hidden by default */
+  transition: opacity 0.35s ease;
+  z-index:0;                 /* BELOW icon, ABOVE card bg */
+  pointer-events: none;
+}
+
+/* show glow when card is hovered */
+.card:hover .cardIcon::before {
+  opacity: 999;
 }
 
 .cardDot {
@@ -132,14 +244,14 @@
 }
 
 .cardTitle {
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 600;
   margin-bottom: 10px;
   color: #000;
 }
 
 .cardText {
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.65;
   color: #000;
 }
@@ -152,6 +264,27 @@
 
   .title {
     font-size: 32px;
+  }
+    .header {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .headerContent {
+    max-width: 100%;
+  }
+
+  .headingRow {
+    justify-content: center;
+  }
+
+  .headerImageWrap {
+    justify-content: center;
+  }
+
+  .headerImage {
+    max-width: 360px;
+    margin-bottom: 24px;
   }
 }
 

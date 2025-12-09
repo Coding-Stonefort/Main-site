@@ -1,6 +1,9 @@
+/* =============================
+   WHITE THEME SECTION
+============================= */
 .section {
   padding: 80px 0;
-  background: #f9fafc;
+  background: #ffffff; /* FULL white theme */
 }
 
 .container {
@@ -35,103 +38,171 @@
   color: #425160;
   line-height: 1.6;
 }
-
+/* =============================
+   GRID
+============================= */
 .grid {
   display: grid;
   gap: 28px;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
 }
 
-/* CARD */
+/* =============================
+   SHINY CORNER BORDER CARD
+============================= */
 .card {
+  --sf-green-strong: #00b37a; /* bright neon green */
+  --sf-green-soft: #4d6e55;
+  --border-angle: 0deg;       /* TL + BR */
+
+  position: relative;
   background: #ffffff;
-  padding: 36px 32px;
-  border-radius: 18px;
-  border: 1px solid #e3e8ef;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-  transition: 0.25s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
-  text-align: center;
-  align-items: center;
+  padding: 48px 40px;
+  border-radius: 26px;
+  border: 1px solid #e6e6e6;  /* soft grey border */
+  overflow: hidden;
+
+  /* white-theme shadow */
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.09);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    --border-angle 0.45s ease;
 }
 
+/* SHINY BORDER WITH FADE */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    conic-gradient(
+      from var(--border-angle),
+
+      /* 🔹 First bright corner segment */
+      transparent 0deg,
+      rgba(0, 179, 122, 0.15) 25deg,
+      var(--sf-green-strong) 45deg,
+      rgba(0, 179, 122, 0.15) 65deg,
+      transparent 90deg,
+
+      /* gap */
+      transparent 180deg,
+
+      /* 🔹 Second bright corner segment */
+      rgba(0, 179, 122, 0.15) 205deg,
+      var(--sf-green-strong) 225deg,
+      rgba(0, 179, 122, 0.15) 250deg,
+      transparent 270deg,
+      transparent 360deg
+    );
+
+  /* punch out inside of border */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* HOVER — swap corners */
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15);
+  --border-angle: 90deg; /* TR + BL */
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* ICON */
+/* =============================
+   ICON BACKLIGHT FOR WHITE BG
+============================= */
 .iconBox {
-  width: 48px;
-  height: 48px;
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-  margin: 0 auto 16px;
-
 }
 
-.iconLine {
-  width: 22px;
-  height: 3px;
-  background: #4d6e55;
-  border-radius: 4px;
-
+/* Soft green glow behind icon */
+.iconBox::before {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 179, 122, 0.28) 0%,
+    rgba(0, 179, 122, 0.12) 40%,
+    rgba(0, 179, 122, 0.04) 70%,
+    transparent 100%
+  );
+  filter: blur(20px);
+  border-radius: 50%;
+  z-index: -1;
 }
 
-/* CARD TEXT */
+/* =============================
+   TEXT COLORS FOR WHITE THEME
+============================= */
 .cardTitle {
-  margin: 0;
-  font-size: 28px;
+  margin: 0 0 14px;
+  font-size: 26px;
   font-weight: 600;
-  color: #0a1015;
-  margin-bottom: 10px;
-  
+  color: #1f2937; /* dark grey */
 }
 
 .cardDesc {
   font-size: 18px;
-  color: #425160;
-  line-height: 1.5;
+  color: #4b5563; /* medium grey */
+  line-height: 1.6;
 }
 
-/* ARROW BUTTON */
+/* =============================
+   ARROW BUTTON
+============================= */
 .arrowBtn {
   margin-top: 35px;
   display: flex;
-  justify-content: center;
-
+  justify-content: flex-start;
 }
 
 .arrow {
   display: inline-block;
   width: 26px;
   height: 26px;
-  border-radius: 50%;
-  border: 1px solid #d1d9e6;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
   background: #ffffff;
   position: relative;
+  transition: 0.3s ease;
 }
 
 .arrow::before {
   content: "";
   width: 8px;
   height: 8px;
-  border-top: 2px solid #4d6e55;
-  border-right: 2px solid #4d6e55;
+  border-top: 2px solid var(--sf-green-soft);
+  border-right: 2px solid var(--sf-green-soft);
   transform: rotate(45deg);
   position: absolute;
   top: 8px;
   left: 7px;
 }
 
-/* Hover */
+/* Hover arrow = Green → White arrow */
 .card:hover .arrow {
   background: #4d6e55;
+  border-color: var(--sf-green-strong);
 }
 
 .card:hover .arrow::before {

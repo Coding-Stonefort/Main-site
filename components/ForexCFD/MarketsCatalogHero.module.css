@@ -4,8 +4,8 @@
   position: relative;
   width: 100%;
   padding: 120px 24px 0px; /* smaller top pad = less empty space */
-  background: radial-gradient(circle at top, #181c24 0, #05060a 55%, #010208 100%);
-  color: #f9fbff;
+  background: #fff;
+  color: #000;
   overflow: hidden;
 }
 
@@ -17,7 +17,7 @@
 
 .header {
   max-width: 950px;
-  margin: 0 auto 24px; /* was 48px */
+  margin: 0 auto 24px;
 }
 
 .title {
@@ -28,10 +28,14 @@
   margin-bottom: 8px;
 }
 
+.title span {
+  color: #4d6e55;
+}
+
 .subtitle {
   font-size: 20px;
   line-height: 1.7;
-  color: #fff;
+  color: #000;
 }
 
 /* ===== 3D STAGE (SAFE 3D) ===== */
@@ -40,7 +44,8 @@
   position: relative;
   display: flex;
   justify-content: center;
-  perspective: 1100px;           /* 3D perspective */
+  perspective: 1100px;
+  margin-bottom: -220px;           
 }
 
 /* tilt the whole grid on X (3D look) */
@@ -49,7 +54,7 @@
   transform-style: preserve-3d;
   pointer-events: auto;
   transform-origin: top center;
-  transform: rotateX(60deg) translateY(-10px); /* <— 3D ANGLE HERE */
+  transform: rotateX(60deg) translateY(-10px); 
   margin-top: 12px;
 }
 
@@ -62,7 +67,7 @@
   pointer-events: auto;
 }
 
-/* depth per row – only Y + scale, NO translateZ (hover-safe) */
+
 .row0 {
   transform: translateY(-36px) scale(0.7);
   opacity: 0.18;
@@ -103,113 +108,351 @@
   z-index: 6;
 }
 
-/* ===== BRAND COLORS FOR EACH SYMBOL (same as you already have) ===== */
+/* ===== BRAND COLORS FOR FX PAIRS ONLY ===== */
 
-/* Apple */
-.brand-aapl {
-  background: radial-gradient(circle at 0 0, #000000, #2d2d2d 40%, #1a1a1a 100%);
-}
+/* ===== BRAND COLORS: DIAGONAL HALF-AND-HALF FLAG COLORS ===== */
+/* Base currency (first) = top-left half, Quote currency (second) = bottom-right half */
 
-/* Tesla */
-.brand-tsla {
-  background: radial-gradient(circle at 0 0, #cc0000, #8b0000 40%, #280000 100%);
-}
-
-/* Nvidia */
-.brand-nvda {
-  background: radial-gradient(circle at 0 0, #76b900, #4a7b00 40%, #1f3d00 100%);
-}
-
-/* Amazon */
-.brand-amzn {
-  background: radial-gradient(circle at 0 0, #ff9900, #cc7a00 40%, #4a2e00 100%);
-}
-
-/* Microsoft */
-.brand-msft {
-  background: radial-gradient(circle at 0 0, #00a4ef, #006fa3 40%, #003d5a 100%);
-}
-
-/* Google */
-.brand-googl {
-  background: radial-gradient(circle at 0 0, #4285f4, #2a6cd6 40%, #0d1c3a 100%);
-}
-
-/* Netflix */
-.brand-nflx {
-  background: radial-gradient(circle at 0 0, #e50914, #b20710 40%, #430005 100%);
-}
-
-/* Meta */
-.brand-meta {
-  background: radial-gradient(circle at 0 0, #0866ff, #0544b8 40%, #021a4a 100%);
-}
-
-/* S&P 500 */
-.brand-spx {
-  background: radial-gradient(circle at 0 0, #ef4444, #b91c1c 40%, #450a0a 100%);
-}
-
-/* Nasdaq */
-.brand-ndx {
-  background: radial-gradient(circle at 0 0, #2563eb, #1e40af 40%, #0f172a 100%);
-}
-
-/* Dow Jones */
-.brand-dji {
-  background: radial-gradient(circle at 0 0, #1e293b, #0f172a 40%, #020617 100%);
-}
-
-/* Forex */
 .brand-eurusd {
-  background: radial-gradient(circle at 0 0, #1e3a8a, #1e40af 40%, #0f172a 100%);
+  /* EUR (blue) / USD (red) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #b22234 50%,
+    #b22234 100%
+  );
 }
+
 .brand-gbpusd {
-  background: radial-gradient(circle at 0 0, #b91c1c, #7f1d1d 40%, #450a0a 100%);
+  /* GBP (UK blue) / USD (red) */
+  background: linear-gradient(
+    135deg,
+    #012169 0%,
+    #012169 50%,
+    #b22234 50%,
+    #b22234 100%
+  );
 }
+
 .brand-usdjpy {
-  background: radial-gradient(circle at 0 0, #fde047, #facc15 40%, #854d0e 100%);
+  /* USD (blue) / JPY (white) */
+  background: linear-gradient(
+    135deg,
+    #3c3b6e 0%,
+    #3c3b6e 50%,
+    #ffffff 50%,
+    #ffffff 100%
+  );
 }
+
+.brand-usdchf {
+  /* USD (blue) / CHF (red) */
+  background: linear-gradient(
+    135deg,
+    #3c3b6e 0%,
+    #3c3b6e 50%,
+    #d52b1e 50%,
+    #d52b1e 100%
+  );
+}
+
 .brand-usdcad {
-  background: radial-gradient(circle at 0 0, #dc2626, #991b1b 40%, #450a0a 100%);
+  /* USD (blue) / CAD (red) */
+  background: linear-gradient(
+    135deg,
+    #3c3b6e 0%,
+    #3c3b6e 50%,
+    #d80621 50%,
+    #d80621 100%
+  );
 }
+
+/* === Row 1: AUD, NZD, EURGBP, EURJPY, GBPJPY === */
+
 .brand-audusd {
-  background: radial-gradient(circle at 0 0, #00aaff, #0077b6 40%, #003049 100%);
+  /* AUD (navy) / USD (red) */
+  background: linear-gradient(
+    135deg,
+    #002868 0%,
+    #002868 50%,
+    #b22234 50%,
+    #b22234 100%
+  );
 }
 
-/* Crypto */
-.brand-btc {
-  background: radial-gradient(circle at 0 0, #f7931a, #c46f12 40%, #5a2e07 100%);
-}
-.brand-eth {
-  background: radial-gradient(circle at 0 0, #3c3c3d, #202022 40%, #0d0d0d 100%);
-}
-.brand-sol {
-  background: radial-gradient(circle at 0 0, #14f195, #0aa06f 40%, #033b25 100%);
-}
-.brand-xrp {
-  background: radial-gradient(circle at 0 0, #0a0a0a, #1a1a1a 40%, #000000 100%);
-}
-.brand-ltc {
-  background: radial-gradient(circle at 0 0, #b8c2cc, #94a3b8 40%, #475569 100%);
+.brand-nzdusd {
+  /* NZD (blue) / USD (red) */
+  background: linear-gradient(
+    135deg,
+    #00247d 0%,
+    #00247d 50%,
+    #b22234 50%,
+    #b22234 100%
+  );
 }
 
-/* Commodities */
-.brand-xau {
-  background: radial-gradient(circle at 0 0, #e0b100, #b48a00 40%, #4d3b00 100%);
+.brand-eurgbp {
+  /* EUR (blue) / GBP (blue-navy) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #012169 50%,
+    #012169 100%
+  );
 }
-.brand-xag {
-  background: radial-gradient(circle at 0 0, #c0c0c0, #9ca3af 40%, #4b5563 100%);
+
+.brand-eurjpy {
+  /* EUR (blue) / JPY (white) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #ffffff 50%,
+    #ffffff 100%
+  );
 }
-.brand-usoil {
-  background: radial-gradient(circle at 0 0, #1e1e1e, #111111 40%, #000);
+
+.brand-gbpjpy {
+  /* GBP (blue) / JPY (white) */
+  background: linear-gradient(
+    135deg,
+    #012169 0%,
+    #012169 50%,
+    #ffffff 50%,
+    #ffffff 100%
+  );
 }
-.brand-ukoil {
-  background: radial-gradient(circle at 0 0, #3a3a3a, #1f1f1f 40%, #0a0a0a 100%);
+
+/* === Row 2: JPY crosses, EURAUD, EURNZD === */
+
+.brand-audjpy {
+  /* AUD (navy) / JPY (white) */
+  background: linear-gradient(
+    135deg,
+    #002868 0%,
+    #002868 50%,
+    #ffffff 50%,
+    #ffffff 100%
+  );
 }
-.brand-ngas {
-  background: radial-gradient(circle at 0 0, #3b82f6, #1e3a8a 40%, #0f172a 100%);
+
+.brand-cadjpy {
+  /* CAD (red) / JPY (white) */
+  background: linear-gradient(
+    135deg,
+    #d80621 0%,
+    #d80621 50%,
+    #ffffff 50%,
+    #ffffff 100%
+  );
 }
+
+.brand-chfjpy {
+  /* CHF (red) / JPY (white) */
+  background: linear-gradient(
+    135deg,
+    #d52b1e 0%,
+    #d52b1e 50%,
+    #ffffff 50%,
+    #ffffff 100%
+  );
+}
+
+.brand-euraud {
+  /* EUR (blue) / AUD (navy) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #002868 50%,
+    #002868 100%
+  );
+}
+
+.brand-eurnzd {
+  /* EUR (blue) / NZD (blue) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #00247d 50%,
+    #00247d 100%
+  );
+}
+
+/* === Row 3: GBP crosses & AUD crosses === */
+
+.brand-gbpaud {
+  /* GBP (blue) / AUD (navy) */
+  background: linear-gradient(
+    135deg,
+    #012169 0%,
+    #012169 50%,
+    #002868 50%,
+    #002868 100%
+  );
+}
+
+.brand-gbpcad {
+  /* GBP (blue) / CAD (red) */
+  background: linear-gradient(
+    135deg,
+    #012169 0%,
+    #012169 50%,
+    #d80621 50%,
+    #d80621 100%
+  );
+}
+
+.brand-gbpnzd {
+  /* GBP (blue) / NZD (blue) */
+  background: linear-gradient(
+    135deg,
+    #012169 0%,
+    #012169 50%,
+    #00247d 50%,
+    #00247d 100%
+  );
+}
+
+.brand-audcad {
+  /* AUD (navy) / CAD (red) */
+  background: linear-gradient(
+    135deg,
+    #002868 0%,
+    #002868 50%,
+    #d80621 50%,
+    #d80621 100%
+  );
+}
+
+.brand-audnzd {
+  /* AUD (navy) / NZD (blue) */
+  background: linear-gradient(
+    135deg,
+    #002868 0%,
+    #002868 50%,
+    #00247d 50%,
+    #00247d 100%
+  );
+}
+
+/* === Row 4: Exotics vs USD === */
+
+.brand-usdtry {
+  /* USD (blue) / TRY (red) */
+  background: linear-gradient(
+    135deg,
+    #3c3b6e 0%,
+    #3c3b6e 50%,
+    #e30a17 50%,
+    #e30a17 100%
+  );
+}
+
+.brand-usdzar {
+  /* USD (blue) / ZAR (green) */
+  background: linear-gradient(
+    135deg,
+    #3c3b6e 0%,
+    #3c3b6e 50%,
+    #007749 50%,
+    #007749 100%
+  );
+}
+
+.brand-usdmxn {
+  /* USD (blue) / MXN (green) */
+  background: linear-gradient(
+    135deg,
+    #3c3b6e 0%,
+    #3c3b6e 50%,
+    #006847 50%,
+    #006847 100%
+  );
+}
+
+.brand-usdsek {
+  /* USD (blue) / SEK (blue-yellow) */
+  background: linear-gradient(
+    135deg,
+    #3c3b6e 0%,
+    #3c3b6e 50%,
+    #005293 50%,
+    #005293 100%
+  );
+}
+
+.brand-usdnok {
+  /* USD (blue) / NOK (red) */
+  background: linear-gradient(
+    135deg,
+    #3c3b6e 0%,
+    #3c3b6e 50%,
+    #ba0c2f 50%,
+    #ba0c2f 100%
+  );
+}
+
+/* === Row 5: Exotics vs EUR === */
+
+.brand-eurtry {
+  /* EUR (blue) / TRY (red) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #e30a17 50%,
+    #e30a17 100%
+  );
+}
+
+.brand-eurzar {
+  /* EUR (blue) / ZAR (green) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #007749 50%,
+    #007749 100%
+  );
+}
+
+.brand-eurpln {
+  /* EUR (blue) / PLN (red) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #d4213d 50%,
+    #d4213d 100%
+  );
+}
+
+.brand-eursek {
+  /* EUR (blue) / SEK (blue) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #005293 50%,
+    #005293 100%
+  );
+}
+
+.brand-eurnok {
+  /* EUR (blue) / NOK (red) */
+  background: linear-gradient(
+    135deg,
+    #003399 0%,
+    #003399 50%,
+    #ba0c2f 50%,
+    #ba0c2f 100%
+  );
+}
+
 
 /* ===== TILE: WHITE ROUNDED ICON WITH INNER COLOURED SQUARE ===== */
 
@@ -226,9 +469,9 @@
   height: 78px;
   border-radius: 26px;
   background: radial-gradient(circle at 10% 0%, #ffffff, #f3f5fa 70%, #dfe3eb);
-  box-shadow:
-    0 18px 46px rgba(0, 0, 0, 0.78),
-    0 0 0 1px rgba(255, 255, 255, 0.18);
+box-shadow:
+  0 18px 46px rgba(135, 171, 148, 0.78),
+  0 0 0 1px rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,7 +488,7 @@
   width: 68%;
   height: 26px;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.7), transparent 70%);
+  /* background: radial-gradient(circle, rgba(0, 0, 0, 0.7), transparent 70%); */
   filter: blur(4px);
 }
 
@@ -316,22 +559,6 @@
   transform: translateY(1px);
 }
 
-/* big glow behind all icons */
-
-.glow {
-  position: absolute;
-  bottom: -60px;
-  left: 50%;
-  width: 560px;
-  height: 560px;
-  transform: translateX(-50%);
-  background:
-    radial-gradient(circle, rgba(0, 211, 198, 0.45), transparent 55%),
-    radial-gradient(circle at 10% 0, rgba(255, 255, 255, 0.12), transparent 55%);
-  opacity: 0.6;
-  filter: blur(16px);
-  pointer-events: none;
-}
 
 /* ===== RESPONSIVE ===== */
 
@@ -367,6 +594,9 @@
     width: 50px;
     height: 50px;
     font-size: 14px;
+  }
+  .stage {
+    margin-bottom: -50px;
   }
 }
 

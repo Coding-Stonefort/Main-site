@@ -99,7 +99,10 @@ export default function Faqs({
                 </button>
 
                 {isOpen && (
-                  <div className="faq-answer">{item.answer}</div>
+                  <div
+                    className="faq-answer"
+                    dangerouslySetInnerHTML={{ __html: item.answer }}
+                  />
                 )}
               </div>
             );
