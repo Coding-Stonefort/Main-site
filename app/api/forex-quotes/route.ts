@@ -51,7 +51,7 @@ async function fetchMetalQuotes() {
     return [];
   }
 
-  const url = `https://api.metals.dev/v1/latest?api_key=${apiKey}&currency=USD&unit=toz`;
+  const url = `https://api.metals.dev/v1/latest?api_key= &currency=USD&unit=toz`;
 
   const res = await fetch(url, {
     headers: { Accept: "application/json" },

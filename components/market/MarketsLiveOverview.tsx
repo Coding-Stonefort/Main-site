@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import "./MarketsLiveOverview.css"; 
+import "./MarketsLiveOverview.module.css"; 
 
 type MarketTabId = "forex" | "indices" | "metals" | "stock" | "commodity" | "crypto" | "trending";
 
