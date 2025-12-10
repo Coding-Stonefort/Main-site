@@ -3,33 +3,39 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import "./MarketsLiveOverview.module.css"; 
+import styles from "./MarketsLiveOverview.module.css"; // ⬅️ module import
 
-type MarketTabId = "forex" | "indices" | "metals" | "stock" | "commodity" | "crypto" | "trending";
+type MarketTabId =
+  | "forex"
+  | "indices"
+  | "metals"
+  | "stock"
+  | "commodity"
+  | "crypto"
+  | "trending";
 
 type MarketTab = {
   id: MarketTabId;
   label: string;
-  href: string;                // CFD page URL
-  tvTitle: string;             // title inside TradingView widget
+  href: string; // CFD page URL
+  tvTitle: string; // title inside TradingView widget
   symbols: { s: string; d: string }[]; // TradingView instruments
 };
 
 const MARKET_TABS: MarketTab[] = [
   {
-  id: "trending",
-  label: "Trending",
-  href: "/market#trending-pairs",
-  tvTitle: "Trending Now",
-  symbols: [
-    { s: "OANDA:XAUUSD", d: "Gold / USD" },
-    { s: "CRYPTO:BTCUSD", d: "Bitcoin / USD" },
-    { s: "NASDAQ:NDX", d: "US100 Index" },
-    { s: "FX:EURUSD", d: "EUR / USD" },
-    { s: "FX:GBPUSD", d: "GBP / USD" },
-  ],
-},
-
+    id: "trending",
+    label: "Trending",
+    href: "/market#trending-pairs",
+    tvTitle: "Trending Now",
+    symbols: [
+      { s: "OANDA:XAUUSD", d: "Gold / USD" },
+      { s: "CRYPTO:BTCUSD", d: "Bitcoin / USD" },
+      { s: "NASDAQ:NDX", d: "US100 Index" },
+      { s: "FX:EURUSD", d: "EUR / USD" },
+      { s: "FX:GBPUSD", d: "GBP / USD" },
+    ],
+  },
   {
     id: "forex",
     label: "Forex CFD",
@@ -94,26 +100,6 @@ const MARKET_TABS: MarketTab[] = [
   },
 ];
 
-export default function MarketsLiveOverview() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const [activeTab, setActiveTab] = useState<MarketTabId>("trending");
-
-useEffect(() => {
-  if (!pathname) return;
-
-  const newTab = getTabIdFromPath(pathname);
-  setActiveTab(newTab);
-}, [pathname]);
-
-
-  // full config of the active tab (same idea as before)
-  const currentTab = MARKET_TABS.find((tab) => tab.id === activeTab)!;
-
-
-
 function getTabIdFromPath(pathname: string): MarketTabId {
   const basePath = pathname.split("#")[0];
 
@@ -122,30 +108,37 @@ function getTabIdFromPath(pathname: string): MarketTabId {
     return tabBase === basePath;
   });
 
-  // Default to forex if nothing matches
+  // Default to trending if nothing matches
   return found?.id ?? "trending";
 }
 
+export default function MetalsMarketsLiveOverview() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
+  const [activeTab, setActiveTab] = useState<MarketTabId>("trending");
 
+  useEffect(() => {
+    if (!pathname) return;
+    const newTab = getTabIdFromPath(pathname);
+    setActiveTab(newTab);
+  }, [pathname]);
 
+  const currentTab = MARKET_TABS.find((tab) => tab.id === activeTab)!;
 
-
-  // 1 when user clicks a tab
   function handleTabClick(id: MarketTabId) {
-    setActiveTab(id); // update UI
+    setActiveTab(id);
 
     const tab = MARKET_TABS.find((t) => t.id === id);
     if (!tab) return;
 
-    router.push(tab.href); // go to that CFD page
+    router.push(tab.href);
   }
 
-  //  whenever currentTab changes, rebuild TradingView widget
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // clear old widget
     containerRef.current.innerHTML = "";
 
     const script = document.createElement("script");
@@ -183,7 +176,6 @@ function getTabIdFromPath(pathname: string): MarketTabId {
     script.innerHTML = JSON.stringify(config);
     containerRef.current.appendChild(script);
 
-    // cleanup
     return () => {
       if (containerRef.current) {
         containerRef.current.innerHTML = "";
@@ -192,27 +184,28 @@ function getTabIdFromPath(pathname: string): MarketTabId {
   }, [currentTab]);
 
   return (
-    <section className="markets-section">
-      <div className="markets-inner">
-        <div className="markets-header">
-          <h2 className="markets-title"><span>Our Markets</span> at a Glance</h2>
-          <p className="markets-subtitle">
-            Explore live pricing across Forex, Indices, Metals, Stocks, Commodities and Crypto — all from one Stonefort account.
+    <section className={styles["markets-section"]}>
+      <div className={styles["markets-inner"]}>
+        <div className={styles["markets-header"]}>
+          <h2 className={styles["markets-title"]}>
+            <span>Our Markets</span> at a Glance
+          </h2>
+          <p className={styles["markets-subtitle"]}>
+            Explore live pricing across Forex, Indices, Metals, Stocks,
+            Commodities and Crypto — all from one Stonefort account.
           </p>
         </div>
 
         {/* Tabs row */}
-        <div className="markets-tabs-row">
+        <div className={styles["markets-tabs-row"]}>
           {MARKET_TABS.map((tab) => (
             <button
               key={tab.id}
               type="button"
               onClick={() => handleTabClick(tab.id)}
-              className={
-                tab.id === activeTab
-                  ? "markets-tab markets-tab--active"
-                  : "markets-tab"
-              }
+              className={`${styles["markets-tab"]} ${
+                tab.id === activeTab ? styles["markets-tab--active"] : ""
+              }`}
             >
               {tab.label}
             </button>
@@ -220,10 +213,10 @@ function getTabIdFromPath(pathname: string): MarketTabId {
         </div>
 
         {/* TradingView widget */}
-        <div className="markets-widget-card">
+        <div className={styles["markets-widget-card"]}>
           <div
-            className="tradingview-widget-container"
             ref={containerRef}
+            className={styles["tradingview-widget-container"]}
           />
         </div>
       </div>

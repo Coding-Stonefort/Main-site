@@ -7,6 +7,7 @@ import HowMetalsWorks from "@/components/metals/HowMetalsWorks";
 import WhyTradeMetals from "@/components/metals/WhyTradeMetals"
 import MetalsGrid from "@/components/metals/MetalsGrid"
 import Faqs, { type FAQItem } from "@/components/Faqs";
+import MetalsTabMockup from "@/components/metals/MetalsTabMockup";
 
 
 import GetStartedMetals from "@/components/metals/GetStartedMetals";
@@ -375,7 +376,8 @@ export default function metal() {
         <WhyTradeCFDsMetals />
         <MetalsFlipCards />
         <MetalsCards />
-        <HowMetalsWorks />
+        {/* <HowMetalsWorks /> */}
+        <MetalsTabMockup />
         <WhyTradeMetals />
         <MetalsGrid />
         <Faqs
@@ -386,6 +388,7 @@ export default function metal() {
             initiallyOpenIndex={null}
             />
             <GetStartedMetals />
+
         </>
     )
 }

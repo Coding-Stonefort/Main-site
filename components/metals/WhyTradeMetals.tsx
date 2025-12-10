@@ -57,10 +57,10 @@ export default function WhyTradeMetals() {
       <header className={styles.header}>
         {/* LEFT: text */}
         <div className={styles.headerContent}>
-          <span className={styles.badge}>OUR FOREX EDGE</span>
+          <span className={styles.badge}>OUR commodities EDGE</span>
 
           <div className={styles.headingRow}>
-            <h2 className={styles.title}>Why Trade Forex with <span>Stonefort?</span></h2>
+            <h2 className={styles.title}>Why Trade Commodity with <span>Stonefort?</span></h2>
             <span className={styles.headingLine} />
           </div>
 
