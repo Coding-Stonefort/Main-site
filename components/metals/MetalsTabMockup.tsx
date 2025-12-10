@@ -38,15 +38,14 @@ export default function MetalsLaptopTabMockup() {
               <div className="chart-wrapper">
                 <div className="chart-logo-bg" />
                 <div className="chart-grid" />
-                <div className="chart-band chart-band-top" />
-                <div className="chart-band chart-band-bottom" />
+
                 <RunningLineChart />
               </div>
 
               {/* BOTTOM: BOXES */}
               <div className="metal-bottom-row">
                 <TypingBox
-                  title="Gold (XAUUSD)"
+                  title="Gold (XAUUSD) Leverage"
                   text="Leverage of up to 1:1000, depending on your account’s leverage settings."
                 />
                 <TypingBox
@@ -98,7 +97,6 @@ function TypingBox({ title, text }: { title: string; text: string }) {
     </div>
   );
 }
-
 function RunningLineChart() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -114,7 +112,9 @@ function RunningLineChart() {
     let width = 0;
     let height = 0;
     const pointCount = 120;
-    const lineColor = "#fff"; // or "#4d6e55"
+
+    const upColor = "#16a34a";  
+    const downColor = "#dc2626"; 
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -146,25 +146,33 @@ function RunningLineChart() {
         return;
       }
 
-      ctx.clearRect(0, 0, rect.width, rect.height);
-
       const w = rect.width;
       const h = rect.height;
       const stepX = w / (pointCount - 1);
+      const margin = h * 0.12;
 
-      ctx.beginPath();
-      for (let i = 0; i < points.length; i++) {
-        const x = i * stepX;
-        const margin = h * 0.12;
-        const y = margin + (h - margin * 2) * (1 - points[i]);
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = lineColor;
+      ctx.clearRect(0, 0, w, h);
       ctx.lineWidth = 2;
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
-      ctx.stroke();
+
+      for (let i = 1; i < points.length; i++) {
+        const prevX = (i - 1) * stepX;
+        const prevY =
+          margin + (h - margin * 2) * (1 - points[i - 1]);
+
+        const x = i * stepX;
+        const y = margin + (h - margin * 2) * (1 - points[i]);
+
+        // Choose color based on direction of move
+        const isUp = points[i] > points[i - 1];
+        ctx.strokeStyle = isUp ? upColor : downColor;
+
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
 
       animationFrameId = requestAnimationFrame(draw);
     };

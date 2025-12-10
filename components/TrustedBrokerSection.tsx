@@ -2,12 +2,29 @@ export default function AwardCertificate() {
   return (
     <section className="py-[clamp(6vw,72px,72px)] bg-white">
       <div className="w-[min(1100px,92vw)] mx-auto">
-        {/* Two-column layout (stacks on mobile) */}
+
+        {/* ===================== HEADING + DESCRIPTION ===================== */}
+        <div className="text-center max-w-[800px] mx-auto mb-12">
+          <h2 className="text-[clamp(26px,3vw,36px)] font-black text-[#000] leading-tight mb-4">
+            Choose a Broker Trusted by Traders Worldwide
+          </h2>
+
+          <p className="text-[#4d6e55] text-[clamp(14px,1.4vw,17px)] leading-relaxed">
+            Stonefort is recognised for delivering a secure, transparent and
+            client-focused trading experience in the global margin FX and CFD
+            markets. Operating under the regulatory oversight of SCA and FSC,
+            we are committed to maintaining high standards of integrity,
+            platform reliability and customer support.
+          </p>
+        </div>
+
+        {/* ===================== TWO CARDS GRID ===================== */}
         <div className="grid gap-6 lg:grid-cols-2">
-          {/* ===== Card 1 – Best Emerging Broker ===== */}
+
+          {/* ===================== CARD 1 ===================== */}
           <article
             className="
-              relative overflow-hidden rounded-[22px]
+              relative overflow-visible rounded-[22px]
               p-[clamp(16px,2.4vw,24px)]
               bg-gradient-to-br from-[#4d6e55]/80 via-transparent to-[#1E4862]/20
               shadow-[0_18px_48px_rgba(0,0,0,0.10)]
@@ -15,6 +32,20 @@ export default function AwardCertificate() {
               transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(0,0,0,0.12)]
             "
           >
+            {/* Trophy – pop out */}
+            <div
+              className="
+                absolute left-1/2 -top-14 -translate-x-1/2 
+                z-30 pointer-events-none
+              "
+            >
+              <img
+                src="/images/awards.webp"
+                alt="Trophy"
+                className="w-[120px] h-auto drop-shadow-xl"
+              />
+            </div>
+
             {/* Ribbon */}
             <span
               className="
@@ -34,7 +65,7 @@ export default function AwardCertificate() {
               className="
                 rounded-[18px]
                 bg-[repeating-linear-gradient(0deg,transparent_0_23px,rgba(218,225,183,0.06)_23px_24px)]
-                bg-[url('/images/awards.webp'),radial-gradient(120%_120%_at_50%_0%,white_0%,#fbfdf8_70%)]
+              
                 bg-no-repeat bg-left bg-contain
                 p-[clamp(16px,2.2vw,22px)]
                 border border-[#4d6e55]/10
@@ -57,23 +88,17 @@ export default function AwardCertificate() {
                   Best Emerging Broker 2025–2026
                 </h3>
 
-                {/* Award line */}
                 <p
                   className="
                     flex justify-center flex-wrap gap-2 
                     text-[#4d6e55] font-bold mb-3
                   "
                 >
-                  <span className="font-black">
-                    Recognised for growth & innovation
-                  </span>
+                  <span className="font-black">Recognised for growth & innovation</span>
                   <span className="opacity-40">•</span>
-                  <span className="text-[#4d6e55]/80">
-                    Client-focused trading experience
-                  </span>
+                  <span className="text-[#4d6e55]/80">Client-focused trading experience</span>
                 </p>
 
-                {/* Description */}
                 <p
                   className="
                     max-w-[58ch] mx-auto text-[#4d6e55]
@@ -97,44 +122,29 @@ export default function AwardCertificate() {
                 border border-[#1E4862]/20
               "
             >
-              <svg
-                viewBox="0 0 64 64"
-                width="64"
-                height="64"
-                aria-label="Verified seal"
-              >
+              <svg viewBox="0 0 64 64" width="64" height="64">
                 <defs>
                   <radialGradient id="wax1" cx="50%" cy="45%" r="60%">
                     <stop offset="0%" stopColor="#f3f7f1" />
                     <stop offset="100%" stopColor="#4d6e55" />
                   </radialGradient>
                 </defs>
-
-                <circle
-                  cx="32"
-                  cy="32"
-                  r="28"
-                  fill="url(#wax1)"
-                  stroke="#4d6e55"
-                  strokeOpacity=".25"
-                  strokeWidth="2"
-                />
+                <circle cx="32" cy="32" r="28" fill="url(#wax1)" />
                 <path
                   d="M22 33l6 6 14-14"
                   fill="none"
                   stroke="#4d6e55"
                   strokeWidth="4"
                   strokeLinecap="round"
-                  strokeLinejoin="round"
                 />
               </svg>
             </span>
           </article>
 
-          {/* ===== Card 2 – Top 100 Broker GCC ===== */}
+          {/* ===================== CARD 2 ===================== */}
           <article
             className="
-              relative overflow-hidden rounded-[22px]
+              relative overflow-visible rounded-[22px]
               p-[clamp(16px,2.4vw,24px)]
               bg-gradient-to-br from-[#4d6e55]/80 via-transparent to-[#1E4862]/20
               shadow-[0_18px_48px_rgba(0,0,0,0.10)]
@@ -142,6 +152,21 @@ export default function AwardCertificate() {
               transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(0,0,0,0.12)]
             "
           >
+
+            {/* Trophy popping out */}
+            <div
+              className="
+                absolute left-1/2 -top-14 -translate-x-1/2 
+                z-30 pointer-events-none
+              "
+            >
+              <img
+                src="/images/Top-100-award-scaled.webp"
+                alt="Trophy"
+                className="w-[120px] h-auto drop-shadow-xl"
+              />
+            </div>
+
             {/* Ribbon */}
             <span
               className="
@@ -161,13 +186,12 @@ export default function AwardCertificate() {
               className="
                 rounded-[18px]
                 bg-[repeating-linear-gradient(0deg,transparent_0_23px,rgba(218,225,183,0.06)_23px_24px)]
-                bg-[url('/images/awards.webp'),radial-gradient(120%_120%_at_50%_0%,white_0%,#fbfdf8_70%)]
+             
                 bg-no-repeat bg-left bg-contain
                 p-[clamp(16px,2.2vw,22px)]
                 border border-[#4d6e55]/10
               "
             >
-              {/* Inner Box */}
               <div
                 className="
                   text-center rounded-[14px]
@@ -184,23 +208,17 @@ export default function AwardCertificate() {
                   Top 100 Broker in the GCC 2025–2026
                 </h3>
 
-                {/* Award line */}
                 <p
                   className="
                     flex justify-center flex-wrap gap-2 
                     text-[#4d6e55] font-bold mb-3
                   "
                 >
-                  <span className="font-black">
-                    Strong presence across the GCC
-                  </span>
+                  <span className="font-black">Strong presence across the GCC</span>
                   <span className="opacity-40">•</span>
-                  <span className="text-[#4d6e55]/80">
-                    Trusted by traders in the Middle East
-                  </span>
+                  <span className="text-[#4d6e55]/80">Trusted by traders in the Middle East</span>
                 </p>
 
-                {/* Description */}
                 <p
                   className="
                     max-w-[58ch] mx-auto text-[#4d6e55]
@@ -209,8 +227,7 @@ export default function AwardCertificate() {
                 >
                   We are proud to be acknowledged as one of the Top 100 Brokers
                   in the GCC for 2025–2026, reflecting our regional strength and
-                  commitment to delivering a trusted trading experience across
-                  the Middle East.
+                  commitment to delivering a trusted trading experience.
                 </p>
               </div>
             </div>
@@ -225,35 +242,19 @@ export default function AwardCertificate() {
                 border border-[#1E4862]/20
               "
             >
-              <svg
-                viewBox="0 0 64 64"
-                width="64"
-                height="64"
-                aria-label="Verified seal"
-              >
+              <svg viewBox="0 0 64 64" width="64" height="64">
                 <defs>
                   <radialGradient id="wax2" cx="50%" cy="45%" r="60%">
                     <stop offset="0%" stopColor="#f3f7f1" />
                     <stop offset="100%" stopColor="#4d6e55" />
                   </radialGradient>
                 </defs>
-
-                <circle
-                  cx="32"
-                  cy="32"
-                  r="28"
-                  fill="url(#wax2)"
-                  stroke="#4d6e55"
-                  strokeOpacity=".25"
-                  strokeWidth="2"
-                />
+                <circle cx="32" cy="32" r="28" fill="url(#wax2)" />
                 <path
                   d="M22 33l6 6 14-14"
                   fill="none"
                   stroke="#4d6e55"
                   strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                 />
               </svg>
             </span>

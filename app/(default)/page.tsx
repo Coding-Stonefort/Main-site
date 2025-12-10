@@ -24,7 +24,7 @@ import { PlatformsTabs } from "@/components/VerticalTabs";
 import EconomicCalendar from "@/components/home/EconomicCalendar";
 import BalanceGuard from "@/components/home/BalanceGuard";
 import HowItWorks from "@/components/home/HowItWorks";
-import AwardCertificate from "@/components/home/AwardCertificate";
+import TrustedBrokerSection from "@/components/TrustedBrokerSection";
 import AccountTiers from "@/components/home/AccountTiers";
 
 
@@ -76,7 +76,7 @@ export default function Home() {
       <DiscoverOpportunities />
       <BalanceGuard />
       <HowItWorks />
-      <AwardCertificate />
+      <TrustedBrokerSection />
 
 
       {/* <TestimonialsCarousel /> */}

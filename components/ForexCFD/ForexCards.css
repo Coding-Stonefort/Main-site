@@ -137,6 +137,14 @@
   line-height: 1.6;
 }
 
+.fc-disclaimer {
+  margin-top: 20px;
+  font-size: 14px;
+  font-style: italic;
+  color: #6b7280; /* subtle gray */
+
+  line-height: 1.5;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
