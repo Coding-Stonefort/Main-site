@@ -1,0 +1,475 @@
+/* ========= MAIN LAYOUT ========= */
+
+.section {
+  position: relative;
+  padding: 80px 0;
+}
+
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 60px;
+  align-items: center;
+}
+
+/* ========= LEFT SIDE (STEP CONTENT) ========= */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #000;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ---- Steps Container ---- */
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.step {
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(75, 90, 85, 0.25);
+  backdrop-filter: blur(10px);
+  transition: 0.25s ease;
+}
+
+.step:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateY(-3px);
+  border-color: #4d6e55;
+}
+
+/* Step Number Box */
+
+.stepNumber {
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #4d6e55;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Titles inside steps */
+
+.stepTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.stepText {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* CTA Button */
+
+.button {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 26px;
+  background: #4d6e55;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: 0.25s ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #3b5644;
+}
+
+/* ========= RIGHT SIDE IMAGE ========= */
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 470px;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* ========= FLOATING CARDS ========= */
+
+.statCard {
+  position: absolute;
+  min-width: 150px;
+  text-align: center;
+  padding: 14px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+}
+
+.statTopRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stepIcon {
+  width: 30px;
+  height: 30px;
+  background: rgba(9, 20, 15, 0.55);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fff;
+  border: 1px solid rgba(135, 171, 147, 0.7);
+}
+
+/* small number inside glass card */
+
+.stepNumberSmall {
+  margin-left: auto;
+  font-size: 14px;
+  opacity: 0.75;
+  font-weight: 600;
+}
+
+
+/* ===== FOUR CORNER POSITIONS ===== */
+
+.card1 {       /* TOP-LEFT */
+  top: 20px;
+  left: 20px;
+}
+
+.card2 {       /* TOP-RIGHT */
+  top: 20px;
+  right: 20px;
+}
+
+.card3 {       /* BOTTOM-LEFT */
+  bottom: 20px;
+  left: 20px;
+}
+
+.card4 {       /* BOTTOM-RIGHT */
+  bottom: 20px;
+  right: 20px;
+}
+
+
+.statMain {
+  font-size: 16px;
+  font-weight: 600;
+}
+/* Header + title in each box */
+.stepCardHeader {
+  font-size: 14px;
+  color: #000;
+  opacity: 0.9;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.stepCardTitle {
+  font-size: 16px;
+  color: #000;
+  margin-top: 8px;
+  text-align: center;
+  font-weight: 500;
+
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+
+  animation: typingText 2.6s steps(10, end) infinite;
+}
+
+/* Neon outline "typing style" SVG container */
+.stepIconSvg {
+  width: 54px;
+  height: 54px;
+  stroke: #87ab93;
+  stroke-width: 1.4;
+  fill: none;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.4));
+  animation: neonPulse 3s ease-in-out infinite alternate;
+}
+
+/* Draw-in animation for lines (typing style) */
+.stepIconSvg path,
+.stepIconSvg rect {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: drawStroke 2.2s ease-in-out infinite;
+}
+
+/* Stagger timing per card */
+.card1 .stepIconSvg path,
+.card1 .stepIconSvg rect {
+  animation-delay: 0.1s;
+}
+
+.card2 .stepIconSvg path,
+.card2 .stepIconSvg rect {
+  animation-delay: 0.25s;
+}
+.card2 .stepIconSvg {
+  width: 70px;
+  height: 70px;
+}
+
+
+.card3 .stepIconSvg path,
+.card3 .stepIconSvg rect {
+  animation-delay: 0.4s;
+}
+
+.card4 .stepIconSvg path,
+.card4 .stepIconSvg rect {
+  animation-delay: 0.55s;
+}
+
+/* "Email" text fades in after the box draws */
+.emailText {
+  fill: #000;
+  font-size: 4px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  animation: fadeInText 0.5s ease forwards;
+  animation-delay: 0.7s;
+}
+
+/* ===== KEYFRAMES ===== */
+
+@keyframes drawStroke {
+  0% {
+    stroke-dashoffset: 120;  /* fully hidden */
+  }
+  50% {
+    stroke-dashoffset: 0;    /* fully drawn */
+  }
+  100% {
+    stroke-dashoffset: 120;  /* hide again */
+  }
+}
+
+
+@keyframes neonPulse {
+  0% {
+    filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.7));
+  }
+  100% {
+    filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.4));
+  }
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes typingText {
+  0% {
+    max-width: 0;
+  }
+  40% {
+    max-width: 12ch; /* long enough for "Register", "Verify" */
+  }
+  60% {
+    max-width: 12ch; /* pause fully typed */
+  }
+  100% {
+    max-width: 0; /* delete */
+  }
+}
+
+
+
+/* ========= TABLET (<= 1024px) ========= */
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .content {
+    max-width: 640px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .imageWrapper {
+    height: 480px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* tighten cards a bit on tablet */
+  .statCard {
+    min-width: 140px;
+    padding: 12px 14px;
+  }
+
+  .card1 {
+    top: 4%;
+    right: 8%;
+  }
+
+  .card2 {
+    top: 30%;
+    right: 3%;
+  }
+
+  .card3 {
+    bottom: 26%;
+    right: 10%;
+  }
+
+  .card4 {
+    bottom: 6%;
+    right: 3%;
+  }
+}
+
+/* ========= MOBILE (<= 768px) ========= */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 0;
+  }
+
+  .inner {
+    padding: 0 20px;
+    gap: 32px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .steps {
+    gap: 14px;
+  }
+
+  .step {
+    padding: 12px 14px;
+  }
+
+  .stepNumber {
+    min-width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .stepTitle {
+    font-size: 16px;
+  }
+
+  .stepText {
+    font-size: 13px;
+  }
+
+  .button {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+
+  .imageWrapper {
+    height: 380px;
+  }
+
+  .statCard {
+    min-width: 130px;
+    padding: 10px 12px;
+    border-radius: 14px;
+  }
+
+  .stepIcon {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .stepNumberSmall {
+    font-size: 12px;
+  }
+
+    .card1 { top: 10px; left: 10px; transform: scale(0.85); }
+  .card2 { top: 10px; right: 10px; transform: scale(0.85); }
+  .card3 { bottom: 10px; left: 10px; transform: scale(0.85); }
+  .card4 { bottom: 10px; right: 10px; transform: scale(0.85); }
+}
+
+/* ========= VERY SMALL MOBILE (<= 480px) ========= */
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .imageWrapper {
+    height: 320px;
+  }
+
+  .statCard {
+    min-width: 120px;
+  }
+
+    .card1, .card2, .card3, .card4 {
+    transform: scale(0.75);
+  }
+}

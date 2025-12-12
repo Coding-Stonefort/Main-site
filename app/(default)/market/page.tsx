@@ -2,7 +2,8 @@ import MarketHero from "@/components/market/MarketHero";
 import TradableMarkets from "@/components/market/TradableMarkets";
 import MarketsLiveOverview from "@/components/market/MarketsLiveOverview";
 import WhyTradeCFDs from "@/components/market/WhyTradeCFDs";
-import StepComponent from "@/components/market/StepComponent";
+// import StepComponent from "@/components/market/StepComponent";
+import HowToRegister from "@/components/market/HowToRegister"
 import RelatedPosts from "@/components/ChangelogRelatedPosts";
 import Faqs, { FAQItem } from "@/components/Faqs";
 
@@ -55,7 +56,8 @@ With 1,400+ CFDs across forex, indices, commodities, and equities, your next tra
         <MarketsLiveOverview />
       </section>
       <WhyTradeCFDs />
-      <StepComponent />
+      {/* <StepComponent /> */}
+      <HowToRegister />
       <RelatedPosts
         title="Learn more about Market"
         limit={3}

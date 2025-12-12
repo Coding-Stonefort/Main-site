@@ -46,6 +46,9 @@
   }
 }
 
+.markets-title span {
+  color: #4d6e55;
+} 
 /* Card */
 .market-card {
   position: relative;

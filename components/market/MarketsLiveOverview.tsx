@@ -192,7 +192,7 @@ export default function MetalsMarketsLiveOverview() {
           </h2>
           <p className={styles["markets-subtitle"]}>
             Explore live pricing across Forex, Indices, Metals, Stocks,
-            Commodities and Crypto — all from one Stonefort account.
+            Commodities and Crypto all from one Stonefort account.
           </p>
         </div>
 

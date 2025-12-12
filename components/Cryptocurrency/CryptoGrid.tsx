@@ -9,28 +9,28 @@ const cards = [
     title: "Major Cryptocurrencies",
     description:
       "Trade leading digital assets such as Bitcoin and Ethereum, available in multiple quote currencies including USD and other supported pairs.",
-    image: "/images/metalsCommodities.webp",
+    image: "/images/cryptocurrencies.webp",
   },
   {
     id: "altcoins",
     title: "A Broad Selection of Popular Altcoins",
     description:
       "Access a diverse range of widely traded cryptocurrencies including Litecoin, Ripple, Polkadot, Dogecoin and more allowing traders to explore multiple segments of the crypto ecosystem.",
-    image: "/images/currency.jpg",
+    image: "/images/AltCoins.webp",
   },
   {
     id: "crypto-indices",
     title: "Crypto Indices",
     description:
       "Stonefort offers selected crypto indices that track the performance of groups of cryptocurrencies, providing a broader market perspective through a single instrument.",
-    image: "/images/EnergyCFDs1a.jpg",
+    image: "/images/cryptoindices.webp",
   },
   {
     id: "weekend-trading",
     title: "Weekend Trading",
     description:
       "Most cryptocurrency CFDs remain available around the clock, including weekends offering continuous access to global digital asset price movements.",
-    image: "/images/diamond.jpg",
+    image: "/images/weekendTrade.webp",
   },
 ];
 

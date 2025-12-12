@@ -1,9 +1,13 @@
+/* ================================
+   SECTION WRAPPER
+================================ */
 .section {
   position: relative;
   margin: 20px 20px;
   border-radius: 40px;
-  padding: 64px 0;
-  background: radial-gradient(circle at 0% 0%, #1c2a21 0, #050908 55%);
+  padding: 72px 0;
+  background: #f5f5f5 url("/images/shape-3.png") no-repeat center center;
+  background-size: 100% auto;
   border: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
 }
@@ -15,22 +19,22 @@
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
   gap: 40px;
-  align-items: flex-start;
+  align-items: center;
 }
 
-/* ===== Text content ===== */
-
+/* ================================
+   LEFT CONTENT
+================================ */
 .content {
   max-width: 640px;
 }
 
 .heading {
-  font-size: 36px;
+  font-size: 56px;
   line-height: 1.15;
-  letter-spacing: -0.03em;
   font-weight: 700;
-  color: #f9fafb;
-  margin-bottom: 20px;
+  color: #000;
+  margin-bottom: 16px;
 }
 
 .heading span {
@@ -38,102 +42,171 @@
 }
 
 .paragraph {
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.7;
-  color: #fff;
+  color: #000;
   margin-bottom: 14px;
 }
 
-/* ===== Tools block ===== */
-
+/* ================================
+   TOOLS BLOCK
+================================ */
 .toolsBlock {
-  position: relative;
+  margin-top: 60px;
 }
 
 .toolsHeader {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .toolsHeading {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fff;
+  color: #000;
   margin-bottom: 6px;
 }
 
 .toolsSubtext {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.6;
-  color: #fff;
+  color: #000;
 }
 
-/* Horizontal tools (cards) */
-
+/* ================================
+   GRID 2×2
+================================ */
 .toolsGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
+/* ================================
+   PREMIUM ANIMATED CARD
+================================ */
 .toolCard {
-  height: 100%;
+  --sf-green-strong: #00b37a;
+  --sf-green-soft: #4d6e55;
+  --border-angle: 0deg;
+
+  position: relative;
+  padding: 24px 22px;
   border-radius: 18px;
-  padding: 16px 16px 18px;
-  background: radial-gradient(circle at 0% 0%, #1f2d25 0, #050908 60%);
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+
+  background: linear-gradient(135deg, rgba(0,179,122,0.08), #ffffff 45%);
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
+  color: #000;
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    --border-angle 0.45s ease;
 }
 
+/* ========== SHINY CORNER ANIMATED BORDER ========== */
+.toolCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    rgba(0,179,122,0.15) 15deg,
+    var(--sf-green-strong) 45deg,
+    rgba(0,179,122,0.15) 65deg,
+    transparent 90deg,
+    transparent 180deg,
+    rgba(0,179,122,0.15) 195deg,
+    var(--sf-green-strong) 225deg,
+    rgba(0,179,122,0.15) 255deg,
+    transparent 270deg,
+    transparent 360deg
+  );
+
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* ========== SOFT RADIAL TOP HIGHLIGHT ========== */
+.toolCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.4), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+}
+
+/* ========== HOVER ANIMATION ========== */
+.toolCard:hover {
+  --border-angle: 90deg;
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.16);
+}
+
+.toolCard:hover::after {
+  opacity: 1;
+}
+
+/* ================================
+   TEXT INSIDE CARD
+================================ */
 .toolTitle {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
-  color: #fff;
+  margin-bottom: 8px;
+  color: #000;
 }
 
 .toolText {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.6;
-  color: #fff;
+  color: #000;
 }
 
-/* ===== Responsive ===== */
-
+/* ================================
+   RESPONSIVE
+================================ */
 @media (max-width: 1024px) {
   .inner {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
-    padding: 0 24px 8px;
-  }
-
-  .section {
-    margin: 16px 12px;
-    padding: 48px 0;
+    grid-template-columns: 1fr;
+    padding: 0 24px;
   }
 }
 
 @media (max-width: 768px) {
   .heading {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .toolsGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 540px) {
   .toolsGrid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr; /* stack */
   }
 
   .section {
     border-radius: 28px;
-    padding: 40px 0;
+    padding: 48px 0;
   }
 
   .inner {

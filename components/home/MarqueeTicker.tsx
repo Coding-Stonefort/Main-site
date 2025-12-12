@@ -5,7 +5,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from "next/image";
 
 import SpeedImg from "@/public/images/speed.webp";
-import ToolsImg from "@/public/images/funds.webp";
+import ToolsImg from "@/public/images/tradingtools.webp";
 import DepositImg from "@/public/images/deposit.webp";
 import FundsImg from "@/public/images/funds.webp";
 import InstrumentsImg from "@/public/images/instruments.webp";
@@ -55,7 +55,7 @@ function Row() {
           />
 
           {/* Label */}
-          <span className="block text-[16px] sm:text-[17px] font-bold uppercase tracking-[0.3px] text-[#4d6e55] leading-snug whitespace-normal">
+          <span className="block text-[16px] sm:text-[17px] font-bold uppercase tracking-[0.3px] text-[#000] leading-snug whitespace-normal">
             {item.label}
           </span>
 

@@ -1,0 +1,210 @@
+
+/* components/IsometricCubes.module.css */
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  perspective: 1000px; 
+}
+
+/* If you want a dark block behind it, uncomment:
+.wrapper {
+  background: #25335b;
+}
+*/
+
+@keyframes cubeHueRotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* NEW: 3D spin animation for individual cubes */
+@keyframes cubeRotate3d {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(90deg) rotateY(90deg);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+  75% {
+    transform: rotateX(270deg) rotateY(270deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.container {
+  position: relative;
+  transform: skewY(-20deg);
+  animation: cubeHueRotate 5s linear infinite;
+   transform-style: preserve-3d;
+}
+
+/* Each cube stack */
+.cube {
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d; 
+}
+
+/* Middle cube pushed back */
+.cube:nth-child(2) {
+  z-index: 1;
+  translate: -60px -60px;
+}
+
+/* Front cube */
+.cube:nth-child(3) {
+  z-index: 3;
+  translate: 60px 60px;
+}
+
+/* Columns inside each cube */
+.cube > div {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  translate: calc(-70px * var(--x)) calc(-60px * var(--y));
+}
+
+/* Cube faces */
+.cube > div > span {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #dcdcdc;
+  z-index: calc(1 * var(--i));
+  transition: 1.5s;
+}
+
+/* Hover state */
+.cube > div > span:hover {
+  transition: 0s;
+  background: #ef4149;
+  filter: drop-shadow(0 0 30px #ef4149);
+}
+
+.cube > div > span:hover::before,
+.cube > div > span:hover::after {
+  transition: 0s;
+  background: #ef4149;
+}
+
+/* Left face */
+.cube > div > span::before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  background: #ffffff;
+  transform-origin: right;
+  transform: skewY(45deg);
+  transition: 1.5s;
+}
+
+/* Top face */
+.cube > div > span::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #f2f2f2;
+  transform-origin: bottom;
+  transform: skewX(45deg);
+  transition: 1.5s;
+}
+
+/* Center label (old) – keep if you still use .pairLabel anywhere */
+.pairLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e8f5ef;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* FRONT FACE TEXT */
+.frontLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: #0f172a; /* darker text for center */
+  pointer-events: none;
+  z-index: 3;
+}
+/* LEFT FACE TEXT */
+.leftLabel {
+  position: absolute;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: #0f172a;
+  pointer-events: none;
+  z-index: 3;
+
+  transform-origin: right;
+  transform: skewY(45deg);
+}
+
+/* NEW: crypto text on the TOP face */
+.topLabel {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: #0f172a;
+  pointer-events: none;
+  z-index: 3;
+
+  transform-origin: bottom;
+  transform: skewX(45deg);
+}

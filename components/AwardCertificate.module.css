@@ -1,0 +1,214 @@
+.section {
+  padding-block: clamp(6vw, 72px, 72px);
+  background-color: #ffffff;
+}
+
+.container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+/* ===================== HEADING ===================== */
+
+.headingWrap {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.headingTitle {
+  font-size: clamp(26px, 3vw, 56px);
+  font-weight: 700;
+  color: #000;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.headingDescription {
+  color: #000;
+  font-size: clamp(14px, 1.4vw, 20px);
+  line-height: 1.7;
+}
+
+/* ===================== GRID ===================== */
+
+.grid {
+  display: grid;
+  gap: 1.5rem; /* 24px */
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ===================== CARD BASE ===================== */
+
+.card {
+  position: relative;
+  overflow: visible;
+  border-radius: 22px;
+  padding: clamp(16px, 2.4vw, 24px);
+
+  background: linear-gradient(
+    135deg,
+    rgba(236, 236, 236, 0.8),
+    transparent 45%,
+    rgba(91, 139, 98, 0.2)
+  );
+
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(77, 110, 85, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* ===================== TROPHY ===================== */
+
+.trophyWrap {
+  position: absolute;
+  left: 50%;
+  top: -56px;
+  transform: translateX(-50%);
+  z-index: 30;
+  pointer-events: none;
+}
+
+.trophyImg {
+  width: 120px;
+  height: auto;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.35));
+}
+
+/* ===================== RIBBON ===================== */
+
+.ribbon {
+  position: absolute;
+  top: 28px;
+  right: -40px;
+  z-index: 20;
+
+  background-color: #dae1b7;
+  color: #223647;
+  font-weight: 800;
+  padding: 6px 40px;
+  transform: rotate(32deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(30, 72, 98, 0.1);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ribbon > strong {
+  font-weight: 900;
+}
+
+/* ===================== PAPER ===================== */
+
+.paper {
+  border-radius: 18px;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 23px,
+      rgba(218, 225, 183, 0.06) 23px 24px
+    );
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  padding: clamp(16px, 2.2vw, 22px);
+  border: 1px solid rgba(77, 110, 85, 0.1);
+}
+
+.paperInner {
+  text-align: center;
+  border-radius: 14px;
+  padding: clamp(18px, 3.2vw, 36px);
+  border: 1px dashed rgba(77, 110, 85, 0.2);
+}
+
+/* ===================== CARD TEXT ===================== */
+
+.cardTitle {
+  color: #000;
+  font-weight: 900;
+  font-size: clamp(20px, 2.4vw, 28px);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.cardHighlights {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: #4d6e55;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.cardHighlightStrong {
+  font-weight: 900;
+}
+
+.cardHighlightDot {
+  opacity: 0.4;
+}
+
+.cardHighlightSoft {
+  color: rgba(77, 110, 85, 0.8);
+}
+
+.cardBody {
+  max-width: 58ch;
+  margin: 0 auto;
+  color: #000;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+/* ===================== WAX SEAL ===================== */
+
+.waxSeal {
+  position: absolute;
+  right: 24px;
+  bottom: 0;
+  z-index: 30;
+  width: 82px;
+  height: 82px;
+
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  transform: rotate(-6deg);
+
+  background-color: #dae1b7;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(30, 72, 98, 0.2);
+}
+
+/* ===================== RESPONSIVE TWEAKS ===================== */
+
+@media (max-width: 768px) {
+  .headingTitle {
+    font-size: 26px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .trophyWrap {
+    top: -48px;
+  }
+}

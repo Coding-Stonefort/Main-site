@@ -11,6 +11,7 @@ import RelatedPosts from "@/components/ChangelogRelatedPosts";
 import ManagingCryptoRisk from "@/components/Cryptocurrency/ManagingRisk";
 import Faqs, { type FAQItem } from "@/components/Faqs";
 import GetStartedMetals from "@/components/metals/GetStartedMetals";
+import IsometricCubes from "@/components/IsometricCubes";
 
 
 const marketFaqs: FAQItem[] = [
@@ -428,6 +429,25 @@ const marketFaqs: FAQItem[] = [
 ];
 
 
+const cryptoCards = [
+  {
+    title: "Top Crypto Pairs",
+    description: "Trade BTC, ETH, LTC and more with institutional-grade pricing.",
+    imageSrc: "/icons/btc.png"
+  },
+  {
+    title: "24/7 Trading",
+    description: "Crypto markets never sleep — trade anytime.",
+    imageSrc: "/icons/clock.png"
+  },
+  {
+    title: "Deep Liquidity",
+    description: "Fast order execution with minimal slippage.",
+    imageSrc: "/icons/liquidity.png"
+  },
+];
+
+
 export default function crypto() {
     return (
         <>
@@ -442,8 +462,18 @@ export default function crypto() {
         <CryptoGrid />
         <TrustedBrokerSection />
         <ManagingCryptoRisk />
+    <section className="py-16">
+      <IsometricCubes />
+    </section>
         <RelatedPosts />
-        <Faqs />
+        <Faqs 
+            badgeLabel="Range of Markets FAQs"
+            title="Crypto FAQs – Understand the Markets Better "
+            subtitle=""             
+            items={marketFaqs}      
+            initiallyOpenIndex={null}
+        />
+        
         <GetStartedMetals />
         </>
     )
