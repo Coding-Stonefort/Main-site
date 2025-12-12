@@ -11,7 +11,7 @@ import RelatedPosts from "@/components/ChangelogRelatedPosts";
 import ManagingCryptoRisk from "@/components/Cryptocurrency/ManagingRisk";
 import Faqs, { type FAQItem } from "@/components/Faqs";
 import GetStartedMetals from "@/components/metals/GetStartedMetals";
-import IsometricCubes from "@/components/IsometricCubes";
+
 
 
 const marketFaqs: FAQItem[] = [
@@ -462,9 +462,7 @@ export default function crypto() {
         <CryptoGrid />
         <TrustedBrokerSection />
         <ManagingCryptoRisk />
-    <section className="py-16">
-      <IsometricCubes />
-    </section>
+
         <RelatedPosts />
         <Faqs 
             badgeLabel="Range of Markets FAQs"

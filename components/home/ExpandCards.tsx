@@ -1,5 +1,7 @@
 "use client";
-import React, { useMemo, useState } from "react";
+
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import styles from "./ExpandCards.module.css";
 
 export type ExpandItem = {
   id: string | number;
@@ -19,7 +21,19 @@ export default function ExpandCards({
   const [active, setActive] = useState<number | null>(null);
   const [locked, setLocked] = useState<number | null>(null);
 
-  // Dynamically build grid column sizes depending on which card is active/locked
+  const rootRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  // mobile slider helpers
+  const cardRefs = useRef<Array<HTMLElement | null>>([]);
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const isMobileRef = useRef(false);
+  const isInteractingRef = useRef(false);
+  const resumeTimerRef = useRef<number | null>(null);
+  const autoTimerRef = useRef<number | null>(null);
+  const scrollRafRef = useRef<number | null>(null);
+
+  // Build template string (depends on active/locked)
   const template = useMemo(() => {
     const idx = locked ?? active;
     if (idx == null) return Array(items.length).fill("1fr").join(" ");
@@ -29,64 +43,179 @@ export default function ExpandCards({
       .join(" ");
   }, [active, locked, items.length]);
 
+  // CSS vars (no inline height styles)
+  useEffect(() => {
+    if (rootRef.current) rootRef.current.style.setProperty("--ec-height", `${height}px`);
+  }, [height]);
+
+  useEffect(() => {
+    if (gridRef.current) gridRef.current.style.setProperty("--ec-template", template);
+  }, [template]);
+
+  // Detect mobile (<767px)
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => {
+      isMobileRef.current = mq.matches;
+      // reset index when switching modes
+      if (mq.matches) setMobileIndex(0);
+    };
+    update();
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
+
+  // Compute active slide index on scroll (for dots)
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const onScroll = () => {
+      if (!isMobileRef.current) return;
+      if (scrollRafRef.current) cancelAnimationFrame(scrollRafRef.current);
+
+      scrollRafRef.current = requestAnimationFrame(() => {
+        const cards = cardRefs.current.filter(Boolean) as HTMLElement[];
+        if (!cards.length) return;
+
+        const viewportCenter = grid.scrollLeft + grid.clientWidth / 2;
+
+        let bestIdx = 0;
+        let bestDist = Number.POSITIVE_INFINITY;
+
+        for (let i = 0; i < cards.length; i++) {
+          const el = cards[i];
+          const elCenter = el.offsetLeft + el.clientWidth / 2;
+          const dist = Math.abs(elCenter - viewportCenter);
+          if (dist < bestDist) {
+            bestDist = dist;
+            bestIdx = i;
+          }
+        }
+
+        setMobileIndex(bestIdx);
+      });
+    };
+
+    grid.addEventListener("scroll", onScroll, { passive: true });
+    return () => grid.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToIndex = (idx: number, behavior: ScrollBehavior = "smooth") => {
+    const grid = gridRef.current;
+    const el = cardRefs.current[idx];
+    if (!grid || !el) return;
+
+    grid.scrollTo({ left: el.offsetLeft, behavior });
+    setMobileIndex(idx);
+  };
+
+  const pauseAuto = () => {
+    isInteractingRef.current = true;
+
+    if (resumeTimerRef.current) window.clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = null;
+  };
+
+  const resumeAutoSoon = () => {
+    if (resumeTimerRef.current) window.clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = window.setTimeout(() => {
+      isInteractingRef.current = false;
+    }, 1200);
+  };
+
+  // Auto-scroll (mobile only) + pause on touch/drag/hover
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const clearAuto = () => {
+      if (autoTimerRef.current) window.clearInterval(autoTimerRef.current);
+      autoTimerRef.current = null;
+    };
+
+    const setupAuto = () => {
+      clearAuto();
+      if (!isMobileRef.current) return;
+      if (reduced) return;
+
+      autoTimerRef.current = window.setInterval(() => {
+        if (!isMobileRef.current) return;
+        if (isInteractingRef.current) return;
+
+        setMobileIndex((prev) => {
+          const next = (prev + 1) % items.length;
+          // if looping back to first, jump without smooth (feels clean)
+          scrollToIndex(next, next === 0 ? "auto" : "smooth");
+          return next;
+        });
+      }, 3200);
+    };
+
+    setupAuto();
+
+    const onEnter = () => pauseAuto();
+    const onLeave = () => resumeAutoSoon();
+    const onDown = () => pauseAuto();
+    const onUp = () => resumeAutoSoon();
+
+    grid.addEventListener("mouseenter", onEnter);
+    grid.addEventListener("mouseleave", onLeave);
+    grid.addEventListener("pointerdown", onDown);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("touchend", onUp, { passive: true });
+
+    const mq = window.matchMedia("(max-width: 767px)");
+    const onMQ = () => setupAuto();
+    mq.addEventListener?.("change", onMQ);
+
+    return () => {
+      clearAuto();
+      if (resumeTimerRef.current) window.clearTimeout(resumeTimerRef.current);
+
+      grid.removeEventListener("mouseenter", onEnter);
+      grid.removeEventListener("mouseleave", onLeave);
+      grid.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("touchend", onUp as any);
+
+      mq.removeEventListener?.("change", onMQ);
+    };
+  }, [items.length]);
+
   return (
-    <section className="relative w-full">
-      {/* ====== Heading Section (Full Width, Styled like “Our Products”) ====== */}
-<div className="text-center px-3 sm:px-4 pt-16 pb-8">
+    <section ref={rootRef} className={`section ${styles.section}`}>
+      <div className={`container ${styles.container}`}>
+        <header className={styles.header} data-aos="fade-down">
+          <h2 className={`heading ${styles.heading}`}>
+            <span className={styles.headingLine1}>Why Traders Trust</span>
+            <br />
+            <span className={styles.headingLine2}>Stonefort Securities</span>
+          </h2>
 
-<h2
-  className="
-    bg-clip-text text-transparent bg-gradient-to-r 
-    from-slate-200/60 via-slate-200 to-slate-200/60 
-    pb-4 font-semibold leading-[1.05]
+          <p className={`text ${styles.subtext}`}>
+            Driven by performance and innovation, we provide traders with exceptional trading
+            conditions, lightning-fast execution, and industry-leading pricing ensuring every
+            trade counts.
+          </p>
+        </header>
+      </div>
 
-    max-sm:text-[24px]   /* ← FORCE smaller on mobile */
-    text-[24px]          /* default */
-    sm:text-[40px]
-    md:text-[52px]
-    lg:text-[64px]
-
-  "
-  data-aos="fade-down"
->
-    <span className="text-black">Why Traders Trust </span><br/>
-    <span className="text-[#4D6E55]">Stonefort Securities</span>
-  </h2>
-<p
-  className="
-    max-w-3xl mx-auto
-    text-[20px]           /* exact 20px */
-    text-[#5D595B]
-    leading-relaxed
-  "
->
-  Driven by performance and innovation, we provide traders with exceptional trading
-  conditions, lightning-fast execution, and industry-leading pricing ensuring every
-  trade counts.
-</p>
-
-</div>
-
-
-      {/* ====== Cards Section (Full Width, unchanged) ====== */}
-      <div
-        className="relative w-full"
-        onMouseLeave={() => setActive(null)}
-        style={{ height }}
-      >
-        <div
-          className="grid h-full overflow-hidden shadow-lg"
-          style={{
-            gridTemplateColumns: template,
-            transition: "grid-template-columns 400ms ease",
-          }}
-        >
+      <div className={styles.stage} onMouseLeave={() => setActive(null)}>
+        <div ref={gridRef} className={styles.grid} onMouseLeave={() => setActive(null)}>
           {items.map((item, i) => {
             const isActive = (locked ?? active) === i;
+
             return (
-              <section
+              <article
                 key={item.id}
-                className="relative isolate cursor-pointer select-none outline-none"
+                ref={(el) => {
+                  cardRefs.current[i] = el;
+                }}
+                id={`ec-${i}`}
+                className={`${styles.card} ${isActive ? styles.isActive : ""}`}
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
                 tabIndex={0}
@@ -97,129 +226,69 @@ export default function ExpandCards({
                   }
                   if (e.key === "Escape") setLocked(null);
                 }}
-                onClick={() => setLocked((v) => (v === i ? null : i))}
+                onClick={() => {
+                  // On mobile slider, tap just focuses slide (no expand needed)
+                  if (isMobileRef.current) {
+                    scrollToIndex(i, "smooth");
+                    return;
+                  }
+                  setLocked((v) => (v === i ? null : i));
+                }}
                 aria-expanded={isActive}
               >
-                {/* Background image */}
                 <div
                   aria-hidden
-                  className="absolute inset-0 -z-10 bg-cover bg-center"
+                  className={styles.bg}
                   style={{ backgroundImage: `url(${item.image})` }}
                 />
 
-                {/* Overlay gradients */}
-                <div className="pointer-events-none absolute inset-0 bg-black/30" />
-                <div
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/70 to-transparent"
-                  aria-hidden
-                />
-
-                {/* Number label */}
-                <div className="absolute bottom-3 left-4 text-white/90 z-10">
-                <span
-                  className="
-                    text-[24px]        /* smaller mobile number size */
-                    sm:text-4xl        /* tablet */
-                    md:text-6xl        /* desktop */
-                    font-extrabold tracking-tight drop-shadow-md
-                  "
-                >
-  {item.number ?? String(i + 1).padStart(2, "0")}
-</span>
-
+                <div className={styles.numberWrap}>
+                  <span className={styles.number}>
+                    {item.number ?? String(i + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
-                {/* Expanded content */}
-                <div
-                  className="
-                    absolute inset-x-0 top-0 bottom-24 
-                    flex flex-col justify-end 
-                    px-2 py-2         /* smaller mobile padding */
-                    sm:px-4 sm:py-4 
-                    md:px-6 md:py-6 
-                  text-white z-0"
-                  style={{
-                    opacity: isActive ? 1 : 0,
-                    transform: isActive ? "none" : "translateY(12px)",
-                    transition: "opacity 300ms ease, transform 300ms ease",
-                  }}
-                >
-                  <h3 className="
-                    mb-2 
-                    text-lg         
-                    sm:text-xl 
-                    md:text-3xl 
-                    text-[#fff] 
-                    font-extrabold
-                  ">
-
-                    {item.title}
-                  </h3>
-                  {item.body && (
-                  <div
-                    className="
-                      max-w-[48ch] 
-                      text-[14px]       /* EXACT 14px on mobile */
-                      sm:text-sm/6 
-                      md:text-base/7 
-                      text-white/90
-                    "
-                  >
-  {item.body}
-</div>
-                  )}
+                <div className={styles.content}>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  {item.body && <div className={styles.cardBody}>{item.body}</div>}
                 </div>
 
-                {/* Button - bottom-right, only visible when expanded */}
-                <div
-                  className="absolute bottom-5 right-5 z-20"
-                  style={{
-                    opacity: isActive ? 1 : 0,
-                    transform: isActive ? "none" : "translateY(10px)",
-                    transition: "opacity 300ms ease, transform 300ms ease",
-                    pointerEvents: isActive ? "auto" : "none",
-                  }}
-                >
-                  <a
-                    href="#"
-                    className="
-                    group inline-flex items-center gap-2 
-                    bg-white text-[#101711] 
-                    text-xs        /* mobile font smaller */
-                    sm:text-sm     /* normal size back on tablet+ */
-                    px-3 py-2      /* smaller padding on mobile */
-                    sm:px-5 sm:py-2.5
-                    rounded-full shadow-md 
-                  "
-
-                  >
-                    Start Trading Now
-                    <span className="ml-1 inline-block transition-transform group-hover:translate-x-1">
-                      →
-                    </span>
+                <div className={styles.ctaWrap}>
+                  <a href="#" className={styles.cta}>
+                    Start Trading Now <span className={styles.ctaArrow}>→</span>
                   </a>
                 </div>
 
-                {/* Divider between panels */}
-                {i < items.length - 1 && (
-                  <div className="absolute right-0 top-1/2 h-4/5 w-px -translate-y-1/2 bg-white/20" />
-                )}
-              </section>
+                {i < items.length - 1 && <div className={styles.divider} aria-hidden="true" />}
+              </article>
             );
           })}
+        </div>
+
+        {/* Pagination dots (styled purely via CSS; active state synced by JS) */}
+        <div className={styles.dots} aria-label="Cards navigation">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              className={`${styles.dot} ${mobileIndex === i ? styles.dotActive : ""}`}
+              onClick={() => scrollToIndex(i, "smooth")}
+              aria-label={`Go to card ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-/* --- Demo content (replace with real items) --- */
+/* demoItems unchanged */
 const demoItems: ExpandItem[] = [
   {
     id: 1,
     image: "/images/withdrawal.webp",
     number: "01",
-    title: "Instant Withdrawal ",
+    title: "Instant Withdrawal",
     body: <>Experience hassle-free withdrawals with no delays and total transparency.</>,
   },
   {
@@ -227,34 +296,59 @@ const demoItems: ExpandItem[] = [
     image: "/images/oneBank.webp",
     number: "02",
     title: "Tier 1 Banking Partners",
-    body: <>Your funds are securely held with trusted Tier 1 banks, ensuring maximum protection and complete peace of mind.</>,
+    body: (
+      <>
+        Your funds are securely held with trusted Tier 1 banks, ensuring maximum protection and
+        complete peace of mind.
+      </>
+    ),
   },
   {
     id: 3,
     image: "/images/cardpartners.webp",
     number: "03",
-    title: "Globally Regulated ",
-    body: <>Operating under multiple international licenses, Stonefort Securities guarantees secure trading conditions backed by regulatory oversight and investor protection.</>,
+    title: "Globally Regulated",
+    body: (
+      <>
+        Operating under multiple international licenses, Stonefort Securities guarantees secure
+        trading conditions backed by regulatory oversight and investor protection.
+      </>
+    ),
   },
   {
     id: 4,
     image: "/images/fast-execution.webp",
     number: "04",
-    title: "Ultra-Fast Execution ",
-    body: <>Experience lightning-speed execution under 70 milliseconds, empowering traders to capture every opportunity without delay.</>,
+    title: "Ultra-Fast Execution",
+    body: (
+      <>
+        Experience lightning-speed execution under 70 milliseconds, empowering traders to capture
+        every opportunity without delay.
+      </>
+    ),
   },
   {
     id: 5,
     image: "/images/high-leverage.webp",
     number: "05",
-    title: "Leverage Up to 1:1000 ",
-    body: <>Empower your strategy with high-performance leverage designed to help you seize every market opportunity.</>,
+    title: "Leverage Up to 1:1000",
+    body: (
+      <>
+        Empower your strategy with high-performance leverage designed to help you seize every market
+        opportunity.
+      </>
+    ),
   },
   {
     id: 6,
     image: "/images/globally-regulated.webp",
     number: "06",
-    title: "Negative Balance Protection ",
-    body: <>Your capital remains protected no matter how volatile the markets become, your risk is always limited to your initial deposit.</>,
+    title: "Negative Balance Protection",
+    body: (
+      <>
+        Your capital remains protected no matter how volatile the markets become, your risk is
+        always limited to your initial deposit.
+      </>
+    ),
   },
 ];

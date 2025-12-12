@@ -1,0 +1,280 @@
+.section {
+  position: relative;
+}
+
+/* optional per-section accent override */
+.container {
+  --vt-accent: var(--brand);
+}
+
+.header {
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 24px;
+}
+
+.heading {
+  margin: 0;
+  padding-bottom: 12px;
+}
+
+.headingAccent {
+  color: var(--brand);
+}
+
+.subtext {
+  max-width: 860px;
+  margin: 0 auto;
+  color: var(--text-body);
+}
+
+/* Shell */
+.shell {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 32px;
+  overflow: hidden;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+
+  isolation: isolate;
+}
+
+@media (min-width: 768px) {
+  .shell {
+    flex-direction: row;
+  }
+}
+
+/* Left rail */
+.rail {
+  position: relative;
+  width: 100%;
+  flex: 0 0 auto;
+
+  padding: 16px;
+  background: transparent;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+  .rail {
+    width: 320px;
+    padding: 24px;
+    border-bottom: 0;
+    border-right: 1px solid var(--border);
+  }
+}
+
+.railGlowTop,
+.railGlowBottom {
+  display: none;
+}
+
+.railGlowTop {
+  width: 280px;
+  height: 280px;
+  top: -70px;
+  left: -70px;
+  background: color-mix(in srgb, var(--surface) 65%, white);
+}
+
+.railGlowBottom {
+  width: 220px;
+  height: 220px;
+  bottom: -60px;
+  left: -60px;
+  background: color-mix(in srgb, var(--brand) 12%, var(--surface));
+}
+
+/* Tabs list */
+.tabList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Tab button */
+.tabBtn {
+  width: 100%;
+  text-align: left;
+
+  border-radius: 999px;
+  padding: 14px 18px;
+
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+    background 0.2s ease, color 0.2s ease;
+}
+
+.tabBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  border-color: color-mix(in srgb, var(--border) 60%, var(--text));
+}
+
+.tabBtn:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--vt-accent) 45%, transparent);
+  outline-offset: 2px;
+}
+
+.tabBtnActive {
+  background: var(--vt-accent);
+  border-color: color-mix(in srgb, var(--vt-accent) 85%, var(--border));
+  color: #fff;
+}
+
+/* Label */
+.tabLabel {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .tabLabel {
+    font-size: 16px;
+  }
+}
+
+/* Arrow pill */
+.tabArrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+
+  background: color-mix(in srgb, var(--surface-2) 85%, transparent);
+  border: 1px solid var(--border);
+  color: var(--text);
+
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.tabBtn:hover .tabArrow {
+  transform: translateX(2px);
+}
+
+.tabArrowActive {
+  background: var(--surface);
+  border-color: rgba(255, 255, 255, 0.65);
+  color: var(--text);
+}
+
+/* Right panel */
+.panelWrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: 16px;
+  background: var(--surface-2);
+}
+
+@media (min-width: 768px) {
+  .panelWrap {
+    padding: 28px;
+  }
+}
+
+.panelInner {
+  height: 100%;
+  border-radius: 26px;
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .panelInner {
+    padding: 28px;
+  }
+}
+
+.panel {
+  display: grid;
+  gap: 18px;
+}
+
+.panelText {
+  max-width: 740px;
+}
+
+.panelTitle {
+  margin: 0;
+  font-weight: 800;
+  color: var(--text-strong);
+  font-size: 24px;
+}
+
+@media (min-width: 768px) {
+  .panelTitle {
+    font-size: 32px;
+  }
+}
+
+.panelDesc {
+  margin: 10px 0 0;
+  color: var(--text-body);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Media card */
+.mediaCard {
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Fit image helper */
+.fitMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.fitImg {
+  object-fit: cover;
+}
+
+/* CTA */
+.ctaRow {
+  margin-top: 6px;
+}
+
+.ctaBtn {
+  width: auto; /* override global 240px */
+}
+
+.ctaIcon {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.ctaBtn:hover .ctaIcon {
+  transform: translateX(3px);
+}
+

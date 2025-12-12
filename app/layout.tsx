@@ -1,4 +1,8 @@
 import './css/style.css'
+import "./css/global.css"; 
+import Header from '@/components/ui/header' 
+import Footer from '@/components/ui/footer'
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 import { Inter } from 'next/font/google'
 
@@ -13,19 +17,16 @@ export const metadata = {
   description: 'Stonefort securities',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth theme-light">
-      <body className={`${inter.variable} font-inter antialiased bg-white text-black tracking-tight`}>
-
-        <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-          {children}
-        </div>
+    <html lang="en">
+      <body>
+        <ThemeProvider>
+          <Header />
+          <main className="grow">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

@@ -1,0 +1,251 @@
+/* =========================================================
+   Stonefort Global Design System (Light + Dark)
+   Use with .module.css components
+========================================================= */
+
+/* -------------------------
+   1) THEME TOKENS (LIGHT)
+------------------------- */
+:root {
+  /* Layout */
+  --container: 1240px;
+  --section-pad-y: 80px;
+  --section-pad-y-mobile: 48px;
+
+  /* ===== BRAND ===== */
+  --brand: #4d6e55;
+  --brand-soft: rgba(77, 110, 85, 0.08);
+  --brand-border: rgba(77, 110, 85, 0.4);
+
+  /* ===== TEXT ===== */
+  --text: #0a1015;
+  --text-strong: #111827;
+  --text-body: #4b5563;
+  --text-muted: #6b7280;
+
+  /* ===== BACKGROUND / SURFACES ===== */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f7f8f9;
+
+  /* ===== BORDERS / SHADOWS ===== */
+  --border: rgba(10, 16, 21, 0.12);
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 10px 35px rgba(0, 0, 0, 0.15);
+
+  /* ===== GLASS (FROSTED / MIRROR) ===== */
+  --glass-bg: rgba(255, 255, 255, 0.42);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --glass-reflection-strong: rgba(255, 255, 255, 0.6);
+  --glass-reflection-soft: rgba(255, 255, 255, 0.1);
+  --glass-blur: saturate(140%) blur(18px);
+
+  /* ===== STATUS ===== */
+  --success: #22c55e;
+
+  /* ===== BUTTONS ===== */
+  --btn-radius: 35px; /* you asked 35px */
+  --btn-pad-y: 14px;
+  --btn-pad-x: 36px;
+  --btn-width: 240px;
+  --btn-width-mobile: 220px;
+
+  --btn-bg: var(--brand);
+  --btn-text: #ffffff;
+  --btn-border: rgba(255, 255, 255, 0.6);
+
+  --btn-hover-bg: #ffffff;
+  --btn-hover-text: var(--brand);
+  --btn-hover-border: var(--brand);
+
+  /* ===== BADGE ===== */
+  --badge-bg: var(--brand-soft);
+  --badge-border: var(--brand-border);
+  --badge-text: var(--brand);
+}
+
+/* -------------------------
+   2) THEME TOKENS (DARK)
+   Toggle with: html[data-theme="dark"]
+------------------------- */
+html[data-theme="dark"] {
+  --bg: #101711;
+  --surface: #0c1218;
+  --surface-2: #0f1620;
+
+  --text: #eaf0f6;
+  --text-strong: #ffffff;
+  --text-body: rgba(234, 240, 246, 0.78);
+  --text-muted: rgba(234, 240, 246, 0.62);
+
+  --border: rgba(234, 240, 246, 0.14);
+
+  /* brand can stay same, but slightly lighter reads better on dark */
+  --brand: #87ab93;
+  --brand-soft: rgba(135, 171, 147, 0.12);
+  --brand-border: rgba(135, 171, 147, 0.35);
+
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 10px 35px rgba(0, 0, 0, 0.55);
+
+  /* glass in dark should be darker, not white */
+  --glass-bg: rgba(12, 18, 24, 0.55);
+  --glass-border: rgba(234, 240, 246, 0.16);
+  --glass-reflection-strong: rgba(234, 240, 246, 0.14);
+  --glass-reflection-soft: rgba(234, 240, 246, 0.06);
+  --glass-blur: saturate(140%) blur(18px);
+
+  /* buttons in dark (same behavior but works on dark surfaces) */
+  --btn-border: rgba(234, 240, 246, 0.18);
+  --btn-hover-bg: rgba(234, 240, 246, 0.08);
+  --btn-hover-text: var(--brand);
+  --btn-hover-border: var(--brand);
+
+  --badge-bg: var(--brand-soft);
+  --badge-border: var(--brand-border);
+  --badge-text: var(--brand);
+}
+
+/* -------------------------
+   3) BASE / DEFAULTS
+------------------------- */
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* -------------------------
+   4) LAYOUT HELPERS (Global)
+------------------------- */
+.container {
+  width: min(var(--container), 92vw);
+  margin: 0 auto;
+}
+
+.section {
+  padding: var(--section-pad-y) 0;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: var(--section-pad-y-mobile) 0;
+  }
+}
+
+/* A reusable glass surface helper (optional) */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-md);
+}
+
+/* -------------------------
+   5) GLOBAL TYPOGRAPHY
+------------------------- */
+.heading,
+.title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.text,
+.description {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .heading,
+  .title {
+    font-size: 56px;
+  }
+
+  .text,
+  .description {
+    font-size: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .heading,
+  .title {
+    font-size: 34px;
+  }
+
+  .text,
+  .description {
+    font-size: 16px;
+  }
+}
+
+/* -------------------------
+   6) GLOBAL BUTTON
+------------------------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: var(--btn-width);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border-radius: var(--btn-radius);
+
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-text);
+
+  font-size: 18px; /* your global rule (18 desktop) */
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease,
+    color 0.25s ease, border-color 0.25s ease;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.button:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--btn-hover-border);
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+}
+
+/* Mobile / Tablet */
+@media (max-width: 767px) {
+  .button {
+    width: var(--btn-width-mobile);
+    font-size: 16px;
+  }
+}
+
+/* -------------------------
+   7) GLOBAL BADGES
+------------------------- */
+.badge,
+.faq-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid var(--badge-border);
+  background: var(--badge-bg);
+  color: var(--badge-text);
+}

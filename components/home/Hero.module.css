@@ -1,0 +1,291 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Background image layer */
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -20;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay: theme-aware using tokens (no hardcoded colors) */
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  /* Light theme: soft “wash” to keep text readable */
+  background:
+    radial-gradient(
+      1200px 600px at 50% 20%,
+      color-mix(in srgb, var(--bg) 35%, transparent),
+      color-mix(in srgb, var(--bg) 10%, transparent)
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--bg) 18%, transparent),
+      color-mix(in srgb, var(--bg) 55%, transparent)
+    );
+}
+
+/* Dark theme: slightly stronger overlay, still token-based */
+:global(html[data-theme="dark"]) .bgOverlay {
+  background:
+    radial-gradient(
+      1200px 600px at 50% 20%,
+      color-mix(in srgb, var(--bg) 10%, transparent),
+      color-mix(in srgb, var(--bg) 55%, transparent)
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--bg) 20%, transparent),
+      color-mix(in srgb, var(--bg) 72%, transparent)
+    );
+}
+
+/* Right decorative element */
+.tradingElementWrap {
+  position: absolute;
+  right: 0;
+  top: 80px;
+  z-index: -10;
+}
+
+.tradingElement {
+  width: 160px;
+  height: auto;
+  opacity: 0.95;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .tradingElement {
+    width: 200px;
+  }
+}
+@media (min-width: 768px) {
+  .tradingElement {
+    width: 240px;
+  }
+}
+@media (min-width: 1024px) {
+  .tradingElement {
+    width: 280px;
+  }
+}
+@media (min-width: 1440px) {
+  .tradingElementWrap {
+    top: auto;
+    bottom: 80px;
+  }
+  .tradingElement {
+    width: 400px;
+  }
+}
+
+/* Layout container
+   IMPORTANT: keep width/margins in global .container.
+   This only handles hero spacing/layout. */
+.container {
+  position: relative;
+  z-index: 10;
+
+  padding: 128px 0 64px;
+  min-height: 520px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 120px 0 128px;
+    min-height: 640px;
+  }
+}
+
+.top {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Badge link row */
+.badgeRow {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Uses glass tokens + border/shadow tokens */
+.badgeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.badgeLink:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--brand) 45%, var(--glass-border));
+  background: color-mix(in srgb, var(--glass-bg) 80%, var(--brand-soft));
+}
+
+.badgeText {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.badgeArrow {
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.badgeLink:hover .badgeArrow {
+  transform: translateX(2px);
+}
+
+/* Title: use GLOBAL .title class for sizing + color
+   Keep this class only for spacing. */
+.title {
+  margin: 0;
+  padding-bottom: 16px;
+  line-height: 1.05;
+}
+
+/* Description: use GLOBAL .text/.description for typography
+   Keep this class only for spacing. */
+.desc {
+  margin: 0 0 32px;
+}
+
+/* CTAs */
+.ctaRow {
+  max-width: 320px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .ctaRow {
+    max-width: none;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .ctaRow {
+    align-items: center;
+  }
+}
+
+/* CTA button: relies on global .button; only adds subtle border tweak */
+.ctaBtn {
+  border-color: var(--btn-border);
+}
+
+/* Arrow inside CTA */
+.ctaArrow {
+  transition: transform 0.2s ease;
+}
+
+.ctaBtn:hover .ctaArrow {
+  transform: translateX(2px);
+}
+
+/* Regulation row */
+.regRow {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .regRow {
+    gap: 16px;
+  }
+}
+
+/* Regulation pill (glass, theme-safe) */
+.regBox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+  border-radius: 16px;
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+
+  color: var(--text);
+}
+
+.regBox:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--brand) 45%, var(--glass-border));
+}
+
+.regFlag {
+  border-radius: 999px;
+}
+
+.regLabel {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.regChevron {
+  width: 14px;
+  height: 14px;
+  opacity: 0.85;
+}
+
+/* sheen */
+.regSheen {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(
+    to bottom,
+    var(--glass-reflection-strong),
+    transparent
+  );
+  opacity: 0.35;
+}

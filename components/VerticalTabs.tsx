@@ -3,6 +3,7 @@
 
 import { useId, useState, useRef, KeyboardEvent, ReactNode } from "react";
 import Image, { type StaticImageData } from "next/image";
+import styles from "./VerticalTabs.module.css";
 
 // Your images
 import Terminal from "@/public/images/Terminalmt5.webp";
@@ -13,21 +14,20 @@ import SFXmob from "@/public/images/sfxMob.webp";
 
 type TabItem = {
   id: string;
-  label: string; // left rail label
-  title: string; // right panel title
-  description: string; // right panel paragraph
-  media?: ReactNode; // image/chart/etc (optional)
+  label: string;
+  title: string;
+  description: string;
+  media?: ReactNode;
   ctaHref?: string;
   ctaLabel?: string;
-  labelClassName?: string;
-  activeLabelClassName?: string;
 };
 
 type Props = {
   items: TabItem[];
-  accentHex?: string; // default #4d6e55
+  /** Optional: override brand accent. Defaults to CSS var(--brand) */
+  accent?: string;
   className?: string;
-  headingTitle?: string;
+  headingTitle?: ReactNode; // use JSX instead of dangerouslySetInnerHTML
   headingText?: string;
 };
 
@@ -35,19 +35,17 @@ type Props = {
 function FitImage({
   src,
   alt,
-  aspect = "aspect-[16/9]",
 }: {
   src: StaticImageData | string;
   alt: string;
-  aspect?: string; // e.g., "aspect-[21/9]" if you want wider
 }) {
   return (
-    <div className={`relative w-full ${aspect} overflow-hidden`}>
+    <div className={styles.fitMedia}>
       <Image
         src={src}
         alt={alt}
         fill
-        className="object-cover"
+        className={styles.fitImg}
         sizes="(min-width: 1280px) 900px, (min-width: 768px) 700px, 100vw"
         priority={false}
       />
@@ -57,7 +55,7 @@ function FitImage({
 
 export default function VerticalTabs({
   items,
-  accentHex = "#4d6e55",
+  accent = "var(--brand)",
   className = "",
   headingTitle,
   headingText,
@@ -70,6 +68,7 @@ export default function VerticalTabs({
 
   const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>, idx: number) => {
     if (!listRef.current) return;
+
     const buttons = Array.from(
       listRef.current.querySelectorAll<HTMLButtonElement>("[role='tab']")
     );
@@ -77,7 +76,7 @@ export default function VerticalTabs({
 
     const focusAt = (i: number) => {
       const next = (i + buttons.length) % buttons.length;
-      (buttons[next] as HTMLButtonElement).focus();
+      buttons[next]?.focus();
       setActive(next);
     };
 
@@ -105,135 +104,51 @@ export default function VerticalTabs({
 
   return (
     <section
-      className={["relative mx-auto max-w-6xl px-4 sm:px-6", className].join(
-        " "
-      )}
+      className={`section ${styles.section} ${className}`}
+      style={{ ["--vt-accent" as any]: accent }}
     >
-      {/* Heading & intro text */}
-      {(headingTitle || headingText) && (
-        <div className="w-full mx-auto text-center pt-16 pb-10">
-          {headingTitle && (
-            <h2
-              className="
-                bg-clip-text text-transparent bg-gradient-to-r 
-                from-slate-200/60 via-slate-200 to-slate-200/60 
-                pb-4 font-semibold leading-[1.05]
+      <div className={`container ${styles.container}`}>
+        {/* Heading */}
+        {(headingTitle || headingText) && (
+          <header className={styles.header}>
+            {headingTitle && <h2 className={`heading ${styles.heading}`}>{headingTitle}</h2>}
+            {headingText && <p className={`text ${styles.subtext}`}>{headingText}</p>}
+          </header>
+        )}
 
-                max-sm:text-[24px]
-                text-[24px]
-                sm:text-[40px]
-                md:text-[52px]
-                lg:text-[64px]
-              "
-              dangerouslySetInnerHTML={{ __html: headingTitle }}
-            />
-          )}
+        {/* Main wrapper */}
+        <div className={styles.shell}>
+          {/* Left rail */}
+          <aside className={styles.rail}>
+            <span className={styles.railGlowTop} aria-hidden="true" />
+            <span className={styles.railGlowBottom} aria-hidden="true" />
 
-          {headingText && (
-            <p
-              className="
-                max-w-3xl mx-auto mt-3 
-                text-gray-600
-                text-[20px]
-                leading-[1.5]
-              "
+            <div
+              ref={listRef}
+              role="tablist"
+              aria-orientation="vertical"
+              className={styles.tabList}
             >
-              {headingText}
-            </p>
-          )}
-        </div>
-      )}
+              {items.map((tab, i) => {
+                const selected = i === active;
 
-      {/* MAIN WRAPPER */}
-      <div
-        className="
-          flex flex-col md:flex-row
-          bg-white rounded-[32px]
-          shadow-[0_10px_40px_rgba(0,0,0,0.06)]
-          border border-gray-200
-          overflow-hidden
-        "
-        style={{ isolation: "isolate" }}
-      >
-        {/* Left rail (tabs) */}
-        <div
-          className="
-            relative
-            w-full md:w-[320px]
-            shrink-0
-            p-4 sm:p-6 md:p-8
-            bg-neutral-100
-            border-b md:border-b-0 md:border-r border-gray-200
-          "
-        >
-          <div className="pointer-events-none absolute -top-16 -left-16 w-72 h-72 rounded-full bg-white/60 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-12 -left-12 w-52 h-52 rounded-full bg-sky-100/60 blur-3xl" />
+                return (
+                  <button
+                    key={tab.id}
+                    id={`tab-${tabIds[i]}`}
+                    role="tab"
+                    aria-selected={selected}
+                    aria-controls={`panel-${tabIds[i]}`}
+                    tabIndex={selected ? 0 : -1}
+                    onClick={() => setActive(i)}
+                    onKeyDown={(e) => onKeyDown(e, i)}
+                    className={`${styles.tabBtn} ${selected ? styles.tabBtnActive : ""}`}
+                  >
+                    <span className={styles.tabLabel}>{tab.label}</span>
 
-          <div
-            ref={listRef}
-            role="tablist"
-            aria-orientation="vertical"
-            className="flex flex-col gap-4 mt-2"
-          >
-            {items.map((tab, i) => {
-              const selected = i === active;
-              return (
-                <button
-                  key={tab.id}
-                  id={`tab-${tabIds[i]}`}
-                  role="tab"
-                  aria-selected={selected}
-                  aria-controls={`panel-${tabIds[i]}`}
-                  tabIndex={selected ? 0 : -1}
-                  onClick={() => setActive(i)}
-                  onKeyDown={(e) => onKeyDown(e, i)}
-                  className={[
-                    "group w-full text-left rounded-full transition-all duration-300 focus:outline-none",
-                    "ring-0 focus-visible:ring-2 focus-visible:ring-black/20",
-                    selected
-                      ? "bg-[color:var(--accent)] text-white px-6 py-4"
-                      : "bg-white text-gray-900 px-6 py-4 border border-gray-200 hover:border-gray-300",
-                  ].join(" ")}
-                  style={{ ["--accent" as any]: accentHex }}
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <span
-                      className={
-                        selected
-                          ? [
-                              "font-semibold text-[#fff]",
-                              tab.activeLabelClassName || "",
-                            ].join(" ")
-                          : [
-                              "font-medium text-gray-900",
-                              tab.labelClassName || "",
-                            ].join(" ")
-                      }
-                    >
-                      {tab.label}
-                    </span>
-
-                    <span
-                      className={[
-                        "grid place-items-center shrink-0 rounded-full transition-transform",
-                        selected
-                          ? "size-11 bg-white text-gray-900 group-hover:translate-x-0.5"
-                          : "size-9 bg-gray-100 text-gray-700 group-hover:translate-x-0.5",
-                      ].join(" ")}
-                      aria-hidden="true"
-                    >
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M5 12h12"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                        />
+                    <span className={`${styles.tabArrow} ${selected ? styles.tabArrowActive : ""}`} aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                         <path
                           d="M13 6l6 6-6 6"
                           stroke="currentColor"
@@ -243,76 +158,48 @@ export default function VerticalTabs({
                         />
                       </svg>
                     </span>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
+                  </button>
+                );
+              })}
+            </div>
+          </aside>
 
-        {/* Right content panel */}
-        <div className="relative flex-1 min-w-0 p-4 sm:p-6 md:p-10 bg-neutral-50">
-          <div className="h-full rounded-3xl bg-white border border-gray-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_10px_30px_rgba(0,0,0,0.04)] p-4 sm:p-6 md:p-10">
-            {items.map((tab, i) => {
-              const selected = i === active;
-              return (
-                <div
-                  key={tab.id}
-                  id={`panel-${tabIds[i]}`}
-                  role="tabpanel"
-                  aria-labelledby={`tab-${tabIds[i]}`}
-                  hidden={!selected}
-                  className="grid gap-6"
-                >
-                  <div className="max-w-2xl">
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-                      {tab.title}
-                    </h3>
-                    <p className="mt-3 text-base md:text-lg text-gray-600">
-                      {tab.description}
-                    </p>
-                  </div>
+          {/* Right content */}
+          <div className={styles.panelWrap}>
+            <div className={styles.panelInner}>
+              {items.map((tab, i) => {
+                const selected = i === active;
 
-                  {/* Media: full-cover image in the card */}
-                  {tab.media ? (
-                    <div className="rounded-2xl border border-gray-200 bg-white shadow-[0_6px_24px_rgba(0,0,0,0.04)] overflow-hidden">
-                      {tab.media}
+                return (
+                  <div
+                    key={tab.id}
+                    id={`panel-${tabIds[i]}`}
+                    role="tabpanel"
+                    aria-labelledby={`tab-${tabIds[i]}`}
+                    hidden={!selected}
+                    className={styles.panel}
+                  >
+                    <div className={styles.panelText}>
+                      <h3 className={styles.panelTitle}>{tab.title}</h3>
+                      <p className={styles.panelDesc}>{tab.description}</p>
                     </div>
-                  ) : null}
 
-                  {tab.ctaHref && tab.ctaLabel ? (
-                    <div className="mt-2">
-                      <a
-                        href={tab.ctaHref}
-                        className="inline-flex items-center gap-2 rounded-full bg-[#4d6e55] text-[#fff] px-4 py-2 hover:bg-[#87ab93] transition"
-                      >
-                        {tab.ctaLabel}
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                        >
-                          <path
-                            d="M5 12h12"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                          />
-                          <path
-                            d="M13 6l6 6-6 6"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  ) : null}
-                </div>
-              );
-            })}
+                    {tab.media ? <div className={styles.mediaCard}>{tab.media}</div> : null}
+
+                    {tab.ctaHref && tab.ctaLabel ? (
+                      <div className={styles.ctaRow}>
+                        <a href={tab.ctaHref} className={`button ${styles.ctaBtn}`}>
+                          {tab.ctaLabel}
+                          <span className={styles.ctaIcon} aria-hidden="true">
+                            →
+                          </span>
+                        </a>
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
@@ -320,12 +207,16 @@ export default function VerticalTabs({
   );
 }
 
-/* ===== Example usage with images adjusted to cover ===== */
+/* ===== Example usage (no HTML injection) ===== */
 export function PlatformsTabs() {
   return (
     <VerticalTabs
-      accentHex="#4d6e55"
-      headingTitle={`Secure and Reliable Trading Platforms with <span class='text-[#4d6e55]'>Stonefort Securities.</span>`}
+      headingTitle={
+        <>
+          Secure and Reliable Trading Platforms with{" "}
+          <span className={styles.headingAccent}>Stonefort Securities.</span>
+        </>
+      }
       headingText="Trade hundreds of CFDs on Forex, Crypto, Gold, Shares, and Indices with one Stonefort Securities account; delivering seamless execution, deep liquidity, and trusted reliability."
       items={[
         {

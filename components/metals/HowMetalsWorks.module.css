@@ -14,7 +14,7 @@
 
 .content {
   flex: 1;
-  color: #1f2937;
+  color: #101711;
 }
 
 /* ===== TEXT STYLING ===== */
@@ -22,7 +22,7 @@
   font-size: 56px;
   font-weight: 700;
   margin-bottom: 16px;
-  color: #000;
+  color: #101711;
 }
 
 .title span {
@@ -32,7 +32,7 @@
 .text {
   font-size: 20px;
   line-height: 1.7;
-  color: #4b5563;
+  color: #101711;
   margin-bottom: 14px;
 }
 

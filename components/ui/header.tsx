@@ -4,6 +4,7 @@ import Link from "next/link";
 import Logo from "./logo";
 import MobileMenu from "./mobile-menu";
 import MegaMenu from "../MegaMenu";
+import ThemeToggle from "@/components/theme/ThemeToggle";
 
 export default function Header() {
 return (
@@ -37,9 +38,9 @@ return (
                   items: [
                     { label: "Forex CFD", href: "/markets/forex-cfd" },
                     { label: "Indices CFD", href: "/markets/indices" },
-                    { label: "Metal CFD", href: "/markets/metal" },
+                    { label: "Commodity CFD", href: "/markets/metal" },
                     { label: "Stock CFD", href: "/markets/stock" },
-                    { label: "Commodity CFD", href: "/markets/commodities" },
+                    
                     { label: "Crypto CFD", href: "/markets/crypto" },
                   ],
                 },
@@ -191,7 +192,7 @@ return (
 
         </ul>
       </nav>
-
+            <ThemeToggle />
       {/* Mobile Menu */}
       <MobileMenu />
 

@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import Header from '@/components/ui/header'
 import Footer from '@/components/ui/footer'
 
@@ -25,6 +25,7 @@ export default function DefaultLayout({
 
   return (
     <>
+    <ThemeProvider>
       <Header />
       
       <main className="grow">
@@ -34,6 +35,8 @@ export default function DefaultLayout({
       </main>
 
       <Footer />
+    </ThemeProvider>
+
     </>
   )
 }
