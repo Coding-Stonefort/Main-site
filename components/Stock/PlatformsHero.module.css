@@ -1,0 +1,390 @@
+.section {
+}
+
+.container {
+}
+
+/* ===== TOP HEADER ===== */
+.topHeader {
+  max-width: 980px;
+  margin-bottom: 34px;
+}
+
+.heading {
+  margin: 0 0 12px;
+}
+
+.subheading {
+  margin: 0;
+  color: var(--text-body);
+  max-width: 80ch;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.55fr; /* keep your widths */
+  gap: 40px;
+  align-items: stretch;
+}
+.leftCard,
+.mediaCard {
+  height: 100%;
+}
+
+/* =========================
+   LEFT: 2 BOXES
+========================= */
+.leftCard {
+  border-radius: 24px;
+  /* background: var(--surface); */
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 22px;
+}
+
+.badge {
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.nav {
+  display: grid;
+  gap: 14px;
+}
+
+.navItem {
+  text-align: left;
+  width: 100%;
+  border-radius: 18px;
+
+  border: 1px solid var(--border);
+  /* background: var(--surface-2); */
+  padding: 16px;
+
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.navItem:hover {
+  transform: translateY(-1px);
+  border-color: var(--brand-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.active {
+  background: var(--brand-soft);
+  border-color: var(--brand-border);
+}
+
+.navTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.navTitle {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.navDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--brand);
+  opacity: 0.65;
+  flex: 0 0 auto;
+}
+
+.active .navDot {
+  opacity: 1;
+}
+
+.navText {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+/* =========================
+   RIGHT: LAPTOP + CARDS
+========================= */
+.mediaCard {
+  position: relative;
+  border-radius: 26px;
+  /* background: var(--surface); */
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  background:
+    radial-gradient(720px 280px at 18% 0%, rgba(77, 110, 85, 0.22), transparent 60%),
+    radial-gradient(720px 280px at 85% 65%, rgba(77, 110, 85, 0.14), transparent 62%);
+  opacity: 0.9;
+}
+
+.imageWrap {
+  position: relative;
+  z-index: 1;
+  min-height: 620px;
+  padding: 22px;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* Caption */
+.caption {
+  position: relative;
+  z-index: 1;
+  padding: 14px 22px 18px;
+  color: var(--text-body);
+  border-top: 1px solid var(--border);
+  /* background: var(--surface-2); */
+}
+
+.captionLabel {
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+.captionValue {
+  color: var(--text);
+}
+
+/* =========================
+   GLASS STAT CARDS
+========================= */
+.statCard {
+  position: absolute;
+  border-radius: 18px;
+  padding: 12px 14px;
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+
+  box-shadow: var(--shadow-md);
+  min-width: 190px;
+}
+
+.statTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.statMain {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.currencySign {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--text-muted);
+}
+
+.statNumber {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1;
+}
+
+.smallNote {
+  font-size: 12px;
+  color: var(--text-body);
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+.statBottomRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.statTag {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+.positive {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--brand);
+}
+
+.neutral {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-body);
+}
+
+/* Card positions (adjust to match your laptop image) */
+.card1 {
+  top: 22px;
+  left: 122px;
+}
+
+.card2 {
+  top: 80px;
+  right: 90px;
+  min-width: 180px;
+}
+
+.card3 {
+  bottom: 42px;
+  left: 72px;
+}
+
+
+/* =============================
+   DARK MODE – HOVER GLOW
+============================= */
+html[data-theme="dark"] .leftCard,
+html[data-theme="dark"] .mediaCard {
+  position: relative;
+}
+
+/* Glow layer */
+html[data-theme="dark"] .leftCard::after,
+html[data-theme="dark"] .mediaCard::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  background:
+    radial-gradient(
+      120% 120% at 20% 10%,
+      rgba(77, 110, 85, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      120% 120% at 80% 90%,
+      rgba(77, 110, 85, 0.25),
+      transparent 60%
+    );
+
+  filter: blur(28px);
+}
+
+/* Show glow on hover */
+html[data-theme="dark"] .leftCard:hover::after,
+html[data-theme="dark"] .mediaCard:hover::after {
+  opacity: 1;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .imageWrap {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 640px) {
+  .topHeader {
+    margin-bottom: 24px;
+  }
+
+  .leftCard {
+    padding: 16px;
+  }
+
+  .navItem {
+    padding: 14px;
+  }
+
+  .navTitle {
+    font-size: 16px;
+  }
+
+  .imageWrap {
+    min-height: 420px;
+    padding: 14px;
+  }
+
+  .statCard {
+    min-width: 170px;
+    padding: 10px 12px;
+  }
+
+  .statNumber {
+    font-size: 20px;
+  }
+
+  .card1 {
+    top: 14px;
+    left: 14px;
+    
+    
+  }
+
+  .card2 {
+    top: 114px;
+    right: 14px;
+   
+  }
+
+  .card3 {
+    bottom: 14px;
+    left: 14px;
+  }
+
+  .caption {
+    padding: 12px 14px 14px;
+  }
+  .statNumber {
+    font-size: 14px;
+  }
+  .statLabel{
+     font-size: 9px;
+  }
+  .positive {
+  font-size: 9px;
+  font-weight: 900;
+  color: var(--brand);
+}
+}

@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import "./Faqs.css"; 
+import styles from "./Faqs.module.css";
 
 export type FAQItem = {
   question: string;
@@ -10,19 +10,13 @@ export type FAQItem = {
 };
 
 type FaqsProps = {
-  /** Small label above title (e.g. "FAQ") */
   badgeLabel?: string;
-  /** Main heading */
   title?: string;
-  /** Subtitle text under heading */
   subtitle?: string;
-  /** FAQ items for this specific page */
   items?: FAQItem[];
-  /** Which FAQ is open by default (0-based index, or null for all closed) */
   initiallyOpenIndex?: number | null;
 };
 
-/** Default global FAQs (used if no items prop is passed) */
 const DEFAULT_ITEMS: FAQItem[] = [
   {
     question: "What is Stonefort Securities?",
@@ -47,7 +41,7 @@ const DEFAULT_ITEMS: FAQItem[] = [
   {
     question: "How do I open a live trading account?",
     answer:
-      "Click on “Open an Account”, complete a quick registration form, upload your KYC documents, and once verified you can fund and start trading.",
+      'Click on “Open an Account”, complete a quick registration form, upload your KYC documents, and once verified you can fund and start trading.',
   },
 ];
 
@@ -60,47 +54,49 @@ export default function Faqs({
 }: FaqsProps) {
   const faqItems = items && items.length > 0 ? items : DEFAULT_ITEMS;
 
-  const [openIndex, setOpenIndex] = useState<number | null>(
-    initiallyOpenIndex
-  );
+  const [openIndex, setOpenIndex] = useState<number | null>(initiallyOpenIndex);
 
   const handleToggle = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
   };
 
   return (
-    <section className="faq-section">
-      <div className="faq-wrapper">
+    <section className={`section ${styles.section}`}>
+      <div className={`container ${styles.container}`}>
         {/* Heading */}
-        <div className="faq-header">
-          <span className="faq-badge">{badgeLabel}</span>
-          <h2 className="faq-title">{title}</h2>
-          {subtitle && <p className="faq-subtitle">{subtitle}</p>}
+        <div className={styles.header}>
+          <span className="badge">{badgeLabel}</span>
+          <h2 className={`title ${styles.title}`}>{title}</h2>
+          {subtitle && (
+            <p className={`description ${styles.subtitle}`}>{subtitle}</p>
+          )}
         </div>
 
         {/* List */}
-        <div className="faq-list">
+        <div className={styles.list}>
           {faqItems.map((item, index) => {
             const isOpen = openIndex === index;
 
             return (
               <div
                 key={item.question}
-                className={`faq-item${isOpen ? " is-open" : ""}`}
+                className={`${styles.item} ${isOpen ? styles.open : ""}`}
               >
                 <button
                   type="button"
-                  className="faq-question-row"
+                  className={styles.questionRow}
                   onClick={() => handleToggle(index)}
                   aria-expanded={isOpen}
                 >
-                  <span className="faq-question">{item.question}</span>
-                  <span className="faq-icon">{isOpen ? "−" : "+"}</span>
+                  <span className={styles.question}>{item.question}</span>
+                  <span className={styles.icon} aria-hidden="true">
+                    {isOpen ? "−" : "+"}
+                  </span>
                 </button>
 
                 {isOpen && (
                   <div
-                    className="faq-answer"
+                    className={styles.answer}
                     dangerouslySetInnerHTML={{ __html: item.answer }}
                   />
                 )}

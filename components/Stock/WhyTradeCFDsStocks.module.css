@@ -1,0 +1,108 @@
+.section {
+  /* uses global .section padding */
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 36px;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+  }
+}
+
+.content {
+  max-width: 720px;
+}
+
+/* uses global .badge styling */
+.kicker {
+  margin: 0 0 18px;
+  width: fit-content;
+}
+
+.heading {
+  margin: 0 0 18px;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+/* Media */
+.media {
+  display: grid;
+  place-items: center;
+}
+
+.circle {
+  position: relative;
+  width: min(380px, 92vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  overflow: hidden;
+
+  /* background: var(--surface); */
+  /* box-shadow: var(--shadow-md); */
+}
+
+
+.circle::before {
+ content: "";
+  position: absolute;
+  inset: -20%;               
+  background: url("/images/stockglobe.png") center / contain no-repeat;
+  opacity: 0.40;
+  z-index: 0;
+
+  animation: spinGlobe 80s linear infinite;
+}
+
+
+.image {
+  position: relative;
+  z-index: 1;
+
+  object-fit: cover;
+  animation: spinClockwise 28s linear infinite;
+}
+
+
+.circle:hover .image {
+  animation-play-state: paused;
+}
+
+/* Dark mode stays automatic via tokens */
+:global(html[data-theme="dark"]) .circle {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+@keyframes spinClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinGlobe {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    animation: none;
+  }
+}

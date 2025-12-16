@@ -7,7 +7,7 @@
 /* === HEADING === */
 .headingWrap {
   text-align: center;
-  margin-bottom: 64px; /*  more space between heading and cards */
+  margin-bottom: 60px;
 }
 
 .heading {
@@ -15,7 +15,7 @@
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.02em;
-  margin: 0; /*  avoid default margins causing misalignment */
+  margin: 0; /* important (global styles can add margins) */
 }
 
 .heading span {
@@ -23,9 +23,10 @@
 }
 
 /* === GRID === */
-/*  IMPORTANT: No max-width / margin / padding here
-   because global .container handles alignment */
 .grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
@@ -38,12 +39,15 @@
   height: 260px;
   border-radius: 24px;
 
-  /*  Light mode look (floating white card) */
+  /* IMPORTANT */
   background: var(--surface);
   border: 1px solid var(--border);
+
   box-shadow: var(--card-shadow);
 
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .card:hover {
@@ -51,11 +55,11 @@
   box-shadow: var(--card-shadow-hover);
 }
 
-/*  Dark mode = glass + green glow (from your theme tokens) */
 html[data-theme="dark"] .card {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
 }
+
 
 /* === FRONT CONTENT (ICON + TITLE) === */
 .front {
@@ -69,8 +73,6 @@ html[data-theme="dark"] .card {
   justify-content: center;
   gap: 18px;
 
-  text-align: center;
-
   opacity: 1;
   transform: translateY(0);
 
@@ -79,7 +81,6 @@ html[data-theme="dark"] .card {
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* slide-UP + fade-out */
 .card:hover .front {
   opacity: 0;
   transform: translateY(-40px);
@@ -93,10 +94,11 @@ html[data-theme="dark"] .card {
   font-size: 28px;
   font-weight: 600;
   color: var(--text);
-  margin: 0;
+  margin: 0; /* important */
+  text-align: center;
 }
 
-/* === REVEAL TEXT (BOTTOM SLIDE IN) === */
+/* === REVEAL TEXT === */
 .reveal {
   position: absolute;
   inset: 0;
@@ -121,10 +123,10 @@ html[data-theme="dark"] .card {
 }
 
 .reveal p {
-  color: var(--text-body);
+  color: var(--text);
   font-size: 20px;
   line-height: 1.6;
-  margin: 0;
+  margin: 0; /* important (your screenshot shows default margins pushing layout) */
 }
 
 /* === RESPONSIVE === */
@@ -135,10 +137,6 @@ html[data-theme="dark"] .card {
 
   .heading {
     font-size: 24px;
-  }
-
-  .headingWrap {
-    margin-bottom: 40px;
   }
 
   .card {

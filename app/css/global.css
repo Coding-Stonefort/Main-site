@@ -7,6 +7,8 @@
    1) THEME TOKENS (LIGHT)
 ------------------------- */
 :root {
+  
+
   /* Layout */
   --container: 1240px;
   --section-pad-y: 80px;
@@ -32,6 +34,10 @@
   --border: rgba(10, 16, 21, 0.12);
   --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.12);
   --shadow-md: 0 10px 35px rgba(0, 0, 0, 0.15);
+
+    /* ===== CARD SHADOWS (LIGHT MODE) ===== */
+  --card-shadow: 0 24px 60px rgba(10, 16, 21, 0.12);
+  --card-shadow-hover: 0 34px 80px rgba(10, 16, 21, 0.18);
 
   /* ===== GLASS (FROSTED / MIRROR) ===== */
   --glass-bg: rgba(255, 255, 255, 0.42);
@@ -64,6 +70,8 @@
   --badge-text: var(--brand);
 }
 
+
+
 /* -------------------------
    2) THEME TOKENS (DARK)
    Toggle with: html[data-theme="dark"]
@@ -79,6 +87,11 @@ html[data-theme="dark"] {
   --text-muted: rgba(234, 240, 246, 0.62);
 
   --border: rgba(234, 240, 246, 0.14);
+  
+    /* ===== CARD SHADOWS (DARK MODE – GREEN GLOW) ===== */
+  --card-shadow: 0 0 75px rgba(135, 171, 147, 0.45);
+  --card-shadow-hover: 0 0 95px rgba(135, 171, 147, 0.65);
+
 
   /* brand can stay same, but slightly lighter reads better on dark */
   --brand: #87ab93;
@@ -105,6 +118,7 @@ html[data-theme="dark"] {
   --badge-border: var(--brand-border);
   --badge-text: var(--brand);
 }
+
 
 /* -------------------------
    3) BASE / DEFAULTS

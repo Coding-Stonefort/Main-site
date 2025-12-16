@@ -1,0 +1,170 @@
+/* Section */
+.section {
+  background: var(--bg);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.heading {
+  margin: 0;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+.desc {
+  margin: 12px auto 0;
+  max-width: 920px;
+  color: var(--text-body);
+}
+
+/* Row */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;              
+  justify-content: center;
+}
+
+/* Card (match forex sizing) */
+.card {
+  width: 220px;
+  background: var(--surface-2);  
+  border-radius: 24px;         
+  padding: 22px 20px;           
+  display: flex;
+  flex-direction: column;
+
+  /*  softer shadow like forex */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-md);
+}
+
+/* Symbol (match forex) */
+.symbol {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.5px;  
+  margin: 0 0 14px;       
+}
+
+/* If you later add a "code" line like forex, keep it ready */
+.code {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0 0 16px;
+}
+
+/* Lines layout (same feel as forex) */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;                
+  margin-bottom: 16px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;         
+  color: var(--text-muted);
+}
+
+.label {
+  text-transform: lowercase;
+}
+
+.value {
+  font-weight: 600;       
+}
+
+.green {
+  color: var(--success);
+}
+
+.dark {
+  color: var(--text);
+}
+
+/* Buttons (match forex) */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn {
+  width: 75px;             
+  padding: 10px 0;
+  border-radius: 30px;
+  border: none;
+
+  font-size: 13px;         
+  font-weight: 600;        
+  color: #fff;
+  cursor: pointer;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.96);
+}
+
+.buy {
+  background: #00c853;
+}
+
+.sell {
+  background: #ff5252;
+}
+
+.ctaWrap {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+
+/* CTA button fix */
+.ctaButton {
+  width: auto;              /* override global fixed width */
+  white-space: nowrap;      /* force single line */
+  padding-inline: 40px;     /* balanced horizontal padding */
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .ctaButton {
+    padding-inline: 28px;
+  }
+}
+
+/* Responsive (same behavior) */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 260px;
+  }
+}

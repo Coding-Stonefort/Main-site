@@ -24,16 +24,18 @@ export default function FlipCards() {
     },
   ];
 
-  return (
-    <section className={styles.wrapper}>
+return (
+  <section className={styles.wrapper}>
+    <div className="container">
       <div className={styles.headingWrap}>
-        <h2 className={styles.heading}>Trading with <span>Stonefort</span> gives you:</h2>
+        <h2 className={styles.heading}>
+          Trading with <span>Stonefort</span> gives you:
+        </h2>
       </div>
 
       <div className={styles.grid}>
         {cards.map((card) => (
           <div key={card.id} className={styles.card}>
-            {/* Default visible content */}
             <div className={styles.front}>
               <Image
                 src={card.icon}
@@ -45,13 +47,14 @@ export default function FlipCards() {
               <h3 className={styles.title}>{card.title}</h3>
             </div>
 
-            {/* Text revealed on hover */}
             <div className={styles.reveal}>
               <p>{card.text}</p>
             </div>
           </div>
         ))}
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
+
 }

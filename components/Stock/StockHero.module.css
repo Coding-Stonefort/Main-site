@@ -1,0 +1,137 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Dark theme uses global dark bg */
+:global(html[data-theme="dark"]) .hero {
+  background: var(--bg);
+}
+
+/* Optional right-side background image like Forex */
+.bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url("/images/stockshero.webp"); /* change if needed */
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Content */
+.inner {
+  width: 100%;
+  display: flex;
+  max-width: 1240px;
+  position: relative;
+  z-index: 2;
+}
+
+/* LEFT / RIGHT split */
+.left {
+  width: 50%;
+  max-width: 700px;
+}
+
+.right {
+  width: 50%;
+}
+
+/* spacing like Forex */
+.left h1 {
+  margin-bottom: 20px;
+}
+
+.left p {
+  margin-bottom: 18px;
+  max-width: 700px;
+}
+
+/* Meta row with icons */
+.metaRow {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 26px;
+}
+
+.metaRow li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.metaIcon {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-border);
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* CTA row */
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVE (same as Forex rules) */
+@media (max-width: 1024px) {
+  .hero {
+    height: auto;
+    padding: 60px 0;
+  }
+
+  .bg {
+    opacity: 0.35;
+    background-position: center;
+  }
+
+  .left {
+    width: 100%;
+    padding: 60px 15px;
+    max-width: 100%;
+  }
+
+  .right {
+    width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    width: 0;
+  }
+}
