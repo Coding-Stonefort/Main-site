@@ -1,0 +1,294 @@
+.section {
+  background: var(--bg);
+}
+
+.header {
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto 42px;
+}
+
+.heading {
+  margin: 14px 0 12px;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+.lead {
+  margin: 0 auto;
+  color: var(--text-body);
+  max-width: 920px;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 34px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+/* Left copy */
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.p {
+  margin: 0;
+  color: var(--text-body);
+}
+
+/* Callout */
+.callout {
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+html[data-theme="dark"] .callout {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.calloutTop {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--brand);
+  margin-top: 7px;
+  box-shadow: 0 0 0 6px var(--brand-soft);
+}
+
+.calloutText {
+  margin: 0;
+  color: var(--text);
+}
+
+.calloutNote {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+}
+
+/* Steps */
+.steps {
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+html[data-theme="dark"] .step {
+  background: rgba(12, 18, 24, 0.35);
+  border: 1px solid var(--glass-border);
+}
+
+.stepNum {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: var(--brand);
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-border);
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.stepText {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+}
+
+/* Right card */
+.card {
+  border-radius: 26px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
+  position: sticky;
+  top: 110px;
+}
+
+html[data-theme="dark"] .card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+@media (max-width: 1024px) {
+  .card {
+    position: relative;
+    top: auto;
+  }
+}
+
+.cardHead {
+  padding: 10px 10px 0;
+}
+
+.cardKicker {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.cardTitle {
+  margin: 10px 0 0;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text);
+}
+
+/* Calc block */
+.calc {
+  margin-top: 14px;
+  border-radius: 20px;
+  padding: 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+html[data-theme="dark"] .calc {
+  background: rgba(12, 18, 24, 0.35);
+  border: 1px solid var(--glass-border);
+}
+
+.calcRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 6px;
+}
+
+.calcLabel {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.calcValue {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
+
+.profitRow {
+  border-radius: 14px;
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-border);
+}
+
+.profit {
+  color: var(--brand);
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/* Details */
+.detail {
+  margin-top: 14px;
+  padding: 10px 10px 2px;
+}
+
+.detailTitle {
+  margin: 14px 0 8px;
+  color: var(--text-strong);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.detailText {
+  margin: 0 0 10px;
+  color: var(--text-body);
+    font-size: 16px;
+}
+
+.miniMath {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px dashed var(--border);
+  background: rgba(77, 110, 85, 0.06);
+  margin: 8px 0 12px;
+}
+
+html[data-theme="dark"] .miniMath {
+  border: 1px dashed rgba(234, 240, 246, 0.18);
+  background: rgba(135, 171, 147, 0.08);
+}
+
+.miniLeft {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.miniRight {
+  color: var(--text);
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* CTA inside card */
+.cardCta {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaButton {
+  width: auto;
+  white-space: nowrap;
+  padding-inline: 38px;
+}

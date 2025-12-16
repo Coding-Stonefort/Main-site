@@ -8,6 +8,7 @@ import WhyTradeStocks from "@/components/Stock/WhyTradeStocks";
 import StocksCtaBanner from "@/components/Stock/StocksCtaBanner";
 import PlatformsHero from "@/components/Stock/PlatformsHero";
 import Faqs, { FAQItem } from "@/components/Faqs";
+import GetStartedCta from "@/components/GetStartedCta";
 
 const marketFaqs: FAQItem[] = [
   {
@@ -65,13 +66,14 @@ export default function stock(){
             <WhyTradeStocks />
             <StocksCtaBanner />
             <PlatformsHero />
-                    <Faqs
-                        badgeLabel="Range of Markets FAQs"
-                        title="Forex FAQs Understand the Markets Better "
-                        subtitle=""             
-                        items={marketFaqs}      
-                        initiallyOpenIndex={null} 
-                      />
+            <Faqs
+                badgeLabel="Range of Markets FAQs"
+                title="Forex FAQs Understand the Markets Better "
+                subtitle=""             
+                items={marketFaqs}      
+                initiallyOpenIndex={null} 
+            />
+            <GetStartedCta /> 
         </>
     )
 }

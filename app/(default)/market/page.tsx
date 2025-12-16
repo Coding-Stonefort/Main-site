@@ -3,7 +3,7 @@ import TradableMarkets from "@/components/market/TradableMarkets";
 import MarketsLiveOverview from "@/components/market/MarketsLiveOverview";
 import WhyTradeCFDs from "@/components/market/WhyTradeCFDs";
 // import StepComponent from "@/components/market/StepComponent";
-import HowToRegister from "@/components/market/HowToRegister"
+import HowToRegister from "@/components/market/HowToRegister";
 import RelatedPosts from "@/components/ChangelogRelatedPosts";
 import Faqs, { FAQItem } from "@/components/Faqs";
 

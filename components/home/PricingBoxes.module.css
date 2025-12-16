@@ -1,0 +1,386 @@
+.section {
+  position: relative;
+  padding: 128px 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.inner {
+  position: relative;
+  z-index: 20;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding: 0 24px;
+  }
+}
+
+/* Plates */
+.platesWrap {
+  pointer-events: none;
+  position: absolute;
+  inset-block: 0;
+  left: -10px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.platesBox {
+  position: relative;
+  width: 260px;
+  height: 260px;
+}
+
+@media (min-width: 640px) {
+  .platesBox {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+@media (min-width: 768px) {
+  .platesBox {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+.plate {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 500ms ease;
+  filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.45));
+}
+
+/* a bit heavier on dark bg */
+:global(html[data-theme="dark"]) .plate {
+  filter: drop-shadow(0 40px 90px rgba(0, 0, 0, 0.65));
+}
+
+.plateImg {
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Aurora */
+.auroraTop {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1000px;
+  z-index: 5;
+  filter: blur(72px);
+  opacity: 0.5;
+  background: radial-gradient(closest-side, rgba(77, 110, 85, 0.2), transparent 70%);
+}
+
+.auroraBottom {
+  position: absolute;
+  bottom: -200px;
+  right: -200px;
+  width: 700px;
+  height: 700px;
+  z-index: 5;
+  filter: blur(72px);
+  opacity: 0.4;
+  background: radial-gradient(closest-side, rgba(135, 171, 147, 0.2), transparent 70%);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.h2 {
+  margin: 0;
+  padding-bottom: 16px;
+  font-weight: 700;
+  line-height: 1.05;
+  font-size: 24px;
+
+  /* gradient that works in both themes */
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--text) 55%, transparent),
+    var(--text),
+    color-mix(in srgb, var(--text) 55%, transparent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (min-width: 640px) {
+  .h2 { font-size: 40px; }
+}
+@media (min-width: 768px) {
+  .h2 { font-size: 52px; }
+}
+@media (min-width: 1024px) {
+  .h2 { font-size: 64px; }
+}
+
+.sub {
+  margin: 0;
+  margin-top: 12px;
+  max-width: 48rem;
+  margin-inline: auto;
+  color: var(--text-body);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card */
+.card {
+  --sf: var(--brand);
+
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 62%, transparent);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
+
+  /* keep only subtle color transitions if you want */
+  transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+/* REMOVE the whole hover motion effect */
+.card:hover {
+  transform: none;
+  background: color-mix(in srgb, var(--surface) 62%, transparent);
+  border-color: var(--border);
+}
+
+/* =========================
+   DARK MODE NEON CARD GLOW
+========================= */
+
+:global(html[data-theme="dark"]) .card::before {
+  content: "";
+  position: absolute;
+  inset: -14px; /* glow spread */
+  z-index: -1;
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      60% 60% at 50% 40%,
+      rgba(0, 211, 198, 0.18),
+      rgba(0, 211, 198, 0.08) 40%,
+      transparent 70%
+    );
+
+  filter: blur(28px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+
+
+/* Featured */
+.featured {
+  margin-top: -16px;
+  box-shadow: 0 12px 60px rgba(77, 110, 85, 0.25);
+  border-color: color-mix(in srgb, var(--brand) 35%, transparent);
+}
+
+.cardInner {
+  position: relative;
+  padding: 20px 24px;
+  transition: color 300ms ease;
+}
+
+.topStrip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 3px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background: linear-gradient(90deg, transparent, var(--brand), transparent);
+}
+
+/* Hover effects layers */
+.spotlight {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  background: radial-gradient(
+    220px 220px at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0) 60%,
+    transparent 80%
+  );
+}
+
+.card:hover .spotlight { opacity: 0.7; }
+
+.conicGlow {
+  pointer-events: none;
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  padding: 1px;
+
+  background: conic-gradient(
+    from 180deg,
+    rgba(77, 110, 85, 0.25),
+    rgba(135, 171, 147, 0.35) 25%,
+    rgba(135, 171, 147, 0.25) 75%,
+    rgba(77, 110, 85, 0.25)
+  );
+
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.card:hover .conicGlow { opacity: 1; }
+
+.pulseRing {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 0 1px rgba(77, 110, 85, 0.25) inset, 0 0 60px rgba(77, 110, 85, 0.2);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.shimmer {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: -40%;
+  height: 100%;
+  width: 40%;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+  mix-blend-mode: overlay;
+}
+
+.card:hover .shimmer { opacity: 0; }
+
+/* Badge */
+.badgeFloat {
+  position: absolute;
+  right: 20px;
+  top: -32px;
+}
+
+.badgeImg {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.18));
+}
+
+/* Card content colors (auto theme) */
+.cardTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  color: #101711; /* your light requirement */
+  transition: color 300ms ease;
+}
+
+.cardSubtitle {
+  margin: 6px 0 0;
+  color: var(--text-body);
+  transition: color 300ms ease;
+}
+
+/* When hovered, card becomes brand => make text white */
+/* .card:hover .cardTitle { color: #fff; } */
+/* .card:hover .cardSubtitle { color: rgba(255,255,255,0.9); } */
+
+/* If page is in dark theme, keep title readable even BEFORE hover */
+:global(html[data-theme="dark"]) .cardTitle {
+  color: var(--text);
+}
+
+/* Rows */
+.rows { margin-top: 14px; display: grid; gap: 12px; }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  color: var(--text-body);
+  transition: color 300ms ease;
+}
+
+.rowLeft { white-space: nowrap; }
+.rowRight { font-weight: 700; }
+
+/* .card:hover .row { color: #fff; } */
+
+/* Bottom line */
+.bottomLine {
+  margin-top: 18px;
+  height: 6px;
+  width: 100%;
+  border-radius: 999px;
+  opacity: 0.5;
+  background: linear-gradient(90deg, transparent, var(--brand), transparent);
+}
+
+/*  Keep text colors the same on hover (light mode + dark mode) */
+.card:hover .cardTitle {
+  color: #101711; /* same as normal in light */
+}
+
+.card:hover .cardSubtitle {
+  color: var(--text-body);
+}
+
+.card:hover .row {
+  color: var(--text-body);
+}
+
+/*  Dark theme still readable (and stays same on hover too) */
+:global(html[data-theme="dark"]) .cardTitle,
+:global(html[data-theme="dark"]) .card:hover .cardTitle {
+  color: var(--text);
+}

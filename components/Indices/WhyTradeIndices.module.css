@@ -1,0 +1,199 @@
+.section {
+  background: var(--bg);
+}
+
+.container {
+  display: grid;
+  gap: 28px;
+}
+
+/* ===== Header ===== */
+.header {
+  max-width: 920px;
+  margin: 0 auto ;
+  text-align: center;
+}
+
+.badge {
+  width: fit-content;
+  margin-bottom: 14px;
+}
+
+.title {
+  margin: 0 0 12px;
+}
+
+.text {
+  margin: 0 0 12px;
+  color: var(--text-body);
+}
+
+/* ===== Grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Card ===== */
+.card {
+  /* background: var(--surface); */
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+  padding: 16px 14px 14px;
+  display: grid;
+  gap: 14px;
+}
+
+/* ===== Top ===== */
+.top {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.flag {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 6px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Flags via CSS (no inline styles) */
+.flagUS {
+  background-image: url("/images/flags/us.png");
+}
+.flagDE {
+  background-image: url("/images/flags/de.png");
+}
+.flagUK {
+  background-image: url("/images/flags/uk.png");
+}
+.flagJP {
+  background-image: url("/images/flags/jp.png");
+}
+
+.topText {
+  display: grid;
+  gap: 4px;
+}
+
+.symbol {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 14px;
+}
+
+.symRed {
+  color: #ef4444;
+}
+
+.symGreen {
+  color: #10b981;
+}
+
+.name {
+  font-weight: 800;
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* ===== Rows ===== */
+.rows {
+  display: grid;
+  gap: 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.valueOffer {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ef4444;
+}
+
+.valueDemand {
+  font-size: 12px;
+  font-weight: 800;
+  color: #10b981;
+}
+
+.valueNeutral {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ===== Actions ===== */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.buyBtn,
+.sellBtn {
+  border: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 800;
+  font-size: 12px;
+  color: #fff;
+  min-width: 74px;
+}
+
+.buyBtn {
+  background: #10b981;
+}
+
+.sellBtn {
+  background: #ef4444;
+}
+
+/* Dark mode tweaks */
+:global(html[data-theme="dark"]) .flag {
+  border-color: rgba(234, 240, 246, 0.18);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* ===== CTA ===== */
+.ctaWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}

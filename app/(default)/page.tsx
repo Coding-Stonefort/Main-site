@@ -22,6 +22,7 @@ import ExpandCards from "@/components/home/ExpandCards";
 import DiscoverOpportunities from "@/components/home/DiscoverOpportunities";
 import { PlatformsTabs } from "@/components/VerticalTabs";
 import EconomicCalendar from "@/components/home/EconomicCalendar";
+import HowToRegister from "@/components/market/HowToRegister"
 import BalanceGuard from "@/components/home/BalanceGuard";
 import HowItWorks from "@/components/home/HowItWorks";
 import TrustedBrokerSection from "@/components/TrustedBrokerSection";
@@ -31,7 +32,7 @@ import AccountTiers from "@/components/home/AccountTiers";
 
 
 
-// 👇 slider + product images
+//  slider + product images
 import ProductHeroSlider from "@/components/ProductHeroSlider";
 import DeviceA from "@/public/images/Terminalmt5.webp";
 import DeviceB from "@/public/images/CRM.webp";
@@ -39,7 +40,7 @@ import HoverGlowCard from "@/components/registrationsteps";
 import ProductsShowcase from "@/components/home/ProductsShowcase";
 
 
-// 👇 define slides once at module scope
+//  define slides once at module scope
 const slides = [
   {
     id: "a",
@@ -71,7 +72,8 @@ export default function Home() {
       <PlatformsTabs />
       <PricingBoxes />
       {/* <AccountTiers /> */}
-      <HoverGlowCard /> 
+      {/* <HoverGlowCard />  */}
+      <HowToRegister />
       <Payment />  
       <DiscoverOpportunities />
       <BalanceGuard />

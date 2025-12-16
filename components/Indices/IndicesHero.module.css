@@ -1,0 +1,163 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  /* LIGHT MODE DEFAULT */
+  background: var(--bg);
+}
+
+/* ===== DARK MODE ===== */
+:global(html[data-theme="dark"]) .hero {
+  background: var(--bg);
+}
+
+/* =====================
+   BACKGROUND IMAGE
+===================== */
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background-image: url("/images/stockshero.webp");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+/* ===== LIGHT MODE OVERLAY ===== */
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+/* ===== DARK MODE OVERLAY ===== */
+:global(html[data-theme="dark"]) .bg::after {
+  background: rgba(16, 23, 16, 0.88);
+}
+
+/* =====================
+   CONTENT
+===================== */
+.inner {
+  width: 100%;
+  display: flex;
+  max-width: 1240px;
+  position: relative;
+  z-index: 2;
+}
+
+/* LEFT / RIGHT SPLIT */
+.left {
+  width: 50%;
+  max-width: 700px;
+}
+
+.right {
+  width: 50%;
+}
+
+/* spacing */
+.left h1 {
+  margin-bottom: 20px;
+}
+
+.left p {
+  margin-bottom: 18px;
+  max-width: 700px;
+}
+
+/* =====================
+   META ROW
+===================== */
+.metaRow {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 26px;
+}
+
+.metaRow li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.metaIcon {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-border);
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* CTA row */
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 1024px) {
+  .hero {
+    height: auto;
+    padding: 60px 0;
+  }
+
+  .bg {
+    background-position: center;
+  }
+
+  /* softer overlay on mobile */
+  .bg::after {
+    background: rgba(255, 255, 255, 0.65);
+  }
+
+  :global(html[data-theme="dark"]) .bg::after {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .left {
+    width: 100%;
+    padding: 60px 15px;
+    max-width: 100%;
+  }
+
+  .right {
+    width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    width: 0;
+  }
+}

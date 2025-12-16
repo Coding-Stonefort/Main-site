@@ -1,19 +1,18 @@
 "use client";
+
 import React, { MouseEvent } from "react";
 import Image from "next/image";
+import styles from "./StepCards.module.css";
 
-// ✅ Import your background image
 import BgMask from "@/public/images/bg-mask.png";
 
-function HoverGlowCard({
-  step,
-  title,
-  text,
-}: {
+type CardItem = {
   step: string;
   title: string;
   text: string;
-}) {
+};
+
+function HoverGlowCard({ step, title, text }: CardItem) {
   const onMove = (e: MouseEvent<HTMLDivElement>) => {
     const el = e.currentTarget;
     const r = el.getBoundingClientRect();
@@ -24,39 +23,24 @@ function HoverGlowCard({
   };
 
   return (
-    <div
-      onMouseMove={onMove}
-      className="relative group overflow-hidden rounded-2xl border border-[#4D6E55]/40 bg-[#4d6e55] p-8 text-white transition-all duration-500 hover:border-[#4D6E55] hover:shadow-[0_0_30px_rgba(77,110,85,0.4)]"
-    >
-      {/* ⭐ Background Image */}
-      <Image
-        src={BgMask}
-        alt=""
-        className="absolute bottom-0 right-0 w-190 opacity-40 pointer-events-none select-none"
-      />
+    <article onMouseMove={onMove} className={styles.card}>
+      {/* Background mask image */}
+      <Image src={BgMask} alt="" className={styles.bgMask} priority={false} />
 
-      {/* Glow effect */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
-        style={{
-          background: `radial-gradient(400px circle at var(--mx) var(--my), rgba(30,72,98,0.35), transparent 40%)`,
-        }}
-      />
+      {/* Hover glow overlay (pure CSS, driven by --mx/--my) */}
+      <div className={styles.glow} aria-hidden="true" />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-start space-y-3">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#4d6e55] bg-[#87ab93] text-2xl font-bold text-[#fff] shadow-md">
-          {step}
-        </div>
-        <h3 className="text-2xl font-semibold text-[#fff]">{title}</h3>
-        <p className="text-[#fff]">{text}</p>
+      <div className={styles.cardContent}>
+        <div className={styles.stepBubble}>{step}</div>
+        <h3 className={styles.cardTitle}>{title}</h3>
+        <p className={`text ${styles.cardText}`}>{text}</p>
       </div>
-    </div>
+    </article>
   );
 }
 
 export default function StepCards() {
-  const cards = [
+  const cards: CardItem[] = [
     {
       step: "1",
       title: "Register",
@@ -80,57 +64,27 @@ export default function StepCards() {
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20 text-center">
-      {/* Heading */}
-      <div className="mb-12">
-          <h2             
-          className="
-            bg-clip-text text-transparent bg-gradient-to-r 
-            from-slate-200/60 via-slate-200 to-slate-200/60 
-            pb-4 font-semibold leading-[1.05]
+    <section className={`section ${styles.section}`}>
+      <div className={`container ${styles.inner}`}>
+        {/* Heading */}
+        <header className={styles.header}>
+          <h2 className={`title ${styles.title}`}>Open your account effortlessly</h2>
+          <p className={`text ${styles.subtitle}`}>In four simple steps</p>
+        </header>
 
-            max-sm:text-[24px]   /* ← FORCE smaller on mobile */
-            text-[24px]          /* default */
-            sm:text-[40px]
-            md:text-[52px]
-            lg:text-[64px]
+        {/* Cards */}
+        <div className={styles.grid}>
+          {cards.map((card) => (
+            <HoverGlowCard key={card.step} {...card} />
+          ))}
+        </div>
 
-            "
-            >
-          Open your account effortlessly
-        </h2>
-            <p           
-            className="
-            max-w-3xl mx-auto mt-3 
-            text-slate-600
-            text-[20px]      /* ← set text to exactly 20px */
-            leading-[1.5]    /* optional: smoother reading */
-          "
-          >
-          In four simple steps
-        </p>
-      </div>
-
-      {/* Cards */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-left">
-        {cards.map((card) => (
-          <HoverGlowCard
-            key={card.step}
-            step={card.step}
-            title={card.title}
-            text={card.text}
-          />
-        ))}
-      </div>
-
-      {/* CTA Button */}
-      <div className="mt-12 flex justify-center ">
-        <a
-          href="#"
-          className="inline-flex items-center justify-center rounded-full bg-[#4D6E55] px-8 py-3 text-[white] font-semibold text-lg transition-all duration-300 hover:bg-[#87ab93]"
-        >
-          Open an Account
-        </a>
+        {/* CTA */}
+        <div className={styles.cta}>
+          <a href="#" className="button">
+            Open an Account
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ import { getAllUpdates } from "@/lib/updates";
 
 export default async function RelatedPosts() {
   // Load MDX posts from /content/update
-  const posts = getAllUpdates().slice(0, 3); // latest 3 posts
+  const posts = getAllUpdates().slice(0, 3); 
 
   return (
     <aside>
