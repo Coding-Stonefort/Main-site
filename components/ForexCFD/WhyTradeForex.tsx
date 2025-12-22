@@ -7,7 +7,7 @@ type ForexReason = {
   id: number;
   title: string;
   text: string;
-  icon: string;     // <-- added icon
+  icon: string;
 };
 
 const REASONS: ForexReason[] = [
@@ -63,56 +63,56 @@ const REASONS: ForexReason[] = [
 
 export default function WhyTradeForex() {
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-      <header className={styles.header}>
-        {/* LEFT: text */}
-        <div className={styles.headerContent}>
-          <span className={styles.badge}>OUR FOREX EDGE</span>
+    <section className={`section ${styles.section}`}>
+      <div className={`container ${styles.inner}`}>
+        <header className={styles.header}>
+          {/* LEFT */}
+          <div className={styles.headerContent}>
+            <span className={`badge ${styles.badge}`}>OUR FOREX EDGE</span>
 
-          <div className={styles.headingRow}>
-            <h2 className={styles.title}>Why Trade Forex with <span>Stonefort?</span></h2>
-            <span className={styles.headingLine} />
-          </div>
-
-          <p className={styles.subtitle}>
-            Access institutional-grade trading conditions, advanced technology,
-            and a regulated environment designed to support your forex strategies.
-          </p>
-        </div>
-
-        {/* RIGHT: image */}
-        <div className={styles.headerImageWrap}>
-          <Image
-            src="/images/lock.webp"      // put your shield+coins image here
-            alt="Secure funds with Stonefort"
-            width={480}
-            height={360}
-            className={styles.headerImage}
-            priority
-          />
-        </div>
-      </header>
-
-
-        {/* 8 cards */}
-        <div className={styles.grid}>
-          {REASONS.map((item) => (
-          <article key={item.id} className={styles.card}>
-            <div className={styles.cardIcon}>
-              <Image
-                src={item.icon}
-                alt={item.title}
-                width={48}
-                height={48}
-                className={styles.iconImage}
-              />
+            <div className={styles.headingRow}>
+              <h2 className={`title ${styles.title}`}>
+                Why Trade Forex with <span className={styles.accent}>Stonefort?</span>
+              </h2>
+              <span className={styles.headingLine} aria-hidden="true" />
             </div>
 
-            <h3 className={styles.cardTitle}>{item.title}</h3>
-            <p className={styles.cardText}>{item.text}</p>
-          </article>
+            <p className={`text ${styles.subtitle}`}>
+              Access institutional-grade trading conditions, advanced technology,
+              and a regulated environment designed to support your forex strategies.
+            </p>
+          </div>
 
+          {/* RIGHT */}
+          <div className={styles.headerImageWrap}>
+            <Image
+              src="/images/lock.webp"
+              alt="Secure funds with Stonefort"
+              width={480}
+              height={360}
+              className={styles.headerImage}
+              priority
+            />
+          </div>
+        </header>
+
+        {/* Cards */}
+        <div className={styles.grid}>
+          {REASONS.map((item) => (
+            <article key={item.id} className={styles.card}>
+              <div className={styles.cardIcon}>
+                <Image
+                  src={item.icon}
+                  alt={item.title}
+                  width={48}
+                  height={48}
+                  className={styles.iconImage}
+                />
+              </div>
+
+              <h3 className={styles.cardTitle}>{item.title}</h3>
+              <p className={styles.cardText}>{item.text}</p>
+            </article>
           ))}
         </div>
       </div>

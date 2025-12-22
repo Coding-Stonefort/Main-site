@@ -1,0 +1,106 @@
+.section {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+/* LEFT */
+.content {
+  max-width: 560px;
+}
+
+.kicker {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: var(--brand);
+}
+
+/* keep global .title sizes; only spacing here */
+.title {
+  margin: 0 0 16px;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+/* keep global .text sizes; only color/line-height here */
+.text {
+  color: var(--text-body);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* RIGHT */
+.media {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  position: relative;
+  width: 520px;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  overflow: visible;
+}
+
+/* subtle premium glow only in dark mode */
+:global(html[data-theme="dark"]) .circle::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(0, 211, 198, 0.25),
+    rgba(77, 110, 85, 0.22) 45%,
+    rgba(16, 23, 17, 0) 70%
+  );
+  filter: blur(14px);
+  z-index: -1;
+}
+
+.heroImage {
+  object-fit: contain;
+  transform: translateY(6px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .inner {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .circle {
+    width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .circle {
+    width: 220px;
+  }
+}

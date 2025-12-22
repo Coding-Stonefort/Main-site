@@ -1,47 +1,39 @@
-/* ===== WHITE BACKGROUND ===== */
 .section {
-  padding: 96px 24px;
-  background: #ffffff;
+  background: var(--bg);
 }
 
 .inner {
-  max-width: 1240px;
-  margin: 0 auto;
   display: flex;
   gap: 60px;
   align-items: center;
 }
 
+/* LEFT */
 .content {
   flex: 1;
-  color: #1f2937;
 }
 
-/* ===== TEXT STYLING ===== */
 .title {
-  font-size: 56px;
-  font-weight: 700;
   margin-bottom: 16px;
-  color: #000;
+  color: var(--text-strong);
 }
 
-.title span {
-  color: #4d6e55;
+.accent {
+  color: var(--brand);
 }
 
 .text {
-  font-size: 20px;
+  color: var(--text-body);
   line-height: 1.7;
-  color: #4b5563;
   margin-bottom: 14px;
 }
 
 .highlight {
-  color: #4d6e55;
+  color: var(--brand);
   font-weight: 700;
 }
 
-/* ===== IMAGE AREA ===== */
+/* RIGHT */
 .imageWrapper {
   position: relative;
   flex: 1;
@@ -53,24 +45,34 @@
   border-radius: 36px;
 }
 
-/* ===== WHITE GLASS / MIRROR CARD ===== */
+/* ==========================
+   GLASS CARD (SAFE)
+   no color-mix() dependency
+========================== */
 .statCard {
   position: absolute;
   width: 280px;
   padding: 16px 20px;
   border-radius: 26px;
+  overflow: hidden;
 
-  /* PURE WHITE GLASS */
+  /* LIGHT MODE glass */
   background: rgba(255, 255, 255, 0.42);
   border: 1px solid rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(18px);
 
-  /* soft shadow */
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: var(--shadow-md);
 }
 
-/* ===== CARD POSITIONS ===== */
+/* DARK MODE glass */
+:global(html[data-theme="dark"]) .statCard {
+  background: rgba(16, 23, 17, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Card positions */
 .card1 {
   top: 16px;
   left: 16px;
@@ -86,29 +88,41 @@
   left: 22px;
 }
 
-/* light glass reflection */
+/* reflection layer */
 .statCard::before {
   content: "";
   position: absolute;
   inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+
   background: linear-gradient(
     115deg,
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.1) 55%
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0.10) 55%
   );
-  opacity: 0.4;
-  pointer-events: none;
 }
 
-/* ===== CARD CONTENT ===== */
+:global(html[data-theme="dark"]) .statCard::before {
+  opacity: 0.22;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.14),
+    rgba(255, 255, 255, 0.03) 55%
+  );
+}
+
+/* Card content */
 .statTopRow {
   margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .statLabel {
   font-size: 13px;
   font-weight: 600;
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
 .statMain {
@@ -116,59 +130,47 @@
   align-items: baseline;
   gap: 4px;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .currencySign {
   font-size: 18px;
   font-weight: 500;
-  color: #374151;
+  color: var(--text-body);
 }
 
 .statNumber {
   font-size: 30px;
   font-weight: 700;
-  color: #111827;
+  color: var(--text-strong);
 }
 
 .smallNote {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
-/* BOTTOM STATS */
 .statBottomRow {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .positive {
-  color: #22c55e;
+  color: var(--success);
 }
 
 .neutral {
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
 .statTag {
   margin-left: auto;
-  color: #6b7280;
-}
-
-/* Minimal chart reflection */
-.sparkline {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 35px;
-  opacity: 0.16;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.07),
-    transparent
-  );
+  color: var(--text-muted);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -181,29 +183,19 @@
     min-height: 460px;
   }
 
-  .statCard {
-    position: static;
-    margin-top: 18px;
-  }
-
+  .statCard,
   .card1,
   .card2,
   .card3 {
     position: static;
-    margin-top: 18px;
+    width: 100%;
+    max-width: 420px;
+    margin: 18px auto 0;
   }
 }
 
 @media (max-width: 640px) {
-  .section {
-    padding: 60px 16px;
-  }
-
   .title {
     font-size: 34px;
-  }
-
-  .statCard {
-    width: 100%;
   }
 }

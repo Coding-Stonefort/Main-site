@@ -1,40 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import "../metals/MetalsHero.css";
+import styles from "./cryptocurrency.module.css";
 
 export default function Cryptocurrency() {
   return (
-    <section className="metals-hero">
-      {/* Background Image */}
-      <div
-        className="metals-hero-bg"
-        style={{ backgroundImage: `url("/images/cryptocurrencyHero.webp")` }}
-      />
+    <section className={`${styles.hero} section`}>
+      {/* Background */}
+      <div className={styles.bg} aria-hidden="true" />
 
-      {/* Inner Content */}
-      <div className="metals-hero-content">
-        {/* LEFT TEXT BLOCK */}
-        <div className="metals-left">
-          <h1 className="metals-title">
-            Cryptocurrency Trading with <br /> Stonefort
+      <div className={`${styles.inner} container`}>
+        <div className={styles.left}>
+          <h1 className={`${styles.title} heading`}>
+            Cryptocurrency Trading with <br /> Stonefort
           </h1>
 
-          <p className="metals-subtitle">
-            Access some of the most widely traded cryptocurrencies through Stonefort’s margin trading environment. Trade price movements in global crypto markets without the need for a digital wallet, allowing you to participate with added convenience while benefiting from a regulated and secure trading framework. 
+          <p className={`${styles.subtitle} text`}>
+            Access some of the most widely traded cryptocurrencies through
+            Stonefort’s margin trading environment. Trade price movements in
+            global crypto markets without the need for a digital wallet,
+            allowing you to participate with added convenience while benefiting
+            from a regulated and secure trading framework.
           </p>
 
-          <div className="metals-cta-row">
-            <Link href="/register" className="metals-btn-primary">
+          <div className={styles.ctaRow}>
+            <Link href="/register" className={`button ${styles.primary}`}>
               Open an Account
             </Link>
-            <Link href="/demo" className="metals-btn-secondary">
+
+            <Link href="/demo" className={`button ${styles.secondary}`}>
               Trade Now
             </Link>
           </div>
-
-          <div className="metals-right"></div>
         </div>
+
+        {/* keep the right column for spacing / future image layering */}
+        <div className={styles.right} />
       </div>
     </section>
   );

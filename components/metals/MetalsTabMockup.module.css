@@ -1,0 +1,187 @@
+/* Section wrapper (use global .section + our local tweaks) */
+.section {
+  background: var(--bg);
+}
+
+/* ===== Heading area ===== */
+.headingWrap {
+  max-width: 960px;
+  margin: 0 auto 24px;
+  text-align: center;
+  padding: 0 16px;
+}
+
+
+
+.brand {
+  color: var(--brand);
+}
+
+
+/* Outer wrapper just to center it */
+.tabWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+/* ================= LAPTOP FRAME ================= */
+.laptopShell {
+  position: relative;
+  max-width: 1060px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  background: url("/images/laptop-mockup.png") center bottom no-repeat;
+  background-size: contain;
+  z-index: 1;
+}
+
+/* Area inside the laptop screen */
+.laptopScreen {
+  position: absolute;
+
+  /* Tighter insets so it sits inside the visible screen */
+  top: 10%;
+  left: 18%;
+  right: 17%;
+  bottom: 16%;
+
+  overflow: hidden;
+  background: #050608;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.85) inset;
+  z-index: 1;
+}
+
+.tabInner {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  row-gap: 10px;
+}
+
+/* TOP CHART */
+.chartWrapper {
+  position: relative;
+  border-radius: 10px;
+  background-color: #111319;
+  overflow: hidden;
+}
+
+/* The square grid background */
+.chartGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(180, 180, 180, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(180, 180, 180, 0.25) 1px, transparent 1px);
+  background-size: 32px 32px;
+  z-index: 0;
+}
+
+.runningChartCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* line above grid */
+}
+
+.chartLogoBg {
+  position: absolute;
+  inset: 0;
+  background: url("/images/sfs-logo.webp") center center no-repeat;
+  background-size: 25%;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* BOTTOM BOXES */
+.bottomRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 10px;
+}
+
+/* ================= BOTTOM BOXES ================= */
+.typingBox {
+  background: radial-gradient(circle at top left, #1f2933, #0b1110);
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 0 25px rgba(77, 110, 85, 0.2);
+}
+
+.typingTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+  max-width: 200px;
+}
+
+.typingText {
+  padding-top: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #e5e7eb;
+  min-height: 2.3em; /* keep height stable while typing */
+  white-space: pre-wrap;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 960px) {
+  .typingTitle {
+    font-size: 14px;
+  }
+
+  .typingText {
+    font-size: 12px;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .laptopShell {
+    max-width: 100%;
+    height: 250px;
+  }
+
+  .chartLogoBg {
+    background-size: 15%;
+  }
+
+  .laptopScreen {
+    top: 6%;
+    left: 10%;
+    right: 10%;
+    bottom: 11%;
+    border-radius: 10px;
+    overflow-y: auto;
+  }
+
+  .tabInner {
+    padding: 8px 8px;
+    grid-template-rows: 30% 70%;
+    row-gap: 8px;
+  }
+
+  .bottomRow {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 8px;
+  }
+
+  .typingTitle {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+
+  .typingText {
+    font-size: 9px;
+    line-height: 1.2;
+  }
+}

@@ -466,7 +466,7 @@ export default function crypto() {
         <RelatedPosts />
         <Faqs 
             badgeLabel="Range of Markets FAQs"
-            title="Crypto FAQs – Understand the Markets Better "
+            title="Crypto FAQs Understand the Markets Better "
             subtitle=""             
             items={marketFaqs}      
             initiallyOpenIndex={null}

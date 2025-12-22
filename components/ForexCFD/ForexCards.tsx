@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import "./ForexCards.css";
+import styles from "./ForexCards.module.css";
 
 type Quote = {
   symbol: string;
@@ -37,68 +37,76 @@ export default function ForexCards() {
     }
 
     loadQuotes();
-    const id = setInterval(loadQuotes, 10000);
-    return () => clearInterval(id);
+    const id = window.setInterval(loadQuotes, 10000);
+    return () => window.clearInterval(id);
   }, []);
 
   return (
-    <section className="fc-section">
+    <section className={`section ${styles.section}`}>
+      <div className={`container ${styles.inner}`}>
+        <header className={styles.header}>
+          <h2 className={`title ${styles.heading}`}>
+            Major Currency <span className={styles.accent}>Pairs</span>
+          </h2>
 
-      <div className="fc-header">
-        <h2 className="fc-heading">Major Currency <span>Pairs</span></h2>
-        <p className="fc-desc">
-          Trade the world’s most actively traded currency pairs with spreads
-          designed to support efficient execution. All majors are quoted against
-          the US Dollar, offering clear pricing and stable market depth.
-          Stonefort’s competitive spread environment helps you navigate these
-          highly liquid markets with confidence and precision.
-        </p>
-      </div>
+          <p className={`text ${styles.desc}`}>
+            Trade the world’s most actively traded currency pairs with spreads
+            designed to support efficient execution. All majors are quoted against
+            the US Dollar, offering clear pricing and stable market depth.
+            Stonefort’s competitive spread environment helps you navigate these
+            highly liquid markets with confidence and precision.
+          </p>
+        </header>
 
-      <div className="fc-row">
-        {PAIRS.map((pair) => {
-          const q = quotes[pair.symbol];
-          const bid = q?.bid ?? 0;
-          const ask = q?.ask ?? 0;
-          const spread = ask && bid ? ask - bid : 0;
+        <div className={styles.row}>
+          {PAIRS.map((pair) => {
+            const q = quotes[pair.symbol];
+            const bid = q?.bid ?? 0;
+            const ask = q?.ask ?? 0;
+            const spread = ask && bid ? ask - bid : 0;
 
-          return (
-            <div className="fc-card" key={pair.symbol}>
-              <h3 className="fc-symbol">{pair.symbol}</h3>
+            return (
+              <div className={styles.card} key={pair.symbol}>
+                <h3 className={styles.symbol}>{pair.symbol}</h3>
 
-              <div className="fc-line">
-                <span>Bid</span>
-                <span className="fc-green">
-                  {bid ? bid.toFixed(5) : "--"}
-                </span>
+                <div className={styles.line}>
+                  <span className={styles.label}>Bid</span>
+                  <span className={styles.valueGreen}>
+                    {bid ? bid.toFixed(5) : "--"}
+                  </span>
+                </div>
+
+                <div className={styles.line}>
+                  <span className={styles.label}>Ask</span>
+                  <span className={styles.valueGreen}>
+                    {ask ? ask.toFixed(5) : "--"}
+                  </span>
+                </div>
+
+                <div className={styles.line}>
+                  <span className={styles.label}>Spread</span>
+                  <span className={styles.valueStrong}>
+                    {spread ? spread.toFixed(5) : "--"}
+                  </span>
+                </div>
+
+                <div className={styles.line}>
+                  <span className={styles.label}>Leverage</span>
+                  <span className={styles.valueStrong}>{pair.leverage}</span>
+                </div>
+
+                <div className={styles.buttons}>
+                  <button type="button" className={`${styles.btn} ${styles.buy}`}>
+                    Buy
+                  </button>
+                  <button type="button" className={`${styles.btn} ${styles.sell}`}>
+                    Sell
+                  </button>
+                </div>
               </div>
-
-              <div className="fc-line">
-                <span>Ask</span>
-                <span className="fc-green">
-                  {ask ? ask.toFixed(5) : "--"}
-                </span>
-              </div>
-
-              <div className="fc-line">
-                <span>Spread</span>
-                <span className="fc-dark">
-                  {spread ? spread.toFixed(5) : "--"}
-                </span>
-              </div>
-
-              <div className="fc-line">
-                <span>Leverage</span>
-                <span className="fc-dark">{pair.leverage}</span>
-              </div>
-
-              <div className="fc-buttons">
-                <button className="fc-btn fc-buy">Buy</button>
-                <button className="fc-btn fc-sell">Sell</button>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

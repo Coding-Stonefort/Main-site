@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import "./MetalsGrid.css";
+import styles from "./MetalsGrid.module.css";
 
 const cards = [
   {
@@ -36,39 +36,44 @@ const cards = [
 
 export default function MetalsGrid() {
   return (
-    <section className="markets-section">
-      <div className="markets-header">
-        <h2 className="markets-title">
-          What Commodity CFDs Can You <br/>Trade with <span>Stonefort?</span>
-        </h2>
-        <p className="markets-subtitle">
-          Access a diverse selection of commodity CFDs across precious and 
-          semi-precious metals, energy products and soft commodities. Explore 
-          multiple market segments through a single trading account.
-        </p>
-      </div>
+    <section className={`${styles.section} section`}>
+      <div className="container">
+        <header className={styles.header}>
+          <h2 className={`title ${styles.title}`}>
+            What Commodity CFDs Can You 
+            Trade with <span className={styles.brand}>Stonefort?</span>
+          </h2>
 
-      <div className="markets-inner">
-        {cards.map((card) => (
-          <article key={card.id} className="market-card">
-            <div className="market-card-bg">
-              <Image
-                src={card.image}
-                alt={card.title}
-                fill
-                className="market-card-img"
-              />
-            </div>
+          <p className={`description ${styles.subtitle}`}>
+            Access a diverse selection of commodity CFDs across precious and
+            semi-precious metals, energy products and soft commodities. Explore
+            multiple market segments through a single trading account.
+          </p>
+        </header>
 
-            <h3 className="market-card-title">{card.title}</h3>
-
-            <div className="market-card-overlay">
-              <div className="market-card-body">
-                <p className="market-card-text">{card.description}</p>
+        <div className={styles.grid}>
+          {cards.map((card) => (
+            <article key={card.id} className={styles.card}>
+              <div className={styles.bg}>
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  fill
+                  className={styles.img}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
               </div>
-            </div>
-          </article>
-        ))}
+
+              <h3 className={styles.cardTitle}>{card.title}</h3>
+
+              <div className={styles.overlay}>
+                <div className={styles.body}>
+                  <p className={styles.text}>{card.description}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

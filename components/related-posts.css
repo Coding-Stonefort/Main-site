@@ -91,7 +91,7 @@
 .rp-card-img {
   display: block;
   width: 100%;
-  height: 200px;          /* adjust if you want taller/shorter */
+  height: 200px;         
   object-fit: cover;
   transition: transform 0.25s ease-out, opacity 0.25s ease-out;
   opacity: 0.95;

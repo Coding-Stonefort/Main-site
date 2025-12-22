@@ -10,9 +10,7 @@ type MarketItem = {
 const ROWS: MarketItem[][] = [
   // Row 0 – Most Famous / Top Market Cap
 
-
   // Row 1 – Large Caps
-
 
   // Row 2 – Strong Altcoins
   [
@@ -31,14 +29,14 @@ const ROWS: MarketItem[][] = [
     { symbol: "APT" },
     { symbol: "ATOM" },
   ],
-    [
+  [
     { symbol: "ADA" },
     { symbol: "DOGE" },
     { symbol: "AVAX" },
     { symbol: "DOT" },
     { symbol: "TRX" },
   ],
-    [
+  [
     { symbol: "BTC" },
     { symbol: "ETH" },
     { symbol: "BNB" },
@@ -49,22 +47,36 @@ const ROWS: MarketItem[][] = [
 
 export default function MarketsCatalogHero() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.inner}>
+    <section className={`${styles.section} section`}>
+      <div className={`${styles.inner} container`}>
         <header className={styles.header}>
-          <h2 className={styles.title}>
-            How Cryptocurrency Trading Works with {" "}
-            <span>Stonefort </span>
+          <h2 className={`title ${styles.title}`}>
+            How Cryptocurrency Trading Works with{" "}
+            <span className={styles.accent}>Stonefort</span>
           </h2>
 
-          <p className={styles.subtitle}>
-            Cryptocurrency trading allows you to speculate on the price movements of digital assets such as Bitcoin and Ethereum without needing to own or store the underlying coins. With Stonefort, you can trade these markets on margin, giving you the flexibility to open positions using a portion of the full value while applying appropriate risk management. 
+          <p className={`text ${styles.subtitle}`}>
+            Cryptocurrency trading allows you to speculate on the price movements
+            of digital assets such as Bitcoin and Ethereum without needing to own
+            or store the underlying coins. With Stonefort, you can trade these
+            markets on margin, giving you the flexibility to open positions using
+            a portion of the full value while applying appropriate risk management.
           </p>
-          <p className={styles.subtitle}>
-            Digital assets are known for their rapid price fluctuations, which create both opportunities and risks. Through platforms like MetaTrader 5 (MT5) and Stonefort Trader, you can analyse market conditions, apply trading strategies and manage positions within a familiar and intuitive environment. 
+
+          <p className={`text ${styles.subtitle}`}>
+            Digital assets are known for their rapid price fluctuations, which
+            create both opportunities and risks. Through platforms like MetaTrader
+            5 (MT5) and Stonefort Trader, you can analyse market conditions, apply
+            trading strategies and manage positions within a familiar and intuitive
+            environment.
           </p>
-          <p className={styles.subtitle}>
-            Stonefort operates under recognised regulatory frameworks, providing a structured and secure setting for traders engaging in crypto CFD markets. As cryptocurrency markets can be highly volatile, it is important to approach trading responsibly and with careful consideration of your risk exposure. 
+
+          <p className={`text ${styles.subtitle}`}>
+            Stonefort operates under recognised regulatory frameworks, providing a
+            structured and secure setting for traders engaging in crypto CFD markets.
+            As cryptocurrency markets can be highly volatile, it is important to
+            approach trading responsibly and with careful consideration of your risk
+            exposure.
           </p>
         </header>
 

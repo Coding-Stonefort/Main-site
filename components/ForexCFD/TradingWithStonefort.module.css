@@ -1,0 +1,138 @@
+.section {
+  background: var(--bg);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.title {
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.brand {
+  color: var(--brand);
+}
+
+/* 3 phones layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 56px;
+  justify-items: center;
+  align-items: end;
+  margin-top: 90px;
+}
+
+.side {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ---------- HOVER STACK ---------- */
+
+.phoneWrap {
+  position: relative;
+  width: min(300px, 92%);
+}
+
+/* ===== STRONG FLOOR SHADOW ===== */
+.phoneWrap::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  transform: translateX(-50%);
+  width: 82%;
+  height: 26px;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0.18) 55%,
+    transparent 75%
+  );
+
+  filter: blur(9px);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.phoneCenter::after {
+  width: 88%;
+  height: 30px;
+  bottom: -28px;
+  opacity: 1;
+  filter: blur(10px);
+}
+
+/* keep phone images above the shadow */
+.phoneBase,
+.phoneHover {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover image on top */
+.phoneHover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.98);
+  z-index: 2;
+}
+
+/* Hover swap */
+.phoneWrap:hover .phoneBase {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.phoneWrap:hover .phoneHover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* slight “lift” feel on hover shadow */
+.phoneWrap:hover::after {
+  transform: translateX(-50%) scale(0.88);
+  opacity: 0.7;
+}
+
+/* Center phone spacing */
+.phoneCenter {
+  margin-bottom: 60px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    align-items: center;
+  }
+
+  .phoneWrap {
+    width: min(360px, 92%);
+  }
+
+  .phoneCenter {
+    margin-bottom: 0;
+  }
+}

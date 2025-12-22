@@ -26,12 +26,15 @@ export default function WhyTradeCFDs() {
   ];
 
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
+    <section className={`section ${styles.section}`}>
+      <div className={`container ${styles.inner}`}>
         {/* Heading */}
         <div className={styles.header}>
-          <h2 className={styles.title}>Why trade global markets using CFDs?</h2>
-          <p className={styles.subtitle}>
+          <h2 className={`title ${styles.title}`}>
+            Why trade global markets using CFDs?
+          </h2>
+
+          <p className={`text ${styles.subtitle}`}>
             CFDs are derivative instruments that mirror the price movement of
             underlying markets such as forex, indices, shares and commodities.
             They allow traders to access global opportunities efficiently

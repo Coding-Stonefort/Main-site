@@ -1,0 +1,136 @@
+.section {
+  background: var(--bg);
+}
+
+.header {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.heading {
+  margin-bottom: 16px;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+.desc {
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+/* Cards row */
+.row {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Card */
+.card {
+  width: 220px;
+  border-radius: 24px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+
+  /* background: var(--surface); */
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.symbol {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 0 0 14px;
+  color: #fff; 
+}
+
+
+.code {
+  margin: -8px 0 14px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.label {
+  color: var(--text-muted);
+}
+
+.valueGreen {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.valueStrong {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn {
+  width: 75px;
+  padding: 10px 0;
+  border-radius: 30px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+/* Keep your Buy/Sell colors (brand-safe) */
+.buy {
+  background: #00c853;
+}
+
+.sell {
+  background: #ff5252;
+}
+
+/* ✅ missing in your CSS */
+.disclaimer {
+  width: 100%;
+  margin: 10px 0 0;
+  text-align: center;
+  color: var(--text-body);
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 260px;
+  }
+}

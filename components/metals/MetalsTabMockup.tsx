@@ -1,57 +1,60 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import "./MetalsTabMockup.css";
+import styles from "./MetalsTabMockup.module.css";
 
 export default function MetalsLaptopTabMockup() {
   return (
-    <section className="metals-section">
-      {/* ===== Heading + Body Text ===== */}
-      <div className="metals-heading-wrap">
-        <h2 className="metals-heading">
-          How Precious Metals Trading Works with <span>Stonefort</span>
-        </h2>
+    <section className={`${styles.section} section`}>
+      <div className="container">
+        {/* ===== Heading + Body Text ===== */}
+        <div className={styles.headingWrap}>
+          <h2 className={`title ${styles.heading}`}>
+            How Precious Metals Trading Works with{" "}
+            <span className={styles.brand}>Stonefort</span>
+          </h2>
 
-        <p className="metals-paragraph">
-          Precious metals trading allows you to speculate on the price movements
-          of assets such as gold, silver, and platinum without needing to hold
-          the physical commodity. These instruments are often viewed as
-          defensive or diversification assets, especially during periods of
-          market uncertainty.
-        </p>
+          <p className={`description ${styles.paragraph}`}>
+            Precious metals trading allows you to speculate on the price movements
+            of assets such as gold, silver, and platinum without needing to hold
+            the physical commodity. These instruments are often viewed as
+            defensive or diversification assets, especially during periods of
+            market uncertainty.
+          </p>
 
-        <p className="metals-paragraph">
-          Through Stonefort, traders can access these markets using leverage,
-          which enables control of a larger position size relative to the
-          capital placed as margin. While leverage offers flexibility, it also
-          increases both potential gains and potential losses, so it should be
-          used with appropriate risk management.
-        </p>
-      </div>
+          <p className={`description ${styles.paragraph}`}>
+            Through Stonefort, traders can access these markets using leverage,
+            which enables control of a larger position size relative to the
+            capital placed as margin. While leverage offers flexibility, it also
+            increases both potential gains and potential losses, so it should be
+            used with appropriate risk management.
+          </p>
+        </div>
 
-      {/* ===== Laptop mockup ===== */}
-      <div className="metal-tab-wrap">
-        <div className="laptop-shell">
-          <div className="laptop-screen">
-            <div className="metal-tab-inner">
-              {/* TOP: CHART */}
-              <div className="chart-wrapper">
-                <div className="chart-logo-bg" />
-                <div className="chart-grid" />
+        {/* ===== Laptop mockup ===== */}
+        <div className={styles.tabWrap}>
+          <div className={styles.laptopShell}>
+            <div className={styles.laptopScreen}>
+              <div className={styles.tabInner}>
+                {/* TOP: CHART */}
+                <div className={styles.chartWrapper}>
+                  <div className={styles.chartLogoBg} />
+                  <div className={styles.chartGrid} />
 
-                <RunningLineChart />
-              </div>
+                  <RunningLineChart />
+                </div>
 
-              {/* BOTTOM: BOXES */}
-              <div className="metal-bottom-row">
-                <TypingBox
-                  title="Gold (XAUUSD) Leverage"
-                  text="Leverage of up to 1:1000, depending on your account’s leverage settings."
-                />
-                <TypingBox
-                  title="Silver (XAGUSD) & Platinum (XPTUSD)"
-                  text="Leverage of up to 1:200, typically set at one-fifth of your account’s leverage."
-                />
+                {/* BOTTOM: BOXES */}
+                <div className={styles.bottomRow}>
+                  <TypingBox
+                    title="Gold (XAUUSD) Leverage"
+                    text="Leverage of up to 1:1000, depending on your account’s leverage settings."
+                  />
+                  <TypingBox
+                    title="Silver (XAGUSD) & Platinum (XPTUSD)"
+                    text="Leverage of up to 1:200, typically set at one-fifth of your account’s leverage."
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -61,7 +64,7 @@ export default function MetalsLaptopTabMockup() {
   );
 }
 
-/* =========== Typing box =========== */
+/* =========== Typing box (logic unchanged) =========== */
 
 function TypingBox({ title, text }: { title: string; text: string }) {
   const [display, setDisplay] = useState("");
@@ -91,12 +94,15 @@ function TypingBox({ title, text }: { title: string; text: string }) {
   }, [text]);
 
   return (
-    <div className="typing-box">
-      <h3 className="typing-title">{title}</h3>
-      <p className="typing-text">{display}</p>
+    <div className={styles.typingBox}>
+      <h3 className={styles.typingTitle}>{title}</h3>
+      <p className={styles.typingText}>{display}</p>
     </div>
   );
 }
+
+/* =========== Running chart (logic unchanged) =========== */
+
 function RunningLineChart() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -113,8 +119,8 @@ function RunningLineChart() {
     let height = 0;
     const pointCount = 120;
 
-    const upColor = "#16a34a";  
-    const downColor = "#dc2626"; 
+    const upColor = "#16a34a";
+    const downColor = "#dc2626";
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -158,13 +164,11 @@ function RunningLineChart() {
 
       for (let i = 1; i < points.length; i++) {
         const prevX = (i - 1) * stepX;
-        const prevY =
-          margin + (h - margin * 2) * (1 - points[i - 1]);
+        const prevY = margin + (h - margin * 2) * (1 - points[i - 1]);
 
         const x = i * stepX;
         const y = margin + (h - margin * 2) * (1 - points[i]);
 
-        // Choose color based on direction of move
         const isUp = points[i] > points[i - 1];
         ctx.strokeStyle = isUp ? upColor : downColor;
 
@@ -203,5 +207,5 @@ function RunningLineChart() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="running-chart-canvas" />;
+  return <canvas ref={canvasRef} className={styles.runningChartCanvas} />;
 }

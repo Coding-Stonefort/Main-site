@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import styles from "../ForexCFD/WhyTradeForex.module.css";
+import styles from "./WhyTradeCrypto.module.css";
 
 type MetalsReason = {
   id: number;
   title: string;
   text: string;
-  icon: string;     // <-- added icon
+  icon: string;
 };
 
 const REASONS: MetalsReason[] = [
@@ -47,61 +47,62 @@ const REASONS: MetalsReason[] = [
     title: "Execution Without Requotes ",
     text: "Our deep liquidity access and advanced execution technology are structured to reduce interruptions, helping ensure your orders are processed without requotes during normal market conditions. ",
   },
-
 ];
 
 export default function WhyTradeCrypto() {
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-      <header className={styles.header}>
-        {/* LEFT: text */}
-        <div className={styles.headerContent}>
-          <span className={styles.badge}>OUR commodities EDGE</span>
+    <section className={`${styles.section} section`}>
+      <div className={`${styles.inner} container`}>
+        <header className={styles.header}>
+          {/* LEFT: text */}
+          <div className={styles.headerContent}>
+            <span className={`badge ${styles.badge}`}>OUR commodities EDGE</span>
 
-          <div className={styles.headingRow}>
-            <h2 className={styles.title}>Why Trade Cryptocurrency CFDs with <span>Stonefort?</span></h2>
-            <span className={styles.headingLine} />
-          </div>
-
-          <p className={styles.subtitle}>
-            Access institutional-grade trading conditions, advanced technology,
-            and a regulated environment designed to support your forex strategies.
-          </p>
-        </div>
-
-        {/* RIGHT: image */}
-        <div className={styles.headerImageWrap}>
-          <Image
-            src="/images/whyCrpto.webp"      // put your shield+coins image here
-            alt="Secure funds with Stonefort"
-            width={480}
-            height={360}
-            className={styles.headerImage}
-            priority
-          />
-        </div>
-      </header>
-
-
-        {/* 8 cards */}
-        <div className={styles.Metalsgrid}>
-          {REASONS.map((item) => (
-          <article key={item.id} className={styles.card}>
-            <div className={styles.cardIcon}>
-              <Image
-                src={item.icon}
-                alt={item.title}
-                width={48}
-                height={48}
-                className={styles.iconImage}
-              />
+            <div className={styles.headingRow}>
+              <h2 className={`title ${styles.title}`}>
+                Why Trade Cryptocurrency CFDs with{" "}
+                <span className={styles.accent}>Stonefort?</span>
+              </h2>
+              <span className={styles.headingLine} />
             </div>
 
-            <h3 className={styles.cardTitle}>{item.title}</h3>
-            <p className={styles.cardText}>{item.text}</p>
-          </article>
+            <p className={`description ${styles.subtitle}`}>
+              Access institutional-grade trading conditions, advanced technology,
+              and a regulated environment designed to support your forex
+              strategies.
+            </p>
+          </div>
 
+          {/* RIGHT: image */}
+          <div className={styles.headerImageWrap}>
+            <Image
+              src="/images/whyCrpto.webp"
+              alt="Secure funds with Stonefort"
+              width={480}
+              height={360}
+              className={styles.headerImage}
+              priority
+            />
+          </div>
+        </header>
+
+        {/* cards */}
+        <div className={styles.grid}>
+          {REASONS.map((item) => (
+            <article key={item.id} className={styles.card}>
+              <div className={styles.cardIcon}>
+                <Image
+                  src={item.icon}
+                  alt={item.title}
+                  width={48}
+                  height={48}
+                  className={styles.iconImage}
+                />
+              </div>
+
+              <h3 className={styles.cardTitle}>{item.title}</h3>
+              <p className={styles.cardText}>{item.text}</p>
+            </article>
           ))}
         </div>
       </div>

@@ -42,11 +42,7 @@
   pointer-events: none;
   opacity: 0.55;
   filter: blur(44px);
-  background: radial-gradient(
-    closest-side,
-    color-mix(in srgb, var(--brand) 35%, transparent),
-    transparent 70%
-  );
+
 }
 
 /* Header */

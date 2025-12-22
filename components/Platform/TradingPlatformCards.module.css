@@ -1,0 +1,144 @@
+.section {
+  background: var(--bg);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.brand {
+  color: var(--brand);
+}
+
+/* =========================
+   GRID (PERFECT CENTERING)
+========================= */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+}
+
+/* Force 4 cards per row on desktop */
+.card {
+  width: calc((100% - 84px) / 4);
+}
+
+/* =========================
+   CARD STYLE
+========================= */
+.card {
+  --sf-green-strong: #00b37a;
+  --sf-green-soft: #4d6e55;
+  --border-angle: 0deg;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 32px 26px;
+  overflow: hidden;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    --border-angle 0.45s ease;
+}
+
+/* Shiny animated border */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    rgba(0, 179, 122, 0.15) 25deg,
+    var(--sf-green-strong) 45deg,
+    rgba(0, 179, 122, 0.15) 65deg,
+    transparent 90deg,
+    transparent 180deg,
+    rgba(0, 179, 122, 0.15) 205deg,
+    var(--sf-green-strong) 225deg,
+    rgba(0, 179, 122, 0.15) 250deg,
+    transparent 270deg,
+    transparent 360deg
+  );
+
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* Hover */
+.card:hover {
+  --border-angle: 90deg;
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-border);
+}
+
+/* Icon image */
+.iconWrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--brand-soft);
+}
+
+/* Text */
+.cardTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-strong);
+}
+
+.cardText {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--text-body);
+  max-width: 320px;
+}
+
+/* Dark mode glow */
+:global(html[data-theme="dark"]) .card:hover {
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(0, 179, 122, 0.35);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1200px) {
+  .card {
+    width: calc((100% - 28px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    width: 100%;
+  }
+}

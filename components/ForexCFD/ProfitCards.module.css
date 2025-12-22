@@ -1,0 +1,297 @@
+.section {
+  background: var(--bg);
+}
+
+.inner {
+  /* container handles width */
+}
+
+/* Header */
+.header {
+  max-width: 820px;
+  margin: 0 auto 18px;
+}
+
+.heading {
+  margin: 0;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.accent {
+  color: var(--brand, var(--primary));
+}
+
+/* Layout like screenshot: 1 wide + 2 cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--card, #101711) 92%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.cardWide {
+  grid-column: 1 / -1;
+}
+
+.cardBody {
+  position: relative;
+  z-index: 2;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 220px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.cardWide .cardTitle {
+  font-size: 38px;
+}
+
+/* Check bullets like screenshot */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.item {
+  position: relative;
+  padding-left: 26px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--text) 82%, transparent);
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+
+  background: #4d6e55;
+  box-shadow: 0 10px 20px rgba(24, 184, 75, 0.22);
+}
+
+/* CTA button style (soft grey like screenshot) */
+.cta {
+  width: fit-content;
+  margin-top: 6px;
+
+  background: color-mix(in srgb, var(--muted) 18%, var(--card, var(--surface)));
+  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  color: var(--text);
+
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 700;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(15, 23, 42, 0.1);
+}
+
+/* Step badge (small label like "Step 1") */
+.stepPill {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  padding: 8px 10px;
+  border-radius: 999px;
+
+  color: var(--text);
+  background: color-mix(in srgb, var(--muted) 14%, var(--card, var(--surface)));
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+}
+
+/* Watermark blob like screenshot */
+.watermark {
+  position: absolute;
+  right: -120px;
+  bottom: -120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 999px;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at 50% 50%,
+    color-mix(in srgb, var(--text) 10%, transparent) 0%,
+    transparent 58%
+  );
+
+  opacity: 0.35;
+}
+
+/* Card body layouts */
+.cardBodyWide {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 18px;
+}
+
+.cardBodyNormal {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Left content wrapper */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Image area */
+.media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+}
+
+.mediaImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-width: 460px;
+  position: absolute;
+  bottom: 0;
+  filter: drop-shadow(0 22px 38px rgba(0, 0, 0, 0.18));
+}
+
+/* Smaller images inside bottom cards */
+.cardBodyNormal .media {
+  justify-content: flex-start;
+}
+
+.cardBodyNormal .mediaImg {
+  max-width: 220px;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.16));
+}
+
+/* Responsive: wide card stacks */
+@media (max-width: 1024px) {
+  .cardBodyWide {
+    grid-template-columns: 1fr;
+  }
+
+  .media {
+    justify-content: flex-start;
+  }
+
+  .mediaImg {
+    max-width: 320px;
+  }
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cardTitle {
+    font-size: 28px;
+  }
+
+  .cardWide .cardTitle {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 820px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardWide {
+    grid-column: auto;
+  }
+
+  .cardBody {
+    padding: 20px;
+  }
+}
+
+/* ===== Background image for bottom cards ===== */
+.bgImage {
+  position: absolute;
+  right: -24px;
+  bottom: -24px;
+
+  width: 200px;
+  height: auto;
+
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.18));
+}
+
+.bgsImage {
+    position: absolute;
+  right: -24px;
+  bottom: -24px;
+
+  width: 300px;
+  height: auto;
+
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.18));
+}
+/* Ensure content stays above bg image */
+.cardBody {
+  position: relative;
+  z-index: 2;
+}
+
+/* Slightly smaller bg images on mobile */
+@media (max-width: 768px) {
+  .bgImage {
+    width: 100px;
+    right: -18px;
+    bottom: -18px;
+    opacity: 0.8;
+  }
+  .bgsImage {
+        width: 160px;
+    right: -18px;
+    bottom: -18px;
+    opacity: 0.8;
+  }
+}

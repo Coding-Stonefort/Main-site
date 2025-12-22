@@ -1,0 +1,162 @@
+.section {
+  background: var(--bg);
+}
+
+.header {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.heading {
+  margin: 0 0 16px;
+  letter-spacing: 0.01em;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+.desc {
+  margin: 0 auto;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+/* Cards row */
+.row {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Card */
+.card {
+  width: 220px;
+  border-radius: 24px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+
+  /* background: var(--surface); */
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Title (Metal name) */
+.symbol {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px;
+  color: var(--text-strong);
+}
+
+/* metal tones (no inline styles) */
+.gold {
+  color: #d33a2c;
+}
+
+.silver {
+  color: #00a67e;
+}
+
+.platinum {
+  color: #d33a2c;
+}
+
+/* Instrument code */
+.code {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.label {
+  color: var(--text-muted);
+}
+
+.valueGreen {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.valueStrong {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn {
+  width: 75px;
+  padding: 10px 0;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.95);
+}
+
+/* Keep Buy/Sell colors */
+.buy {
+  background: #00c853;
+}
+
+.sell {
+  background: #ff5252;
+}
+
+/* Dark mode: subtle green glow like other Stonefort sections */
+:global(html[data-theme="dark"]) .card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+:global(html[data-theme="dark"]) .card:hover {
+  border-color: rgba(135, 171, 147, 0.38);
+  box-shadow: 0 0 0 1px rgba(135, 171, 147, 0.18),
+    0 18px 44px rgba(0, 0, 0, 0.55),
+    0 0 34px rgba(135, 171, 147, 0.14);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 260px;
+  }
+}

@@ -263,3 +263,8 @@ body {
   background: var(--badge-bg);
   color: var(--badge-text);
 }
+
+section.relative.py-12.md\:py-16.bg-gradient-to-t.from-\[\#788FA1\].to-white.text-\[\#5D595B\] {
+    background: transparent;
+}
+

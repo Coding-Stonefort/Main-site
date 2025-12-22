@@ -1,4 +1,3 @@
-// components/why-trade-cfds/WhyTradeCFDsForex.tsx
 "use client";
 
 import Image from "next/image";
@@ -6,17 +5,17 @@ import styles from "./WhyTradeCFDsForex.module.css";
 
 export default function WhyTradeCFDsForex() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.inner}>
-        {/* === Left content === */}
+    <section className={`section ${styles.section}`}>
+      <div className={`container ${styles.inner}`}>
+        {/* Left */}
         <div className={styles.content}>
           <p className={styles.kicker}>Trade CFDs on global currencies</p>
 
-          <h1 className={styles.title}>
-            Why Trade <span>CFDs on Forex?</span>
+          <h1 className={`title ${styles.title}`}>
+            Why Trade <span className={styles.accent}>CFDs on Forex?</span>
           </h1>
 
-          <p className={styles.text}>
+          <p className={`text ${styles.text}`}>
             The forex market is the world’s largest and most liquid, with
             average daily turnover reaching approximately US $9.6 trillion. By
             trading CFDs on forex, you can capitalise on price movements in
@@ -24,7 +23,7 @@ export default function WhyTradeCFDsForex() {
           </p>
         </div>
 
-        {/* === Right image === */}
+        {/* Right */}
         <div className={styles.media}>
           <div className={styles.circle}>
             <Image
@@ -33,6 +32,7 @@ export default function WhyTradeCFDsForex() {
               fill
               priority
               className={styles.heroImage}
+              sizes="(max-width: 768px) 260px, 520px"
             />
           </div>
         </div>

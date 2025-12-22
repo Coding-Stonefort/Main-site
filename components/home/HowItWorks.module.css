@@ -1,0 +1,115 @@
+/* ================================
+   SECTION
+================================ */
+.section {
+  padding: 80px 0 100px;
+  background: var(--bg);
+}
+
+.inner {
+  text-align: center;
+}
+
+/* ================================
+   HEADER
+================================ */
+.header {
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+
+.heading {
+  margin-bottom: 12px;
+}
+
+.kicker {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--brand);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+/* ================================
+   VIDEO BOX
+================================ */
+.videoBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 32px;
+  overflow: hidden;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+
+  margin-bottom: 40px;
+}
+
+/* Dark mode glass effect */
+:global(html[data-theme="dark"]) .videoBox {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+
+/* Placeholder */
+.videoPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+/* ================================
+   ACTIONS
+================================ */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Secondary button */
+.secondaryBtn {
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+
+  color: var(--brand);
+  border: 1px solid var(--brand);
+  background: transparent;
+
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.secondaryBtn:hover {
+  background: var(--brand);
+  color: #fff;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .kicker {
+    font-size: 16px;
+  }
+}

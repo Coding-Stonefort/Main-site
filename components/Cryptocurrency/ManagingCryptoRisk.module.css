@@ -1,15 +1,41 @@
 /* ================================
-   SECTION WRAPPER
+   SECTION WRAPPER (THEME SAFE)
 ================================ */
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
 .section {
   position: relative;
-  margin: 20px 20px;
-  border-radius: 40px;
+  margin: 20px;
+  border-radius: 20px;
   padding: 72px 0;
-  background: #f5f5f5 url("/images/shape-3.png") no-repeat center center;
-  background-size: 100% auto;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  /*  theme-safe */
+  background: #F5F6F7;
+  border: 1px solid var(--border);
+
   overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/images/shape-3.webp") no-repeat center center;
+  background-size: 100% auto;
+
+  /*  theme-safe opacity */
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* In dark mode, image can be a touch more visible but not noisy */
+:global(html[data-theme="dark"]) .section::before {
+  opacity: 0.12;
+  filter: brightness(0.9) contrast(1.05);
 }
 
 .inner {
@@ -33,18 +59,24 @@
   font-size: 56px;
   line-height: 1.15;
   font-weight: 700;
-  color: #000;
+
+  /*  theme-safe */
+  color: var(--text);
+
   margin-bottom: 16px;
 }
 
 .heading span {
-  color: #4d6e55;
+  color: var(--brand);
 }
 
 .paragraph {
   font-size: 20px;
   line-height: 1.7;
-  color: #000;
+
+  /*  theme-safe */
+  color: var(--text-body);
+
   margin-bottom: 14px;
 }
 
@@ -64,14 +96,19 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #000;
+
+  /*  theme-safe */
+  color: var(--text);
+
   margin-bottom: 6px;
 }
 
 .toolsSubtext {
   font-size: 18px;
   line-height: 1.6;
-  color: #000;
+
+  /*  theme-safe */
+  color: var(--text-body);
 }
 
 /* ================================
@@ -81,30 +118,43 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
+  align-items: stretch;
 }
 
 /* ================================
-   PREMIUM ANIMATED CARD
+   PREMIUM ANIMATED CARD (THEME SAFE)
 ================================ */
 .toolCard {
   --sf-green-strong: #00b37a;
-  --sf-green-soft: #4d6e55;
+  --sf-green-soft: var(--brand);
   --border-angle: 0deg;
 
+  justify-content: space-between;
   position: relative;
   padding: 24px 22px;
   border-radius: 18px;
 
-  background: linear-gradient(135deg, rgba(0,179,122,0.08), #ffffff 45%);
-  border: 1px solid #e6e6e6;
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
-  color: #000;
+  height: 100%;
+
+  /*  theme-safe surfaces */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  color: var(--text);
+
   overflow: hidden;
 
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease,
     --border-angle 0.45s ease;
+}
+
+/* Dark mode card = glass feel */
+:global(html[data-theme="dark"]) .toolCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ========== SHINY CORNER ANIMATED BORDER ========== */
@@ -119,19 +169,19 @@
   background: conic-gradient(
     from var(--border-angle),
     transparent 0deg,
-    rgba(0,179,122,0.15) 15deg,
+    rgba(0, 179, 122, 0.15) 15deg,
     var(--sf-green-strong) 45deg,
-    rgba(0,179,122,0.15) 65deg,
+    rgba(0, 179, 122, 0.15) 65deg,
     transparent 90deg,
     transparent 180deg,
-    rgba(0,179,122,0.15) 195deg,
+    rgba(0, 179, 122, 0.15) 195deg,
     var(--sf-green-strong) 225deg,
-    rgba(0,179,122,0.15) 255deg,
+    rgba(0, 179, 122, 0.15) 255deg,
     transparent 270deg,
     transparent 360deg
   );
 
-  -webkit-mask: 
+  -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -147,16 +197,37 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at top, rgba(255,255,255,0.4), transparent 55%);
+
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.4),
+    transparent 55%
+  );
+
   opacity: 0;
   transition: opacity 0.25s ease-out;
+}
+
+/* In dark mode, highlight should be more subtle */
+:global(html[data-theme="dark"]) .toolCard::after {
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.14),
+    transparent 55%
+  );
 }
 
 /* ========== HOVER ANIMATION ========== */
 .toolCard:hover {
   --border-angle: 90deg;
   transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.16);
+
+  /* ✅ theme-safe */
+  box-shadow: var(--shadow-lg);
+}
+
+:global(html[data-theme="dark"]) .toolCard:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .toolCard:hover::after {
@@ -170,13 +241,17 @@
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #000;
+
+  /* ✅ theme-safe */
+  color: var(--text);
 }
 
 .toolText {
   font-size: 16px;
   line-height: 1.6;
-  color: #000;
+
+  /* ✅ theme-safe */
+  color: var(--text-body);
 }
 
 /* ================================
@@ -201,7 +276,7 @@
 
 @media (max-width: 540px) {
   .toolsGrid {
-    grid-template-columns: 1fr; /* stack */
+    grid-template-columns: 1fr;
   }
 
   .section {

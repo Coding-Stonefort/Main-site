@@ -1,0 +1,139 @@
+.section {
+  background: var(--bg);
+}
+
+/* ===== TOP CENTERED HEADER ===== */
+.topHeader {
+  max-width: 920px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.heading {
+  font-size: 44px;
+  line-height: 1.18;
+  font-weight: 750;
+  margin-bottom: 16px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.brand {
+  color: var(--brand);
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ===== FEATURES + IMAGE GRID ===== */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: start; /* keep */
+}
+
+/* ===== FEATURES ===== */
+.features {
+  display: grid;
+  gap: 18px;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 16px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-border);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-top: 7px;
+  background: var(--brand);
+  box-shadow: 0 0 0 6px var(--brand-soft);
+}
+
+.featureTitle {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 650;
+  color: var(--text-strong);
+}
+
+.featureText {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+/* ===== IMAGE ===== */
+.imageWrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* top aligned */
+}
+
+/* Image container */
+.imageCard {
+  width: 100%;
+  max-width: 520px;   /*  CONTROL IMAGE SIZE (key fix) */
+  height: auto;
+  margin-top: 0;
+
+  align-self: flex-start;
+}
+
+/* Next/Image */
+.imageCard :global(img) {
+  width: 100%;
+  height: auto;       /*  auto-scale height */
+  display: block;
+
+  object-fit: contain;
+  object-position: top;
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .imageWrap {
+    justify-content: center;
+  }
+
+  .heading {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heading {
+    font-size: 32px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+}

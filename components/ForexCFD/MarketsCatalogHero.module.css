@@ -1,17 +1,14 @@
-/* ===== SECTION BACKGROUND & TYPOGRAPHY ===== */
-
-.hero {
+/* ===== SECTION ===== */
+.section {
   position: relative;
   width: 100%;
-  padding: 120px 24px 0px; /* smaller top pad = less empty space */
-  background: #fff;
-  color: #000;
+  padding: 120px 24px 0;
+  background: var(--bg);
+  color: var(--text-strong);
   overflow: hidden;
 }
 
 .inner {
-  max-width: 1240px;
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -26,39 +23,60 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   margin-bottom: 8px;
+  color: var(--text-strong);
 }
 
-.title span {
-  color: #4d6e55;
+.accent {
+  color: var(--brand);
 }
 
 .subtitle {
   font-size: 20px;
   line-height: 1.7;
-  color: #000;
+  color: var(--text-body);
 }
 
-/* ===== 3D STAGE (SAFE 3D) ===== */
-
+/* ===== 3D STAGE ===== */
 .stage {
   position: relative;
   display: flex;
   justify-content: center;
   perspective: 1100px;
-  margin-bottom: -220px;           
+  margin-bottom: -220px;
 }
 
-/* tilt the whole grid on X (3D look) */
+.glow {
+  position: absolute;
+  inset: auto;
+  width: 900px;
+  height: 900px;
+  top: -220px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+
+  background: radial-gradient(
+    closest-side,
+    rgba(77, 110, 85, 0.30),
+    rgba(0, 211, 198, 0.14) 35%,
+    rgba(16, 23, 17, 0) 70%
+  );
+
+  filter: blur(44px);
+  opacity: 0.7;
+}
+
 .rows {
   position: relative;
+  z-index: 1;
   transform-style: preserve-3d;
   pointer-events: auto;
   transform-origin: top center;
-  transform: rotateX(60deg) translateY(-10px); 
+  transform: rotateX(60deg) translateY(-10px);
   margin-top: 12px;
 }
 
-/* rows aligned straight */
 .row {
   display: flex;
   gap: 28px;
@@ -68,46 +86,13 @@
   transition: filter 0.25s ease-out, opacity 0.25s ease-out, z-index 0.25s ease-out;
 }
 
-
-.row0 {
-  transform: translateY(-36px) scale(0.7);
-  opacity: 0.18;
-  filter: blur(1.4px);
-  z-index: 1;
-}
-
-.row1 {
-  transform: translateY(-26px) scale(0.78);
-  opacity: 0.26;
-  filter: blur(1.2px);
-  z-index: 2;
-}
-
-.row2 {
-  transform: translateY(-18px) scale(0.86);
-  opacity: 0.4;
-  filter: blur(0.9px);
-  z-index: 3;
-}
-
-.row3 {
-  transform: translateY(-8px) scale(0.94);
-  opacity: 0.6;
-  filter: blur(0.6px);
-  z-index: 4;
-}
-
-.row4 {
-  transform: translateY(0) scale(1);
-  opacity: 0.8;
-  z-index: 5;
-}
-
-.row5 {
-  transform: translateY(6px) scale(1.08);
-  opacity: 1;
-  z-index: 6;
-}
+/* Depth rows */
+.row0 { transform: translateY(-36px) scale(0.7);  opacity: 0.18; filter: blur(1.4px); z-index: 1; }
+.row1 { transform: translateY(-26px) scale(0.78); opacity: 0.26; filter: blur(1.2px); z-index: 2; }
+.row2 { transform: translateY(-18px) scale(0.86); opacity: 0.4;  filter: blur(0.9px); z-index: 3; }
+.row3 { transform: translateY(-8px)  scale(0.94); opacity: 0.6;  filter: blur(0.6px); z-index: 4; }
+.row4 { transform: translateY(0)     scale(1);    opacity: 0.8;  z-index: 5; }
+.row5 { transform: translateY(6px)   scale(1.08); opacity: 1;    z-index: 6; }
 
 .row0:hover,
 .row1:hover,
@@ -117,360 +102,49 @@
 .row5:hover {
   filter: blur(0);
   opacity: 1;
-  z-index: 10; 
+  z-index: 10;
 }
 
-/* ===== BRAND COLORS FOR FX PAIRS ONLY ===== */
+/* ===== FLAGS (your mapping stays as-is) ===== */
+.brand-eurusd { --pair-bg: url("/images/flags/eurusd.png"); }
+.brand-gbpusd { --pair-bg: url("/images/flags/gbpusd.png"); }
+.brand-usdjpy { --pair-bg: url("/images/flags/usdjpy.png"); }
+.brand-usdchf { --pair-bg: url("/images/flags/usdchf.png"); }
+.brand-usdcad { --pair-bg: url("/images/flags/usdcad.png"); }
 
-/* ===== BRAND COLORS: DIAGONAL HALF-AND-HALF FLAG COLORS ===== */
-/* Base currency (first) = top-left half, Quote currency (second) = bottom-right half */
+.brand-audusd { --pair-bg: url("/images/flags/audusd.png"); }
+.brand-nzdusd { --pair-bg: url("/images/flags/nzdusd.png"); }
+.brand-eurgbp { --pair-bg: url("/images/flags/eurgbp.png"); }
+.brand-eurjpy { --pair-bg: url("/images/flags/eurjpy.png"); }
+.brand-gbpjpy { --pair-bg: url("/images/flags/gbpjpy.png"); }
 
-.brand-eurusd {
-  /* EUR (blue) / USD (red) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #b22234 50%,
-    #b22234 100%
-  );
-}
+.brand-audjpy { --pair-bg: url("/images/flags/audjpy.png"); }
+.brand-cadjpy { --pair-bg: url("/images/flags/cadjpy.png"); }
+.brand-chfjpy { --pair-bg: url("/images/flags/chfjpy.png"); }
+.brand-euraud { --pair-bg: url("/images/flags/euraud.png"); }
+.brand-eurnzd { --pair-bg: url("/images/flags/eurnzd.png"); }
 
-.brand-gbpusd {
-  /* GBP (UK blue) / USD (red) */
-  background: linear-gradient(
-    135deg,
-    #012169 0%,
-    #012169 50%,
-    #b22234 50%,
-    #b22234 100%
-  );
-}
+.brand-gbpaud { --pair-bg: url("/images/flags/gbpaud.png"); }
+.brand-gbpcad { --pair-bg: url("/images/flags/gbpcad.png"); }
+.brand-gbpnzd { --pair-bg: url("/images/flags/gbpnzd.png"); }
+.brand-audcad { --pair-bg: url("/images/flags/audcad.png"); }
+.brand-audnzd { --pair-bg: url("/images/flags/audnzd.png"); }
 
-.brand-usdjpy {
-  /* USD (blue) / JPY (white) */
-  background: linear-gradient(
-    135deg,
-    #3c3b6e 0%,
-    #3c3b6e 50%,
-    #ffffff 50%,
-    #ffffff 100%
-  );
-}
+.brand-usdtry { --pair-bg: url("/images/flags/usdtry.png"); }
+.brand-usdzar { --pair-bg: url("/images/flags/usdzar.png"); }
+.brand-usdmxn { --pair-bg: url("/images/flags/usdmxn.png"); }
+.brand-usdsek { --pair-bg: url("/images/flags/usdsek.png"); }
+.brand-usdnok { --pair-bg: url("/images/flags/usdnok.png"); }
 
-.brand-usdchf {
-  /* USD (blue) / CHF (red) */
-  background: linear-gradient(
-    135deg,
-    #3c3b6e 0%,
-    #3c3b6e 50%,
-    #d52b1e 50%,
-    #d52b1e 100%
-  );
-}
+.brand-eurtry { --pair-bg: url("/images/flags/eurtry.png"); }
+.brand-eurzar { --pair-bg: url("/images/flags/eurzar.png"); }
+.brand-eurpln { --pair-bg: url("/images/flags/eurpln.png"); }
+.brand-eursek { --pair-bg: url("/images/flags/eursek.png"); }
+.brand-eurnok { --pair-bg: url("/images/flags/eurnok.png"); }
 
-.brand-usdcad {
-  /* USD (blue) / CAD (red) */
-  background: linear-gradient(
-    135deg,
-    #3c3b6e 0%,
-    #3c3b6e 50%,
-    #d80621 50%,
-    #d80621 100%
-  );
-}
-
-/* === Row 1: AUD, NZD, EURGBP, EURJPY, GBPJPY === */
-
-.brand-audusd {
-  /* AUD (navy) / USD (red) */
-  background: linear-gradient(
-    135deg,
-    #002868 0%,
-    #002868 50%,
-    #b22234 50%,
-    #b22234 100%
-  );
-}
-
-.brand-nzdusd {
-  /* NZD (blue) / USD (red) */
-  background: linear-gradient(
-    135deg,
-    #00247d 0%,
-    #00247d 50%,
-    #b22234 50%,
-    #b22234 100%
-  );
-}
-
-.brand-eurgbp {
-  /* EUR (blue) / GBP (blue-navy) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #012169 50%,
-    #012169 100%
-  );
-}
-
-.brand-eurjpy {
-  /* EUR (blue) / JPY (white) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #ffffff 50%,
-    #ffffff 100%
-  );
-}
-
-.brand-gbpjpy {
-  /* GBP (blue) / JPY (white) */
-  background: linear-gradient(
-    135deg,
-    #012169 0%,
-    #012169 50%,
-    #ffffff 50%,
-    #ffffff 100%
-  );
-}
-
-/* === Row 2: JPY crosses, EURAUD, EURNZD === */
-
-.brand-audjpy {
-  /* AUD (navy) / JPY (white) */
-  background: linear-gradient(
-    135deg,
-    #002868 0%,
-    #002868 50%,
-    #ffffff 50%,
-    #ffffff 100%
-  );
-}
-
-.brand-cadjpy {
-  /* CAD (red) / JPY (white) */
-  background: linear-gradient(
-    135deg,
-    #d80621 0%,
-    #d80621 50%,
-    #ffffff 50%,
-    #ffffff 100%
-  );
-}
-
-.brand-chfjpy {
-  /* CHF (red) / JPY (white) */
-  background: linear-gradient(
-    135deg,
-    #d52b1e 0%,
-    #d52b1e 50%,
-    #ffffff 50%,
-    #ffffff 100%
-  );
-}
-
-.brand-euraud {
-  /* EUR (blue) / AUD (navy) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #002868 50%,
-    #002868 100%
-  );
-}
-
-.brand-eurnzd {
-  /* EUR (blue) / NZD (blue) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #00247d 50%,
-    #00247d 100%
-  );
-}
-
-/* === Row 3: GBP crosses & AUD crosses === */
-
-.brand-gbpaud {
-  /* GBP (blue) / AUD (navy) */
-  background: linear-gradient(
-    135deg,
-    #012169 0%,
-    #012169 50%,
-    #002868 50%,
-    #002868 100%
-  );
-}
-
-.brand-gbpcad {
-  /* GBP (blue) / CAD (red) */
-  background: linear-gradient(
-    135deg,
-    #012169 0%,
-    #012169 50%,
-    #d80621 50%,
-    #d80621 100%
-  );
-}
-
-.brand-gbpnzd {
-  /* GBP (blue) / NZD (blue) */
-  background: linear-gradient(
-    135deg,
-    #012169 0%,
-    #012169 50%,
-    #00247d 50%,
-    #00247d 100%
-  );
-}
-
-.brand-audcad {
-  /* AUD (navy) / CAD (red) */
-  background: linear-gradient(
-    135deg,
-    #002868 0%,
-    #002868 50%,
-    #d80621 50%,
-    #d80621 100%
-  );
-}
-
-.brand-audnzd {
-  /* AUD (navy) / NZD (blue) */
-  background: linear-gradient(
-    135deg,
-    #002868 0%,
-    #002868 50%,
-    #00247d 50%,
-    #00247d 100%
-  );
-}
-
-/* === Row 4: Exotics vs USD === */
-
-.brand-usdtry {
-  /* USD (blue) / TRY (red) */
-  background: linear-gradient(
-    135deg,
-    #3c3b6e 0%,
-    #3c3b6e 50%,
-    #e30a17 50%,
-    #e30a17 100%
-  );
-}
-
-.brand-usdzar {
-  /* USD (blue) / ZAR (green) */
-  background: linear-gradient(
-    135deg,
-    #3c3b6e 0%,
-    #3c3b6e 50%,
-    #007749 50%,
-    #007749 100%
-  );
-}
-
-.brand-usdmxn {
-  /* USD (blue) / MXN (green) */
-  background: linear-gradient(
-    135deg,
-    #3c3b6e 0%,
-    #3c3b6e 50%,
-    #006847 50%,
-    #006847 100%
-  );
-}
-
-.brand-usdsek {
-  /* USD (blue) / SEK (blue-yellow) */
-  background: linear-gradient(
-    135deg,
-    #3c3b6e 0%,
-    #3c3b6e 50%,
-    #005293 50%,
-    #005293 100%
-  );
-}
-
-.brand-usdnok {
-  /* USD (blue) / NOK (red) */
-  background: linear-gradient(
-    135deg,
-    #3c3b6e 0%,
-    #3c3b6e 50%,
-    #ba0c2f 50%,
-    #ba0c2f 100%
-  );
-}
-
-/* === Row 5: Exotics vs EUR === */
-
-.brand-eurtry {
-  /* EUR (blue) / TRY (red) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #e30a17 50%,
-    #e30a17 100%
-  );
-}
-
-.brand-eurzar {
-  /* EUR (blue) / ZAR (green) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #007749 50%,
-    #007749 100%
-  );
-}
-
-.brand-eurpln {
-  /* EUR (blue) / PLN (red) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #d4213d 50%,
-    #d4213d 100%
-  );
-}
-
-.brand-eursek {
-  /* EUR (blue) / SEK (blue) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #005293 50%,
-    #005293 100%
-  );
-}
-
-.brand-eurnok {
-  /* EUR (blue) / NOK (red) */
-  background: linear-gradient(
-    135deg,
-    #003399 0%,
-    #003399 50%,
-    #ba0c2f 50%,
-    #ba0c2f 100%
-  );
-}
-
-
-/* ===== TILE: WHITE ROUNDED ICON WITH INNER COLOURED SQUARE ===== */
-
+/* ===== TILE ===== */
 .tileWrap {
   position: relative;
-  transform-style: flat;
   transition: transform 0.35s cubic-bezier(0.22, 1.4, 0.32, 1);
   pointer-events: auto;
   cursor: pointer;
@@ -480,10 +154,19 @@
   width: 78px;
   height: 78px;
   border-radius: 26px;
-  background: radial-gradient(circle at 10% 0%, #ffffff, #f3f5fa 70%, #dfe3eb);
-box-shadow:
-  0 18px 46px rgba(135, 171, 148, 0.78),
-  0 0 0 1px rgba(255, 255, 255, 0.18);
+
+  /* theme-safe tile shell */
+  background: radial-gradient(
+    circle at 10% 0%,
+    rgba(255, 255, 255, 0.95),
+    rgba(243, 245, 250, 0.90) 70%,
+    rgba(223, 227, 235, 0.85)
+  );
+
+  box-shadow:
+    0 18px 46px rgba(135, 171, 148, 0.60),
+    0 0 0 1px rgba(255, 255, 255, 0.18);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -491,43 +174,56 @@ box-shadow:
   overflow: visible;
 }
 
-/* small drop shadow on “floor” under tile */
-.tile::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -18px;
-  width: 68%;
-  height: 26px;
-  transform: translateX(-50%);
-  /* background: radial-gradient(circle, rgba(0, 0, 0, 0.7), transparent 70%); */
-  filter: blur(4px);
+/* Dark mode: tile shell becomes darker (still premium) */
+:global(html[data-theme="dark"]) .tile {
+  background: radial-gradient(
+    circle at 10% 0%,
+    rgba(20, 28, 24, 1),
+    rgba(16, 23, 17, 1) 70%,
+    rgba(10, 16, 14, 1)
+  );
+
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* reflection of tile on floor */
+/* reflection */
 .tileWrap::after {
   content: "";
   position: absolute;
   inset: 0;
   transform: translateY(60px) scaleY(-1);
   border-radius: 26px;
-  background: radial-gradient(circle at 10% 0%, #ffffff, #e5e9f3 70%, #d1d6e0);
-  opacity: 0.3;
+  opacity: 0.28;
   filter: blur(7px);
-  mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.55), transparent);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.55),
-    transparent
-  );
   pointer-events: none;
+
+  background: radial-gradient(
+    circle at 10% 0%,
+    rgba(255, 255, 255, 0.90),
+    rgba(229, 233, 243, 0.75) 70%,
+    rgba(209, 214, 224, 0.55)
+  );
+
+  mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.55), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.55), transparent);
 }
 
-/* Hover interaction */
+:global(html[data-theme="dark"]) .tileWrap::after {
+  opacity: 0.18;
+  background: radial-gradient(
+    circle at 10% 0%,
+    rgba(20, 28, 24, 0.9),
+    rgba(16, 23, 17, 0.7) 70%,
+    rgba(10, 16, 14, 0.5)
+  );
+}
+
+/* hover */
 .tileWrap:hover {
   transform: translateY(-18px) scale(1.06);
   transition: transform 0.28s cubic-bezier(0.22, 1.25, 0.32, 1);
-  opacity: 1 !important;
   z-index: 20;
 }
 
@@ -537,17 +233,16 @@ box-shadow:
     0 0 32px rgba(255, 255, 255, 0.85),
     0 0 0 1px rgba(255, 255, 255, 0.45);
   transition: box-shadow 0.28s ease-out;
-    opacity: 1 !important;
 }
 
-.tileWrap:hover .tileInner {
-  filter: brightness(1.18) saturate(1.2);
-  transition: filter 0.25s ease-out;
-  opacity: 1 !important;
+:global(html[data-theme="dark"]) .tileWrap:hover .tile {
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 0 34px rgba(77, 110, 85, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
-/* inner coloured “glyph background” square */
-
+/* inner flag tile */
 .tileInner {
   width: 54px;
   height: 54px;
@@ -555,27 +250,42 @@ box-shadow:
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+
+  position: relative;
+  overflow: hidden;
+
+  background: var(--pair-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #fff;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-shadow: 0 4px 14px rgba(0, 0, 0, 0.75);
+
   box-shadow:
     0 10px 24px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(255, 255, 255, 0.16);
 }
 
-/* text (ticker) */
+.tileInner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.55));
+}
 
 .symbol {
+  position: relative;
+  z-index: 1;
   transform: translateY(1px);
 }
 
-
 /* ===== RESPONSIVE ===== */
-
 @media (max-width: 768px) {
-  .hero {
+  .section {
     padding: 60px 16px 90px;
   }
 
@@ -607,6 +317,7 @@ box-shadow:
     height: 50px;
     font-size: 14px;
   }
+
   .stage {
     margin-bottom: -50px;
   }

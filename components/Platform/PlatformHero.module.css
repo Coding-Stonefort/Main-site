@@ -1,0 +1,94 @@
+.hero {
+  background: var(--bg);
+  text-align: center;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  gap: 42px;
+}
+
+/* Text */
+.content {
+  max-width: 920px;
+}
+
+.brand {
+  color: var(--brand);
+}
+
+/* Image */
+.imageWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+
+}
+
+/* ======================
+   META BAR
+====================== */
+.metaBar {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  max-width: 980px;
+
+  padding: 18px 22px;
+  border-radius: 18px;
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-sm);
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.metaLabel {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.metaValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .metaBar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .metaBar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .metaValue {
+    font-size: 16px;
+  }
+}

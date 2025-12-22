@@ -1,13 +1,16 @@
 import MetalsHero from "@/components/metals/MetalsHero";
 import MarketsLiveOverview from "@/components/market/MarketsLiveOverview";  
 import WhyTradeCFDsMetals from "@/components/metals/WhyTradeCFDsMetals";
-import MetalsFlipCards from "@/components/metals/MetalsFlipCards";
+// import MetalsFlipCards from "@/components/metals/MetalsFlipCards";
+import TradingWithStonefort from "@/components/ForexCFD/TradingWithStonefort";
 import MetalsCards from "@/components/metals/MetalsCards";
 import HowMetalsWorks from "@/components/metals/HowMetalsWorks";
 import WhyTradeMetals from "@/components/metals/WhyTradeMetals"
 import MetalsGrid from "@/components/metals/MetalsGrid"
 import Faqs, { type FAQItem } from "@/components/Faqs";
 import MetalsTabMockup from "@/components/metals/MetalsTabMockup";
+
+import OnboardingDashboard from "@/components/metals/OnboardingDashboard";
 
 
 import GetStartedMetals from "@/components/metals/GetStartedMetals";
@@ -374,10 +377,12 @@ export default function metal() {
             <MarketsLiveOverview />
         </section>
         <WhyTradeCFDsMetals />
-        <MetalsFlipCards />
+        {/* <MetalsFlipCards /> */}
+        <TradingWithStonefort />
         <MetalsCards />
         {/* <HowMetalsWorks /> */}
         <MetalsTabMockup />
+        <OnboardingDashboard />
         <WhyTradeMetals />
         <MetalsGrid />
         <Faqs

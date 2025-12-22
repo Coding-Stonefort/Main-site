@@ -1,0 +1,125 @@
+.section {
+  background: var(--bg);
+}
+
+.banner {
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1.45fr 1fr 1fr 1fr;
+}
+
+.main {
+  padding: 26px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  /* subtle divider */
+  border-right: 1px solid var(--border);
+}
+
+.title {
+  margin: 0;
+  font-size: 34px; /* override global title size to fit banner */
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+.card {
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  border-left: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.value {
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+.note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Dark mode: add a soft green glow so it feels “Stonefort” */
+:global(html[data-theme="dark"]) .banner {
+  background: linear-gradient(180deg, rgba(135, 171, 147, 0.08), rgba(12, 18, 24, 0.0));
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+}
+
+:global(html[data-theme="dark"]) .card {
+  background: rgba(12, 18, 24, 0.55);
+}
+
+:global(html[data-theme="dark"]) .value {
+  text-shadow: 0 0 18px rgba(135, 171, 147, 0.25);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .banner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .main {
+    grid-column: 1 / -1;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card {
+    border-left: none;
+  }
+
+  .card:nth-child(3),
+  .card:nth-child(4) {
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .banner {
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    padding: 20px 18px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 18px;
+    border-top: 1px solid var(--border);
+  }
+}

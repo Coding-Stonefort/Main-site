@@ -6,10 +6,12 @@ import FlipCards from "@/components/ForexCFD/FlipCards";
 import WhyTradeForex from "@/components/ForexCFD/WhyTradeForex";
 import MarketsCatalogHero from "@/components/ForexCFD/MarketsCatalogHero";
 import HowForexWorks from "@/components/ForexCFD/HowForexWorks";
-import ProfitCarousel from "@/components/ForexCFD/ProfitCarousel";
+import ProfitCarousel from "@/components/ForexCFD/PricingHighlights";
 import RelatedPosts from "@/components/ChangelogRelatedPosts";
 import Faqs, { FAQItem } from "@/components/Faqs";
 import GetStartedCta from "@/components/GetStartedCta";
+
+import TradingWithStonefort from "@/components/ForexCFD/TradingWithStonefort";
 
 const marketFaqs: FAQItem[] = [
   {
@@ -48,7 +50,8 @@ export default function ForexCfdPage() {
           <MarketsLiveOverview />
         </section>
         <WhyTradeCFDsForex />
-        <FlipCards />
+        <TradingWithStonefort />
+     
         <ForexCards />
         <WhyTradeForex />
         <MarketsCatalogHero />
@@ -68,6 +71,7 @@ export default function ForexCfdPage() {
             initiallyOpenIndex={null} 
           />
           <GetStartedCta />
+
 
 
     </>

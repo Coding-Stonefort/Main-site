@@ -2,13 +2,9 @@
 
 import styles from "./MarketsCatalogHero.module.css";
 
-type MarketItem = {
-  symbol: string;
-};
+type MarketItem = { symbol: string };
 
-// 6 rows x 5 FX pairs (all currency-related)
 const ROWS: MarketItem[][] = [
-  // Row 0: far back – Majors
   [
     { symbol: "EURUSD" },
     { symbol: "GBPUSD" },
@@ -16,7 +12,6 @@ const ROWS: MarketItem[][] = [
     { symbol: "USDCHF" },
     { symbol: "USDCAD" },
   ],
-  // Row 1: Majors / popular minors
   [
     { symbol: "AUDUSD" },
     { symbol: "NZDUSD" },
@@ -24,7 +19,6 @@ const ROWS: MarketItem[][] = [
     { symbol: "EURJPY" },
     { symbol: "GBPJPY" },
   ],
-  // Row 2: Crosses
   [
     { symbol: "AUDJPY" },
     { symbol: "CADJPY" },
@@ -32,7 +26,6 @@ const ROWS: MarketItem[][] = [
     { symbol: "EURAUD" },
     { symbol: "EURNZD" },
   ],
-  // Row 3: More crosses
   [
     { symbol: "GBPAUD" },
     { symbol: "GBPCAD" },
@@ -40,7 +33,6 @@ const ROWS: MarketItem[][] = [
     { symbol: "AUDCAD" },
     { symbol: "AUDNZD" },
   ],
-  // Row 4: Exotics vs USD
   [
     { symbol: "USDTRY" },
     { symbol: "USDZAR" },
@@ -48,7 +40,6 @@ const ROWS: MarketItem[][] = [
     { symbol: "USDSEK" },
     { symbol: "USDNOK" },
   ],
-  // Row 5: Exotics vs EUR
   [
     { symbol: "EURTRY" },
     { symbol: "EURZAR" },
@@ -60,11 +51,15 @@ const ROWS: MarketItem[][] = [
 
 export default function MarketsCatalogHero() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.inner}>
+    <section className={`section ${styles.section}`}>
+      <div className={`container ${styles.inner}`}>
         <header className={styles.header}>
-          <h2 className={styles.title}>Trade with <span>Clarity</span> and <span>Control</span> </h2>
-          <p className={styles.subtitle}>
+          <h2 className={`title ${styles.title}`}>
+            Trade with <span className={styles.accent}>Clarity</span> and{" "}
+            <span className={styles.accent}>Control</span>
+          </h2>
+
+          <p className={`text ${styles.subtitle}`}>
             At Stonefort, transparency is built into every trade. Our pricing
             model is designed to offer consistently competitive spreads across
             major currency pairs, giving you clearer market access and a smoother
@@ -74,7 +69,7 @@ export default function MarketsCatalogHero() {
         </header>
 
         <div className={styles.stage}>
-          <div className={styles.glow} />
+          <div className={styles.glow} aria-hidden="true" />
 
           <div className={styles.rows}>
             {ROWS.map((row, rowIndex) => (
@@ -103,22 +98,11 @@ type IconTileProps = {
   index: number;
 };
 
-function IconTile({ symbol, index }: IconTileProps) {
-  const variant =
-    index % 3 === 0
-      ? "variantOne"
-      : index % 3 === 1
-      ? "variantTwo"
-      : "variantThree";
-
+function IconTile({ symbol }: IconTileProps) {
   return (
     <div className={styles.tileWrap}>
-      <div className={`${styles.tile} ${styles[variant]}`}>
-        <div
-          className={`${styles.tileInner} ${
-            styles[`brand-${symbol.toLowerCase()}`]
-          }`}
-        >
+      <div className={styles.tile}>
+        <div className={`${styles.tileInner} ${styles[`brand-${symbol.toLowerCase()}`]}`}>
           <span className={styles.symbol}>{symbol}</span>
         </div>
       </div>

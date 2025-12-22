@@ -3,15 +3,15 @@ import styles from "./AwardCertificate.module.css";
 
 export default function AwardCertificate() {
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
+    <section className={`${styles.section} section`}>
+      <div className={`container ${styles.container}`}>
         {/* ===================== HEADING + DESCRIPTION ===================== */}
         <div className={styles.headingWrap}>
-          <h2 className={styles.headingTitle}>
+          <h2 className={`title ${styles.headingTitle}`}>
             Choose a Broker Trusted by Traders Worldwide
           </h2>
 
-          <p className={styles.headingDescription}>
+          <p className={`description ${styles.headingDescription}`}>
             Stonefort is recognised for delivering a secure, transparent and
             client-focused trading experience in the global margin FX and CFD
             markets. Operating under the regulatory oversight of SCA and FSC,
@@ -24,7 +24,6 @@ export default function AwardCertificate() {
         <div className={styles.grid}>
           {/* ===================== CARD 1 ===================== */}
           <article className={styles.card}>
-            {/* Trophy – pop out */}
             <div className={styles.trophyWrap}>
               <img
                 src="/images/awards.webp"
@@ -33,14 +32,11 @@ export default function AwardCertificate() {
               />
             </div>
 
-            {/* Ribbon */}
             <span className={styles.ribbon}>
               <strong>Winner</strong> · 2025–2026
             </span>
 
-            {/* Paper */}
             <div className={styles.paper}>
-              {/* Inner Box */}
               <div className={styles.paperInner}>
                 <h3 className={styles.cardTitle}>
                   Best Emerging Broker 2025–2026
@@ -64,7 +60,6 @@ export default function AwardCertificate() {
               </div>
             </div>
 
-            {/* Wax Seal */}
             <span className={styles.waxSeal}>
               <svg viewBox="0 0 64 64" width="64" height="64">
                 <defs>
@@ -87,7 +82,6 @@ export default function AwardCertificate() {
 
           {/* ===================== CARD 2 ===================== */}
           <article className={styles.card}>
-            {/* Trophy popping out */}
             <div className={styles.trophyWrap}>
               <img
                 src="/images/Top-100-award-scaled.webp"
@@ -96,12 +90,10 @@ export default function AwardCertificate() {
               />
             </div>
 
-            {/* Ribbon */}
             <span className={styles.ribbon}>
               <strong>Top 100</strong> · GCC 2025–2026
             </span>
 
-            {/* Paper */}
             <div className={styles.paper}>
               <div className={styles.paperInner}>
                 <h3 className={styles.cardTitle}>
@@ -126,7 +118,6 @@ export default function AwardCertificate() {
               </div>
             </div>
 
-            {/* Wax Seal */}
             <span className={styles.waxSeal}>
               <svg viewBox="0 0 64 64" width="64" height="64">
                 <defs>

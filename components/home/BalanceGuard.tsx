@@ -1,76 +1,46 @@
 // components/home/BalanceGuard.tsx
 import Image from "next/image";
-// ⬇️ Update the path/name to wherever you save the shield image
+import styles from "./BalanceGuard.module.css";
+
 import BalanceGuardImg from "@/public/images/balance-guard.webp";
-import BG from "@/public/images/bg.webp";
 
 export default function BalanceGuard() {
   return (
-    <section className="relative z-10 pt-12 pb-16 md:pt-10 md:pb-20">
-
-
-
+    <section className={`${styles.section} section`} aria-label="Balance Guard">
       {/* Dark background strip */}
-      <div className="absolute inset-0 -z-10" style={{ backgroundColor: "#101711", }} />
+      <div className={styles.bg} aria-hidden="true" />
 
+      <div className={`container ${styles.inner}`}>
+        <div className={styles.grid}>
+          {/* Left */}
+          <div className={styles.content}>
+            <p className={styles.kicker}>Protection</p>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid items-center gap-10 md:gap-14 md:grid-cols-2">
-          {/* --- Left: Copy --- */}
-          <div className="max-w-xl space-y-5">
-            <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#fff]">
-              Protection
-            </p>
-            <h2
-              className="
-                text-[white]
-                pb-4 font-semibold leading-[1.05]
+            <h2 className={`title ${styles.heading}`}>Stonefort Balance Guard</h2>
 
-                max-sm:text-[24px]
-                text-[24px]
-                sm:text-[40px]
-                md:text-[52px]
-                lg:text-[64px]
-              "
-            >
-              Stonefort Balance Guard
-            </h2>
-
-            <p           
-            className="
-            max-w-3xl mx-auto mt-3 
-            text-[white]
-            text-[20px]      
-            leading-[1.5]   
-          "
-          >
+            <p className={`text ${styles.desc}`}>
               Your Stonefort Securities account includes{" "}
-              
-                free Negative Balance Protection
-              
-              , ensuring your losses never exceed your deposited funds.
+              <span className={styles.highlight}>free Negative Balance Protection</span>,
+              ensuring your losses never exceed your deposited funds.
             </p>
 
-            <button className="inline-flex items-center justify-center rounded-full bg-[#4D6E55] px-6 py-3 text-sm font-semibold text-[white]  transition hover:bg-[#5b8367]">
+            <a href="#" className={`button ${styles.cta}`}>
               Learn More
-            </button>
+            </a>
           </div>
 
-          {/* --- Right: 3D Shield visual --- */}
-          <div className="relative flex justify-center">
-            {/* Glow behind the element */}
-            <div className="absolute -inset-6 md:-inset-10 rounded-full  blur-3xl" />
+          {/* Right */}
+          <div className={styles.visual}>
+            <div className={styles.glow} aria-hidden="true" />
 
-            <div className="relative">
+            <div className={styles.imageWrap}>
               <Image
                 src={BalanceGuardImg}
                 alt="Stonefort Balance Guard – Negative Balance Protection"
-                className="w-full max-w-md animate-float"
+                className={styles.image}
                 priority
               />
-
-              {/* Base glow */}
-              <div className="pointer-events-none absolute inset-x-10 -bottom-6 h-8 rounded-full bg-emerald-500/40 blur-2xl opacity-80" />
+              <div className={styles.baseGlow} aria-hidden="true" />
             </div>
           </div>
         </div>

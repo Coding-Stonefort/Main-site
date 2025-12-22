@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import "../ForexCFD/ForexCards.css"; // same layout/styles
+import styles from "./CryptoCards.module.css"; // ✅ CSS module import
 
 type Quote = {
   symbol: string;
@@ -43,18 +43,18 @@ export default function CryptoCards() {
   }, []);
 
   return (
-    <section className="fc-section">
-      {/* <div className="fc-header">
-        <h2 className="fc-heading">
-          Trade <span>Cryptocurrencies</span>
+    <section className={`${styles.section} section`}>
+      {/* <div className={styles.header}>
+        <h2 className={`title ${styles.heading}`}>
+          Trade <span className={styles.accent}>Cryptocurrencies</span>
         </h2>
-        <p className="fc-desc">
+        <p className={`description ${styles.desc}`}>
           Access leading crypto pairs like BTCUSD, ETHUSD, and more with tight
           spreads, leveraged trading, and ultra-fast execution.
         </p>
       </div> */}
 
-      <div className="fc-row">
+      <div className={styles.row}>
         {CRYPTOS.map((crypto) => {
           const q = quotes[crypto.symbol];
           const bid = q?.bid ?? 0;
@@ -62,58 +62,54 @@ export default function CryptoCards() {
           const spread = ask && bid ? ask - bid : 0;
 
           return (
-            <div className="fc-card" key={crypto.symbol}>
+            <div className={styles.card} key={crypto.symbol}>
               {/* TOP SYMBOL TITLE (BTCUSD, ETC.) */}
-              <h3
-                className="fc-symbol"
-                style={{ color: crypto.color, fontWeight: 700 }}
-              >
-                {crypto.name}
-              </h3>
+              <h3 className={styles.symbol}>{crypto.name}</h3>
 
               {/* Instrument Code under title (same as symbol in this case) */}
-              <p className="fc-code">{crypto.symbol}</p>
+              <p className={styles.code}>{crypto.symbol}</p>
 
-              <div className="fc-line">
-                <span>Bid</span>
-                <span className="fc-green">
+              <div className={styles.line}>
+                <span className={styles.label}>Bid</span>
+                <span className={styles.valueGreen}>
                   {bid ? bid.toFixed(5) : "--"}
                 </span>
               </div>
 
-              <div className="fc-line">
-                <span>Ask</span>
-                <span className="fc-green">
+              <div className={styles.line}>
+                <span className={styles.label}>Ask</span>
+                <span className={styles.valueGreen}>
                   {ask ? ask.toFixed(5) : "--"}
                 </span>
               </div>
 
-              <div className="fc-line">
-                <span>Spread</span>
-                <span className="fc-dark">
+              <div className={styles.line}>
+                <span className={styles.label}>Spread</span>
+                <span className={styles.valueStrong}>
                   {spread ? spread.toFixed(5) : "--"}
                 </span>
               </div>
 
-              <div className="fc-line">
-                <span>Leverage</span>
-                <span className="fc-dark">{crypto.leverage}</span>
+              <div className={styles.line}>
+                <span className={styles.label}>Leverage</span>
+                <span className={styles.valueStrong}>{crypto.leverage}</span>
               </div>
 
-              <div className="fc-buttons">
-                <button className="fc-btn fc-buy">Buy</button>
-                <button className="fc-btn fc-sell">Sell</button>
+              <div className={styles.buttons}>
+                <button className={`${styles.btn} ${styles.buy}`}>Buy</button>
+                <button className={`${styles.btn} ${styles.sell}`}>Sell</button>
               </div>
             </div>
           );
         })}
-                {/* === DISCLAIMER BELOW ALL CARDS === */}
-  <p className="fc-disclaimer">
-    * Terms and conditions apply. The stated fixed leverage is applicable when equity
-    requirements are met. For more information, please refer to the Product Schedule page.
-  </p>
-      </div>
 
+        {/* === DISCLAIMER BELOW ALL CARDS === */}
+        <p className={styles.disclaimer}>
+          * Terms and conditions apply. The stated fixed leverage is applicable
+          when equity requirements are met. For more information, please refer
+          to the Product Schedule page.
+        </p>
+      </div>
     </section>
   );
 }
