@@ -35,7 +35,7 @@ const defaultItems: Promo[] = [
     title: "Bonus Program",
     description:
       "Unlock Added Trading Benefits with Deposit Bonuses and Referral Incentives",
-    href: "/promotions/bonus-program",
+    href: "/platforms/BonusProgramme",
     tag: "Coming Soon",
   },
 ];

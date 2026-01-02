@@ -1,0 +1,382 @@
+.section {
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+}
+
+/* subtle page glow */
+
+/* =========================================================
+   "RAIL" — not a card: wide banner with texture + split layout
+========================================================= */
+.rail {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 0;
+}
+
+/* background texture layer */
+.railBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(900px 420px at 18% 0%, var(--brand-soft), transparent 62%),
+    radial-gradient(560px 340px at 92% 65%, rgba(0, 179, 122, 0.14), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  opacity: 1;
+}
+
+.railBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* diagonal micro-grid texture */
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 13px
+  );
+  opacity: 0.2;
+}
+
+/*  Background image watermark */
+.railImage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  /* Put this file in: public/images/insuredLicensed.webp */
+  background-image: url("/images/insuredLicensed.webp");
+  background-repeat: no-repeat;
+  background-size: 420px auto;
+  background-position: right 22px bottom 18px;
+
+  opacity: 0.46;
+  filter: saturate(1.05);
+  transform: translateZ(0);
+}
+
+/* calmer in dark mode */
+html[data-theme="dark"] .railImage {
+  opacity: 0.12;
+  filter: saturate(1);
+}
+
+/* Left column */
+.left {
+  position: relative;
+  z-index: 2;
+  padding: 34px 30px;
+}
+
+.kicker {
+  display: inline-flex;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.title {
+  margin: 0 0 12px;
+}
+
+.subhead {
+  display: block;
+  margin-top: 10px;
+  color: var(--brand);
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.desc {
+  margin: 0;
+  color: var(--text-body);
+  line-height: 1.7;
+  max-width: 62ch;
+}
+
+.signal {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.pulse {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--brand);
+  box-shadow: 0 0 0 6px var(--brand-soft);
+}
+
+/* Right column (list) */
+.right {
+  position: relative;
+  z-index: 2;
+  padding: 34px 30px;
+  border-left: 1px solid var(--border);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.listHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.listTitle {
+  font-weight: 1000;
+  color: var(--text);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.listHint {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* "terminal checklist" list - not cards */
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  gap: 12px;
+}
+
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 12px;
+  align-items: center;
+
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-border);
+  position: relative;
+}
+
+.bullet::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 4px;
+  border-left: 2px solid var(--brand);
+  border-bottom: 2px solid var(--brand);
+  transform: rotate(-45deg);
+  left: 2px;
+  top: 2px;
+}
+
+.itemText {
+  color: var(--text);
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+/* subtle scan line that moves on hover */
+.scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 179, 122, 0.18),
+    transparent
+  );
+  opacity: 0;
+  transform: translateX(-20%);
+  transition: opacity 0.35s ease, transform 0.55s ease;
+  pointer-events: none;
+}
+
+.item:hover .scan {
+  opacity: 1;
+  transform: translateX(20%);
+}
+
+/* =========================================================
+   FINAL CTA BAND — not card, looks like a footer rail
+========================================================= */
+.final {
+  position: relative;
+  margin-top: 18px;
+
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+
+  padding: 22px 22px;
+}
+
+.finalBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(900px 420px at 15% 0%, var(--brand-soft), transparent 62%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  opacity: 0.9;
+}
+
+.finalText {
+  position: relative;
+  z-index: 1;
+}
+
+.finalKicker {
+  display: inline-flex;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.finalTitle {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 1000;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.finalDesc {
+  margin: 0;
+  color: var(--text-body);
+  line-height: 1.7;
+  max-width: 70ch;
+}
+
+.finalDesc strong {
+  color: var(--text);
+  font-weight: 1000;
+}
+
+.finalActions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cta {
+  min-width: 200px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .rail {
+    grid-template-columns: 1fr;
+  }
+
+  .right {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .railImage {
+    background-size: 360px auto;
+    background-position: right 14px bottom 12px;
+  }
+
+  .final {
+    grid-template-columns: 1fr;
+  }
+
+  .finalActions {
+    justify-content: stretch;
+  }
+
+  .cta {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .left,
+  .right {
+    padding: 26px 18px;
+  }
+
+  .subhead {
+    font-size: 16px;
+  }
+
+  .railImage {
+    background-size: 280px auto;
+    background-position: right 10px bottom 10px;
+    opacity: 0.12;
+  }
+
+  .finalTitle {
+    font-size: 20px;
+  }
+
+  .final {
+    padding: 18px;
+  }
+}
