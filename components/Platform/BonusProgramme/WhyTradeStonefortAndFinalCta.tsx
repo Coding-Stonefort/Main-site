@@ -15,11 +15,11 @@ export default function WhyTradeStonefortAndFinalCta() {
         {/* WHY TRADE */}
         <div className={styles.rail}>
           <div className={styles.railBg} aria-hidden="true" />
-          {/* ✅ Background image watermark */}
+          {/*  Background image watermark */}
           <div className={styles.railImage} aria-hidden="true" />
 
           <div className={styles.left}>
-            <span className={styles.kicker}>Next Section</span>
+            <span className={styles.kicker}>Trusted • Secure • Performance-driven</span>
 
             <h2 className={`heading ${styles.title}`}>
               Why Trade with Stonefort
@@ -60,14 +60,14 @@ export default function WhyTradeStonefortAndFinalCta() {
           <div className={styles.finalBg} aria-hidden="true" />
 
           <div className={styles.finalText}>
-            <span className={styles.finalKicker}>Final CTA Section</span>
+            <span className={styles.finalKicker}>100% Deposit Bonus</span>
 
             <h3 className={styles.finalTitle}>Trade Limitless with Stonefort</h3>
 
             <p className={`text ${styles.finalDesc}`}>
               Unlock extra trading power and take advantage of our{" "}
               <strong>100% Deposit Bonus</strong> on both <strong>FTD</strong> and{" "}
-              <strong>Rede posits</strong>.
+              <strong>Redeposits</strong>.
             </p>
           </div>
 

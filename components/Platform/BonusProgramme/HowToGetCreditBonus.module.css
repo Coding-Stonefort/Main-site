@@ -8,21 +8,7 @@
   position: relative;
 }
 
-/* soft background glow */
-.section::before {
-  content: "";
-  position: absolute;
-  top: -260px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--brand) 0%, transparent 60%);
-  opacity: 0.12;
-  filter: blur(120px);
-  pointer-events: none;
-}
+
 
 /* ===== Heading ===== */
 .headingWrap {

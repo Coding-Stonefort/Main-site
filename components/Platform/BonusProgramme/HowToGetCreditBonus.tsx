@@ -25,7 +25,7 @@ export default function HowToGetCreditBonus() {
       <div className={`container ${styles.inner}`}>
         {/* Heading */}
         <div className={styles.headingWrap}>
-          <span className={`badge ${styles.badge}`}>Next Section</span>
+          <span className={`badge ${styles.badge}`}>Credit Bonus</span>
 
           <h2 className={`heading ${styles.title}`}>
             How to Get Your Credit Bonus

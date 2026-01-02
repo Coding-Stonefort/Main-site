@@ -20,17 +20,6 @@
   opacity: 0.12;
   pointer-events: none;
 }
-.section::before {
-  top: -320px;
-  left: -320px;
-  background: var(--brand);
-}
-.section::after {
-  bottom: -340px;
-  right: -340px;
-  background: var(--brand);
-  opacity: 0.08;
-}
 
 /* ===== Heading ===== */
 .headingWrap {
