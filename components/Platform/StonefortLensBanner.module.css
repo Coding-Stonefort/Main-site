@@ -3,8 +3,15 @@
 }
 
 .banner {
-  /* light theme: light grey container card */
-  background: var(--surface-2);
+  position: relative; /* REQUIRED for ::after */
+  overflow: hidden;   /* keeps overlay + image inside radius */
+
+  /* background image */
+  background-image: url("/images/paltform-business-bg.webp");
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat;
+
   border: 1px solid var(--border);
   border-radius: 26px;
 
@@ -14,17 +21,38 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* ===== OVERLAY ===== */
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* light theme overlay */
+  background: rgba(0, 0, 0, 0.65);
+
+  z-index: 1;
+}
+
+/* ===== CONTENT ABOVE OVERLAY ===== */
+.banner > * {
+  position: relative;
+  z-index: 2;
+}
+
 /* Dark theme: dark green container card */
 :global(html[data-theme="dark"]) .banner {
-  background: rgba(77, 110, 85, 0.18); /* dark green tint */
-  border-color: rgba(135, 171, 147, 0.28);
+  background-image: url("/images/paltform-business-bg.webp");
+  background-size: cover;
+  background-position: center;
 
+  border-color: rgba(135, 171, 147, 0.28);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
 }
 
 .title {
   margin: 0 0 18px;
   letter-spacing: -0.02em;
+  color: #fff;
 }
 
 .title span {
@@ -33,12 +61,12 @@
 
 .text {
   margin: 0 0 14px;
-  color: var(--text-body);
+  color: #fff;
 }
 
 .textSecondary {
   margin: 0;
-  color: var(--text-muted);
+ color: #fff;
 }
 
 /* Tablet */

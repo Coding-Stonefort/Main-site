@@ -1,10 +1,4 @@
-.section {
-  /* keep global .section spacing, only add optional background tone */
-}
 
-.container {
-  /* keep global .container width */
-}
 
 .card {
   position: relative;

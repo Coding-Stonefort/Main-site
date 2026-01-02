@@ -4,9 +4,10 @@ import styles from "./IndicesHero.module.css";
 export default function IndicesHero() {
   return (
     <section className={`section ${styles.hero}`}>
-      <div className={styles.bg} aria-hidden="true" />
+      
 
       <div className={`container ${styles.inner}`}>
+        <div className={styles.bg} aria-hidden="true" />
         <div className={styles.left}>
           <h1 className={`heading ${styles.onImage}`}>
             Indices Trading with <br /> Stonefort

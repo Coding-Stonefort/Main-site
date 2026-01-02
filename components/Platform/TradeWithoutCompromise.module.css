@@ -1,124 +1,91 @@
-.section {
-  background: var(--bg);
-}
-
-.header {
+/* ===== TOP HEADER ===== */
+.topHeader {
+  max-width: 920px;
+  margin: 0 auto 48px;
   text-align: center;
-  margin-bottom: 34px;
 }
 
-.title {
-  margin: 0;
-  font-size: 48px;
-  line-height: 1.12;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
+/* ===== GRID BELOW HEADER ===== */
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
 
-.subTitle {
-  margin: 10px 0 0;
-  font-size: 16px;
-  color: var(--text-muted);
-}
+  /* container already has padding globally, but keep a little here */
+  padding: 0 28px;
 
-.grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 44px;
-  align-items: center;
-}
-
-/* LEFT */
-.left {
-  min-width: 0;
-}
-
-.features {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.feature {
-  display: grid;
-  grid-template-columns: 38px 1fr;
-  gap: 14px;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 56px;
   align-items: start;
 }
 
-.iconWrap {
+/* LEFT */
+.content {
+  padding-top: 6px;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  /*  FIX: light mode should NOT use #101711 */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.step:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--brand) 40%, var(--border));
+  background: var(--surface-2);
+}
+
+.stepIcon {
   width: 38px;
   height: 38px;
-  border-radius: 12px;
+  border-radius: 999px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
+
+  background: color-mix(in srgb, var(--brand) 10%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--brand) 35%, var(--border));
 }
 
-.iconImg {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  display: block;
-  filter: none;
-}
-
-/* Optional: make icons slightly brighter in dark mode */
-:global(html[data-theme="dark"]) .iconImg {
-  filter: brightness(1.05);
-}
-
-.featureBody {
+.stepBody {
   min-width: 0;
 }
 
-.featureTitle {
+.stepTitle {
   margin: 0;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.25;
   font-weight: 800;
   color: var(--text);
 }
 
-.featureText {
-  margin: 8px 0 0;
-  font-size: 15.5px;
-  line-height: 1.75;
+.stepText {
+  margin: 6px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
   color: var(--text-body);
 }
 
-/* CTA */
-.ctaRow {
-  margin-top: 26px;
-}
-
-.cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--brand) 70%, var(--border));
-  color: var(--text);
-  background: transparent;
-  text-decoration: none;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-}
-
-.cta:hover {
-  transform: translateY(-1px);
-  border-color: color-mix(in srgb, var(--brand) 85%, var(--border));
-  background: color-mix(in srgb, var(--brand-soft) 55%, transparent);
-}
-
 /* RIGHT */
-.right {
-  display: flex;
-  justify-content: center;
+.visual {
+  position: sticky;
+  top: 90px;
 }
 
 
@@ -130,51 +97,55 @@
   object-fit: cover;
 }
 
+/* =========================
+   DARK MODE OVERRIDES
+========================= */
+
+/*  Your requested dark green look */
+:global(html[data-theme="dark"]) .step {
+  background: color-mix(in srgb, #101711 88%, transparent);
+  border-color: rgba(255, 255, 255, 0.12);
+    box-shadow:
+    0 0 0 rgba(0, 0, 0, 0),
+    0 0 14px rgba(77, 110, 85, 0.22),
+    0 0 32px rgba(77, 110, 85, 0.12);
+}
+
+:global(html[data-theme="dark"]) .step:hover {
+  background: color-mix(in srgb, #101711 96%, transparent);
+  border-color: color-mix(in srgb, var(--brand) 55%, rgba(255, 255, 255, 0.12));
+    box-shadow:
+    0 0 22px rgba(77, 110, 85, 0.55),
+    0 0 60px rgba(77, 110, 85, 0.35);
+}
+
+:global(html[data-theme="dark"]) .stepIcon {
+  background: color-mix(in srgb, var(--brand) 35%, #101711);
+  border-color: color-mix(in srgb, var(--brand) 55%, rgba(255, 255, 255, 0.16));
+}
 
 
-/* Responsive */
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .title {
-    font-size: 40px;
+  .topHeader {
+    margin-bottom: 32px;
   }
 
-  .grid {
+  .inner {
     grid-template-columns: 1fr;
-    gap: 26px;
+    gap: 32px;
+    padding: 0 18px;
   }
 
-  .right {
-    order: 2;
+  .visual {
+    position: relative;
+    top: 0;
   }
-
-  .left {
-    order: 1;
-  }
-
-
 }
 
 @media (max-width: 640px) {
-  .title {
-    font-size: 32px;
-  }
-
-  .featureTitle {
-    font-size: 19px;
-  }
-
-  .featureText {
-    font-size: 15px;
-  }
-
-  .feature {
-    grid-template-columns: 34px 1fr;
-    gap: 12px;
-  }
-
-  .icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
+  .inner {
+    padding: 0 12px;
   }
 }

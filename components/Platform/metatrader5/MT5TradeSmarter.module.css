@@ -1,0 +1,38 @@
+/* =========================
+   MT5 TRADE SMARTER SECTION
+========================= */
+
+.section {
+  background: var(--bg);
+}
+
+.inner {
+  max-width: 900px;
+  text-align: center;
+}
+
+/* Heading */
+.heading {
+  margin-bottom: 28px;
+}
+
+/* Paragraphs */
+.text {
+  margin-bottom: 22px;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* Emphasis line */
+.textStrong {
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* CTA */
+.cta {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+}

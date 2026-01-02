@@ -1,0 +1,246 @@
+.section {
+  background: var(--bg);
+}
+
+.container {
+  position: relative;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  max-width: 80ch;
+  margin-bottom: 22px;
+}
+
+.title {
+  margin: 0 0 10px;
+}
+
+.intro {
+  margin: 0;
+  color: var(--text-body);
+}
+
+/* ================= GRID ================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+/* ================= CARD ================= */
+/* Base card + animated border */
+
+.card {
+  /* animation variables */
+  --sf-green-strong: #00b37a;
+  --border-angle: 0deg;
+  --border-alpha: 0.22;
+  --glow-alpha: 0.55;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 20px;
+  border-radius: 18px;
+  overflow: hidden;
+
+  text-decoration: none;
+  color: inherit;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    --border-angle 0.45s ease,
+    --border-alpha 0.45s ease,
+    --glow-alpha 0.55s ease;
+
+  outline: none;
+}
+
+/* animated border */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    rgba(0, 179, 122, var(--border-alpha)) 25deg,
+    var(--sf-green-strong) 45deg,
+    rgba(0, 179, 122, var(--border-alpha)) 65deg,
+    transparent 90deg,
+    transparent 180deg,
+    rgba(0, 179, 122, var(--border-alpha)) 205deg,
+    var(--sf-green-strong) 225deg,
+    rgba(0, 179, 122, var(--border-alpha)) 250deg,
+    transparent 270deg,
+    transparent 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* soft glow */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+
+  opacity: var(--glow-alpha);
+  filter: blur(18px);
+}
+
+/* keep content above animation */
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* hover */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-border);
+
+  --border-angle: 90deg;
+  --border-alpha: 0.16;
+  --glow-alpha: 0.22;
+}
+
+/* keyboard focus */
+.card:focus-visible {
+  box-shadow: 0 0 0 4px rgba(0, 211, 198, 0.18), var(--shadow-md);
+  border-color: var(--brand-border);
+}
+
+/* ================= CARD CONTENT ================= */
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.tag {
+  padding: 6px 10px;
+}
+
+.arrow {
+  font-size: 18px;
+  color: var(--text-muted);
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+  color: var(--brand);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.cardDesc {
+  margin: 0;
+  color: var(--text-body);
+}
+
+.cardNote {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.cardFooter {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.ctaText {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ctaDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--brand);
+  opacity: 0.9;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  margin: 18px 0 0;
+  color: var(--text-muted);
+  max-width: 90ch;
+}
+
+/* ================= DARK MODE GLOW ================= */
+
+html[data-theme="dark"] .card::after {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  filter: blur(26px);
+
+  background:
+    radial-gradient(120% 120% at 20% 10%, rgba(77, 110, 85, 0.45), transparent 55%),
+    radial-gradient(120% 120% at 80% 90%, rgba(77, 110, 85, 0.28), transparent 60%);
+}
+
+html[data-theme="dark"] .card:hover::after {
+  opacity: 1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .header {
+    margin-bottom: 16px;
+  }
+}

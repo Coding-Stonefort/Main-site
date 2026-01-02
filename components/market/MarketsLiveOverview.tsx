@@ -48,16 +48,16 @@ const MARKET_TABS: MarketTab[] = [
       { s: "FX:USDCHF", d: "USD / CHF" },
     ],
   },
-  {
-    id: "indices",
-    label: "Indices CFD",
-    href: "/markets/indices#indices-pairs",
-    tvTitle: "Indices",
-    symbols: [
-      { s: "DJ:DJI", d: "Dow Jones" },
-      { s: "SP:SPX", d: "S&P 500" },
-    ],
-  },
+{
+  id: "indices",
+  label: "Indices CFD",
+  href: "/markets/indices#indices-pairs",
+  tvTitle: "Indices",
+symbols: [
+  { s: "OANDA:US30USD", d: "US Wall St 30" },
+  { s: "OANDA:SPX500USD", d: "US SPX 500" },
+],
+},
   {
     id: "metals",
     label: "Metal CFD",

@@ -1,72 +1,131 @@
-.section {
-  background: var(--bg);
+/* PlatformsHeroTabs.module.css
+   - CSS Modules only
+   - Uses global tokens for light mode
+   - Dark mode: tabs strip bg #101711, tabs white, text black
+*/
+
+.heroCard {
+  min-height: 700px;
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: 22px;
+  /* background: var(--surface-2); */
+  box-shadow: var(--shadow-md);
+
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 22px;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 18px;
+.heroCard::before {
+  content: "";
+  position: absolute;
+  inset: -180px;
+  background: radial-gradient(
+    circle at 20% 15%,
+    color-mix(in srgb, var(--brand) 18%, transparent),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* LEFT */
+.left {
+  position: relative;
+  z-index: 1;
+  padding: 10px 6px;
+  max-width: 520px;
+}
+
+.kicker {
+  margin: 0 0 14px;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--brand);
+  letter-spacing: -0.02em;
 }
 
 .topHeading {
-  font-size: 42px;
-  line-height: 1.15;
-  font-weight: 800;
-  margin: 0;
-  color: var(--text);
-  padding-bottom: 40px;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
 }
 
 .topHeading span {
   color: var(--brand);
 }
 
-@media (max-width: 640px) {
-  .topHeading {
-    font-size: 32px;
-  }
+.lead {
+  margin: 0 0 18px;
+  line-height: 1.75;
+  color: var(--text-body);
+  max-width: 520px;
 }
 
+.learnMore {
+  width: fit-content;
+  padding-left: 26px;
+  padding-right: 26px;
+  border-radius: 999px;
+}
 
-.shell {
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 18px;
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
-  box-shadow: var(--shadow-md);
+/* RIGHT */
+.right {
+  position: relative;
+  z-index: 1;
+  padding: 6px 6px;
+  display: grid;
+  gap: 12px;
+}
+
+.tabsHeader {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 800;
 }
 
 /* TOP TABS */
 .tabsTop {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
-  padding: 6px;
+  padding: 8px;
   border-radius: 18px;
-  background: color-mix(in srgb, var(--surface) 80%, transparent);
   border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
 }
 
 .tabBtn {
   height: 56px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: transparent;
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
   color: var(--text);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px 0 18px;
   cursor: pointer;
-  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+  text-decoration: none;
+
+  transition: transform 0.16s ease, border-color 0.16s ease,
+    background 0.16s ease, filter 0.16s ease;
 }
 
 .tabBtn:hover {
   transform: translateY(-1px);
   border-color: color-mix(in srgb, var(--brand) 35%, var(--border));
+  filter: brightness(1.01);
 }
 
 .tabText {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 14px;
   letter-spacing: 0.01em;
 }
@@ -78,106 +137,183 @@
   display: grid;
   place-items: center;
   border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface) 85%, transparent);
-  opacity: 0.9;
+  background: color-mix(in srgb, var(--surface-2) 80%, transparent);
+  opacity: 0.95;
 }
 
-/* Active pill like screenshot */
+/* Active (light mode) */
 .tabBtnActive {
-  background: color-mix(in srgb, var(--brand) 72%, #ffffff);
-  border-color: color-mix(in srgb, var(--brand) 80%, var(--border));
+  background: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 70%, var(--border));
   color: #fff;
 }
 
-:global(html[data-theme="dark"]) .tabBtnActive {
-  background: color-mix(in srgb, var(--brand) 55%, #0b0f0d);
-}
-
 .tabBtnActive .tabIcon {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.24);
   color: #fff;
 }
 
 /* CONTENT CARD */
 .card {
-  margin-top: 14px;
+  margin-top: 2px;
   border: 1px solid var(--border);
   border-radius: 22px;
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  background: var(--surface);
+  overflow: hidden;
+
+  /* stable height */
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.2s ease;
 }
 
 .cardInner {
-  padding: 26px;
+  padding: 22px;
   display: grid;
-  gap: 18px;
+  /* grid-template-columns: 0.9fr 1.1fr; */
+  gap: 16px;
+
+  flex: 1;
+  min-height: 100%;
+  align-items: stretch;
 }
 
 .copy {
-  max-width: 820px;
+  max-width: 420px;
 }
 
 .headline {
   margin: 0;
-  font-size: 34px;
-  line-height: 1.1;
-  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.12;
+  font-weight: 900;
   color: var(--text);
+  letter-spacing: -0.02em;
 }
 
 .desc {
-  margin: 10px 0 0;
-  font-size: 15.5px;
+  margin: 10px 0 30px;
   line-height: 1.7;
   color: var(--text-body);
 }
 
-.media {
-  display: grid;
-  gap: 14px;
+.actions {
+  margin-top: 14px;
 }
 
-.imageFrame {
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface) 85%, transparent);
-  box-shadow: var(--shadow-sm);
+/* use global button, just tweak shape/fit */
+.cta {
+  width: fit-content;
+  border-radius: 999px;
 }
+
+/* IMAGE */
+.media {
+  display: grid;
+  height: 100%;
+}
+
+
 
 .image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   display: block;
 }
 
-.cta {
-  width: fit-content;
-  padding: 12px 18px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--brand) 70%, #ffffff);
-  color: #fff;
-  font-weight: 700;
-  text-decoration: none;
-  border: 1px solid color-mix(in srgb, var(--brand) 80%, var(--border));
-  transition: transform 0.15s ease, filter 0.15s ease;
+/* =========================
+   DARK MODE OVERRIDES
+   (requested)
+========================= */
+/* keep your premium glow */
+:global(html[data-theme="dark"]) .heroCard {
+  background: #101711;
+  .card {
+    background: #101711;
+  }
+  .media {
+     background: #101711;
+  }
+  .imageFrame {
+     background: #101711;
+  }
 }
 
-.cta:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.03);
-}
 
+
+/* keep your premium glow */
 :global(html[data-theme="dark"]) .imageFrame {
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(135, 171, 147, 0.16),
     0 0 44px rgba(135, 171, 147, 0.18);
 }
 
-/* Responsive */
+/* dark mode: strip bg */
+:global(html[data-theme="dark"]) .tabsTop {
+  background: #101711;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* dark mode: ALL tabs white, text black */
+:global(html[data-theme="dark"]) .tabBtn {
+  background: #55816e;
+  color: #fff;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* dark mode hover polish */
+:global(html[data-theme="dark"]) .tabBtn:hover {
+  background: #101711;
+  border-color: 1px solid #fff;
+  filter: none;
+}
+
+/* dark mode: icon contrast */
+:global(html[data-theme="dark"]) .tabIcon {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #000;
+  opacity: 1;
+}
+
+/* dark mode: active tab (still clear) */
+:global(html[data-theme="dark"]) .tabBtnActive {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+
+:global(html[data-theme="dark"]) .tabBtnActive .tabIcon {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+/* RESPONSIVE */
 @media (max-width: 1024px) {
+  .heroCard {
+    grid-template-columns: 1fr;
+    min-height: 700px;
+    align-items: start;
+  }
+
+  .cardInner {
+    grid-template-columns: 1fr;
+  }
+
   .tabsTop {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .copy {
+    max-width: 100%;
+  }
+
+  .imageFrame {
+    min-height: 280px;
   }
 }
 
@@ -186,11 +322,15 @@
     grid-template-columns: 1fr;
   }
 
-  .headline {
-    font-size: 28px;
-  }
-
   .cardInner {
     padding: 18px;
+  }
+
+  .headline {
+    font-size: 24px;
+  }
+
+  .card {
+    min-height: 420px;
   }
 }

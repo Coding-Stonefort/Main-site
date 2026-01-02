@@ -131,3 +131,48 @@ html[data-theme="dark"] .list {
     font-size: 15px;
   }
 }
+
+/* =========================
+   BULLETS inside FAQ answers
+   ========================= */
+
+/* UL/OL spacing + bullets */
+.answer :global(ul),
+.answer :global(ol) {
+  margin: 10px 0 0;
+  padding-left: 22px;        /* indentation */
+}
+
+/* default bullets */
+.answer :global(ul) {
+  list-style: disc;
+}
+
+/* numbered list */
+.answer :global(ol) {
+  list-style: decimal;
+}
+
+/* li spacing */
+.answer :global(li) {
+  margin: 8px 0;
+  line-height: 1.7;
+}
+
+/* keep strong consistent */
+.answer :global(strong) {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* mobile tweak */
+@media (max-width: 768px) {
+  .answer :global(ul),
+  .answer :global(ol) {
+    padding-left: 18px;
+  }
+
+  .answer :global(li) {
+    margin: 6px 0;
+  }
+}

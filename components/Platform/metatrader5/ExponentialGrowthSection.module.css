@@ -1,0 +1,139 @@
+.section {
+  background: var(--bg);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 44px;
+}
+
+/* LEFT */
+.left {
+  max-width: 620px;
+}
+
+.copy {
+  margin-top: 14px;
+  color: var(--text-body);
+}
+
+/* RIGHT */
+.right {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stack {
+  width: min(560px, 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.mainCard,
+.smallCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+  box-shadow: var(--shadow-md);
+
+  padding: 14px; /*  prevents edge clipping */
+}
+
+/* Main image */
+.mainCard {
+  height: 320px;
+}
+
+/* 2-up grid for supporting visuals */
+.grid2 {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.smallCard {
+  height: 170px;
+}
+
+/* next/image */
+.img {
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1.02);
+}
+
+/* Subtle brand glow behind visuals */
+.glow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(520px, 80%);
+  height: 380px;
+  border-radius: 999px;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--brand) 28%, transparent),
+    transparent 68%
+  );
+  filter: blur(28px);
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .left {
+    max-width: 100%;
+  }
+
+  .right {
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  .stack {
+    width: 100%;
+  }
+
+  .mainCard {
+    height: 300px;
+  }
+
+  .smallCard {
+    height: 160px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mainCard {
+    height: 240px;
+    border-radius: 16px;
+  }
+
+  .smallCard {
+    height: 140px;
+    border-radius: 16px;
+  }
+
+  .grid2 {
+    gap: 12px;
+  }
+
+  .inner {
+    gap: 18px;
+  }
+}

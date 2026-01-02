@@ -1,0 +1,173 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  overflow: hidden;
+
+  /*  desktop spacing */
+  padding: 150px 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* -------------------------
+   LEFT / RIGHT LAYOUT
+------------------------- */
+.left {
+  flex: 1.35;
+  max-width: 860px;
+}
+
+.right {
+  flex: 0.65;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* -------------------------
+   TITLE (2 lines desktop)
+------------------------- */
+.title {
+  margin: 0 0 14px;
+  line-height: 1.05;
+}
+
+.hLine {
+  display: block;
+}
+
+/* force first line single-line on desktop */
+.hLine:first-child {
+  white-space: nowrap;
+}
+
+/* -------------------------
+   TEXT
+------------------------- */
+.subtitle {
+  max-width: 720px;
+  margin-bottom: 32px;
+  color: var(--text-body);
+}
+
+/* -------------------------
+   CTA
+------------------------- */
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: nowrap; /*  NEVER wrap */
+}
+
+/* keep global button behavior */
+.primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+/* -------------------------
+   IMAGE
+------------------------- */
+.heroImage {
+  width: 100%;
+  height: auto;
+  max-width: 900px;
+  object-fit: contain;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Large desktop */
+@media (min-width: 1280px) {
+  .inner {
+    gap: 56px;
+  }
+
+  .heroImage {
+    max-width: 960px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 80px 0; /*  tablet spacing */
+  }
+
+  .inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 34px;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .right {
+    justify-content: center;
+  }
+
+  /* allow heading wrap on smaller screens */
+  .hLine:first-child {
+    white-space: normal;
+  }
+
+  .subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ctaRow {
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .hero {
+    padding: 48px 0; /*  mobile spacing */
+  }
+
+  .inner {
+    gap: 26px;
+  }
+
+  .subtitle {
+    margin-bottom: 22px;
+  }
+
+  /*  keep buttons in ONE line */
+  .ctaRow {
+    gap: 12px;
+  }
+
+  .ctaRow :global(.button) {
+    width: auto;
+    min-width: 0;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .heroImage {
+    max-width: 100%;
+  }
+}

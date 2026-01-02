@@ -12,7 +12,7 @@ export default function Cryptocurrency() {
       <div className={`${styles.inner} container`}>
         <div className={styles.left}>
           <h1 className={`${styles.title} heading`}>
-            Cryptocurrency Trading with <br /> Stonefort
+            Cryptocurrency Trading with <br /><span className={styles.accent}> Stonefort</span>
           </h1>
 
           <p className={`${styles.subtitle} text`}>

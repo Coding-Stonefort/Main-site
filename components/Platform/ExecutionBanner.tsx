@@ -21,7 +21,7 @@ export default function ExecutionBanner() {
           </div>
 
           {/* Part 2 */}
-          <div className={styles.card}>
+          <div className={`${styles.card} ${styles.card2}`}>
             <div className={styles.value}>Up to 100%</div>
             <p className={styles.desc}>
               of supported trades are executed in under one second, delivering a
@@ -31,7 +31,7 @@ export default function ExecutionBanner() {
           </div>
 
           {/* Part 3 */}
-          <div className={styles.card}>
+          <div className={`${styles.card} ${styles.card3}`}>
             <div className={styles.value}>Under 30 ms</div>
             <p className={styles.desc}>
               Our trading infrastructure delivers an average execution speed under
@@ -40,7 +40,7 @@ export default function ExecutionBanner() {
           </div>
 
           {/* Part 4 */}
-          <div className={styles.card}>
+          <div className={`${styles.card} ${styles.card4}`}>
             <div className={styles.value}>1.0 pip</div>
             <p className={styles.desc}>
               Trade major currency pairs such as EUR/USD with spreads starting from

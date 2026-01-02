@@ -69,10 +69,10 @@ return (
                 {
                   heading: "Trading Platform",
                   items: [
-                    { label: "MetaTrader 5", href: "/platform/mt5" },
+                    { label: "MetaTrader 5", href: "/platforms/metatrader5" },
                     { label: "MetaTrader Web", href: "/platform/mt5-web" },
-                    { label: "SFX Mobile App", href: "/platform/mobile" },
-                    { label: "SFX Web", href: "/platform/web" },
+                    { label: "Stonefort Mobile App", href: "/platforms/StonefortTrader" },
+                    { label: "Stonefort Web", href: "/platform/web" },
                   ],
                 },
                 {

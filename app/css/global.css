@@ -78,7 +78,7 @@
 ------------------------- */
 html[data-theme="dark"] {
   --bg: #101711;
-  --surface: #0c1218;
+  --surface: #101711;
   --surface-2: #0f1620;
 
   --text: #eaf0f6;

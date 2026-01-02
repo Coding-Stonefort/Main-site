@@ -1,7 +1,4 @@
-.section {
-  background: var(--bg);
-}
-
+/* HEADER */
 .header {
   text-align: center;
   margin-bottom: 56px;
@@ -12,7 +9,7 @@
 }
 
 /* =========================
-   GRID (PERFECT CENTERING)
+   GRID
 ========================= */
 .grid {
   display: flex;
@@ -21,7 +18,7 @@
   gap: 28px;
 }
 
-/* Force 4 cards per row on desktop */
+/* Force 4 cards per row */
 .card {
   width: calc((100% - 84px) / 4);
 }
@@ -40,6 +37,7 @@
   align-items: center;
   text-align: center;
 
+  /* ✅ LIGHT MODE */
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -54,7 +52,7 @@
     --border-angle 0.45s ease;
 }
 
-/* Shiny animated border */
+/* Shiny animated border (UNCHANGED) */
 .card::before {
   content: "";
   position: absolute;
@@ -84,7 +82,7 @@
   mask-composite: exclude;
 }
 
-/* Hover */
+/* Hover (UNCHANGED animation) */
 .card:hover {
   --border-angle: 90deg;
   transform: translateY(-6px);
@@ -103,7 +101,8 @@
   align-items: center;
   justify-content: center;
 
-  background: var(--brand-soft);
+  /* ✅ LIGHT MODE */
+  background: color-mix(in srgb, var(--brand) 12%, var(--surface));
 }
 
 /* Text */
@@ -111,7 +110,9 @@
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 12px;
-  color: var(--text-strong);
+
+  /* ✅ FIX */
+  color: var(--text);
 }
 
 .cardText {
@@ -121,11 +122,34 @@
   max-width: 320px;
 }
 
-/* Dark mode glow */
+/* =========================
+   DARK MODE FIXES ONLY
+========================= */
+
+/* Card background + text */
+:global(html[data-theme="dark"]) .card {
+  background: #101711;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+:global(html[data-theme="dark"]) .cardTitle {
+  color: var(--text);
+}
+
+:global(html[data-theme="dark"]) .cardText {
+  color: var(--text-body);
+}
+
+/* Icon background in dark */
+:global(html[data-theme="dark"]) .iconWrap {
+  background: color-mix(in srgb, var(--brand) 30%, #101711);
+}
+
+/* Dark hover glow (KEEP animation, just align color) */
 :global(html[data-theme="dark"]) .card:hover {
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(0, 179, 122, 0.35);
+    0 0 0 1px rgba(77, 110, 85, 0.45);
 }
 
 /* =========================

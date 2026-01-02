@@ -1,0 +1,271 @@
+.section {
+  background: var(--bg);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+/* LEFT */
+.content {
+  max-width: 680px;
+}
+
+.title {
+  margin: 0 0 16px;
+
+  /* EXACT 2 lines only */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: initial;
+}
+
+.line1,
+.line2 {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  align-items: baseline;
+
+  gap: 12px;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+.text {
+  margin: 0 0 12px;
+  color: var(--text-body);
+}
+
+.options {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accountBadge {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.highlight {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+/* RIGHT (IMPORTANT: NO BG PANEL) */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+
+  /* remove the panel look */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  /* allow floating cards to go outside like your screenshot */
+  overflow: visible;
+}
+
+/* This stage holds ONLY the image and controls sizing */
+.imageStage {
+  position: relative;
+  width: 100%;
+  height: 520px;
+
+  /* no bg, no border, no radius */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.image {
+  object-fit: contain; /* phones stay clean like screenshot */
+}
+
+/* STAT CARDS */
+.statCard {
+  position: absolute;
+  z-index: 3;
+
+  width: 260px;
+  padding: 16px 16px 14px;
+  border-radius: 18px;
+
+  /* soft white cards like your example */
+  background: color-mix(in srgb, #ffffff 94%, transparent);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.10);
+}
+
+/* Dark theme: make cards readable */
+:global(html[data-theme="dark"]) .statCard {
+  background: color-mix(in srgb, var(--card, #101711) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.35);
+}
+
+.statTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.statLabel {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-body);
+}
+
+.statMain {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.statNumber {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--text-strong);
+}
+
+.smallNote {
+  font-size: 12px;
+  color: var(--text-body);
+}
+
+.statBottomRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.positive {
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.neutral {
+  color: var(--text-body);
+  font-size: 12px;
+}
+
+.statTag {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-body);
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+:global(html[data-theme="dark"]) .statTag {
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+/* Positions (similar to your screenshot) */
+.card1 {
+  top: 0;
+  left: -10px;
+}
+
+.card2 {
+  bottom: -6px;
+  left: -10px;
+}
+
+.card3 {
+  top: 42%;
+  right: -26px;
+  transform: translateY(-50%);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .imageWrapper {
+    min-height: 480px;
+  }
+
+  .imageStage {
+    height: 480px;
+  }
+
+  /* keep cards inside screen on tablet */
+  .card1,
+  .card2 {
+    left: 0;
+  }
+
+  .card3 {
+    right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 32px;
+    gap: 6px;
+  }
+
+  .imageWrapper {
+    min-height: 420px;
+  }
+
+  .imageStage {
+    height: 420px;
+  }
+
+  .statCard {
+    width: 220px;
+  }
+
+  .card1 {
+    top: -6px;
+    left: 0;
+  }
+
+  .card2 {
+    bottom: -6px;
+    left: 0;
+  }
+
+  .card3 {
+    top: 54%;
+    right: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .statCard {
+    width: 210px;
+    padding: 14px;
+  }
+}

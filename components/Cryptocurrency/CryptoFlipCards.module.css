@@ -1,65 +1,64 @@
-/* === WRAPPER === */
-.cryptoWrapper {
-  padding: 30px 0;
+.section {
+  position: relative;
 }
 
-/* === HEADING === */
-.cryptoHeadingWrap {
+.inner {
+  /* optional: keeps spacing consistent with other sections */
+}
+
+.header {
   text-align: center;
   margin-bottom: 28px;
 }
 
-.cryptoHeading {
-  font-size: 56px;
-  font-weight: 700;
-  color: #000;
+.heading {
+  margin: 0;
   letter-spacing: -0.02em;
-
+  /* uses global .title sizing; only adjust if you want this section slightly smaller/larger */
 }
 
-.cryptoHeading span {
-  color: #4d6e55; /* crypto blue accent */
+.accent {
+  color: var(--brand);
 }
 
-/* === GRID === */
-.cryptoGrid {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* GRID */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 32px;
 }
 
-/* === CARD === */
-.cryptoCard {
+/* CARD */
+.card {
   position: relative;
   overflow: hidden;
 
-  /* ⬆ Auto-adjust height based on content */
-  min-height: 180px;
-  height: auto;
-
+  border-radius: 20px;
   padding: 10px 0;
 
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* theme-safe glass */
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
 
-  /* Stonefort green glow */
-  box-shadow: 0 0 75px rgba(77, 110, 85, 0.45);
+  /* soft shadow + brand glow that works in both themes */
+  box-shadow: var(--shadow-md), 0 0 75px color-mix(in srgb, var(--brand) 40%, transparent);
 
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  min-height: 220px;
+  height: auto;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
-.cryptoCard:hover {
+.card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 95px rgba(77, 110, 85, 0.65);
+  box-shadow: var(--shadow-md), 0 0 95px color-mix(in srgb, var(--brand) 55%, transparent);
+  border-color: color-mix(in srgb, var(--brand) 45%, var(--glass-border));
 }
 
-/* === FRONT CONTENT === */
-.cryptoFront {
+/* FRONT CONTENT */
+.front {
   z-index: 2;
   position: absolute;
   inset: 0;
@@ -78,29 +77,32 @@
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* slide-UP + fade-out */
-.cryptoCard:hover .cryptoFront {
+.card:hover .front {
   opacity: 0;
   transform: translateY(-40px);
 }
 
-.cryptoIcon {
-  filter: drop-shadow(0px 4px 12px rgba(77, 110, 85, 0.6));
+.icon {
+  filter: drop-shadow(0px 6px 16px color-mix(in srgb, var(--brand) 55%, transparent));
 }
 
-.cryptoTitle {
+.cardTitle {
+  margin: 0;
   font-size: 28px;
-  font-weight: 600;
-  color: #000;
+  font-weight: 700;
+  color: var(--text);
   text-align: center;
+  letter-spacing: -0.01em;
+  padding: 0 18px;
 }
 
-/* === REVEAL TEXT === */
-.cryptoReveal {
-  position: relative; /* IMPORTANT: allows height to grow */
+/* REVEAL */
+.reveal {
+  position: relative;
   inset: 0;
+
   padding: 28px 32px;
-  margin-top: 30px; /* creates space after icon animation */
+  margin-top: 30px;
 
   display: flex;
   justify-content: center;
@@ -115,37 +117,49 @@
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.cryptoCard:hover .cryptoReveal {
+.card:hover .reveal {
   opacity: 1;
   transform: translateY(0);
 }
 
-.cryptoReveal p {
-  color: #000;
-  font-size: 20px;
+.revealText {
+  margin: 0;
+  color: var(--text-body);
   line-height: 1.65;
 }
 
-/* === RESPONSIVE === */
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .cardTitle {
+    font-size: 22px;
+  }
+}
+
 @media (max-width: 640px) {
-  .cryptoWrapper {
-    padding: 40px 0;
+  .header {
+    margin-bottom: 18px;
   }
 
-  .cryptoHeading {
-    font-size: 32px;
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .cryptoCard {
+  .card {
     min-height: 260px;
     padding: 16px 0;
   }
 
-  .cryptoTitle {
+  .cardTitle {
     font-size: 20px;
   }
 
-  .cryptoReveal p {
-    font-size: 16px;
+  .reveal {
+    padding: 22px 18px;
   }
 }

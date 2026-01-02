@@ -1,67 +1,53 @@
-/* === WRAPPER === */
-.wrapper {
-  padding: 60px 0;
+.section {
   background: var(--bg);
 }
 
-/* === HEADING === */
+.inner {
+  /* keep consistent spacing with other sections if needed */
+}
+
 .headingWrap {
   text-align: center;
   margin-bottom: 60px;
 }
 
 .heading {
-  font-size: 56px;
-  font-weight: 700;
-  color: var(--text);
+  margin: 0;
   letter-spacing: -0.02em;
-  margin: 0; /* important (global styles can add margins) */
 }
 
-.heading span {
+.accent {
   color: var(--brand);
 }
 
-/* === GRID === */
+/* GRID */
 .grid {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 32px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 32px;
 }
 
-/* === CARD === */
+/* CARD */
 .card {
   position: relative;
   overflow: hidden;
   height: 260px;
   border-radius: 24px;
 
-  /* IMPORTANT */
   background: var(--surface);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 
-  box-shadow: var(--card-shadow);
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--card-shadow-hover);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--brand) 30%, var(--border));
 }
 
-html[data-theme="dark"] .card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-}
-
-
-/* === FRONT CONTENT (ICON + TITLE) === */
+/* FRONT */
 .front {
   z-index: 2;
   position: absolute;
@@ -87,18 +73,20 @@ html[data-theme="dark"] .card {
 }
 
 .icon {
-  filter: drop-shadow(0px 4px 12px rgba(77, 110, 85, 0.6));
+  filter: drop-shadow(0px 6px 16px color-mix(in srgb, var(--brand) 55%, transparent));
 }
 
-.title {
+.cardTitle {
+  margin: 0;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
-  margin: 0; /* important */
   text-align: center;
+  letter-spacing: -0.01em;
+  padding: 0 18px;
 }
 
-/* === REVEAL TEXT === */
+/* REVEAL */
 .reveal {
   position: absolute;
   inset: 0;
@@ -122,32 +110,43 @@ html[data-theme="dark"] .card {
   transform: translateY(0);
 }
 
-.reveal p {
-  color: var(--text);
-  font-size: 20px;
+.revealText {
+  margin: 0;
+  color: var(--text-body);
   line-height: 1.6;
-  margin: 0; /* important (your screenshot shows default margins pushing layout) */
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 640px) {
-  .wrapper {
-    padding: 40px 0;
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
   }
 
-  .heading {
-    font-size: 24px;
+  .cardTitle {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .headingWrap {
+    margin-bottom: 24px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .card {
     height: 240px;
   }
 
-  .title {
+  .cardTitle {
     font-size: 18px;
   }
 
-  .reveal p {
-    font-size: 15px;
+  .reveal {
+    padding: 22px 18px;
   }
 }

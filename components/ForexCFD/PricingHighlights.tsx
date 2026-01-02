@@ -30,7 +30,6 @@ const slides: Slide[] = [
       alt: "Trading app pricing",
       width: 520,
       height: 420,
-      
     },
     lines: [
       "Trade Size: €100,000 (one standard lot)",
@@ -89,9 +88,13 @@ export default function ProfitCards() {
     <section className={`section ${styles.section}`}>
       <div className={`container ${styles.inner}`}>
         <header className={styles.header}>
-          <h2 className={`title ${styles.heading}`}>
+          <h2 className={`title ${styles.title}`}>
             How a Forex <span className={styles.accent}>Trade Works</span>
           </h2>
+          <p className={`text ${styles.subtitle}`}>
+            A simple step-by-step example showing how profit is calculated from
+            opening to closing a position.
+          </p>
         </header>
 
         <div className={styles.grid}>
@@ -99,17 +102,17 @@ export default function ProfitCards() {
           <article className={`${styles.card} ${styles.cardWide}`}>
             <div className={`${styles.cardBody} ${styles.cardBodyWide}`}>
               <div className={styles.content}>
-                <h3 className={styles.cardTitle}>{top.title}</h3>
+                <h3 className={`heading ${styles.cardTitle}`}>{top.title}</h3>
 
                 <ul className={styles.list}>
                   {top.lines.map((line, i) => (
-                    <li key={i} className={styles.item}>{line}</li>
+                    <li key={i} className={styles.item}>
+                      {line}
+                    </li>
                   ))}
                 </ul>
 
-                <button className={`button ${styles.cta}`}>
-                  {top.cta}
-                </button>
+                {top.cta && <button className={`button ${styles.cta}`}>{top.cta}</button>}
               </div>
 
               {top.image && (
@@ -120,63 +123,63 @@ export default function ProfitCards() {
             </div>
 
             <div className={styles.stepPill}>Step {top.stepNumber}</div>
-            <div className={styles.watermark} />
+            <div className={styles.watermark} aria-hidden="true" />
           </article>
 
           {/* ===== BOTTOM LEFT (BG IMAGE) ===== */}
           <article className={styles.card}>
+            <div className={styles.overlay} aria-hidden="true" />
+
             <div className={styles.cardBody}>
-              <h3 className={styles.cardTitle}>{bottomLeft.title}</h3>
+              <h3 className={`heading ${styles.cardTitle}`}>{bottomLeft.title}</h3>
 
               <ul className={styles.list}>
                 {bottomLeft.lines.map((line, i) => (
-                  <li key={i} className={styles.item}>{line}</li>
+                  <li key={i} className={styles.item}>
+                    {line}
+                  </li>
                 ))}
               </ul>
 
-              <button className={`button ${styles.cta}`}>
-                {bottomLeft.cta}
-              </button>
+              {bottomLeft.cta && (
+                <button className={`button ${styles.cta}`}>{bottomLeft.cta}</button>
+              )}
             </div>
 
             {bottomLeft.image && (
-              <Image
-                {...bottomLeft.image}
-                className={styles.bgImage}
-                aria-hidden
-              />
+              <Image {...bottomLeft.image} className={styles.bgImage} aria-hidden />
             )}
 
             <div className={styles.stepPill}>Step {bottomLeft.stepNumber}</div>
-            <div className={styles.watermark} />
+            <div className={styles.watermark} aria-hidden="true" />
           </article>
 
           {/* ===== BOTTOM RIGHT (BG IMAGE) ===== */}
           <article className={styles.card}>
+            <div className={styles.overlay} aria-hidden="true" />
+
             <div className={styles.cardBody}>
-              <h3 className={styles.cardTitle}>{bottomRight.title}</h3>
+              <h3 className={`heading ${styles.cardTitle}`}>{bottomRight.title}</h3>
 
               <ul className={styles.list}>
                 {bottomRight.lines.map((line, i) => (
-                  <li key={i} className={styles.item}>{line}</li>
+                  <li key={i} className={styles.item}>
+                    {line}
+                  </li>
                 ))}
               </ul>
 
-              <button className={`button ${styles.cta}`}>
-                {bottomRight.cta}
-              </button>
+              {bottomRight.cta && (
+                <button className={`button ${styles.cta}`}>{bottomRight.cta}</button>
+              )}
             </div>
 
             {bottomRight.image && (
-              <Image
-                {...bottomRight.image}
-                className={styles.bgsImage}
-                aria-hidden
-              />
+              <Image {...bottomRight.image} className={styles.bgImage} aria-hidden />
             )}
 
             <div className={styles.stepPill}>Step {bottomRight.stepNumber}</div>
-            <div className={styles.watermark} />
+            <div className={styles.watermark} aria-hidden="true" />
           </article>
         </div>
       </div>

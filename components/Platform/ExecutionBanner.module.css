@@ -18,14 +18,12 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-
-  /* subtle divider */
   border-right: 1px solid var(--border);
 }
 
 .title {
   margin: 0;
-  font-size: 34px; /* override global title size to fit banner */
+  font-size: 34px;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--text);
@@ -38,6 +36,9 @@
   color: var(--text-body);
 }
 
+/* =========================
+   CARDS (2/3/4)
+========================= */
 .card {
   padding: 24px 22px;
   display: flex;
@@ -46,31 +47,103 @@
 
   border-left: 1px solid var(--border);
   background: var(--surface);
+
+  /* key for background layers */
+   color: #fff;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* keeps blend/overlays contained */
+  cursor: default;
+}
+
+/* background image layer (blurs on hover, text stays sharp) */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-image: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 1;
+  transform: scale(1.05);
+  filter: blur(0px);
+
+  transition: filter 220ms ease, transform 220ms ease, opacity 220ms ease;
+}
+
+/* tint/overlay for readability */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  /* BLACK overlay */
+  background: rgba(0, 0, 0, 0.45);
+
+  transition: opacity 220ms ease;
+}
+
+/* keep content above bg layers */
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover::before {
+  filter: blur(10px);
+  transform: scale(1.12);
+  opacity: 0.32;
+}
+
+.card:hover::after {
+  opacity: 0.78;
 }
 
 .value {
   font-size: 22px;
-  font-weight: 750;
+  font-weight: 700;
   letter-spacing: -0.01em;
-  color: var(--text);
+   color: #fff;
 }
 
 .desc {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.65;
-  color: var(--text-body);
+   color: #fff;
 }
 
 .note {
   margin: 0;
   font-size: 12px;
-  color: var(--text-muted);
+   color: #fff;
 }
 
-/* Dark mode: add a soft green glow so it feels “Stonefort” */
+/* Assign background images per card */
+.card2 {
+  --card-bg: url("/images/6941.webp");
+}
+
+.card3 {
+  --card-bg: url("/images/25.webp");
+}
+
+.card4 {
+  --card-bg: url("/images/1687.webp");
+}
+
+/* Dark mode tweaks (better contrast) */
 :global(html[data-theme="dark"]) .banner {
-  background: linear-gradient(180deg, rgba(135, 171, 147, 0.08), rgba(12, 18, 24, 0.0));
+  background: linear-gradient(
+    180deg,
+    rgba(135, 171, 147, 0.08),
+    rgba(12, 18, 24, 0)
+  );
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
 }
 
@@ -78,8 +151,24 @@
   background: rgba(12, 18, 24, 0.55);
 }
 
+:global(html[data-theme="dark"]) .card::after {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 18, 24, 0.78),
+    rgba(12, 18, 24, 0.42)
+  );
+}
+
 :global(html[data-theme="dark"]) .value {
   text-shadow: 0 0 18px rgba(135, 171, 147, 0.25);
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .card::before,
+  .card::after {
+    transition: none;
+  }
 }
 
 /* Tablet */

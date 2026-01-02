@@ -1,0 +1,168 @@
+.section {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* Layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 54px;
+  align-items: center;
+}
+
+.left {
+  position: relative;
+  z-index: 2;
+}
+
+.heading {
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.brand {
+  color: var(--brand);
+}
+
+.lead {
+  margin: 14px 0 0;
+  max-width: 720px;
+  color: var(--text-body);
+}
+
+/* Features list */
+.features {
+  margin-top: 26px;
+  display: grid;
+  gap: 14px;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+:global(html[data-theme="dark"]) .feature {
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+}
+
+.bullet {
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: var(--brand);
+  box-shadow: 0 0 0 4px var(--brand-soft);
+}
+
+.featureBody {
+  min-width: 0;
+}
+
+.featureTitle {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.featureText {
+  margin: 8px 0 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* CTA */
+.actions {
+  margin-top: 18px;
+}
+
+.cta {
+  width: fit-content;
+  min-width: 240px;
+}
+
+/* Right mockup */
+.right {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
+.mockupCard {
+  width: 100%;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+:global(html[data-theme="dark"]) .mockupCard {
+  background: color-mix(in srgb, var(--surface) 68%, transparent);
+}
+
+.mockup {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateZ(0);
+}
+
+/* subtle background glow */
+.glow {
+  position: absolute;
+  inset: -10%;
+  z-index: -1;
+  background: radial-gradient(
+    circle at 65% 40%,
+    color-mix(in srgb, var(--brand) 30%, transparent),
+    transparent 55%
+  );
+  filter: blur(26px);
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .mockupCard {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .cta {
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 640px) {
+  .feature {
+    padding: 14px 14px;
+    border-radius: 16px;
+  }
+
+  .featureTitle {
+    font-size: 16.5px;
+  }
+
+  .featureText {
+    font-size: 15px;
+  }
+}

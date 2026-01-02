@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  margin: 20px 20px;
+  
   border-radius: 50px;
   background: var(--bg);
   overflow: hidden;
@@ -11,10 +11,7 @@
   background: var(--bg-soft, var(--bg));
 }
 
-/* inner container spacing */
-.inner {
-  padding: 80px 32px 40px;
-}
+
 
 /* Header */
 .header {

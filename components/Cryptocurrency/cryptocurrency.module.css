@@ -24,6 +24,10 @@
   background-size: cover;
 }
 
+.accent {
+  color: var(--brand);
+}
+
 /* Dark mode tuning */
 :global(html[data-theme="dark"]) .bg {
   filter: brightness(0.85) contrast(1.05);

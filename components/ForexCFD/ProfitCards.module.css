@@ -34,10 +34,11 @@
   overflow: hidden;
 
   border-radius: 18px;
-  background: color-mix(in srgb, var(--card, #101711) 92%, var(--bg));
-  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
+
 
 .cardWide {
   grid-column: 1 / -1;
@@ -58,7 +59,7 @@
   font-size: 34px;
   line-height: 1.15;
   font-weight: 800;
-  color: var(--text);
+  color: var(--text-strong);
 }
 
 .cardWide .cardTitle {
@@ -79,7 +80,7 @@
   padding-left: 26px;
   font-size: 14px;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--text) 82%, transparent);
+  color: var(--text-body);
 }
 
 .item::before {
@@ -101,9 +102,9 @@
   width: fit-content;
   margin-top: 6px;
 
-  background: color-mix(in srgb, var(--muted) 18%, var(--card, var(--surface)));
-  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
-  color: var(--text);
+  background: color-mix(in srgb, var(--card) 88%, var(--bg));
+  border: 1px solid var(--border);
+  color: var(--text-strong);
 
   border-radius: 10px;
   padding: 10px 16px;
@@ -130,9 +131,9 @@
   padding: 8px 10px;
   border-radius: 999px;
 
-  color: var(--text);
-  background: color-mix(in srgb, var(--muted) 14%, var(--card, var(--surface)));
-  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  color: var(--text-strong);
+  background: color-mix(in srgb, var(--card) 86%, transparent);
+  border: 1px solid var(--border);
 }
 
 /* Watermark blob like screenshot */

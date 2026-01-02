@@ -1,139 +1,154 @@
-.section {
-  background: var(--bg);
-}
-
-/* ===== TOP CENTERED HEADER ===== */
+/* ===== TOP HEADER ===== */
 .topHeader {
   max-width: 920px;
-  margin: 0 auto 64px;
+  margin: 0 auto 48px;
   text-align: center;
-}
-
-.heading {
-  font-size: 44px;
-  line-height: 1.18;
-  font-weight: 750;
-  margin-bottom: 16px;
-  color: var(--text);
-  letter-spacing: -0.02em;
 }
 
 .brand {
   color: var(--brand);
 }
 
-.lead {
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--text-body);
-}
+/* ===== GRID BELOW HEADER ===== */
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 28px;
 
-/* ===== FEATURES + IMAGE GRID ===== */
-.contentGrid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 0.95fr 1.05fr;
   gap: 56px;
-  align-items: start; /* keep */
+  align-items: start;
 }
 
-/* ===== FEATURES ===== */
+/* LEFT */
+.content {
+  padding-top: 6px;
+}
+
+/* FEATURES */
 .features {
-  display: grid;
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .feature {
   display: grid;
-  grid-template-columns: 18px 1fr;
+  grid-template-columns: 42px 1fr;
   gap: 14px;
-  padding: 16px 18px;
-  border-radius: 16px;
+  padding: 14px 16px;
+  border-radius: 14px;
 
+  /* FIX: light mode should use surfaces, not #101711 */
   background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
 
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease,
+    background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .feature:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--brand-border);
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--brand) 40%, var(--border));
+  background: var(--surface-2);
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
+.featureIcon {
+  width: 38px;
+  height: 38px;
   border-radius: 999px;
-  margin-top: 7px;
-  background: var(--brand);
-  box-shadow: 0 0 0 6px var(--brand-soft);
+  display: grid;
+  place-items: center;
+
+  background: color-mix(in srgb, var(--brand) 10%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--brand) 35%, var(--border));
+}
+
+.featureBody {
+  min-width: 0;
 }
 
 .featureTitle {
-  margin: 0 0 6px;
+  margin: 0;
   font-size: 18px;
-  font-weight: 650;
-  color: var(--text-strong);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text);
 }
 
 .featureText {
-  margin: 0;
-  font-size: 15.5px;
-  line-height: 1.65;
+  margin: 6px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
   color: var(--text-body);
 }
-/* ===== IMAGE ===== */
-.imageWrap {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* top aligned */
+
+/* RIGHT */
+.visual {
+  position: sticky;
+  top: 90px;
 }
 
-/* Image container */
-.imageCard {
-  width: 100%;
-  max-width: 520px;   /*  CONTROL IMAGE SIZE (key fix) */
-  height: auto;
-  margin-top: 0;
 
-  align-self: flex-start;
-}
-
-/* Next/Image */
-.imageCard :global(img) {
+.image {
   width: 100%;
-  height: auto;       /*  auto-scale height */
+  height: 400px;
   display: block;
-
+  border-radius: 18px;
   object-fit: contain;
-  object-position: top;
+}
+
+/* =========================
+   DARK MODE OVERRIDES
+========================= */
+
+:global(html[data-theme="dark"]) .feature {
+  background: color-mix(in srgb, #101711 88%, transparent);
+  border-color: rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 0 0 rgba(0, 0, 0, 0),
+    0 0 18px rgba(77, 110, 85, 0.22),
+    0 0 42px rgba(77, 110, 85, 0.10);
+}
+
+:global(html[data-theme="dark"]) .feature:hover {
+  background: color-mix(in srgb, #101711 96%, transparent);
+  border-color: color-mix(in srgb, var(--brand) 55%, rgba(255, 255, 255, 0.12));
+
+  box-shadow:
+    0 0 22px rgba(77, 110, 85, 0.55),
+    0 0 60px rgba(77, 110, 85, 0.35);
+}
+
+:global(html[data-theme="dark"]) .featureIcon {
+  background: color-mix(in srgb, var(--brand) 35%, #101711);
+  border-color: rgba(135, 171, 147, 0.35);
 }
 
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .contentGrid {
+  .topHeader {
+    margin-bottom: 32px;
+  }
+
+  .inner {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
   }
 
-  .imageWrap {
-    justify-content: center;
-  }
-
-  .heading {
-    font-size: 38px;
+  .visual {
+    position: relative;
+    top: 0;
   }
 }
 
 @media (max-width: 640px) {
-  .heading {
-    font-size: 32px;
-  }
-
-  .lead {
-    font-size: 16px;
+  .inner {
+    padding: 0 18px;
   }
 }
