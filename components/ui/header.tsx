@@ -72,7 +72,7 @@ return (
                     { label: "MetaTrader 5", href: "/platforms/metatrader5" },
                    
                     { label: "Stonefort Mobile App", href: "/platforms/StonefortTrader" },
-                    { label: "Stonefort Web", href: "/platform/web" },
+                    { label: "Stonefort Web Trader", href: "/platforms/StonefortWebTrader" },
                   ],
                 },
                 {
