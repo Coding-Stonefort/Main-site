@@ -95,7 +95,7 @@
   color: var(--brand);
   padding: 8px 10px;
   border-radius: 999px;
-  /* background: var(--brand-soft); */
+
   border: 1px solid var(--brand-border);
 }
 
