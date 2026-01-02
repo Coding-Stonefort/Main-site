@@ -28,7 +28,7 @@ const defaultItems: Promo[] = [
     title: "Top Trader via App",
     description: "Top three traders earn crypto rewards based on performance.",
     note: "Terms and Conditions Apply",
-    href: "/platforms/cashback",
+    href: "/platforms/TopTrader",
     tag: "Popular",
   },
   {

@@ -11,16 +11,17 @@
 /* ===== Heading ===== */
 .headingWrap {
   max-width: 920px;
-  margin: 0 auto 50px;
+  margin: 0 auto 46px;
   text-align: center;
 }
 
 .badge {
+  /* global badge already styles it; only adjust if needed */
   margin-bottom: 12px;
 }
 
 .title {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
 }
 
 .accent {
@@ -37,33 +38,29 @@
 /* ===== Grid ===== */
 .grid {
   display: grid;
-  gap: 28px;
+  gap: 22px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
 }
 
-/* =========================================================
-   CARD (Shiny conic border + hover lift)
-   + Background image layer (per card)
-========================================================= */
+/* ===== Card with shiny conic border ===== */
 .card {
-  /* Theme-safe tokens */
-  --sf-green-strong: #00b37a;
-  --sf-green-soft: #4d6e55;
+  /* tokens for glow */
+  --sf-green-strong: var(--brand);
+  --sf-green-soft: rgba(77, 110, 85, 0.9);
   --border-angle: 0deg;
 
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 18px;
+  gap: 14px;
 
   padding: 34px 28px;
   border-radius: 26px;
   overflow: hidden;
-  text-decoration: none;
 
-  background: var(--surface);
+  /* background: var(--surface); */
+  /* background: url(./images/1st.webp); */
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
 
@@ -71,7 +68,7 @@
     border-color 0.35s ease;
 }
 
-/* Shiny border */
+/* Shiny border layer (masked) */
 .card::before {
   content: "";
   position: absolute;
@@ -79,7 +76,6 @@
   padding: 2px;
   border-radius: inherit;
   pointer-events: none;
-  z-index: 1;
 
   background: conic-gradient(
     from var(--border-angle),
@@ -103,52 +99,55 @@
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
+
+  opacity: 0.95;
 }
 
-/* subtle inner highlight */
+/* optional subtle inner highlight */
 .card::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
-
   background: radial-gradient(900px 260px at 10% 0%, rgba(255, 255, 255, 0.12), transparent 55%);
+  pointer-events: none;
   opacity: 0.35;
 }
 
-/* Hover */
+/* hover */
 .card:hover {
   --border-angle: 90deg;
   transform: translateY(-6px);
   box-shadow: var(--shadow-md);
   border-color: var(--brand-border);
 }
-
 /* ===============================
    Background image layer
-   - set per card via: --bg-image: url(...)
+   Uses --bg-image from TSX
 ================================ */
 .cardBg {
   position: absolute;
   inset: 0;
-  z-index: 0;
 
+  /* IMPORTANT: must exist for background to render */
   background-image: var(--bg-image);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  opacity: 0.22;
-  filter: blur(2px) saturate(1.1);
+  opacity: 0.62;
+  filter: blur(2px) saturate(1.05);
+  transform: scale(1.04); /* avoid edge cut after blur */
 
-  /* Fade for text safety */
+  /* keep text readable */
   mask-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.35),
     transparent
   );
+
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Dark mode tuning */
@@ -157,19 +156,21 @@ html[data-theme="dark"] .cardBg {
   filter: blur(3px) saturate(1);
 }
 
-/* Content above bg & border */
+/* Content must be above bg + border */
 .cardContent {
   position: relative;
   z-index: 2;
 }
 
+
 /* ===== Top row ===== */
 .cardTop {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 4px;
 }
 
 .rankRow {
@@ -178,7 +179,6 @@ html[data-theme="dark"] .cardBg {
   gap: 10px;
   padding: 10px 12px;
   border-radius: 999px;
-
   border: 1px solid var(--border);
   background: var(--surface-2);
 }
@@ -213,6 +213,8 @@ html[data-theme="dark"] .cardBg {
 
 /* ===== Text ===== */
 .cardTitle {
+  position: relative;
+  z-index: 1;
   margin: 8px 0 0;
   font-size: 22px;
   font-weight: 700;
@@ -221,6 +223,8 @@ html[data-theme="dark"] .cardBg {
 }
 
 .cardDesc {
+  position: relative;
+  z-index: 1;
   margin: 10px 0 0;
   font-size: 16px;
   line-height: 1.6;
@@ -229,7 +233,9 @@ html[data-theme="dark"] .cardBg {
 
 /* ===== Reward meta ===== */
 .meta {
-  margin-top: 14px;
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
   padding-top: 14px;
   border-top: 1px solid var(--border);
 
