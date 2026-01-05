@@ -1,19 +1,24 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import styles from "./DiscoverTradingEdgeSection.module.css";
 
 type Edge = {
-  title: string;
+  id: "strategy" | "timing" | "psychology";
   kicker: string;
+  title: string;
   desc: string;
   icon: React.ReactNode;
+  youtubeId: string; // <- per card video
 };
 
 const EDGES: Edge[] = [
   {
+    id: "strategy",
     kicker: "Strategy Edge",
     title: "See what truly works",
     desc: "Evaluate your P&L, overall performance, win ratio, and key trading metrics to identify what works best for you.",
+    youtubeId: "39aNnXPaDR4", // replace if needed
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path
@@ -28,9 +33,11 @@ const EDGES: Edge[] = [
     ),
   },
   {
+    id: "timing",
     kicker: "Timing Edge",
     title: "Find your best sessions",
-    desc: "Break down results by time of day and trading sessions to uncover when you perform at your best.",
+    desc: "Break down your results by time of day and trading sessions to uncover when you perform at your best.",
+    youtubeId: "39aNnXPaDR4", // replace if needed
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path
@@ -45,9 +52,11 @@ const EDGES: Edge[] = [
     ),
   },
   {
+    id: "psychology",
     kicker: "Psychology Edge",
     title: "Trade with awareness",
     desc: "Explore how emotions and behavioural patterns influence your trading decisions and outcomes.",
+    youtubeId: "39aNnXPaDR4", // replace if needed
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path
@@ -63,69 +72,104 @@ const EDGES: Edge[] = [
   },
 ];
 
+function ytThumb(id: string) {
+  // Best quality commonly available; YouTube will fallback if not available
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+}
+
+function ytEmbed(id: string) {
+  return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`;
+}
+
 export default function DiscoverTradingEdgeSection() {
+  // keep track of which cards have activated video
+  const [active, setActive] = useState<Record<string, boolean>>({});
+
+  const items = useMemo(() => EDGES, []);
+
   return (
     <section className={`section ${styles.section}`}>
       <div className={styles.bg} aria-hidden="true" />
 
       <div className="container">
-        {/* Top row: Text + Video */}
-        <div className={styles.top}>
-          <div className={styles.left}>
-            <span className={styles.kicker}>Next Section</span>
+        {/* Header */}
+        <div className={styles.header}>
+          <span className={styles.kicker}>Next Section</span>
 
-            <h2 className={`heading ${styles.title}`}>Discover Your Trading Edge</h2>
+          <div className={styles.headRow}>
+            <div>
+              <h2 className={`heading ${styles.title}`}>Discover Your Trading Edge</h2>
 
-            <p className={`text ${styles.desc}`}>
-              Understand where your strengths truly lie by analysing performance,
-              timing, and trading psychology through short, step-by-step videos.
-            </p>
+              <p className={`text ${styles.desc}`}>
+                Understand where your strengths truly lie by analysing performance,
+                timing, and trading psychology through short, step-by-step videos.
+              </p>
+            </div>
 
-            {/* Small chips to make it “eye-catchy” */}
             <div className={styles.chips}>
               <span className={styles.chip}>Short videos</span>
               <span className={styles.chip}>Step-by-step</span>
               <span className={styles.chip}>Real insights</span>
             </div>
           </div>
-
-          <div className={styles.right}>
-            <div className={styles.videoCard}>
-              <div className={styles.videoTop}>
-                <span className={styles.pill}>Video Guides</span>
-                <span className={styles.pillMuted}>Performance Analytics</span>
-              </div>
-
-              <div className={styles.videoFrame}>
-                <iframe
-                  className={styles.iframe}
-                  src="https://www.youtube.com/embed/39aNnXPaDR4?rel=0&modestbranding=1"
-                  title="Discover your trading edge"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-                <div className={styles.shine} aria-hidden="true" />
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Bottom: 3 cards */}
+        {/* Cards with videos */}
         <div className={styles.grid}>
-          {EDGES.map((item) => (
-            <article key={item.kicker} className={styles.card}>
-              <div className={styles.iconWrap}>{item.icon}</div>
+          {items.map((item) => {
+            const isActive = !!active[item.id];
+            return (
+              <article key={item.id} className={styles.card}>
+                {/* Video area */}
+                <div className={styles.videoFrame}>
+                  {!isActive ? (
+                    <button
+                      type="button"
+                      className={styles.posterBtn}
+                      onClick={() => setActive((s) => ({ ...s, [item.id]: true }))}
+                      aria-label={`Play ${item.kicker} video`}
+                    >
+                      <img
+                        src={ytThumb(item.youtubeId)}
+                        alt=""
+                        className={styles.posterImg}
+                        loading="lazy"
+                      />
+                      <span className={styles.posterOverlay} aria-hidden="true" />
+                      <span className={styles.play} aria-hidden="true">
+                        ▶
+                      </span>
+                      <span className={styles.videoTag}>{item.kicker}</span>
+                    </button>
+                  ) : (
+                    <iframe
+                      className={styles.iframe}
+                      src={ytEmbed(item.youtubeId)}
+                      title={`${item.kicker} video`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  )}
 
-              <div className={styles.cardHead}>
-                <span className={styles.cardKicker}>{item.kicker}</span>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-              </div>
+                  <div className={styles.shine} aria-hidden="true" />
+                </div>
 
-              <p className={styles.cardText}>{item.desc}</p>
+                {/* Content */}
+                <div className={styles.cardBody}>
+                  <div className={styles.iconWrap}>{item.icon}</div>
 
-              <div className={styles.cardGlow} aria-hidden="true" />
-            </article>
-          ))}
+                  <div className={styles.cardHead}>
+                    <span className={styles.cardKicker}>{item.kicker}</span>
+                    <h3 className={styles.cardTitle}>{item.title}</h3>
+                  </div>
+
+                  <p className={styles.cardText}>{item.desc}</p>
+                </div>
+
+                <div className={styles.cardGlow} aria-hidden="true" />
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
