@@ -1,0 +1,42 @@
+/* Root wrapper */
+.wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.55;
+
+  /* Fade toward content */
+  mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+/* Grid background */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* Canvas */
+.canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive safety */
+@media (max-width: 640px) {
+  .wrap {
+    display: none;
+  }
+}

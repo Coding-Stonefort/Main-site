@@ -1,0 +1,155 @@
+.section {
+  background: var(--bg);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ===== Tabs ===== */
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.tab {
+  padding: 16px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.active {
+  background: #4d6e55;
+  color: #ffffff;
+}
+
+/* ===== Content ===== */
+.content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.imageWrap {
+  position: relative;
+  height: 420px; 
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  object-fit: cover; 
+  padding: 24px;     
+}
+/* Text */
+.text {
+  max-width: 520px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.ctaRow {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .tab {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .imageWrap {
+    height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .imageWrap {
+    height: 260px;
+  }
+}

@@ -1,0 +1,305 @@
+.hero {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 44px;
+  align-items: center;
+  padding-top: 120px;
+}
+
+/* LEFT */
+.left {
+  max-width: 760px;
+}
+.heading {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+
+.lead {
+  margin: 0 0 18px;
+  max-width: 65ch;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* 3 lines */
+.miniGrid {
+  display: grid;
+  gap: 12px;
+  margin: 8px 0 22px;
+  max-width: 720px;
+}
+
+.miniItem {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.miniDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--brand);
+  box-shadow: 0 0 0 6px rgba(77, 110, 85, 0.18);
+}
+
+.miniTitle {
+  font-weight: 900;
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* CTA */
+.ctaRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+/* RIGHT */
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Mockup */
+.mockup {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: 540px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  isolation: isolate;
+
+  /* Reserve space for absolute tabBar */
+  padding-bottom: 96px;
+}
+
+/* Background — NO top-right gradient */
+.mockupBg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(700px 420px at 20% 20%, rgba(77,110,85,0.18), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.04), transparent 60%);
+  z-index: 0;
+  opacity: 0.9;
+}
+
+/* Chart area */
+.chartArea {
+  position: relative;
+  z-index: 1;
+  margin: 18px;
+  height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: color-mix(in oklab, #0b1110 82%, var(--surface) 18%);
+  border: 1px solid color-mix(in oklab, var(--border) 65%, #0b1110 35%);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: 0.18;
+}
+
+.fakeChart {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 220px at 20% 60%, rgba(0,211,198,0.16), transparent 55%),
+    radial-gradient(600px 220px at 85% 25%, rgba(77,110,85,0.20), transparent 60%);
+}
+
+.sparkRow {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.spark {
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(77,110,85,0.65),
+    rgba(0,211,198,0.55),
+    rgba(255,255,255,0.10)
+  );
+  opacity: 0.85;
+}
+
+/* Tabs */
+.tabBar {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  padding: 10px;
+  border-radius: 18px;
+
+  background: color-mix(in oklab, var(--surface) 88%, transparent 12%);
+  border: 1px solid var(--border);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+
+  min-height: 78px;
+  align-items: center;
+}
+
+.tab {
+  appearance: none;
+  border: 1px solid color-mix(in oklab, var(--border) 70%, var(--brand) 30%);
+  background: color-mix(in oklab, var(--surface) 92%, var(--brand) 8%);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 900;
+  padding: 10px 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.tab:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--brand) 55%, var(--border) 45%);
+  background: color-mix(in oklab, var(--surface) 86%, var(--brand) 14%);
+}
+
+.tabActive {
+  position: relative;
+  background: color-mix(in oklab, var(--brand) 18%, var(--surface) 82%);
+  border-color: color-mix(in oklab, var(--brand) 62%, var(--border) 38%);
+  color: var(--text);
+  box-shadow: 0 10px 22px rgba(77, 110, 85, 0.18);
+}
+
+.tabActive::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 6px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(0, 211, 198, 0.45);
+  opacity: 0.75;
+}
+
+/* Dark mode boost */
+:global([data-theme="dark"]) .tabBar,
+:global(.dark) .tabBar {
+  background: rgba(16, 23, 17, 0.78);
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+:global([data-theme="dark"]) .tab,
+:global(.dark) .tab {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+:global([data-theme="dark"]) .tabActive,
+:global(.dark) .tabActive {
+  background: rgba(0, 211, 198, 0.14);
+  border-color: rgba(0, 211, 198, 0.35);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding: 84px 0;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .right {
+    justify-content: center;
+  }
+
+  .miniGrid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tabBar {
+    grid-template-columns: 1fr 1fr;
+    min-height: 120px;
+  }
+
+  .mockup {
+    padding-bottom: 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mockup {
+    height: 520px;
+    border-radius: 18px;
+    padding-bottom: 150px;
+  }
+
+  .tabBar {
+    min-height: 132px;
+  }
+
+  .tab {
+    font-size: 12px;
+  }
+}

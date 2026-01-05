@@ -1,0 +1,131 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* LEFT */
+.left {
+  width: 50%;
+  max-width: 720px;
+}
+
+.right {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  isolation: isolate; /* ensures ::after overlay stacks correctly */
+}
+
+/* IMAGE */
+.heroImage {
+  width: 100%;
+  height: auto;
+  max-width: 900px;
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
+
+  /* optional: slightly soften bright bottom edge */
+  filter: saturate(1.02) contrast(1.02);
+}
+
+/* Typography */
+.subtitle {
+  max-width: 700px;
+  margin-bottom: 32px;
+  color: var(--text-body);
+}
+
+/* CTA */
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+/* =========================
+   BOTTOM FADE MERGE (DARK MODE FIX)
+========================= */
+.right::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 60%; /* increase if you want fade higher */
+  pointer-events: none;
+  z-index: 2;
+
+  background: linear-gradient(
+    to top,
+    rgba(16, 23, 17, 0.98) 0%,
+    rgba(16, 23, 17, 0.85) 18%,
+    rgba(16, 23, 17, 0.45) 38%,
+    rgba(16, 23, 17, 0.0) 62%
+  );
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding: 80px 0;
+  }
+
+  .inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  .right {
+    margin-top: 40px;
+    justify-content: center;
+  }
+
+  /* fade a bit taller on stacked mobile layout */
+  .right::after {
+    height: 65%;
+  }
+}
+
+@media (max-width: 700px) {
+  .heroImage {
+    max-width: 100%;
+  }
+
+  .right::after {
+    height: 70%;
+  }
+}
