@@ -63,10 +63,12 @@ export async function POST(req: Request) {
         snippet: h.snippet,
       })),
     });
-  } catch (err) {
-    return NextResponse.json(
-      { reply: "Something went wrong. Please try again.", sources: [] },
-      { status: 400 }
-    );
-  }
+} catch (err) {
+  console.error("CHAT API ERROR:", err);
+  return NextResponse.json(
+    { reply: "Something went wrong. Please try again.", sources: [] },
+    { status: 400 }
+  );
+}
+
 }

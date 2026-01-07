@@ -1,15 +1,15 @@
 {
-  "generatedAt": 1767786665127,
+  "generatedAt": 1767790528004,
   "docs": [
     {
-      "id": "account-types::what-account-types-do-you-offer?",
+      "id": "account-types::what-account-types-do-you-offer",
       "title": "Account Types",
       "url": "/account-types",
       "heading": "What account types do you offer?",
       "content": "We offer multiple account types depending on your trading needs. Please review the account page for the latest details."
     },
     {
-      "id": "account-types::is-there-an-islamic-account?",
+      "id": "account-types::is-there-an-islamic-account",
       "title": "Account Types",
       "url": "/account-types",
       "heading": "Is there an Islamic account?",
@@ -23,7 +23,7 @@
       "content": "With Stonefort Securities Unlock global market potential with our secure platform, expert support, and innovative trading tools; your gateway to smarter, more confident investing."
     },
     {
-      "id": "beginners-guide-global-markets::beginner’s-guide-to-global-markets",
+      "id": "beginners-guide-global-markets::beginner-s-guide-to-global-markets",
       "title": "Beginner’s Guide to Global Markets: Forex, Metals, Crypto, and Commodities",
       "url": "/beginners-guide-global-markets",
       "heading": "Beginner’s Guide to Global Markets",
@@ -37,7 +37,7 @@
       "content": "New traders often start with one market but quickly realize that diversification matters. Different markets react to different events: Currencies react to interest rates and economic data Metals respond to risk sentiment and inflation expectations Crypto is heavily driven by technology adoption and market sentiment Commodities move with supply–demand, geopolitics, and weather By understanding the core characteristics of each, you can decide which market aligns best with your goals, time, and risk tolerance."
     },
     {
-      "id": "beginners-guide-global-markets::1.-forex:-trading-global-currencies",
+      "id": "beginners-guide-global-markets::1-forex-trading-global-currencies",
       "title": "Beginner’s Guide to Global Markets: Forex, Metals, Crypto, and Commodities",
       "url": "/beginners-guide-global-markets",
       "heading": "1. Forex: Trading Global Currencies",
@@ -65,7 +65,7 @@
       "content": "Pip: Smallest unit of movement in a currency pair (usually 0.0001). Lot: Standard trade size (standard, mini, micro). Spread: Difference between bid (sell) and ask (buy) prices. Leverage: Controls a larger position with smaller capital—use carefully."
     },
     {
-      "id": "beginners-guide-global-markets::2.-metals:-gold,-silver,-and-safe-haven-assets",
+      "id": "beginners-guide-global-markets::2-metals-gold-silver-and-safe-haven-assets",
       "title": "Beginner’s Guide to Global Markets: Forex, Metals, Crypto, and Commodities",
       "url": "/beginners-guide-global-markets",
       "heading": "2. Metals: Gold, Silver, and Safe-Haven Assets",
@@ -93,7 +93,7 @@
       "content": "Metals can be volatile during major news events. They are often traded with leverage, which can magnify both profits and losses. Market sentiment can shift quickly during risk-on or risk-off moves."
     },
     {
-      "id": "beginners-guide-global-markets::3.-crypto:-digital-assets-and-volatility",
+      "id": "beginners-guide-global-markets::3-crypto-digital-assets-and-volatility",
       "title": "Beginner’s Guide to Global Markets: Forex, Metals, Crypto, and Commodities",
       "url": "/beginners-guide-global-markets",
       "heading": "3. Crypto: Digital Assets and Volatility",
@@ -121,7 +121,7 @@
       "content": "Sharp price swings can lead to rapid gains or losses. Regulatory environments differ by country and can evolve. Liquidity varies between different coins—major ones are more liquid than smaller altcoins."
     },
     {
-      "id": "beginners-guide-global-markets::4.-commodities:-energy,-agriculture,-and-raw-materials",
+      "id": "beginners-guide-global-markets::4-commodities-energy-agriculture-and-raw-materials",
       "title": "Beginner’s Guide to Global Markets: Forex, Metals, Crypto, and Commodities",
       "url": "/beginners-guide-global-markets",
       "heading": "4. Commodities: Energy, Agriculture, and Raw Materials",
@@ -170,7 +170,7 @@
       "content": "Day trading is an active trading approach where all positions are opened and closed within the same trading day. This allows traders to take advantage of short-term price movements in global indices while avoiding overnight market risk. Successful index day trading relies on fast execution, reliable pricing, advanced charting tools, and low trading costs. While indices offer strong intraday opportunities, many traders underestimate the discipline required. Consistent results depend on proper education, a clear trading plan, effective risk management, and emotional control. Stonefort provides traders with efficient platforms and market access designed to support both short-term and strategic index trading."
     },
     {
-      "id": "forex-basics-for-newcomers::what-is-forex?",
+      "id": "forex-basics-for-newcomers::what-is-forex",
       "title": "Forex Basics for Newcomers",
       "url": "/forex-basics-for-newcomers",
       "heading": "What is Forex?",
@@ -282,14 +282,14 @@
       "content": "Regulation should always be your first checkpoint. A regulated broker is monitored by a financial authority, which helps protect your funds and ensures fair trading practices. Look for brokers licensed by authorities such as: FCA – Financial Conduct Authority (UK) ASIC – Australian Securities and Investments Commission NFA/CFTC – United States CySEC – Cyprus Securities and Exchange Commission A regulated broker must follow strict rules including segregating client funds, providing transparent pricing, and offering dispute resolution. This reduces the risk of fraud and ensures your money is handled responsibly."
     },
     {
-      "id": "how-to-choose-the-right-forex-broker::spreads,-commissions,-and-fees",
+      "id": "how-to-choose-the-right-forex-broker::spreads-commissions-and-fees",
       "title": "How to Choose the Right Forex Broker",
       "url": "/how-to-choose-the-right-forex-broker",
       "heading": "Spreads, Commissions, and Fees",
       "content": "Trading costs vary from broker to broker. Even small differences in spreads can have a noticeable impact on your long-term profits."
     },
     {
-      "id": "how-to-choose-the-right-forex-broker::what-to-compare:",
+      "id": "how-to-choose-the-right-forex-broker::what-to-compare",
       "title": "How to Choose the Right Forex Broker",
       "url": "/how-to-choose-the-right-forex-broker",
       "heading": "What to compare:",
@@ -317,7 +317,7 @@
       "content": "Here are a few more details that can help you make a final decision:"
     },
     {
-      "id": "how-to-choose-the-right-forex-broker::deposit-&-withdrawal-methods",
+      "id": "how-to-choose-the-right-forex-broker::deposit-and-withdrawal-methods",
       "title": "How to Choose the Right Forex Broker",
       "url": "/how-to-choose-the-right-forex-broker",
       "heading": "Deposit & Withdrawal Methods",
@@ -366,7 +366,7 @@
       "content": "The trading world offers several major markets, each with its own behavior, risks, and opportunities. Here’s a simple and concise overview of the four markets most new traders explore."
     },
     {
-      "id": "quick-introduction-global-markets::1.-forex:-currency-trading",
+      "id": "quick-introduction-global-markets::1-forex-currency-trading",
       "title": "A Quick Introduction to Forex, Metals, Crypto & Commodities",
       "url": "/quick-introduction-global-markets",
       "heading": "1. Forex: Currency Trading",
@@ -380,7 +380,7 @@
       "content": "High liquidity Low spreads on major pairs Flexible trading hours Opportunity to trade rising and falling markets Common pairs include EUR/USD, GBP/USD, and USD/JPY."
     },
     {
-      "id": "quick-introduction-global-markets::2.-metals:-gold-&-silver",
+      "id": "quick-introduction-global-markets::2-metals-gold-and-silver",
       "title": "A Quick Introduction to Forex, Metals, Crypto & Commodities",
       "url": "/quick-introduction-global-markets",
       "heading": "2. Metals: Gold & Silver",
@@ -394,28 +394,28 @@
       "content": "Inflation expectations Interest rates Geopolitical events Risk-on / risk-off sentiment Gold is often seen as a hedge against economic instability."
     },
     {
-      "id": "quick-introduction-global-markets::3.-crypto:-digital-assets",
+      "id": "quick-introduction-global-markets::3-crypto-digital-assets",
       "title": "A Quick Introduction to Forex, Metals, Crypto & Commodities",
       "url": "/quick-introduction-global-markets",
       "heading": "3. Crypto: Digital Assets",
       "content": "Cryptocurrencies such as Bitcoin and Ethereum trade 24/7 and are known for their high volatility. This creates both opportunity and risk."
     },
     {
-      "id": "quick-introduction-global-markets::what-moves-crypto?",
+      "id": "quick-introduction-global-markets::what-moves-crypto",
       "title": "A Quick Introduction to Forex, Metals, Crypto & Commodities",
       "url": "/quick-introduction-global-markets",
       "heading": "What Moves Crypto?",
       "content": "Market sentiment Technology updates Regulation news Institutional adoption Crypto can experience large price swings in short time periods—risk management is essential."
     },
     {
-      "id": "quick-introduction-global-markets::4.-commodities:-energy-&-agriculture",
+      "id": "quick-introduction-global-markets::4-commodities-energy-and-agriculture",
       "title": "A Quick Introduction to Forex, Metals, Crypto & Commodities",
       "url": "/quick-introduction-global-markets",
       "heading": "4. Commodities: Energy & Agriculture",
       "content": "Commodities include energy products (oil, gas) and agricultural goods (wheat, corn). Their prices reflect real-world supply and demand."
     },
     {
-      "id": "quick-introduction-global-markets::what-affects-commodity-prices?",
+      "id": "quick-introduction-global-markets::what-affects-commodity-prices",
       "title": "A Quick Introduction to Forex, Metals, Crypto & Commodities",
       "url": "/quick-introduction-global-markets",
       "heading": "What Affects Commodity Prices?",
@@ -436,21 +436,21 @@
       "content": "Leverage and margin are two of the most important concepts in forex trading. They give traders the ability to open larger positions than their account balance would normally allow, but they must be used with care. To trade safely and effectively, it’s essential to understand how these tools work and how they influence your overall risk."
     },
     {
-      "id": "understanding-forex-leverage-and-margin::what-is-forex?",
+      "id": "understanding-forex-leverage-and-margin::what-is-forex",
       "title": "Understanding Forex Leverage and Margin",
       "url": "/understanding-forex-leverage-and-margin",
       "heading": "What Is Forex?",
       "content": "Forex (short for foreign exchange) is the global market where currencies are traded. It allows traders to buy one currency while selling another, aiming to profit from changes in exchange rates."
     },
     {
-      "id": "understanding-forex-leverage-and-margin::what-is-leverage?",
+      "id": "understanding-forex-leverage-and-margin::what-is-leverage",
       "title": "Understanding Forex Leverage and Margin",
       "url": "/understanding-forex-leverage-and-margin",
       "heading": "What Is Leverage?",
       "content": "Leverage is essentially borrowed capital provided by your broker. It allows you to control a position that is larger than your actual investment. For example: With 100:1 leverage, a trader can open a $100,000 position using just $1,000 of their own funds. Leverage multiplies your buying power and as a result, both potential profits and potential losses. Even a small price movement can lead to a significant change in your account value when leverage is involved."
     },
     {
-      "id": "understanding-forex-leverage-and-margin::what-is-margin?",
+      "id": "understanding-forex-leverage-and-margin::what-is-margin",
       "title": "Understanding Forex Leverage and Margin",
       "url": "/understanding-forex-leverage-and-margin",
       "heading": "What Is Margin?",
@@ -471,28 +471,28 @@
       "content": "High leverage is appealing because it can magnify gains but it can also magnify losses with equal speed."
     },
     {
-      "id": "understanding-forex-leverage-and-margin::1.-faster-losses",
+      "id": "understanding-forex-leverage-and-margin::1-faster-losses",
       "title": "Understanding Forex Leverage and Margin",
       "url": "/understanding-forex-leverage-and-margin",
       "heading": "1. Faster Losses",
       "content": "A small unfavorable price movement can wipe out a large portion of your account when using high leverage."
     },
     {
-      "id": "understanding-forex-leverage-and-margin::2.-margin-calls",
+      "id": "understanding-forex-leverage-and-margin::2-margin-calls",
       "title": "Understanding Forex Leverage and Margin",
       "url": "/understanding-forex-leverage-and-margin",
       "heading": "2. Margin Calls",
       "content": "If your equity drops too low, the broker may ask for additional funds or automatically close your trades."
     },
     {
-      "id": "understanding-forex-leverage-and-margin::3.-emotional-trading",
+      "id": "understanding-forex-leverage-and-margin::3-emotional-trading",
       "title": "Understanding Forex Leverage and Margin",
       "url": "/understanding-forex-leverage-and-margin",
       "heading": "3. Emotional Trading",
       "content": "Large swings in profit and loss can trigger emotional decisions, leading to inconsistent and risky behaviors."
     },
     {
-      "id": "understanding-forex-leverage-and-margin::4.-overconfidence",
+      "id": "understanding-forex-leverage-and-margin::4-overconfidence",
       "title": "Understanding Forex Leverage and Margin",
       "url": "/understanding-forex-leverage-and-margin",
       "heading": "4. Overconfidence",
@@ -534,7 +534,7 @@
       "content": "Use bonus credit to explore multiple instruments and diversify your trading approach."
     },
     {
-      "id": "platforms/BonusProgramme::up-to-usd-10,000-credit-per-account",
+      "id": "platforms/BonusProgramme::up-to-usd-10-000-credit-per-account",
       "title": "Deposit Bonus Program",
       "url": "/platforms/BonusProgramme",
       "heading": "Up to USD 10,000 Credit per Account",
@@ -569,7 +569,7 @@
       "content": "Visual cue: Restricted / limited trading capacity Net Deposit: $1,000 Available Margin: $1,000 Trade Volume: 4.0 Lots (EUR/USD) Market Move: 200 pips Profit: $800"
     },
     {
-      "id": "platforms/BonusProgramme::with-100%-deposit-bonus",
+      "id": "platforms/BonusProgramme::with-100-deposit-bonus",
       "title": "Deposit Bonus Program",
       "url": "/platforms/BonusProgramme",
       "heading": "With 100% Deposit Bonus",
@@ -618,21 +618,21 @@
       "content": "Trade the required volume and receive cashback rewards based on your trading activity, up to the applicable reward limit. Terms and conditions apply."
     },
     {
-      "id": "platforms/cashback::$80-cashback-reward",
+      "id": "platforms/cashback::80-cashback-reward",
       "title": "Stonefort Cashback Rewards",
       "url": "/platforms/cashback",
       "heading": "$80 Cashback Reward",
       "content": "Requirements Minimum new deposit of $500 Trade a total of 10 standard lots Net deposit >$500"
     },
     {
-      "id": "platforms/cashback::$120-cashback-reward",
+      "id": "platforms/cashback::120-cashback-reward",
       "title": "Stonefort Cashback Rewards",
       "url": "/platforms/cashback",
       "heading": "$120 Cashback Reward",
       "content": "Requirements Minimum new deposit of $1,500 Trade a total of 20 standard lots Net deposit >$1,500"
     },
     {
-      "id": "platforms/cashback::$500-cashback-reward",
+      "id": "platforms/cashback::500-cashback-reward",
       "title": "Stonefort Cashback Rewards",
       "url": "/platforms/cashback",
       "heading": "$500 Cashback Reward",
@@ -688,14 +688,14 @@
       "content": "Terms and conditions apply. The stated fixed leverage is applicable when equity requirements are met. For more information, please refer to the Product Schedule page."
     },
     {
-      "id": "markets/crypto::how-cryptocurrency-trading-works-with-stonefort::1",
+      "id": "markets/crypto::how-cryptocurrency-trading-works-with-stonefort::part-1",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "How Cryptocurrency Trading Works with Stonefort",
       "content": "Cryptocurrency trading allows you to speculate on the price movements of digital assets such as Bitcoin and Ethereum without needing to own or store the underlying coins. With Stonefort, you can trade these markets on margin, giving you the flexibility to open positions using a portion of the full value while applying appropriate risk management. Digital assets are known for their rapid price fluctuations, which create both opportunities and risks. Through platforms like MetaTrader 5 (MT5) and Stonefort Trader, you can analyse market conditions, apply trading strategies and manage positions within a familiar and intuitive environment. Stonefort operates under recognised regulatory frameworks, providing a structured and secure setting for traders engaging in crypto CFD markets. As cryptocurrency markets can be highly volatile, it is important to approach trading responsibly and with caref"
     },
     {
-      "id": "markets/crypto::how-cryptocurrency-trading-works-with-stonefort::2",
+      "id": "markets/crypto::how-cryptocurrency-trading-works-with-stonefort::part-2",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "How Cryptocurrency Trading Works with Stonefort",
@@ -730,7 +730,7 @@
       "content": "Our pricing and infrastructure are designed to support responsive execution, giving you access to crypto price movements within a stable and secure trading environment."
     },
     {
-      "id": "markets/crypto::regulated-&-trusted",
+      "id": "markets/crypto::regulated-and-trusted",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "Regulated & Trusted",
@@ -786,14 +786,14 @@
       "content": "Stonefort is recognised for delivering a secure, transparent and client-focused trading experience in the global margin FX and CFD markets. Operating under the regulatory oversight of SCA and FSC, we are committed to maintaining high standards of integrity, platform reliability and customer support."
     },
     {
-      "id": "markets/crypto::best-emerging-broker-2025–2026",
+      "id": "markets/crypto::best-emerging-broker-2025-2026",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "Best Emerging Broker 2025–2026",
       "content": "Stonefort has been recognised for its growth, innovation and client-focused approach, earning the Best Emerging Broker award for 2025–2026."
     },
     {
-      "id": "markets/crypto::top-100-broker-in-the-gcc-2025–2026",
+      "id": "markets/crypto::top-100-broker-in-the-gcc-2025-2026",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "Top 100 Broker in the GCC 2025–2026",
@@ -821,77 +821,77 @@
       "content": "Cryptocurrency CFD Trading: What It Is and How It Works The Most Actively Traded Cryptocurrencies in Global Markets Understanding Bitcoin Trading and How Traders Access the Market How to Trade Ethereum: A Practical Overview"
     },
     {
-      "id": "markets/crypto::what-is-cryptocurrency-cfd-trading?",
+      "id": "markets/crypto::what-is-cryptocurrency-cfd-trading",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "What Is Cryptocurrency CFD Trading?",
       "content": "Cryptocurrency CFD trading enables you to speculate on the price movements of digital assets such as Bitcoin or Ethereum without owning the underlying coins. You trade based on market direction, taking either long (buy) or short (sell) positions depending on your outlook."
     },
     {
-      "id": "markets/crypto::how-does-cfd-trading-differ-from-buying-cryptocurrency-directly?",
+      "id": "markets/crypto::how-does-cfd-trading-differ-from-buying-cryptocurrency-directly",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "How Does CFD Trading Differ From Buying Cryptocurrency Directly?",
       "content": "When you purchase cryptocurrency outright, you own the asset and must store it in a digital wallet, which requires safeguarding private keys and managing transfers. With CFDs, no ownership is involved. Instead, you enter a contract to exchange the difference in price between when a position is opened and closed. CFDs are typically traded on margin, allowing you to open positions using a portion of the total value. Margin trading increases both potential gains and potential losses. CFDs also allow you to take short positions if you anticipate a decline in the asset’s price."
     },
     {
-      "id": "markets/crypto::do-i-need-a-crypto-wallet-to-trade-cfds?",
+      "id": "markets/crypto::do-i-need-a-crypto-wallet-to-trade-cfds",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "Do I Need a Crypto Wallet to Trade CFDs?",
       "content": "No. Because CFD trading does not involve buying the underlying cryptocurrency, there is no requirement for a digital wallet."
     },
     {
-      "id": "markets/crypto::what-are-stonefort’s-cryptocurrency-cfd-trading-hours?::1",
+      "id": "markets/crypto::what-are-stonefort-s-cryptocurrency-cfd-trading-hours::part-1",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "What Are Stonefort’s Cryptocurrency CFD Trading Hours?",
       "content": "Crypto CFD markets operate continuously, with sessions beginning at 00:05 platform time rather than 00:01. | Symbol/Security | Monday–Thursday | Friday | Saturday | Sunday | |---|---|---|---|---| | ADAUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | AAVUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | ARBUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | ATMUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | AVAXUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | BCHUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | BNBUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | BNKUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | BTCAUD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 11:00, 13:00 - 23:59 | | BTCEUR | 00"
     },
     {
-      "id": "markets/crypto::what-are-stonefort’s-cryptocurrency-cfd-trading-hours?::2",
+      "id": "markets/crypto::what-are-stonefort-s-cryptocurrency-cfd-trading-hours::part-2",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "What Are Stonefort’s Cryptocurrency CFD Trading Hours?",
       "content": ":01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 11:00, 13:00 - 23:59 | | BTCGBP | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 11:00, 13:00 - 23:59 | | BTCUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | COMPUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | Crypto10 | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | Crypto20 | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | Crypto30 | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | DOGEUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | DOTUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | EOSUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | ETCUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | ETHAUD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 -"
     },
     {
-      "id": "markets/crypto::what-are-stonefort’s-cryptocurrency-cfd-trading-hours?::3",
+      "id": "markets/crypto::what-are-stonefort-s-cryptocurrency-cfd-trading-hours::part-3",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "What Are Stonefort’s Cryptocurrency CFD Trading Hours?",
       "content": "23:59 | 00:01 - 11:00, 13:00 - 23:59 | | ETHEUR | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 11:00, 13:00 - 23:59 | | ETHGBP | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 11:00, 13:00 - 23:59 | | ETHUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | FLOUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 11:00, 13:00 - 23:59 | | GLMRUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | JUPUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | KSMUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | LINKUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | LTCUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | MANUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | MATICUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:"
     },
     {
-      "id": "markets/crypto::what-are-stonefort’s-cryptocurrency-cfd-trading-hours?::4",
+      "id": "markets/crypto::what-are-stonefort-s-cryptocurrency-cfd-trading-hours::part-4",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "What Are Stonefort’s Cryptocurrency CFD Trading Hours?",
       "content": "01 - 23:59 | | NERUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | ONDUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | PEPUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | SANUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | SHBUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | SOLUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | TRXUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | UNIUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | WIFUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | XLMUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | XRPUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:01 - 23:59 | | XTZUSD | 00:01 - 23:59 | 00:01 - 23:55 | 00:01 - 23:59 | 00:"
     },
     {
-      "id": "markets/crypto::what-are-stonefort’s-cryptocurrency-cfd-trading-hours?::5",
+      "id": "markets/crypto::what-are-stonefort-s-cryptocurrency-cfd-trading-hours::part-5",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "What Are Stonefort’s Cryptocurrency CFD Trading Hours?",
       "content": "01 - 23:59 |"
     },
     {
-      "id": "markets/crypto::what-influences-cryptocurrency-prices?",
+      "id": "markets/crypto::what-influences-cryptocurrency-prices",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "What Influences Cryptocurrency Prices?",
       "content": "Cryptocurrency prices can be affected by multiple factors, including: Supply dynamics: Assets like Bitcoin have fixed maximum supply limits. Issuance or mining rates: Events such as halvings can influence market expectations. Market sentiment: News, industry developments, social media activity and broader public interest can drive volatility. Regulatory changes: Adjustments in government policy or taxation frameworks may impact demand. Economic conditions: Inflation, interest rates and fiat currency strength can influence crypto flows. Technological developments: Advancements or setbacks in blockchain applications may affect appeal. Institutional adoption: Involvement from banks, funds or corporations can shift market liquidity. Exchange liquidity: Lower-liquidity venues can experience sharper price fluctuations."
     },
     {
-      "id": "markets/crypto::is-cryptocurrency-cfd-trading-regulated?",
+      "id": "markets/crypto::is-cryptocurrency-cfd-trading-regulated",
       "title": "Cryptocurrency Trading with Stonefort",
       "url": "/markets/crypto",
       "heading": "Is Cryptocurrency CFD Trading Regulated?",
       "content": "Cryptocurrency CFD trading offered by Stonefort falls under our SCA and FSC regulatory frameworks. However, it is important to note that the underlying cryptocurrency markets themselves remain largely unregulated, and trading these instruments involves significant risk. Traders should ensure they fully understand how CFDs work and consider appropriate risk-management practices."
     },
     {
-      "id": "platforms/DisciplinePro::trade-with-discipline.-perform-with-confidence.",
+      "id": "platforms/DisciplinePro::trade-with-discipline-perform-with-confidence",
       "title": "DisciplinePro",
       "url": "/platforms/DisciplinePro",
       "heading": "Trade with Discipline. Perform with Confidence.",
@@ -940,28 +940,28 @@
       "content": "DisciplinePro monitors every trade against your defined trading plan. Each closed position is evaluated based on discipline and rule adherence, regardless of whether the trade ends in profit or loss. This approach helps shift your focus from short-term outcomes to decision quality, reinforcing long-term consistency and professional trading habits. Mockup note: Desktop view with discipline metrics and behavioural indicators AI-generated content may be incorrect."
     },
     {
-      "id": "platforms/DisciplinePro::how-can-i-access-disciplinepro?",
+      "id": "platforms/DisciplinePro::how-can-i-access-disciplinepro",
       "title": "DisciplinePro",
       "url": "/platforms/DisciplinePro",
       "heading": "How can I access DisciplinePro?",
       "content": "You can access DisciplinePro through Performance Analytics. Log in to your trading platform and select Performance Analytics from the top menu to get started."
     },
     {
-      "id": "platforms/DisciplinePro::are-there-tutorials-available-for-disciplinepro?",
+      "id": "platforms/DisciplinePro::are-there-tutorials-available-for-disciplinepro",
       "title": "DisciplinePro",
       "url": "/platforms/DisciplinePro",
       "heading": "Are there tutorials available for DisciplinePro?",
       "content": "Yes. Step-by-step video tutorials and help guides are available on the Performance Analytics page. You’ll also find in-platform tips and support articles within the DisciplinePro interface."
     },
     {
-      "id": "platforms/DisciplinePro::how-much-does-disciplinepro-cost?",
+      "id": "platforms/DisciplinePro::how-much-does-disciplinepro-cost",
       "title": "DisciplinePro",
       "url": "/platforms/DisciplinePro",
       "heading": "How much does DisciplinePro cost?",
       "content": "DisciplinePro is completely free and available to all eligible traders using Performance Analytics."
     },
     {
-      "id": "platforms/DisciplinePro::how-often-should-i-use-disciplinepro?",
+      "id": "platforms/DisciplinePro::how-often-should-i-use-disciplinepro",
       "title": "DisciplinePro",
       "url": "/platforms/DisciplinePro",
       "heading": "How often should I use DisciplinePro?",
@@ -982,42 +982,42 @@
       "content": "Keep the Discipline Monitor active to receive alerts if your trading behaviour approaches a breach of defined rules."
     },
     {
-      "id": "platforms/DisciplinePro::at-the-end-of-the-day,-week,-or-month",
+      "id": "platforms/DisciplinePro::at-the-end-of-the-day-week-or-month",
       "title": "DisciplinePro",
       "url": "/platforms/DisciplinePro",
       "heading": "At the end of the day, week, or month",
       "content": "Review your Discipline Score to evaluate consistency, identify behavioural patterns, and refine your trading approach over time. Regular use of DisciplinePro helps protect capital and reinforces disciplined execution in changing market conditions."
     },
     {
-      "id": "markets/forex-cfd::trade-fx-cfds-on-90+-currency-pairs-with-spreads-starting-from-0.4-pips.",
+      "id": "markets/forex-cfd::trade-fx-cfds-on-90-currency-pairs-with-spreads-starting-from-0-4-pips",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Trade FX CFDs on 90+ currency pairs with spreads starting from 0.4 pips.",
       "content": "Elevate your trading with our advanced, high-performance platforms and experience the world’s largest financial market with competitive pricing and fast execution on major, minor, and exotic pairs. CTA: Open an Account | Trade Now Hero imagery note: Add a hero visual on the right (e.g., candlestick FX chart + currency symbols / MT5 terminal mock). Ref: (Add your reference image link/path here)"
     },
     {
-      "id": "markets/forex-cfd::why-trade-cfds-on-forex?",
+      "id": "markets/forex-cfd::why-trade-cfds-on-forex",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Why Trade CFDs on Forex?",
       "content": "The forex market is the world’s largest and most liquid, with average daily turnover reaching approximately US $9.6 trillion. By trading CFDs on forex, you can capitalise on price movements in global currencies around the clock, five days a week."
     },
     {
-      "id": "markets/forex-cfd::ultra-tight-spreads-&-fast-execution",
+      "id": "markets/forex-cfd::ultra-tight-spreads-and-fast-execution",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Ultra-tight spreads & fast execution",
       "content": "Ultra-tight spreads and lightning-fast execution for precision trading."
     },
     {
-      "id": "markets/forex-cfd::leverage-up-to-1:500",
+      "id": "markets/forex-cfd::leverage-up-to-1-500",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Leverage up to 1:500",
       "content": "Leverage of up to 1:500, giving you enhanced flexibility and efficient capital usage."
     },
     {
-      "id": "markets/forex-cfd::powerful-platforms-(including-mt5)",
+      "id": "markets/forex-cfd::powerful-platforms-including-mt5",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Powerful platforms (including MT5)",
@@ -1059,21 +1059,21 @@
       "content": "One week later, EUR/USD moves down to 1.11500. You close your short position at this lower price, capturing the profit from the price decline. The value at closing is: €100,000 × 1.11500 = USD $111,500 This results in a gross profit of USD $500 from the market movement."
     },
     {
-      "id": "markets/forex-cfd::50+-fx-pairs-at-your-fingertips",
+      "id": "markets/forex-cfd::50-fx-pairs-at-your-fingertips",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "50+ FX Pairs at Your Fingertips",
       "content": "Access a broad selection of Major, Minor, and Exotic currency pairs on Stonefort’s advanced trading platforms MT5 and Stonefort Trader, built to support traders of every style."
     },
     {
-      "id": "markets/forex-cfd::spreads-starting-from-0.4-pips",
+      "id": "markets/forex-cfd::spreads-starting-from-0-4-pips",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Spreads Starting from 0.4 Pips",
       "content": "Our proprietary Stonefort Engine aggregates pricing from multiple sources to deliver consistently competitive spreads, helping you trade with greater efficiency."
     },
     {
-      "id": "markets/forex-cfd::5+-tier-1-liquidity-providers",
+      "id": "markets/forex-cfd::5-tier-1-liquidity-providers",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "5+ Tier-1 Liquidity Providers",
@@ -1087,7 +1087,7 @@
       "content": "Experience responsive trading powered by our LD5 server setup, engineered to minimize latency and support high-speed execution across global markets."
     },
     {
-      "id": "markets/forex-cfd::flexible-leverage-up-to-1:1000",
+      "id": "markets/forex-cfd::flexible-leverage-up-to-1-1000",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Flexible Leverage Up to 1:1000",
@@ -1108,7 +1108,7 @@
       "content": "Our deep liquidity access and advanced execution technology are structured to reduce interruptions, helping ensure your orders are processed without requotes during normal market conditions."
     },
     {
-      "id": "markets/forex-cfd::regulated-&-trusted",
+      "id": "markets/forex-cfd::regulated-and-trusted",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Regulated & Trusted",
@@ -1136,49 +1136,49 @@
       "content": "Articles note: Article links will be provided soon. What Is Forex? How to Start Forex Trading: A Complete Beginner’s Guide How to Manage Risk Effectively in Forex Trading"
     },
     {
-      "id": "markets/forex-cfd::what-is-forex?",
+      "id": "markets/forex-cfd::what-is-forex",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "What is Forex?",
       "content": "Forex, also known as foreign exchange or FX, refers to the global marketplace where currencies are traded. It is a decentralized market that operates 24 hours a day, five days a week, and is considered the largest and most liquid financial market in the world. Forex trading involves exchanging one currency for another with the intention of benefiting from fluctuations in their exchange rates."
     },
     {
-      "id": "markets/forex-cfd::how-do-i-trade-forex?",
+      "id": "markets/forex-cfd::how-do-i-trade-forex",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "How Do I Trade Forex?",
       "content": "Forex trading is the process of speculating on the movement of currency prices. When you trade forex, you are essentially predicting whether one currency will strengthen or weaken against another. Example: If you believe the Euro will increase in value relative to the US Dollar, you buy the currency pair EUR/USD. If you expect the Euro to weaken, you sell EUR/USD instead. Your profit or loss depends on how the market moves after you enter the trade."
     },
     {
-      "id": "markets/forex-cfd::what-are-some-forex-trading-examples?",
+      "id": "markets/forex-cfd::what-are-some-forex-trading-examples",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "What Are Some Forex Trading Examples?",
       "content": "Understanding real market scenarios makes forex easier to grasp. Here are simple illustrations:"
     },
     {
-      "id": "markets/forex-cfd::example-1:-buying-(going-long)",
+      "id": "markets/forex-cfd::example-1-buying-going-long",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Example 1: Buying (Going Long)",
       "content": "You expect GBP to strengthen against USD. Price moves from 1.2500 to 1.2550 after your buy order. That 50-pip rise becomes your profit depending on your lot size."
     },
     {
-      "id": "markets/forex-cfd::example-2:-selling-(going-short)",
+      "id": "markets/forex-cfd::example-2-selling-going-short",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Example 2: Selling (Going Short)",
       "content": "You expect USD to weaken against JPY. You sell USD/JPY at 150.00 and close at 149.60. The 40-pip drop benefits your short position. These examples show how traders take advantage of price movements in either direction."
     },
     {
-      "id": "markets/forex-cfd::what-is-margin-in-forex?",
+      "id": "markets/forex-cfd::what-is-margin-in-forex",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "What Is Margin in Forex?",
       "content": "Margin in forex is the amount of money a trader must set aside in their trading account to open and maintain a leveraged position. Think of it as a security deposit held by the broker while your trade is active. It does not represent the cost of the trade itself, but rather the portion of your capital required to support the position. Margin allows you to control a much larger position size than the amount you physically deposit, making it a key component of leveraged trading. While this increases your profit potential, it also increases your exposure to losses and must be managed with caution."
     },
     {
-      "id": "markets/forex-cfd::why-trade-forex-with-stonefort?",
+      "id": "markets/forex-cfd::why-trade-forex-with-stonefort",
       "title": "Forex Trading with Stonefort",
       "url": "/markets/forex-cfd",
       "heading": "Why Trade Forex with Stonefort?",
@@ -1192,28 +1192,28 @@
       "content": "Trade major global indices with leverage and zero commission. Access leading markets such as the S&P 500, NASDAQ, Dow Jones, and more through Stonefort’s high-performance trading platforms. Explore Global Indices for Strategic Trading CTA: Learn More About Index Performance Hero imagery note: Add an indices-themed hero visual (e.g., US500/NASDAQ/DOW chart tiles + terminal UI). (Replace with your final image asset path)"
     },
     {
-      "id": "markets/indices-cfd::why-trade-cfds-on-indices?",
+      "id": "markets/indices-cfd::why-trade-cfds-on-indices",
       "title": "Indices Trading with Stonefort",
       "url": "/markets/indices-cfd",
       "heading": "Why Trade CFDs on Indices?",
       "content": "Indices trading allows you to speculate on the price movement of a group of stocks that represent a specific market or sector. Instead of trading individual shares, indices provide broader market exposure, making them suitable for traders looking to diversify, hedge risk, or trade overall market sentiment. With index CFDs, traders can take advantage of both rising and falling markets while using leverage to optimize capital efficiency. CTA: Learn More About Index Performance (redirect to the Earnings / Performance Table below)"
     },
     {
-      "id": "markets/indices-cfd::how-does-index-trading-work-with-stonefort?::1",
+      "id": "markets/indices-cfd::how-does-index-trading-work-with-stonefort::part-1",
       "title": "Indices Trading with Stonefort",
       "url": "/markets/indices-cfd",
       "heading": "How Does Index Trading Work with Stonefort?",
       "content": "Index trading allows you to speculate the price movement of a group of stocks that make up a specific market index, such as the S&P 500, NASDAQ, or FTSE 100. Instead of trading individual shares, index CFDs provide exposure to the overall performance of a country’s stock market or a specific sector. One of the key advantages of trading index CFDs is the ability to use leverage, which enables traders to control larger positions with a smaller initial deposit. This makes indices suitable for both diversification and strategic trading based on broader market trends. With Stonefort, traders can access a wide range of global indices, including major US, European, and Asian markets, allowing them to diversify their trading strategies across regions and economic cycles. Stonefort offers flexible leverage on index CFDs, enabling traders to enhance market exposure while maintaining capital effici"
     },
     {
-      "id": "markets/indices-cfd::how-does-index-trading-work-with-stonefort?::2",
+      "id": "markets/indices-cfd::how-does-index-trading-work-with-stonefort::part-2",
       "title": "Indices Trading with Stonefort",
       "url": "/markets/indices-cfd",
       "heading": "How Does Index Trading Work with Stonefort?",
       "content": "ency. While leverage can increase potential returns, it also increases risk — making effective risk management and disciplined trading essential."
     },
     {
-      "id": "markets/indices-cfd::how-is-profit-calculated?",
+      "id": "markets/indices-cfd::how-is-profit-calculated",
       "title": "Indices Trading with Stonefort",
       "url": "/markets/indices-cfd",
       "heading": "How Is Profit Calculated?",
@@ -1311,7 +1311,7 @@
       "content": "All rates shown are indicative and may change based on market conditions. Final pricing is applied at the server rollover time. Any profits or losses from index CFD trades will be reflected in your account balance with the relevant trade comments. Traders are encouraged to regularly monitor open positions and stay informed about market updates that may affect their trades."
     },
     {
-      "id": "markets/indices-cfd::how-do-dividends-affect-index-cfds?",
+      "id": "markets/indices-cfd::how-do-dividends-affect-index-cfds",
       "title": "Indices Trading with Stonefort",
       "url": "/markets/indices-cfd",
       "heading": "How Do Dividends Affect Index CFDs?",
@@ -1325,21 +1325,21 @@
       "content": "Table note: Insert your full product specification table here. If you share the exact columns/rows, I’ll convert it into a clean MDX table."
     },
     {
-      "id": "markets/indices-cfd::what-are-the-benefits-of-trading-cfds-on-indices?",
+      "id": "markets/indices-cfd::what-are-the-benefits-of-trading-cfds-on-indices",
       "title": "Indices Trading with Stonefort",
       "url": "/markets/indices-cfd",
       "heading": "What Are the Benefits of Trading CFDs on Indices?",
       "content": "Trading CFDs on indices allows you to gain exposure to an entire market or economic sector through a single instrument. Instead of trading individual stocks, you can trade the overall performance of major indices such as the S&P 500, NASDAQ, or FTSE, benefiting from broader market trends. Index CFDs also require less capital compared to instruments such as ETFs or futures, as leverage enables traders to control larger positions with a smaller initial investment. This makes index trading more capital-efficient for active traders. In addition, index CFDs closely track the spot price of the underlying index. Unlike futures or options, they are not affected by expiration dates or time decay, allowing traders to focus purely on price movement and market direction."
     },
     {
-      "id": "markets/indices-cfd::what-factors-influence-the-price-of-indices?",
+      "id": "markets/indices-cfd::what-factors-influence-the-price-of-indices",
       "title": "Indices Trading with Stonefort",
       "url": "/markets/indices-cfd",
       "heading": "What Factors Influence the Price of Indices?",
       "content": "Index prices are primarily influenced by the performance of the individual companies that make up the index. Strong or weak earnings, sector growth, and changes in business outlook can directly impact index movements. Broader macroeconomic factors also play a significant role. Interest rate decisions by central banks often influence indices, as changes in borrowing costs affect corporate profits and investor sentiment. Inflation data, employment figures, and economic growth indicators can further drive market direction. Geopolitical developments such as elections, policy changes, trade agreements, or global conflicts can create volatility in index markets. Government actions, including taxation policies, regulations, and fiscal stimulus, may also support or pressure index performance."
     },
     {
-      "id": "markets/indices-cfd::are-stonefort-index-cfds-based-on-spot-or-futures-prices?",
+      "id": "markets/indices-cfd::are-stonefort-index-cfds-based-on-spot-or-futures-prices",
       "title": "Indices Trading with Stonefort",
       "url": "/markets/indices-cfd",
       "heading": "Are Stonefort Index CFDs Based on Spot or Futures Prices?",
@@ -1353,14 +1353,14 @@
       "content": "Explore proven approaches and market insights designed to help you navigate index markets with clarity and confidence."
     },
     {
-      "id": "market::trade-where-the-world-moves.",
+      "id": "market::trade-where-the-world-moves",
       "title": "Markets",
       "url": "/market",
       "heading": "Trade where the world moves.",
       "content": "Enter the core of global markets with Stonefort — where every major asset class meets precision and opportunity. With 1,400+ CFDs across forex, indices, commodities, and equities, your next trade is always within reach. CTA: Open an Account | Trade Now"
     },
     {
-      "id": "market::which-financial-markets-can-you-trade-with-stonefort?",
+      "id": "market::which-financial-markets-can-you-trade-with-stonefort",
       "title": "Markets",
       "url": "/market",
       "heading": "Which financial markets can you trade with Stonefort?",
@@ -1409,42 +1409,42 @@
       "content": "Step into global opportunities with access to hundreds of instruments across Forex, Indices, Commodities, Cryptocurrencies, and Shares. Trade with transparent pricing, competitive spreads, and a platform engineered for active, performance-driven traders."
     },
     {
-      "id": "market::why-trade-global-markets-using-cfds?",
+      "id": "market::why-trade-global-markets-using-cfds",
       "title": "Markets",
       "url": "/market",
       "heading": "Why trade global markets using CFDs?",
       "content": "CFDs are derivative instruments that mirror the price movement of underlying markets such as forex, indices, shares and commodities. They allow traders to access global opportunities efficiently without owning the actual asset. Trade with leverage to keep entry costs low while increasing the potential for profit (losses can also be magnified). Go long or short to take advantage of both rising and falling market conditions. Access thousands of markets through a single trading account. Trade beyond standard market hours with select instruments available around the clock."
     },
     {
-      "id": "market::ready-to-trade-smarter?",
+      "id": "market::ready-to-trade-smarter",
       "title": "Markets",
       "url": "/market",
       "heading": "Ready to trade smarter?",
       "content": "Move to Stonefort and become part of a global community of active traders. Apply in minutes with a fast, streamlined onboarding experience."
     },
     {
-      "id": "market::1.-register",
+      "id": "market::1-register",
       "title": "Markets",
       "url": "/market",
       "heading": "1. Register",
       "content": "Sign up with your email and instantly access a free demo account."
     },
     {
-      "id": "market::2.-answer",
+      "id": "market::2-answer",
       "title": "Markets",
       "url": "/market",
       "heading": "2. Answer",
       "content": "Complete a quick suitability check so we can ensure our products are right for you."
     },
     {
-      "id": "market::3.-verify",
+      "id": "market::3-verify",
       "title": "Markets",
       "url": "/market",
       "heading": "3. Verify",
       "content": "Secure your account with a simple verification process. Your safety always comes first."
     },
     {
-      "id": "market::4.-fund",
+      "id": "market::4-fund",
       "title": "Markets",
       "url": "/market",
       "heading": "4. Fund",
@@ -1458,70 +1458,70 @@
       "content": "Understanding CFD Trading: What It Is and How It Works 30 Forex and Trading Terms Every Serious Trader Should Know Gold in 2025: Five Trends Every Trader Should Watch"
     },
     {
-      "id": "market::what-is-forex?",
+      "id": "market::what-is-forex",
       "title": "Markets",
       "url": "/market",
       "heading": "What is Forex?",
       "content": "Forex, or foreign exchange, is the global marketplace where currencies are traded. Operating 24 hours a day, it is the largest and most liquid financial market in the world. Traders buy and sell currency pairs with the aim of profiting from changes in exchange rates."
     },
     {
-      "id": "market::how-do-i-trade-forex?",
+      "id": "market::how-do-i-trade-forex",
       "title": "Markets",
       "url": "/market",
       "heading": "How do I trade Forex?",
       "content": "Forex trading involves speculating on whether one currency will strengthen or weaken against another. You trade currency pairs, such as EUR/USD, by deciding if the base currency will rise or fall in value. If you expect the Euro to gain against the US Dollar, you would buy EUR/USD; if you expect it to fall, you would sell it."
     },
     {
-      "id": "market::what-are-some-forex-trading-examples?",
+      "id": "market::what-are-some-forex-trading-examples",
       "title": "Markets",
       "url": "/market",
       "heading": "What are some Forex trading examples?",
       "content": "To understand how forex trading works in practice, you can explore real-world examples that show both buying and selling positions on popular currency pairs. These examples help illustrate how price movements create trading opportunities."
     },
     {
-      "id": "market::what-is-margin-in-forex?",
+      "id": "market::what-is-margin-in-forex",
       "title": "Markets",
       "url": "/market",
       "heading": "What is margin in Forex?",
       "content": "Margin is the initial deposit required to open a leveraged forex position. It allows you to control a larger trade size with a smaller amount of capital, increasing both your potential profits and potential losses."
     },
     {
-      "id": "market::why-should-i-trade-forex-with-stonefort?",
+      "id": "market::why-should-i-trade-forex-with-stonefort",
       "title": "Markets",
       "url": "/market",
       "heading": "Why should I trade Forex with Stonefort?",
       "content": "Stonefort delivers a powerful combination of competitive spreads, institutional-grade pricing, and access to a full range of major, minor, and exotic currency pairs. With leverage of up to 1:500, fast execution, and deep liquidity, you can trade global markets with precision and flexibility. Built on a secure, multi-jurisdictional regulatory framework, Stonefort offers a trusted, technology-driven environment backed by advanced tools, real-time analytics, and dedicated support — giving active traders the confidence to perform at their best."
     },
     {
-      "id": "markets/metal::trade-with-spreads-from-0.05-pts-on-gold-and-2-pts-on-oil",
+      "id": "markets/metal::trade-with-spreads-from-0-05-pts-on-gold-and-2-pts-on-oil",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Trade with spreads from 0.05 pts on Gold and 2 pts on Oil",
       "content": "Access global commodity markets with competitive pricing and flexible leverage through Stonefort’s CFD offering. Trade key assets such as gold and oil with spreads designed to support efficient order execution, allowing you to navigate market movements with greater clarity and control. Hero imagery note: Use a premium hero visual featuring Gold + Oil (e.g., gold bars + oil barrel / energy chart overlay). (Replace with your final image asset path) CTA: Open an Account | Trade Now"
     },
     {
-      "id": "markets/metal::why-trade-cfds-on-commodities?",
+      "id": "markets/metal::why-trade-cfds-on-commodities",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Why Trade CFDs on Commodities?",
       "content": "Commodity CFDs offer an accessible way to participate in global commodity markets without owning or taking delivery of the underlying asset. As cash-settled instruments, they allow you to speculate on price movements based on market conditions. CFDs are traded on margin, meaning you only need to commit a portion of the total position value. This approach provides flexibility, but it also increases both potential gains and potential losses — so careful risk management is essential. With the ability to take long or short positions, traders can engage with both upward and downward market movements depending on their outlook."
     },
     {
-      "id": "markets/metal::ultra-tight-spreads-&-efficient-execution",
+      "id": "markets/metal::ultra-tight-spreads-and-efficient-execution",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Ultra-tight spreads & efficient execution",
       "content": "Ultra-tight spreads and efficient execution designed to support smoother trading."
     },
     {
-      "id": "markets/metal::flexible-leverage-up-to-1:1000",
+      "id": "markets/metal::flexible-leverage-up-to-1-1000",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Flexible leverage up to 1:1000",
       "content": "Flexible leverage options up to 1:1000, allowing you to manage positions with greater adaptability."
     },
     {
-      "id": "markets/metal::advanced-platforms-(mt5-+-stonefort-trader)",
+      "id": "markets/metal::advanced-platforms-mt5-stonefort-trader",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Advanced platforms (MT5 + Stonefort Trader)",
@@ -1549,14 +1549,14 @@
       "content": "Precious metals trading allows you to speculate on the price movements of assets such as gold, silver, and platinum without needing to hold the physical commodity. These instruments are often viewed as defensive or diversification assets, especially during periods of market uncertainty. Through Stonefort, traders can access these markets using leverage, which enables control of a larger position size relative to the capital placed as margin. While leverage offers flexibility, it also increases both potential gains and potential losses — so it should be used with appropriate risk management."
     },
     {
-      "id": "markets/metal::gold-(xauusd)",
+      "id": "markets/metal::gold-xauusd",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Gold (XAUUSD)",
       "content": "Leverage of up to 1:1000, depending on your account’s leverage settings."
     },
     {
-      "id": "markets/metal::silver-(xagusd)-&-platinum-(xptusd)",
+      "id": "markets/metal::silver-xagusd-and-platinum-xptusd",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Silver (XAGUSD) & Platinum (XPTUSD)",
@@ -1570,7 +1570,7 @@
       "content": "Trade spot gold CFDs from 0.05 points and natural gas CFDs from 0.3 points, with pricing designed to support efficient execution and no additional commission charges."
     },
     {
-      "id": "markets/metal::5+-tier-1-liquidity-providers",
+      "id": "markets/metal::5-tier-1-liquidity-providers",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "5+ Tier-1 Liquidity Providers",
@@ -1584,7 +1584,7 @@
       "content": "Trusted by a global community of traders and recognised for delivering a reliable, client-focused trading experience."
     },
     {
-      "id": "markets/metal::flexible-leverage-up-to-1:1000",
+      "id": "markets/metal::flexible-leverage-up-to-1-1000--2",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Flexible Leverage Up to 1:1000",
@@ -1598,14 +1598,14 @@
       "content": "Access a wide range of industry-leading platforms including Autochartist, MT5, and Stonefort’s own advanced trading solutions — Stonefort Trader."
     },
     {
-      "id": "markets/metal::regulated-&-trusted",
+      "id": "markets/metal::regulated-and-trusted",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Regulated & Trusted",
       "content": "Stonefort operates under established regulatory frameworks, including SCA and FSC jurisdictions, offering a secure and transparent trading environment for all clients."
     },
     {
-      "id": "markets/metal::what-commodity-cfds-can-you-trade-with-stonefort?",
+      "id": "markets/metal::what-commodity-cfds-can-you-trade-with-stonefort",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "What Commodity CFDs Can You Trade with Stonefort?",
@@ -1647,21 +1647,21 @@
       "content": "Articles note: Add your final article links here. What is commodity trading and how does it work? What is gold trading and how can traders participate in the gold market? Metal Trading Explained: How to Trade Gold, Silver and Other Key Metals What is oil trading and how can traders participate in global oil markets?"
     },
     {
-      "id": "markets/metal::what-are-commodities?",
+      "id": "markets/metal::what-are-commodities",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "What Are Commodities?",
       "content": "Commodities are raw materials that support global production, transportation and manufacturing. They include metals such as gold, silver, copper and nickel, energy products like oil and natural gas, and agricultural goods such as wheat, cotton, coffee, cocoa and livestock. These assets form the foundation of many industries and play a significant role in shaping economic activity worldwide."
     },
     {
-      "id": "markets/metal::why-do-people-trade-commodities?",
+      "id": "markets/metal::why-do-people-trade-commodities",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Why Do People Trade Commodities?",
       "content": "Commodity trading originally developed as a way for producers and consumers to manage price risk on the goods they depended on. Over time, the market has expanded to include individual and institutional traders who take positions based on expectations of future price movements. Traders may buy or sell commodities depending on whether they anticipate prices to rise or fall, using these markets to diversify their portfolios or respond to global economic events."
     },
     {
-      "id": "markets/metal::what-affects-commodity-prices?",
+      "id": "markets/metal::what-affects-commodity-prices",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "What Affects Commodity Prices?",
@@ -1689,14 +1689,14 @@
       "content": "| Symbol | Monday | Tuesday–Thursday | Friday | Saturday | Sunday | |---|---|---|---|---|---| | Energies | 01:00 - 23:59 | 01:00 - 23:59 | 01:00 - 23:55 | Closed | Closed | | Spot Brent | 01:00 - 23:59 | 03:00 - 23:59 | 03:00 - 23:55 | Closed | Closed |"
     },
     {
-      "id": "markets/metal::soft::1",
+      "id": "markets/metal::soft::part-1",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Soft",
       "content": "| Symbol/Security | Monday | Tuesday–Thursday | Friday | Saturday | Sunday | |---|---|---|---|---|---| | Cattle | 16:30 - 21:04 | 16:30 - 21:04 | 16:30 - 21:00 | Closed | Closed | | Cocoa | 11:45 - 20:29 | 11:45 - 20:29 | 11:45 - 20:25 | Closed | Closed | | Coffee | 11:15 - 20:29 | 11:15 - 20:29 | 11:15 - 20:25 | Closed | Closed | | Cotton | 04:00 - 21:19 | 04:00 - 21:19 | 04:00 - 21:15 | Closed | Closed | | LeanHogs | 16:30 - 21:04 | 16:30 - 21:04 | 16:30 - 21:00 | Closed | Closed | | LDSugar | 10:45 - 19:54 | 10:45 - 19:54 | 10:45 - 19:50 | Closed | Closed | | Sugar | 10:30 - 19:59 | 10:30 - 19:59 | 10:30 - 19:55 | Closed | Closed | | Corn | 03:00 - 15:45, 16:30 - 21:19 | 03:00 - 15:45, 16:30 - 21:19 | 03:00 - 15:45, 16:30 - 21:15 | Closed | Closed | | Soybeans | 03:00 - 15:45, 16:30 - 21:19 | 03:00 - 15:45, 16:30 - 21:19 | 03:00 - 15:45, 16:30 - 21:15 | Closed | Closed | | Wheat | 03:"
     },
     {
-      "id": "markets/metal::soft::2",
+      "id": "markets/metal::soft::part-2",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "Soft",
@@ -1710,7 +1710,7 @@
       "content": "| Symbol/Security | Monday | Tuesday–Thursday | Friday | Saturday | Sunday | |---|---|---|---|---|---| | Copper | 01:01 - 23:59 | 01:01 - 23:59 | 01:01 - 23:55 | Closed | Closed | | Aluminium | 03:01 - 20:59 | 03:01 - 20:59 | 03:01 - 20:55 | Closed | Closed | | Nickel | 03:01 - 20:59 | 03:01 - 20:59 | 03:01 - 20:55 | Closed | Closed | | Lead | 03:01 - 20:59 | 03:01 - 20:59 | 03:01 - 20:55 | Closed | Closed | | Zinc | 03:01 - 20:59 | 03:01 - 20:59 | 03:01 - 20:55 | Closed | Closed |"
     },
     {
-      "id": "markets/metal::what-is-a-forward-contract?",
+      "id": "markets/metal::what-is-a-forward-contract",
       "title": "Commodities & Metals Trading with Stonefort",
       "url": "/markets/metal",
       "heading": "What Is a Forward Contract?",
@@ -1745,35 +1745,35 @@
       "content": "Stonefort brings you MetaTrader 5, a globally trusted trading platform built for today’s modern traders. Equipped with advanced charting capabilities and efficient order management tools, MT5 helps you monitor, analyse, and manage your trades with precision and confidence. Whether you trade on a Standard or Raw Spread account, you can expect a smooth and consistent trading experience designed to adapt to your trading style and objectives. Trade smarter and take control of the markets with Stonefort’s MetaTrader 5. CTA: Trade Now Mockup note: Display MT5 on desktop, laptop, tablet, and mobile devices. Available on Android, iOS, and Web Trader."
     },
     {
-      "id": "platforms/metatrader5::why-choose-metatrader-5?",
+      "id": "platforms/metatrader5::why-choose-metatrader-5",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "Why Choose MetaTrader 5?",
       "content": "For the superior trading conditions, flexibility, and reliability Stonefort delivers to traders."
     },
     {
-      "id": "platforms/metatrader5::advanced-back-testing-&-optimisation",
+      "id": "platforms/metatrader5::advanced-back-testing-and-optimisation",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "Advanced Back-Testing & Optimisation",
       "content": "Test and refine trading strategies using a powerful multi-threaded strategy tester, delivering faster execution and more accurate performance analysis."
     },
     {
-      "id": "platforms/metatrader5::advanced-trading-language-&-automation",
+      "id": "platforms/metatrader5::advanced-trading-language-and-automation",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "Advanced Trading Language & Automation",
       "content": "Build sophisticated strategies using an enhanced programming environment that supports event-driven logic, object-oriented design, and improved debugging."
     },
     {
-      "id": "platforms/metatrader5::enhanced-charting-&-timeframes",
+      "id": "platforms/metatrader5::enhanced-charting-and-timeframes",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "Enhanced Charting & Timeframes",
       "content": "Analyse markets with expanded chart types, including Renko and Range charts, alongside a wide selection of timeframes from tick data to long-term views."
     },
     {
-      "id": "platforms/metatrader5::deeper-analytics-&-market-insights",
+      "id": "platforms/metatrader5::deeper-analytics-and-market-insights",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "Deeper Analytics & Market Insights",
@@ -1787,7 +1787,7 @@
       "content": "Trade a diverse range of CFD instruments including forex, indices, shares, and commodities from a single integrated platform."
     },
     {
-      "id": "platforms/metatrader5::greater-order-control-&-customisation",
+      "id": "platforms/metatrader5::greater-order-control-and-customisation",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "Greater Order Control & Customisation",
@@ -1801,7 +1801,7 @@
       "content": "Trade forex and gold with tight pricing designed to support active and cost-efficient trading strategies."
     },
     {
-      "id": "platforms/metatrader5::fast-&-reliable-execution",
+      "id": "platforms/metatrader5::fast-and-reliable-execution",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "Fast & Reliable Execution",
@@ -1857,49 +1857,49 @@
       "content": "Visual note: Add an exponential growth / performance image. With a strong and steadily growing presence in global markets, Stonefort has earned the trust of traders worldwide through consistent performance and reliable execution. Trading volumes across MetaTrader platforms have grown progressively over time, reflecting long-term client confidence and sustained market participation."
     },
     {
-      "id": "platforms/metatrader5::what-is-metatrader-5?",
+      "id": "platforms/metatrader5::what-is-metatrader-5",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "What is MetaTrader 5?",
       "content": "MetaTrader 5 (MT5) is Stonefort’s advanced multi-asset trading platform supporting forex, indices, commodities, shares, and other CFD instruments. It offers enhanced charting, deeper analytics, and a robust environment for automated trading."
     },
     {
-      "id": "platforms/metatrader5::how-do-i-open-a-stonefort-mt5-account?",
+      "id": "platforms/metatrader5::how-do-i-open-a-stonefort-mt5-account",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "How do I open a Stonefort MT5 account?",
       "content": "Visit the Stonefort website Select Open Live Account Choose MetaTrader 5 Complete the registration form Submit verification documents Fund your account Download MT5 and start trading"
     },
     {
-      "id": "platforms/metatrader5::what-is-a-stonefort-mt5-demo-account?",
+      "id": "platforms/metatrader5::what-is-a-stonefort-mt5-demo-account",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "What is a Stonefort MT5 demo account?",
       "content": "A demo account allows you to practise trading in a risk-free environment using virtual funds. It mirrors live market conditions and is ideal for testing strategies before trading live."
     },
     {
-      "id": "platforms/metatrader5::how-long-does-the-mt5-demo-account-remain-active?",
+      "id": "platforms/metatrader5::how-long-does-the-mt5-demo-account-remain-active",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "How long does the MT5 demo account remain active?",
       "content": "Demo accounts remain available for practice, and new demo accounts can be created at any time with refreshed virtual funds."
     },
     {
-      "id": "platforms/metatrader5::how-do-i-download-metatrader-5?",
+      "id": "platforms/metatrader5::how-do-i-download-metatrader-5",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "How do I download MetaTrader 5?",
       "content": "Visit the Platforms section on the Stonefort website Select MetaTrader 5 Choose your device (desktop, web, or mobile) Follow the installation steps"
     },
     {
-      "id": "platforms/metatrader5::what-trading-tools-are-available-on-mt5?",
+      "id": "platforms/metatrader5::what-trading-tools-are-available-on-mt5",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "What trading tools are available on MT5?",
       "content": "Advanced charting and indicators Multiple timeframes Integrated economic calendar Market depth and price ladder Automated trading (EAs) Advanced pending orders Strategy testing environment"
     },
     {
-      "id": "platforms/metatrader5::what-additional-features-are-available?",
+      "id": "platforms/metatrader5::what-additional-features-are-available",
       "title": "MetaTrader 5 Platform",
       "url": "/platforms/metatrader5",
       "heading": "What additional features are available?",
@@ -1913,7 +1913,7 @@
       "content": "Trade with confidence on Stonefort’s award-winning trading platform. Apply for a Live Account – Complete a simple online application Fund Your Account – Add funds securely using convenient methods Start Trading Instantly – Access global markets without delay CTA: Open an Account"
     },
     {
-      "id": "platforms/PerformanceandAnalysis::trade-with-insight.-improve-with-intention.",
+      "id": "platforms/PerformanceandAnalysis::trade-with-insight-improve-with-intention",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "Trade with insight. Improve with intention.",
@@ -1997,84 +1997,84 @@
       "content": "Explore how emotions and behavioural patterns influence your trading decisions and outcomes."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::what-are-the-requirements-to-access-performance-analytics?",
+      "id": "platforms/PerformanceandAnalysis::what-are-the-requirements-to-access-performance-analytics",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "What are the requirements to access Performance Analytics?",
       "content": "You can access Performance Analytics by logging into Web Trader, opening your workspace, clicking the three-dot menu, and selecting Performance Analytics. On the mobile app: More → Performance Analytics → My Trading History"
     },
     {
-      "id": "platforms/PerformanceandAnalysis::how-much-does-performance-analytics-cost?",
+      "id": "platforms/PerformanceandAnalysis::how-much-does-performance-analytics-cost",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "How much does Performance Analytics cost?",
       "content": "Performance Analytics is available at no additional cost to eligible live account holders."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::can-i-use-performance-analytics-with-a-demo-account?",
+      "id": "platforms/PerformanceandAnalysis::can-i-use-performance-analytics-with-a-demo-account",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "Can I use Performance Analytics with a demo account?",
       "content": "No. Performance Analytics is not currently available on demo accounts."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::can-i-access-performance-analytics-via-the-mobile-app?",
+      "id": "platforms/PerformanceandAnalysis::can-i-access-performance-analytics-via-the-mobile-app",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "Can I access Performance Analytics via the mobile app?",
       "content": "Yes. On the mobile app, select More, then go to Performance Analytics under My Trading History."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::are-there-tutorials-available-on-how-to-use-performance-analytics?",
+      "id": "platforms/PerformanceandAnalysis::are-there-tutorials-available-on-how-to-use-performance-analytics",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "Are there tutorials available on how to use Performance Analytics?",
       "content": "Yes. Platform video tutorials are available and explain features and functionality step by step."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::is-the-information-real-time-or-delayed?",
+      "id": "platforms/PerformanceandAnalysis::is-the-information-real-time-or-delayed",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "Is the information real-time or delayed?",
       "content": "When first accessing Performance Analytics, there may be a short delay while historical trade data is processed. After that, updates are near real-time, typically delayed by only a few minutes."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::why-am-i-not-seeing-any-insights-or-trading-edges-yet?",
+      "id": "platforms/PerformanceandAnalysis::why-am-i-not-seeing-any-insights-or-trading-edges-yet",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "Why am I not seeing any insights or trading edges yet?",
       "content": "Performance Analytics requires a minimum amount of closed trade data to generate meaningful insights. If you haven’t closed enough trades, some analytics may not yet appear."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::if-i-have-multiple-accounts,-can-i-view-them-together?",
+      "id": "platforms/PerformanceandAnalysis::if-i-have-multiple-accounts-can-i-view-them-together",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "If I have multiple accounts, can I view them together?",
       "content": "No. Performance Analytics is account-specific. You must log in to each account individually."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::can-i-export-performance-data-from-performance-analytics?",
+      "id": "platforms/PerformanceandAnalysis::can-i-export-performance-data-from-performance-analytics",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "Can I export performance data from Performance Analytics?",
       "content": "Yes. You can export data in CSV format. Go to Statements, select a date range, and click Export."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::what-does-it-mean-if-no-positive-or-negative-habits-are-shown-under-psychology-edges?",
+      "id": "platforms/PerformanceandAnalysis::what-does-it-mean-if-no-positive-or-negative-habits-are-shown-under-psychology-edges",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "What does it mean if no positive or negative habits are shown under Psychology Edges?",
       "content": "This indicates there is not yet enough completed trade data to identify behavioural patterns."
     },
     {
-      "id": "platforms/PerformanceandAnalysis::why-does-the-p&l-differ-from-my-account-trade-history?",
+      "id": "platforms/PerformanceandAnalysis::why-does-the-p-and-l-differ-from-my-account-trade-history",
       "title": "Performance & Analysis",
       "url": "/platforms/PerformanceandAnalysis",
       "heading": "Why does the P&L differ from my account trade history?",
       "content": "Performance Analytics reviews up to 12 months of trade data, capped at 10,000 transactions per account. P&L calculations include trade openings and closings only and exclude: Financing costs Commissions Rebates Dividend adjustments"
     },
     {
-      "id": "platforms::your-platform.-your-trading-style.",
+      "id": "platforms::your-platform-your-trading-style",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Your platform. Your trading style.",
@@ -2102,14 +2102,14 @@
       "content": "Layout note: Mockup on the left, text on the right (Forex.com-style reference)."
     },
     {
-      "id": "platforms::mobile-&-multi-platform-trading",
+      "id": "platforms::mobile-and-multi-platform-trading",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Mobile & Multi-Platform Trading",
       "content": "Trade Without Compromise Buy and sell seamlessly across Stonefort Trader Mobile, Web Terminal, and MetaTrader 5. Enjoy quick trade execution, flexible order management, and a smooth trading experience designed to adapt to your trading style."
     },
     {
-      "id": "platforms::advanced-charting-&-trading-tools",
+      "id": "platforms::advanced-charting-and-trading-tools",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Advanced Charting & Trading Tools",
@@ -2123,7 +2123,7 @@
       "content": "Identify trading opportunities with integrated Autochartist tools, providing pattern recognition, key price levels, and market setups to support informed decision-making."
     },
     {
-      "id": "platforms::market-news-&-sentiment-analysis",
+      "id": "platforms::market-news-and-sentiment-analysis",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Market News & Sentiment Analysis",
@@ -2144,7 +2144,7 @@
       "content": "Layout note: Text on the left, mockup on the right."
     },
     {
-      "id": "platforms::fast-&-reliable-execution",
+      "id": "platforms::fast-and-reliable-execution",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Fast & Reliable Execution",
@@ -2158,28 +2158,28 @@
       "content": "View bid and ask prices clearly before placing a trade, helping you understand market conditions and trading costs with confidence."
     },
     {
-      "id": "platforms::advanced-charting-&-analysis",
+      "id": "platforms::advanced-charting-and-analysis",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Advanced Charting & Analysis",
       "content": "Analyse price movements using a wide range of technical indicators, drawing tools, and timeframes across all platforms."
     },
     {
-      "id": "platforms::market-insights-&-trading-signals",
+      "id": "platforms::market-insights-and-trading-signals",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Market Insights & Trading Signals",
       "content": "Identify trends using integrated analytical tools, pattern recognition, and sentiment indicators."
     },
     {
-      "id": "platforms::trusted-market-news-&-updates",
+      "id": "platforms::trusted-market-news-and-updates",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Trusted Market News & Updates",
       "content": "Stay informed with real-time market updates and professional insights directly within the trading environment."
     },
     {
-      "id": "platforms::trade-anytime,-anywhere",
+      "id": "platforms::trade-anytime-anywhere",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Trade Anytime, Anywhere",
@@ -2193,7 +2193,7 @@
       "content": "Trade directly from interactive charts and manage positions using advanced risk management tools on Stonefort’s fully equipped web trading platform. Accessible from all modern browsers — no downloads or plugins required."
     },
     {
-      "id": "platforms::advanced-charting-&-analysis",
+      "id": "platforms::advanced-charting-and-analysis--2",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Advanced Charting & Analysis",
@@ -2207,7 +2207,7 @@
       "content": "View pip value, margin requirements, and exposure at a glance. Manage orders using price-based, pip-based, or P&L-based controls."
     },
     {
-      "id": "platforms::market-insights-&-trading-intelligence",
+      "id": "platforms::market-insights-and-trading-intelligence",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Market Insights & Trading Intelligence",
@@ -2228,7 +2228,7 @@
       "content": "Open, modify, and manage trades directly from the chart using simple click-and-drag controls."
     },
     {
-      "id": "platforms::80+-technical-indicators",
+      "id": "platforms::80-technical-indicators",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "80+ Technical Indicators",
@@ -2249,7 +2249,7 @@
       "content": "Choose different chart styles to suit your analysis preferences."
     },
     {
-      "id": "platforms::50+-drawing-tools",
+      "id": "platforms::50-drawing-tools",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "50+ Drawing Tools",
@@ -2291,14 +2291,14 @@
       "content": "Layout note: Text on the left, MT5 mockup on the right."
     },
     {
-      "id": "platforms::expert-advisors-(eas)",
+      "id": "platforms::expert-advisors-eas",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Expert Advisors (EAs)",
       "content": "Automate trading strategies using advanced algorithms. Test, refine, and deploy EAs directly on MT5."
     },
     {
-      "id": "platforms::trade-anytime,-anywhere",
+      "id": "platforms::trade-anytime-anywhere--2",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "Trade Anytime, Anywhere",
@@ -2312,21 +2312,21 @@
       "content": "Access CFD shares and a wide range of global instruments to support diversified strategies."
     },
     {
-      "id": "platforms::how-do-i-log-in-to-my-stonefort-trading-account?",
+      "id": "platforms::how-do-i-log-in-to-my-stonefort-trading-account",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "How do I log in to my Stonefort trading account?",
       "content": "You can log in via the Stonefort Client Portal or directly through your chosen platform, including MetaTrader 5, the Web Trading Platform, or the Stonefort Trader mobile app. Step-by-step guidance is available in the client portal."
     },
     {
-      "id": "platforms::what-are-expert-advisors?",
+      "id": "platforms::what-are-expert-advisors",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "What are Expert Advisors?",
       "content": "Expert Advisors (EAs) are automated trading programs that execute strategies based on predefined rules. On MetaTrader 5, EAs can manage trade execution, risk, and strategy testing. EAs run locally on your device and require an active server connection. Multiple EAs can be used simultaneously when applied to separate charts."
     },
     {
-      "id": "platforms::what-features-does-the-stonefort-web-trading-platform-offer?",
+      "id": "platforms::what-features-does-the-stonefort-web-trading-platform-offer",
       "title": "Trading Platforms with Stonefort",
       "url": "/platforms",
       "heading": "What features does the Stonefort web trading platform offer?",
@@ -2340,7 +2340,7 @@
       "content": "Trade leading global stocks via CFDs on the MT5 platform with Stonefort’s advanced trading tools, competitive spreads, and real-time market insights. Meta (Hero): No Ownership Hassle | Low Spreads on US Stocks | Zero Commission CTA: Open an Account | Trade Now Hero imagery note: Add a premium stocks-themed hero visual (e.g., chart + stock tickers + MT5 interface). (Replace with your final image asset)"
     },
     {
-      "id": "markets/stock::why-trade-stock-cfds-in-dubai?",
+      "id": "markets/stock::why-trade-stock-cfds-in-dubai",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "Why Trade Stock CFDs in Dubai?",
@@ -2368,21 +2368,21 @@
       "content": "Leverage professional-grade charting, indicators, and analytics to identify opportunities and make informed trading decisions. CTA: Access Dividend Insights"
     },
     {
-      "id": "markets/stock::how-does-stock-cfd-trading-work-with-stonefort?::1",
+      "id": "markets/stock::how-does-stock-cfd-trading-work-with-stonefort::part-1",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "How Does Stock CFD Trading Work with Stonefort?",
       "content": "Stock trading through CFDs allows you to speculate on the price movement of company shares without owning the underlying stock. Instead of purchasing physical shares, you trade contracts based on whether a stock’s price is expected to rise or fall, offering greater flexibility and efficiency. One of the key advantages of trading stock CFDs with Stonefort is access to global equity markets from a single platform. With a relatively small initial deposit, traders can gain exposure to leading international stocks and take advantage of both upward and downward market movements. Stonefort offers leverage of up to 1:20 on stock CFDs, enabling traders to increase their market exposure with lower capital outlay. For example, a $1,000 margin can provide exposure equivalent to $20,000 in stock value. While leverage can magnify potential returns, it also increases risk — making sound risk management"
     },
     {
-      "id": "markets/stock::how-does-stock-cfd-trading-work-with-stonefort?::2",
+      "id": "markets/stock::how-does-stock-cfd-trading-work-with-stonefort::part-2",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "How Does Stock CFD Trading Work with Stonefort?",
       "content": "and disciplined trading essential."
     },
     {
-      "id": "markets/stock::how-is-profit-calculated?",
+      "id": "markets/stock::how-is-profit-calculated",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "How Is Profit Calculated?",
@@ -2459,7 +2459,7 @@
       "content": "Trade with confidence in a secure and regulated trading environment designed to protect traders and promote fair market practices."
     },
     {
-      "id": "markets/stock::ready-to-trade-stocks?",
+      "id": "markets/stock::ready-to-trade-stocks",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "Ready to Trade Stocks?",
@@ -2473,7 +2473,7 @@
       "content": "Layout note: This section is designed for a “left vertical tabs” layout on the page."
     },
     {
-      "id": "markets/stock::metatrader-5-(mt5)",
+      "id": "markets/stock::metatrader-5-mt5",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "MetaTrader 5 (MT5)",
@@ -2501,70 +2501,70 @@
       "content": "Table note: Insert your full product specification table here (stocks CFDs). If you share the exact columns/rows, I’ll convert it into a clean MDX table."
     },
     {
-      "id": "markets/stock::what-are-contracts-for-difference-(cfds)-on-stocks?",
+      "id": "markets/stock::what-are-contracts-for-difference-cfds-on-stocks",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "What Are Contracts for Difference (CFDs) on Stocks?",
       "content": "Contracts for Difference on stocks allow you to trade on the price movement of company shares without owning the underlying asset. You can speculate on rising or falling prices while benefiting from flexibility and lower initial capital requirements compared to traditional share investing."
     },
     {
-      "id": "markets/stock::how-do-i-trade-stocks-with-stonefort?",
+      "id": "markets/stock::how-do-i-trade-stocks-with-stonefort",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "How Do I Trade Stocks with Stonefort?",
       "content": "You can trade stock CFDs using Stonefort’s trading platforms, including MT5 and Stonefort Trader. Simply open an account, fund it, and access a wide range of global stocks from a single platform."
     },
     {
-      "id": "markets/stock::how-do-i-start-trading-cfds-on-stocks?",
+      "id": "markets/stock::how-do-i-start-trading-cfds-on-stocks",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "How Do I Start Trading CFDs on Stocks?",
       "content": "To begin, open a trading account with Stonefort. You may start with a demo account to understand how stock CFDs work before transitioning to live trading. Learning how to place orders, analyze charts, and apply risk management tools is essential before trading real funds."
     },
     {
-      "id": "markets/stock::how-much-do-i-need-to-start-trading-cfds-on-stocks?",
+      "id": "markets/stock::how-much-do-i-need-to-start-trading-cfds-on-stocks",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "How Much Do I Need to Start Trading CFDs on Stocks?",
       "content": "The minimum deposit to open an account with Stonefort is just $50. This allows beginners to access global stock markets, although higher capital may be required to manage larger positions and margin requirements effectively."
     },
     {
-      "id": "markets/stock::are-cfds-on-stocks-better-than-owning-stocks?",
+      "id": "markets/stock::are-cfds-on-stocks-better-than-owning-stocks",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "Are CFDs on Stocks Better Than Owning Stocks?",
       "content": "This depends on your trading objectives. Stock CFDs are suitable for active traders seeking flexibility, leverage, and short-term opportunities. Traditional share ownership may be preferred by long-term investors looking for ownership benefits such as dividends and voting rights."
     },
     {
-      "id": "markets/stock::what-are-the-benefits-of-trading-cfds-on-stocks?",
+      "id": "markets/stock::what-are-the-benefits-of-trading-cfds-on-stocks",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "What Are the Benefits of Trading CFDs on Stocks?",
       "content": "Trading stock CFDs allows you to access global markets, trade with leverage, benefit from competitive pricing, and profit from both rising and falling markets without owning the underlying shares."
     },
     {
-      "id": "markets/stock::what-is-leverage-in-stock-trading?",
+      "id": "markets/stock::what-is-leverage-in-stock-trading",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "What Is Leverage in Stock Trading?",
       "content": "Leverage allows you to control a larger position with a smaller amount of capital. For example, with leverage of up to 1:20, a relatively small margin can provide exposure to a much larger stock position. While leverage can increase potential returns, it also increases risk."
     },
     {
-      "id": "markets/stock::why-trade-stock-cfds-with-stonefort?",
+      "id": "markets/stock::why-trade-stock-cfds-with-stonefort",
       "title": "Stock Trading  with Stonefort",
       "url": "/markets/stock",
       "heading": "Why Trade Stock CFDs with Stonefort?",
       "content": "Stonefort offers competitive pricing, efficient execution, advanced trading platforms, and access to a wide range of global stock markets within a secure and transparent trading environment."
     },
     {
-      "id": "platforms/StonefortTrader::trade-smarter.-trade-limitless.-anywhere.-anytime.",
+      "id": "platforms/StonefortTrader::trade-smarter-trade-limitless-anywhere-anytime",
       "title": "Stonefort Trader Mobile App",
       "url": "/platforms/StonefortTrader",
       "heading": "Trade Smarter. Trade Limitless. Anywhere. Anytime.",
       "content": "With the Stonefort Trading App, step into a seamless trading experience designed for modern traders. Access global markets instantly, use advanced trading tools, and maintain full account control from a single intuitive platform. Monitor markets, manage positions, and stay connected to opportunities in real time — wherever you trade. Available on Android and iOS, built for speed, precision, and reliability. CTA: Google Play Store | App Store Hero mockup note: Stonefort Trader mobile layout (phone screens showing charts, positions, and account overview)"
     },
     {
-      "id": "platforms/StonefortTrader::powerful-trading-widgets-&-tools",
+      "id": "platforms/StonefortTrader::powerful-trading-widgets-and-tools",
       "title": "Stonefort Trader Mobile App",
       "url": "/platforms/StonefortTrader",
       "heading": "Powerful Trading Widgets & Tools",
@@ -2592,14 +2592,14 @@
       "content": "Track trading activity and account performance with frequent updates during active market sessions."
     },
     {
-      "id": "platforms/StonefortTrader::professional-charting-&-analysis-tools",
+      "id": "platforms/StonefortTrader::professional-charting-and-analysis-tools",
       "title": "Stonefort Trader Mobile App",
       "url": "/platforms/StonefortTrader",
       "heading": "Professional Charting & Analysis Tools",
       "content": "Use advanced charting and drawing features to perform detailed technical analysis across multiple instruments."
     },
     {
-      "id": "platforms/StonefortTrader::multi-account-&-portfolio-visibility",
+      "id": "platforms/StonefortTrader::multi-account-and-portfolio-visibility",
       "title": "Stonefort Trader Mobile App",
       "url": "/platforms/StonefortTrader",
       "heading": "Multi-Account & Portfolio Visibility",
@@ -2634,7 +2634,7 @@
       "content": "Trade with competitive pricing starting from 0.0 pips on major FX pairs and low spreads on gold, designed to support active and high-frequency strategies."
     },
     {
-      "id": "platforms/StonefortTrader::fast-&-reliable-execution",
+      "id": "platforms/StonefortTrader::fast-and-reliable-execution",
       "title": "Stonefort Trader Mobile App",
       "url": "/platforms/StonefortTrader",
       "heading": "Fast & Reliable Execution",
@@ -2683,7 +2683,7 @@
       "content": "Layout note: Mockup on the right, steps on the left. Download and Install the App Download the Stonefort Trading App and follow the guided installation steps. Create Your Trading Account Register in-app and complete the verification process to activate your account. Fund Your Account Deposit funds securely through the app and prepare to access live trading conditions. Explore Global Markets Trade across global markets with advanced tools, real-time insights, and a seamless all-in-one experience."
     },
     {
-      "id": "platforms/StonefortTrader::explore-exclusive-promotions-&-trading-activities",
+      "id": "platforms/StonefortTrader::explore-exclusive-promotions-and-trading-activities",
       "title": "Stonefort Trader Mobile App",
       "url": "/platforms/StonefortTrader",
       "heading": "Explore Exclusive Promotions & Trading Activities",
@@ -2711,7 +2711,7 @@
       "content": "Unlock added trading benefits with deposit bonuses and referral incentives. These features are available through the Stonefort Trading App, built to make your trading experience more rewarding and seamless."
     },
     {
-      "id": "platforms/TopTrader::trade-smart.-rise-to-the-top.-get-rewarded.-trade-limitless.",
+      "id": "platforms/TopTrader::trade-smart-rise-to-the-top-get-rewarded-trade-limitless",
       "title": "Stonefort Top Trader Program",
       "url": "/platforms/TopTrader",
       "heading": "Trade Smart. Rise to the Top. Get Rewarded. Trade Limitless.",
@@ -2725,7 +2725,7 @@
       "content": "Execute your trades using the Stonefort mobile application during the contest period."
     },
     {
-      "id": "platforms/TopTrader::focus-on-performance,-not-volume",
+      "id": "platforms/TopTrader::focus-on-performance-not-volume",
       "title": "Stonefort Top Trader Program",
       "url": "/platforms/TopTrader",
       "heading": "Focus on Performance, Not Volume",
@@ -2739,7 +2739,7 @@
       "content": "The highest-performing traders of the month receive exclusive rewards and official recognition. Terms and conditions apply."
     },
     {
-      "id": "platforms/TopTrader::top-roi.-real-recognition.",
+      "id": "platforms/TopTrader::top-roi-real-recognition",
       "title": "Stonefort Top Trader Program",
       "url": "/platforms/TopTrader",
       "heading": "Top ROI. Real Recognition.",
@@ -2753,7 +2753,7 @@
       "content": "ROI-Focused Competition – Rewards skill, strategy, and risk control No Overtrading Pressure – Performance matters more than volume App-Exclusive Experience – Built for active mobile traders Transparent Ranking Logic – Clear, fair, and performance-based"
     },
     {
-      "id": "platforms/TopTrader::think-you-can-top-the-chart?",
+      "id": "platforms/TopTrader::think-you-can-top-the-chart",
       "title": "Stonefort Top Trader Program",
       "url": "/platforms/TopTrader",
       "heading": "Think You Can Top the Chart?",
@@ -2781,7 +2781,7 @@
       "content": "View pip value and margin requirements instantly, and place orders precisely by P&L, price, or pips."
     },
     {
-      "id": "platforms/WebTrader::advanced-charting-&-market-intelligence",
+      "id": "platforms/WebTrader::advanced-charting-and-market-intelligence",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "Advanced Charting & Market Intelligence",
@@ -2802,7 +2802,7 @@
       "content": "Receive instant notifications on price movements and key market changes to stay ahead of opportunities."
     },
     {
-      "id": "platforms/WebTrader::intuitive,-user-friendly-interface",
+      "id": "platforms/WebTrader::intuitive-user-friendly-interface",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "Intuitive, User-Friendly Interface",
@@ -2879,77 +2879,77 @@
       "content": "Join Stonefort and explore the dynamic world of CFD trading with a trusted and reliable brokerage. Trade with competitive pricing, robust technology, and dedicated support designed to enhance your trading journey. Access educational resources, timely market insights, and professional customer assistance to support you at every stage of your trading experience. CTA: Open an Account | Trade Now"
     },
     {
-      "id": "platforms/WebTrader::how-current-is-the-information-on-web-trader?",
+      "id": "platforms/WebTrader::how-current-is-the-information-on-web-trader",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "How current is the information on Web Trader?",
       "content": "Web Trader uses real-time pricing data, allowing you to trade on live market prices across all available instruments. Live pricing is also available on demo accounts to closely reflect real trading conditions."
     },
     {
-      "id": "platforms/WebTrader::what-browsers-are-supported?",
+      "id": "platforms/WebTrader::what-browsers-are-supported",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "What browsers are supported?",
       "content": "Web Trader is compatible with all modern browsers, including Google Chrome, Microsoft Edge, and Mozilla Firefox. For optimal performance and security, we recommend using the latest browser version."
     },
     {
-      "id": "platforms/WebTrader::what-can-i-trade-on-web-trader?",
+      "id": "platforms/WebTrader::what-can-i-trade-on-web-trader",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "What can I trade on Web Trader?",
       "content": "You can trade a wide range of instruments, including 80+ FX pairs, as well as gold and silver. To explore all available markets, log in and select the Range of Markets tab. You can browse by asset class or view trending instruments from the side menu."
     },
     {
-      "id": "platforms/WebTrader::is-web-trader-secure?",
+      "id": "platforms/WebTrader::is-web-trader-secure",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "Is Web Trader secure?",
       "content": "Yes. Secure data transmission protocols are used across all platforms to ensure a safe and protected trading environment."
     },
     {
-      "id": "platforms/WebTrader::what-features-does-web-trader-offer?",
+      "id": "platforms/WebTrader::what-features-does-web-trader-offer",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "What features does Web Trader offer?",
       "content": "Web Trader includes a comprehensive set of professional tools, such as: Advanced charting tools Drag-and-drop order editing 50+ technical indicators Market comparison functionality Customisable and saved layouts Integrated market analysis and economic calendar Full account management access"
     },
     {
-      "id": "platforms/WebTrader::can-i-manage-my-funds-on-web-trader?",
+      "id": "platforms/WebTrader::can-i-manage-my-funds-on-web-trader",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "Can I manage my funds on Web Trader?",
       "content": "Yes. You can deposit funds or submit withdrawal requests directly via MyAccount, accessible within the Web Trader platform."
     },
     {
-      "id": "platforms/WebTrader::how-do-i-add-a-market-to-my-watchlist?",
+      "id": "platforms/WebTrader::how-do-i-add-a-market-to-my-watchlist",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "How do I add a market to my Watchlist?",
       "content": "Type the market name into the search field at the top of a watchlist and select it. Alternatively, from the browse or search menu, click the “+” icon and choose the watchlist where you want the market added."
     },
     {
-      "id": "platforms/WebTrader::how-do-i-change-my-layout?",
+      "id": "platforms/WebTrader::how-do-i-change-my-layout",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "How do I change my layout?",
       "content": "Web Trader layouts are fully customisable. You can resize and reposition windows, create multiple layouts within a workspace, and switch easily between different workspaces."
     },
     {
-      "id": "platforms/WebTrader::how-do-i-compare-multiple-markets-on-the-same-chart?",
+      "id": "platforms/WebTrader::how-do-i-compare-multiple-markets-on-the-same-chart",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "How do I compare multiple markets on the same chart?",
       "content": "Select the Compare option at the top of the chart, then enter the market symbol you wish to compare. Multiple markets can be overlaid on the same chart."
     },
     {
-      "id": "platforms/WebTrader::how-do-i-add-a-stop-or-limit-order-to-an-open-position?",
+      "id": "platforms/WebTrader::how-do-i-add-a-stop-or-limit-order-to-an-open-position",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "How do I add a Stop or Limit order to an open position?",
       "content": "Go to the Positions tab and click within the stop or limit field of the relevant position. Please note: contingent orders help manage risk but do not guarantee loss limitation under all market conditions."
     },
     {
-      "id": "platforms/WebTrader::how-do-i-log-out-of-web-trader?",
+      "id": "platforms/WebTrader::how-do-i-log-out-of-web-trader",
       "title": "Web Trader",
       "url": "/platforms/WebTrader",
       "heading": "How do I log out of Web Trader?",

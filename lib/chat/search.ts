@@ -20,38 +20,49 @@ let mini: MiniSearch<DocChunk> | null = null;
 let rawDocs: DocChunk[] | null = null;
 
 /**
- * Normalize text so search becomes:
- * 1) case-insensitive
- * 2) spacing-insensitive (MetaTrader5 == MetaTrader 5)
- * 3) robust to common synonyms (mt5, kyc, pnl)
+ * IMPORTANT:
+ * - normalizeText() can expand synonyms into MULTIPLE tokens (contains spaces).
+ * - normalizeTerm() MUST return a SINGLE token (no spaces) for processTerm().
  */
 function normalizeText(input: string) {
   return input
     .toLowerCase()
-    // unify connectors
     .replace(/&/g, " and ")
-    // normalize MetaTrader 5 variants => mt5
+    // MetaTrader 5 variants => mt5
     .replace(/\bmeta\s*trader\s*5\b/g, " mt5 ")
     .replace(/\bmetatrader\s*5\b/g, " mt5 ")
     .replace(/\bmetatrader5\b/g, " mt5 ")
-    // normalize P&L variants
+    // P&L variants => pnl + synonyms
     .replace(/\bp\s*&\s*l\b/g, " pnl profit loss ")
     .replace(/\bpnl\b/g, " pnl profit loss ")
-    // normalize KYC variants
+    // KYC variants
     .replace(/\bkyc\b/g, " kyc verification ")
-    // normalize common finance ops
+    // common ops
     .replace(/\bwithdraw\b/g, " withdraw withdrawal ")
     .replace(/\bdeposit\b/g, " deposit funding ")
-    // remove punctuation but keep numbers/letters
+    // remove punctuation but keep numbers/letters/spaces
     .replace(/[^a-z0-9\s]/g, " ")
-    // collapse whitespace
     .replace(/\s+/g, " ")
     .trim();
 }
 
 /**
- * Tokenizer that ignores punctuation AND spacing issues.
- * MiniSearch will index/search using these tokens.
+ * SINGLE TOKEN normalizer for MiniSearch.processTerm
+ * (no spaces, no punctuation)
+ */
+function normalizeTerm(term: string) {
+  return term
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]/g, "")
+    .trim();
+}
+
+/**
+ * Tokenizer that handles:
+ * - case insensitivity
+ * - spacing issues
+ * - synonym expansion (mt5, pnl, kyc, etc.)
  */
 function tokenize(text: string) {
   const norm = normalizeText(text);
@@ -71,8 +82,13 @@ function loadIndex() {
   mini = new MiniSearch<DocChunk>({
     fields: ["title", "heading", "content"],
     storeFields: ["id", "title", "url", "heading", "content"],
-    tokenize, // critical for spacing/case robustness
-    processTerm: (term) => normalizeText(term), // critical
+
+    //  spacing/case robustness + synonym expansion
+    tokenize,
+
+    //  MUST be single token (prevents MiniSearch crash)
+    processTerm: (t) => normalizeTerm(t),
+
     searchOptions: {
       boost: { title: 6, heading: 4, content: 1 },
       fuzzy: 0.08,
@@ -113,13 +129,11 @@ const STOPWORDS = new Set([
   "me",
   "explain",
   "name",
-  // keep "why" removed so results rely on meaningful terms
   "why",
 ]);
 
 function extractMeaningfulTerms(q: string) {
-  const tokens = tokenize(q);
-  return tokens.filter((t) => t && !STOPWORDS.has(t));
+  return tokenize(q).filter((t) => t && !STOPWORDS.has(t));
 }
 
 function extractWhatIsTopic(qRaw: string) {
@@ -148,9 +162,9 @@ function makeSnippet(content: string, query: string) {
 }
 
 /**
- * Exact heading override:
- * If user asks an FAQ that matches a heading (case/spacing-insensitive),
- * return it immediately. This prevents false "no results".
+ * Exact heading override (case/spacing/punctuation-insensitive).
+ * This is why:
+ * - "Why choose mt5?" AND "Why Choose MetaTrader5?" should both work.
  */
 function exactFindByHeading(query: string) {
   if (!rawDocs) return null;
@@ -158,14 +172,13 @@ function exactFindByHeading(query: string) {
   const q = normalizeText(query);
   if (!q) return null;
 
-  // Perfect heading match
+  // perfect heading match
   for (const d of rawDocs) {
     const h = normalizeText(d.heading || "");
     if (h && h === q) return d;
   }
 
-  // Soft heading match (contains) for slight rephrases
-  // ex: "Can I use Performance Analytics with demo?" vs full heading
+  // soft match
   for (const d of rawDocs) {
     const h = normalizeText(d.heading || "");
     if (!h) continue;
@@ -176,19 +189,15 @@ function exactFindByHeading(query: string) {
 }
 
 /**
- * Hard relevance gate:
- * require enough keyword overlap for long queries, so generic sections don't win.
+ * Hard relevance gate to avoid generic answers winning.
  */
 function hasOverlap(terms: string[], text: string) {
   const t = normalizeText(text);
   const strong = terms.filter((x) => x.length >= 2);
-
   if (strong.length === 0) return false;
 
   let hits = 0;
-  for (const term of strong) {
-    if (t.includes(term)) hits++;
-  }
+  for (const term of strong) if (t.includes(term)) hits++;
 
   const required =
     strong.length <= 2 ? 1 : Math.min(6, Math.max(2, Math.ceil(strong.length * 0.45)));
@@ -197,22 +206,24 @@ function hasOverlap(terms: string[], text: string) {
 }
 
 /**
- * Rerank: prefer chunks whose FULL TEXT contains more query terms.
+ * Rerank by keyword overlap across title+heading+content
+ * (the one with more matching keywords should win).
  */
 function keywordOverlapScore(
   terms: string[],
   doc: { title: string; heading: string; content: string }
 ) {
   const hay = normalizeText(`${doc.title} ${doc.heading} ${doc.content}`);
-  let hits = 0;
 
+  let totalHits = 0;
   for (const term of terms) {
     if (term.length < 2) continue;
-    if (hay.includes(term)) hits++;
+    if (hay.includes(term)) totalHits++;
   }
 
   const h = normalizeText(doc.heading);
   const ti = normalizeText(doc.title);
+
   let headHits = 0;
   let titleHits = 0;
 
@@ -222,7 +233,7 @@ function keywordOverlapScore(
     if (ti.includes(term)) titleHits++;
   }
 
-  return hits + headHits * 1.5 + titleHits * 2;
+  return totalHits + headHits * 1.5 + titleHits * 2;
 }
 
 /**
@@ -234,7 +245,7 @@ export function searchMdx(query: string, limit = 5) {
   const qRaw = query.trim();
   if (!qRaw) return [];
 
-  //  1) Exact FAQ heading match first (guaranteed)
+  // 1) Exact heading match first
   const exact = exactFindByHeading(qRaw);
   if (exact) {
     return [
@@ -249,19 +260,14 @@ export function searchMdx(query: string, limit = 5) {
   }
 
   const topic = extractWhatIsTopic(qRaw);
-  const baseQuery = normalizeText(topic ?? qRaw);
-
-  const meaningful = extractMeaningfulTerms(baseQuery);
+  const meaningful = extractMeaningfulTerms(topic ?? qRaw);
   if (meaningful.length === 0) return [];
 
-  // Use AND for multi-term queries for precision
   const combineWith = meaningful.length >= 2 ? "AND" : "OR";
   const cleanQuery = meaningful.join(" ");
 
-  // Pull more candidates then rerank ourselves
+  // Get candidates
   const normal = mini!.search(cleanQuery, { combineWith }).slice(0, 60);
-
-  // Phrase boost for longer queries
   const phrase = cleanQuery.length >= 8 ? mini!.search(`"${cleanQuery}"`).slice(0, 60) : [];
 
   const merged = new Map<string, any>();
@@ -280,10 +286,10 @@ export function searchMdx(query: string, limit = 5) {
 
     let score = Number(r.score ?? 0);
 
-    // Our overlap score dominates relevance
+    // Overlap score dominates relevance
     score += keywordOverlapScore(meaningful, doc) * 3.2;
 
-    // If query is close to heading, boost strongly
+    // Boost if query contains heading
     const headingNorm = normalizeText(doc.heading);
     const queryNorm = normalizeText(qRaw);
     if (headingNorm && queryNorm.includes(headingNorm)) score += 12;
@@ -300,12 +306,12 @@ export function searchMdx(query: string, limit = 5) {
 
   if (!filtered.length) return [];
 
-  //  Hard gate to avoid generic "trade/account" answers
+  // Hard gate: top must actually overlap
   const top = filtered[0];
   const combined = `${top.title} ${top.heading} ${top.content}`;
   if (!hasOverlap(meaningful, combined)) return [];
 
-  //  Requirement #4: only one link — dedupe by URL and pick best
+  // Only one link: dedupe by URL, pick best URL
   const bestByUrl = new Map<string, any>();
   for (const r of filtered) {
     const url = String(r.url ?? "");
