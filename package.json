@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "index:mdx": "tsx scripts/build-mdx-index.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -19,7 +20,8 @@
     "aos": "3.0.0-beta.6",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.23.24",
-    "gray-matter": "^4.0.3",
+    "minisearch": "^7.2.0",
+    "nanoid": "^5.1.6",
     "next": "16.0.8",
     "next-mdx-remote": "^5.0.0",
     "react": "19.2.1",
@@ -28,14 +30,18 @@
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "swiper": "^8.4.7",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.0.3",
     "@tailwindcss/typography": "^0.5.16",
     "@types/aos": "^3.0.7",
+    "fast-glob": "^3.3.3",
+    "gray-matter": "^4.0.3",
     "postcss": "^8.5.1",
-    "tailwindcss": "^4.0.3"
+    "tailwindcss": "^4.0.3",
+    "tsx": "^4.21.0"
   }
 }

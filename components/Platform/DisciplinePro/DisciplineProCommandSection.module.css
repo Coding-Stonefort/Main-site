@@ -1,0 +1,277 @@
+.section {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 44px;
+  align-items: center;
+}
+
+/* LEFT */
+.left {
+  position: relative;
+}
+
+/* Cards 2x2 */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* =========================
+   CARD
+========================= */
+.card {
+  position: relative;
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  background: var(--glass-bg, rgba(255, 255, 255, 0.04));
+
+  /* Animated border vars (ONLY addition) */
+  --border-angle: 0deg;
+  --border-alpha: 0.22;
+
+  backdrop-filter: var(--glass-blur, blur(14px));
+  box-shadow: var(--shadow-md, 0 18px 50px rgba(0, 0, 0, 0.38));
+  overflow: hidden;
+
+  transform: translateY(0) scale(1);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease,
+    --border-angle 0.45s ease,
+    --border-alpha 0.45s ease;
+}
+
+/* ===== Animated Border (ONLY addition) ===== */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    rgba(135, 171, 147, var(--border-alpha)) 30deg,
+    rgba(135, 171, 147, 1) 45deg,
+    rgba(135, 171, 147, var(--border-alpha)) 60deg,
+    transparent 90deg,
+    transparent 180deg,
+    rgba(135, 171, 147, var(--border-alpha)) 210deg,
+    rgba(135, 171, 147, 1) 225deg,
+    rgba(135, 171, 147, var(--border-alpha)) 240deg,
+    transparent 270deg,
+    transparent 360deg
+  );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* Keep content above border */
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover {
+  --border-angle: 90deg;
+  --border-alpha: 0.16;
+
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(135, 171, 147, 0.35);
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(0, 211, 198, 0.08) inset;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+/* Icon container */
+.icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(135, 171, 147, 0.14);
+  border: 1px solid rgba(135, 171, 147, 0.28);
+  box-shadow: 0 0 0 4px rgba(135, 171, 147, 0.10);
+}
+
+.iconImage {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(42%) sepia(20%)
+    saturate(520%) hue-rotate(92deg) brightness(92%);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  margin: 0;
+  color: var(--text-body);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+/* Sheen (unchanged) */
+.cardSheen {
+  position: absolute;
+  inset: -40% -60%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.10) 44%,
+    transparent 58%
+  );
+  transform: translateX(-10%);
+  opacity: 0;
+  transition: opacity 200ms ease, transform 480ms ease;
+  pointer-events: none;
+}
+
+.card:hover .cardSheen {
+  opacity: 1;
+  transform: translateX(20%);
+}
+
+/* RIGHT */
+.right {
+  max-width: 640px;
+}
+
+.kicker {
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--brand-border);
+  background: var(--brand-soft);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.title {
+  margin: 0 0 12px;
+  max-width: 28ch;
+}
+
+.desc {
+  margin: 0 0 14px;
+  color: var(--text-body);
+  max-width: 62ch;
+}
+
+.note {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.10),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .right {
+    order: -1;
+    max-width: 760px;
+  }
+
+  .title {
+    max-width: 34ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    border-radius: 18px;
+    padding: 16px;
+  }
+
+  .icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+  }
+
+  .iconImage {
+    width: 24px;
+    height: 24px;
+  }
+
+  .cardTitle {
+    font-size: 15px;
+  }
+
+  .cardDesc {
+    font-size: 14px;
+  }
+}

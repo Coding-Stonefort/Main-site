@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TradingLine from "@/components/TradingLine";
+import LiveChart from "@/components/LiveChart";
 import styles from "./MaximiseWebTradingExperience.module.css";
 
 export default function MaximiseWebTradingExperience() {
@@ -27,14 +27,23 @@ export default function MaximiseWebTradingExperience() {
             </div>
           </div>
 
-          {/*  DECOR ZONE (right side visuals) */}
-          <div className={styles.decor} aria-hidden="true">
-            <div className={styles.orb} />
-            <div className={styles.ring} />
-            <div className={styles.grid} />
+          {/* RIGHT: REAL CHART PANEL */}
+          <div className={styles.chartDecor} aria-hidden="true">
+            <div className={styles.chartFrame}>
+              <div className={styles.chartHeader}>
+                <span className={styles.dot} />
+                <span className={styles.dot} />
+                <span className={styles.dot} />
+                <span className={styles.chartTitle}>Live Preview</span>
+              </div>
 
-            {/*  Trading line lives HERE */}
-            <TradingLine className={styles.tradingLineDecor} />
+              <div className={styles.chartBody}>
+                <LiveChart className={styles.liveChart} />
+              </div>
+            </div>
+
+            {/* keep your soft grid fade */}
+            <div className={styles.grid} />
           </div>
         </div>
       </div>

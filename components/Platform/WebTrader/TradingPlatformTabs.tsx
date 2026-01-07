@@ -32,12 +32,12 @@ const TABS: TabItem[] = [
     image: "/images/knowyourorder.webp",
     buttons: [
       { label: "Open an Account", href: "/platforms/PerformanceandAnalysis", variant: "primary" },
-      { label: "Try Demo", href: "/demo", variant: "secondary" },
+      { label: "Try Demo", href: "/platforms/DisciplinePro", variant: "secondary" },
     ],
   },
   {
     id: "charting",
-    label: "TradingView",
+    label: "Advanced Charting & Market Intelligence",
     title: "Advanced Charting & Market Intelligence",
     description:
       "Trade with oneZero-backed infrastructure, combining professional charting with Autochartist-powered insights across multiple indicators, timeframes, and chart types.",
@@ -49,13 +49,13 @@ const TABS: TabItem[] = [
   },
   {
     id: "performance",
-    label: "Performance Analytics",
+    label: "Trading Performance Insights",
     title: "Trading Performance Insights",
     description:
       "Understand how you trade with in-depth performance insights designed to improve consistency and decision-making.",
     image: "/images/performanceanalytics.webp",
     buttons: [
-      { label: "Open an Account", href: "/register", variant: "primary" },
+      { label: "Open an Account", href: "/platforms/PerformanceandAnalysis", variant: "primary" },
       { label: "Trade Now", href: "/trade", variant: "secondary" },
     ],
   },

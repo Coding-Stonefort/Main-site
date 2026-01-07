@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import styles from "./MarketsLiveOverview.module.css"; // ⬅️ module import
+import styles from "./MarketsLiveOverview.module.css"; 
 
 type MarketTabId =
   | "forex"
@@ -191,8 +191,8 @@ export default function MetalsMarketsLiveOverview() {
             <span>Our Markets</span> at a Glance
           </h2>
           <p className={styles["markets-subtitle"]}>
-            Explore live pricing across Forex, Indices, Metals, Stocks,
-            Commodities and Crypto all from one Stonefort account.
+           Step into global opportunities with access to hundreds of instruments across Forex, Indices, Commodities, Cryptocurrencies, and Shares.
+Trade with transparent pricing, competitive spreads, and a platform engineered for active, performance-driven traders.
           </p>
         </div>
 

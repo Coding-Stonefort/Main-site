@@ -71,7 +71,7 @@ return (
                   items: [
                     { label: "MetaTrader5", href: "/platforms/metatrader5" },
                     { label: "Stonefort Trader Mobile", href: "/platforms/StonefortTrader" },
-                    { label: "Web Trader", href: "/platforms/StonefortWebTrader" },
+                    { label: "Web Trader", href: "/platforms/WebTrader" },
                   ],
                 },
                 {

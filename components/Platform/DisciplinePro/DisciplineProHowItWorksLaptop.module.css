@@ -1,0 +1,81 @@
+.section {
+  background: var(--bg);
+}
+
+/* ===== Heading area ===== */
+.headingWrap {
+  max-width: 960px;
+  margin: 0 auto 24px;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.heading {
+  margin: 0 0 10px;
+}
+
+.paragraph {
+  margin: 0 auto;
+  max-width: 880px;
+  color: var(--text-body);
+}
+
+/* Outer wrapper */
+.tabWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+/* ================= LAPTOP FRAME ================= */
+.laptopShell {
+  position: relative;
+  max-width: 1060px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+
+  background: url("/images/laptop-mockup.png") center bottom no-repeat;
+  background-size: contain;
+  z-index: 1;
+}
+
+/* ✅ Screen area inside laptop (single instance only) */
+.laptopScreen {
+  position: absolute;
+  top: 10%;
+  left: 18%;
+  right: 17%;
+  bottom: 16%;
+
+  overflow: hidden;
+  background: #050608;
+  z-index: 1;
+
+  /* optional: gives a “real screen” look */
+  border-radius: 10px;
+}
+
+/*  Make Next/Image cover the whole screen */
+.screenImage {
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 560px) {
+  .laptopShell {
+    max-width: 100%;
+    height: 250px; /* keep your old behavior */
+  }
+
+  .laptopScreen {
+    top: 6%;
+    left: 10%;
+    right: 10%;
+    bottom: 11%;
+    border-radius: 10px;
+  }
+}

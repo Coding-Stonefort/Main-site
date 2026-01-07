@@ -11,11 +11,11 @@ export default function MT5Hero() {
         {/* LEFT */}
         <div className={styles.left}>
           <h1 className={`title ${styles.title}`}>
-            Trading Made <br /> Simple
+            Getting Started with<br /> CFD Trading
           </h1>
 
           <p className={`text ${styles.subtitle}`}>
-Stonefort Web Trader offers an intuitive, all-in-one trading experience for traders at every level. Access real-time market data, advanced charting tools, and secure trade execution from anywhere, at any time. With a user-friendly interface and reliable support, managing your trades across global markets is simple and efficient. 
+            Join Stonefort and explore the dynamic world of CFD trading with a trusted and reliable brokerage. Trade with competitive pricing, robust technology, and dedicated support designed to enhance your trading journey. Access educational resources, timely market insights, and professional customer assistance to support you at every stage of your trading experience. 
           </p>
 
           <div className={styles.ctaRow}>

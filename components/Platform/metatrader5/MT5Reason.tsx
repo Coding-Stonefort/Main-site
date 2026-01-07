@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import styles from "@/components/Indices/IndicesStonefort.module.css"; // keep same layout/styles
+import styles from "@/components/Indices/IndicesStonefort.module.css"; 
 
 type MT5Reason = {
   id: number;
