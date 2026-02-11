@@ -43,8 +43,8 @@ const TABS: TabItem[] = [
       "Trade with oneZero-backed infrastructure, combining professional charting with Autochartist-powered insights across multiple indicators, timeframes, and chart types.",
     image: "/images/tradingview.webp",
     buttons: [
-      { label: "Open an Account", href: "/register", variant: "primary" },
-      { label: "Platform Tutorial", href: "/platform-tutorial", variant: "secondary" },
+      { label: "Open an Account", href: "/platforms/TradingStrategy", variant: "primary" },
+      { label: "Platform Tutorial", href: "/platforms/TradingStrategy", variant: "secondary" },
     ],
   },
   {

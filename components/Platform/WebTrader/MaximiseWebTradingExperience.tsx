@@ -1,16 +1,28 @@
 import Link from "next/link";
-import LiveChart from "@/components/LiveChart";
+import Image from "next/image";
 import styles from "./MaximiseWebTradingExperience.module.css";
+import MaximiseTradingImg from "@/public/images/maximiseTrading.webp";
 
 export default function MaximiseWebTradingExperience() {
   return (
     <section className={`section ${styles.section}`}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.card}>
-          <div className={styles.bg} aria-hidden="true" />
+          {/* LEFT: IMAGE */}
+          <div className={styles.media} aria-hidden="true">
+            <Image
+              src={MaximiseTradingImg}
+              alt="Web trading chart preview"
+              fill
+              priority
+              className={styles.mediaImg}
+            />
+            <div className={styles.grid} />
+          </div>
 
+          {/* RIGHT: CONTENT */}
           <div className={styles.content}>
-            <span className={styles.kicker}>Next Section</span>
+            <span className={styles.kicker}>Trading Experience</span>
 
             <h2 className={`heading ${styles.title}`}>
               Maximise Your Web Trading Experience
@@ -25,25 +37,6 @@ export default function MaximiseWebTradingExperience() {
                 Platform Tutorial
               </Link>
             </div>
-          </div>
-
-          {/* RIGHT: REAL CHART PANEL */}
-          <div className={styles.chartDecor} aria-hidden="true">
-            <div className={styles.chartFrame}>
-              <div className={styles.chartHeader}>
-                <span className={styles.dot} />
-                <span className={styles.dot} />
-                <span className={styles.dot} />
-                <span className={styles.chartTitle}>Live Preview</span>
-              </div>
-
-              <div className={styles.chartBody}>
-                <LiveChart className={styles.liveChart} />
-              </div>
-            </div>
-
-            {/* keep your soft grid fade */}
-            <div className={styles.grid} />
           </div>
         </div>
       </div>

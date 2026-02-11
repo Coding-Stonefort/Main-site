@@ -1,0 +1,114 @@
+.section {
+  /* optional: small visual separation without breaking theme */
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: 420px 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+}
+
+/* LEFT */
+.left {
+  position: relative;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  padding: 10px;
+
+}
+
+.option {
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 14px;
+  padding: 14px 14px;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  display: grid;
+  gap: 6px;
+    margin: 10px 0 10px 0;
+}
+
+.option:hover {
+  background: var(--surface-2);
+  border-color: var(--border);
+  transform: translateY(-1px);
+}
+
+.optionActive {
+  background: var(--brand-soft);
+  border-color: var(--badge-border);
+}
+
+.optionTitle {
+  font-weight: 700;
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
+  font-size: 16px;
+}
+
+.optionMeta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* RIGHT */
+.right {
+  position: relative;
+}
+
+.contentCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+  padding: 22px;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .contentCard {
+    padding: 28px;
+  }
+}
+
+.kickerWrap {
+  margin-bottom: 14px;
+}
+
+.copy {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.ctaRow {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+
+.card,
+.contentCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}

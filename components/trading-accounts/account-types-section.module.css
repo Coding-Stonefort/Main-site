@@ -1,0 +1,163 @@
+.section {
+  background: var(--bg);
+}
+
+.wrap {
+  display: grid;
+  gap: 22px;
+}
+
+.header {
+  display: grid;
+  gap: 12px;
+  max-width: 980px;
+}
+
+.lead {
+  margin: 0;
+  color: var(--text-body);
+  max-width: 90ch;
+}
+
+/* 3-column card comparison */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Card */
+.card {
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 20px;
+
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand);
+}
+
+/* Featured plan */
+.featured {
+  border-color: var(--brand);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.featured::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 20px;
+  background: radial-gradient(closest-side, var(--brand-soft), transparent 70%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Head */
+.cardHead {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.planTitle {
+  margin: 0;
+  font-size: 22px; /* local size, not global */
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+
+  background: var(--brand-soft);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* Metrics list */
+.metrics {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.k {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.v {
+  color: var(--text);
+  font-weight: 750;
+  font-size: 14px;
+}
+
+/* CTA */
+.cta {
+  position: relative;
+  z-index: 1;
+  padding-top: 16px;
+}
+
+.button {
+  width: 100%;
+  text-align: center;
+}
+
+/* Note */
+.note {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .planTitle {
+    font-size: 20px;
+  }
+}

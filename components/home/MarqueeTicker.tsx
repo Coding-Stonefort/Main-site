@@ -10,7 +10,7 @@ import DepositImg from "@/public/images/deposit.webp";
 import FundsImg from "@/public/images/funds.webp";
 import InstrumentsImg from "@/public/images/instruments.webp";
 import SupportImg from "@/public/images/support.webp";
-import RegulatedImg from "@/public/images/regulated.webp";
+import RegulatedImg from "@/public/images/forex.png";
 import NegativeImg from "@/public/images/negative.webp";
 import LeverageImg from "@/public/images/leverage.webp";
 import SpreadImg from "@/public/images/spread.webp";

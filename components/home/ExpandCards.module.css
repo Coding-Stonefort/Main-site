@@ -1,5 +1,6 @@
 .section {
-  /* uses global .section spacing */
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .container {

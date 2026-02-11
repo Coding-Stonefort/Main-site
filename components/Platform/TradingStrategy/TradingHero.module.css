@@ -1,0 +1,63 @@
+.hero {
+  position: relative;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  padding-top: 80px;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+  }
+}
+
+.content {
+  max-width: 640px;
+}
+
+/* spacing only – typography comes from global.css */
+.content p {
+  margin-top: 16px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0;
+  display: grid;
+  gap: 12px;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  color: var(--text-body);
+}
+
+.features li::before {
+  content: "✓";
+  margin-right: 10px;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.heroImage {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+}

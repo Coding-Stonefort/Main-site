@@ -68,13 +68,13 @@ export default function EconomicCalendar() {
       </div>
 
       {/* Floating CTA */}
-      <a
+      {/* <a
         href="/register"
         className="fixed bottom-5 right-5 rounded-full px-5 py-3 font-semibold text-white shadow-xl"
         style={{ background: brand }}
       >
         Trade Now
-      </a>
+      </a> */}
     </section>
   );
 }

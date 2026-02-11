@@ -88,36 +88,39 @@ return (
           />
 
           {/* TRADING */}
-          <MegaMenu
-            label="Trading"
-            group={{
-              title: "Trading",
-              description:
-                "Trade with confidence using our secure infrastructure and competitive trading accounts.",
-              button: "Learn More",
-              href: "/trading",
-              columns: [
-                {
-                  heading: "Account Types",
-                  items: [
-                    { label: "Starter", href: "/trading/starter" },
-                    { label: "Advance", href: "/trading/advance" },
-                    { label: "Elite", href: "/trading/elite" },
-                    { label: "Demo", href: "/trading/demo" },
-                    { label: "PAMM", href: "/trading/pamm" },
-                  ],
-                },
-                {
-                  heading: "Extras",
-                  items: [
-                    { label: "Fund Your Account", href: "/funding" },
-                    { label: "Negative Balance Guard", href: "/nbp" },
-                    { label: "Trading Fees & Conditions", href: "/fees" },
-                  ],
-                },
-              ],
-            }}
-          />
+{/* TRADING */}
+<MegaMenu
+  label="Trading"
+  group={{
+    title: "Trading",
+    description:
+      "Trade with confidence using our secure infrastructure and competitive trading accounts.",
+    button: "Learn More",
+    href: "/trading-account",
+    columns: [
+      {
+        heading: "Account Types",
+        items: [
+          { label: "Stonefort Accounts", href: "/trading-account" }, // ✅ NEW
+          { label: "Starter", href: "/trading/starter" },
+          { label: "Advance", href: "/trading/advance" },
+          { label: "Elite", href: "/trading/elite" },
+          { label: "Demo", href: "/trading/demo" },
+          { label: "PAMM", href: "/trading/pamm" },
+        ],
+      },
+      {
+        heading: "Extras",
+        items: [
+          { label: "Fund Your Account", href: "/funding" },
+          { label: "Negative Balance Guard", href: "/nbp" },
+          { label: "Trading Fees & Conditions", href: "/fees" },
+        ],
+      },
+    ],
+  }}
+/>
+
 
           {/* ACADEMY */}
           <MegaMenu

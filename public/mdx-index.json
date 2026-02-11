@@ -1919,13 +1919,7 @@
       "heading": "Trade with insight. Improve with intention.",
       "content": "Gain deeper insight into your trading behaviour and psychology — so your mindset supports your strategy, not undermines it. CTA: Open an Account | Trade Now Mockup note: Performance & Analysis dashboard mockup Bottom of the mockup includes 5 clickable tabs: Performance Analytics | Trading Strategy | DisciplinePro | Performance | Discipline Analytics"
     },
-    {
-      "id": "platforms/PerformanceandAnalysis::explore-your-potential-for-improvement-with-performance-analytics",
-      "title": "Performance & Analysis",
-      "url": "/platforms/PerformanceandAnalysis",
-      "heading": "Explore Your Potential for Improvement with Performance Analytics",
-      "content": "Layout note: Text on the left, mockup on the right. Emotions and behavioural biases play a powerful role in trading, often impacting performance more than traders realise. With realistic goal setting, live discipline tracking, and deep psychological insights, Performance Analytics acts as your digital trading mentor — equipping you with the tools to trade with greater discipline, clarity, and skill."
-    },
+
     {
       "id": "platforms/PerformanceandAnalysis::understand-your-trading-behaviour",
       "title": "Performance & Analysis",
@@ -1961,20 +1955,7 @@
       "heading": "Trade with Emotional Awareness",
       "content": "Recognise how emotions, market speed, volatility, and timing affect your results — and act on your strengths. Mockup ref: Desktop computer displaying a performance graph AI-generated content may be incorrect."
     },
-    {
-      "id": "platforms/PerformanceandAnalysis::real-time-trading-performance-insights",
-      "title": "Performance & Analysis",
-      "url": "/platforms/PerformanceandAnalysis",
-      "heading": "Real-Time Trading Performance Insights",
-      "content": "Layout note: Video on the right, text on the left. Successful trading isn’t only about the markets — it’s also about understanding your own behaviour. Go beyond a traditional trading journal by accessing Performance Analytics directly from the platform to gain real-time insights into your strengths, weaknesses, and trading habits."
-    },
-    {
-      "id": "platforms/PerformanceandAnalysis::discover-your-trading-edge",
-      "title": "Performance & Analysis",
-      "url": "/platforms/PerformanceandAnalysis",
-      "heading": "Discover Your Trading Edge",
-      "content": "Layout note: Three sections, each supported by short explainer videos. Understand where your strengths truly lie by analysing performance, timing, and trading psychology through guided, step-by-step insights."
-    },
+
     {
       "id": "platforms/PerformanceandAnalysis::strategy-edge",
       "title": "Performance & Analysis",
@@ -2094,13 +2075,7 @@
       "heading": "Choose Your Platform",
       "content": "Interaction note: Display these options horizontally. Each option should be clickable, with the hero image/content updating dynamically based on selection. Stonefort Trader Mobile Stonefort Trader Web MetaTrader 5 MetaTrader Web Visual note: Each option should display its respective platform image only."
     },
-    {
-      "id": "platforms::seamless-trading-across-all-stonefort-platforms",
-      "title": "Trading Platforms with Stonefort",
-      "url": "/platforms",
-      "heading": "Seamless Trading Across All Stonefort Platforms",
-      "content": "Layout note: Mockup on the left, text on the right (Forex.com-style reference)."
-    },
+
     {
       "id": "platforms::mobile-and-multi-platform-trading",
       "title": "Trading Platforms with Stonefort",
@@ -2136,13 +2111,7 @@
       "heading": "Personalised Trading Experience",
       "content": "Customise layouts, build multiple watchlists, set price alerts, and switch between light and dark themes — creating a trading environment that feels intuitive and consistent across all platforms."
     },
-    {
-      "id": "platforms::trading-platforms-that-inspire-confidence",
-      "title": "Trading Platforms with Stonefort",
-      "url": "/platforms",
-      "heading": "Trading Platforms That Inspire Confidence",
-      "content": "Layout note: Text on the left, mockup on the right."
-    },
+
     {
       "id": "platforms::fast-and-reliable-execution",
       "title": "Trading Platforms with Stonefort",
@@ -2283,13 +2252,7 @@
       "heading": "Designed for the Way You Trade",
       "content": "Whether you are just getting started or already an experienced trader, Stonefort offers the right platform to match your trading style and objectives. Our platforms are built to deliver reliable performance, responsive execution, and the flexibility you need to stay in control. CTA: Get Hands-On with Our Trading Platforms"
     },
-    {
-      "id": "platforms::advanced-trading-with-metatrader-5",
-      "title": "Trading Platforms with Stonefort",
-      "url": "/platforms",
-      "heading": "Advanced Trading with MetaTrader 5",
-      "content": "Layout note: Text on the left, MT5 mockup on the right."
-    },
+
     {
       "id": "platforms::expert-advisors-eas",
       "title": "Trading Platforms with Stonefort",
@@ -2465,13 +2428,7 @@
       "heading": "Ready to Trade Stocks?",
       "content": "Start your trading journey with Stonefort today. Open your account with a minimum deposit of just $50. CTA: Trade Now"
     },
-    {
-      "id": "markets/stock::trading-platforms",
-      "title": "Stock Trading  with Stonefort",
-      "url": "/markets/stock",
-      "heading": "Trading Platforms",
-      "content": "Layout note: This section is designed for a “left vertical tabs” layout on the page."
-    },
+
     {
       "id": "markets/stock::metatrader-5-mt5",
       "title": "Stock Trading  with Stonefort",
@@ -2661,27 +2618,7 @@
       "heading": "CFD Razor Account",
       "content": "Designed for active and professional traders seeking raw market pricing. Trade with spreads starting from 0.0 pips on FX, combined with transparent, fixed commissions per lot for greater cost control and execution efficiency."
     },
-    {
-      "id": "platforms/StonefortTrader::a-globally-trusted-broker",
-      "title": "Stonefort Trader Mobile App",
-      "url": "/platforms/StonefortTrader",
-      "heading": "A Globally Trusted Broker",
-      "content": "Layout note: Trustpilot rating on the left, content on the right. Trusted by Traders Worldwide Stonefort has earned strong recognition from traders across global markets, reflecting consistent service quality, transparency, and client confidence. As a regulated and professionally managed brokerage, Stonefort is committed to delivering a secure, reliable, and performance-driven trading experience for every client."
-    },
-    {
-      "id": "platforms/StonefortTrader::download-the-stonefort-app-and-start-trading-today",
-      "title": "Stonefort Trader Mobile App",
-      "url": "/platforms/StonefortTrader",
-      "heading": "Download the Stonefort App and Start Trading Today",
-      "content": "CTA: Google Play | App Store"
-    },
-    {
-      "id": "platforms/StonefortTrader::follow-these-simple-steps-to-get-started",
-      "title": "Stonefort Trader Mobile App",
-      "url": "/platforms/StonefortTrader",
-      "heading": "Follow These Simple Steps to Get Started",
-      "content": "Layout note: Mockup on the right, steps on the left. Download and Install the App Download the Stonefort Trading App and follow the guided installation steps. Create Your Trading Account Register in-app and complete the verification process to activate your account. Fund Your Account Deposit funds securely through the app and prepare to access live trading conditions. Explore Global Markets Trade across global markets with advanced tools, real-time insights, and a seamless all-in-one experience."
-    },
+
     {
       "id": "platforms/StonefortTrader::explore-exclusive-promotions-and-trading-activities",
       "title": "Stonefort Trader Mobile App",

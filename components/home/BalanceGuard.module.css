@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  overflow: hidden;
+  overflow: hidden;padding-top: 0 imo !important;
 }
 
 /* dark strip bg */
@@ -50,6 +50,7 @@
 .inner {
   position: relative;
   z-index: 1;
+  padding-top: 0 !important;
   
  
 }

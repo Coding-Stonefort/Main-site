@@ -7,7 +7,7 @@ import styles from "./ProductsShowcase.module.css";
 
 import BgWaves from "@/public/images/white-futuristic-building-line-texture-texture-3d-rendering.jpg";
 import CryptoPhone from "@/public/images/_image (1).webp";
-import ForexArrows from "@/public/images/forex.webp";
+import ForexArrows from "@/public/images/forex.png";
 import CommoditiesCorn from "@/public/images/_image (2).webp";
 import MetalsBars from "@/public/images/_image (3).webp";
 import ETFsPie from "@/public/images/_image (4).webp";

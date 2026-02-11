@@ -2,18 +2,28 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
+    --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.75);
+
+  color: var(--text);
 }
 
-/* Background image layer */
+/* Background video layer */
 .bg {
   position: absolute;
   inset: 0;
   z-index: -20;
 }
 
-.bgImage {
+/* NEW: video behaves like Image fill + object-fit cover */
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
   object-fit: cover;
   object-position: center;
+  transform: translateZ(0); /* small perf hint */
 }
 
 /* Overlay: theme-aware using tokens (no hardcoded colors) */
@@ -22,7 +32,6 @@
   inset: 0;
   z-index: 1;
 
-  /* Light theme: soft “wash” to keep text readable */
   background:
     radial-gradient(
       1200px 600px at 50% 20%,
@@ -36,7 +45,7 @@
     );
 }
 
-/* Dark theme: slightly stronger overlay, still token-based */
+/* Dark theme overlay */
 :global(html[data-theme="dark"]) .bgOverlay {
   background:
     radial-gradient(
@@ -49,6 +58,17 @@
       color-mix(in srgb, var(--bg) 20%, transparent),
       color-mix(in srgb, var(--bg) 72%, transparent)
     );
+}
+
+/* Optional: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bgVideo {
+    display: none;
+  }
+
+  .bg {
+    background: var(--bg);
+  }
 }
 
 /* Right decorative element */
@@ -92,9 +112,7 @@
   }
 }
 
-/* Layout container
-   IMPORTANT: keep width/margins in global .container.
-   This only handles hero spacing/layout. */
+/* Layout container */
 .container {
   position: relative;
   z-index: 10;
@@ -127,11 +145,11 @@
   justify-content: center;
 }
 
-/* Uses glass tokens + border/shadow tokens */
 .badgeLink {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  color: #ffffff;
 
   padding: 6px 14px;
   border-radius: 999px;
@@ -152,12 +170,6 @@
   background: color-mix(in srgb, var(--glass-bg) 80%, var(--brand-soft));
 }
 
-.badgeText {
-  color: var(--text);
-  font-size: 14px;
-  font-weight: 600;
-}
-
 .badgeArrow {
   margin-left: 6px;
   transition: transform 0.2s ease;
@@ -167,16 +179,12 @@
   transform: translateX(2px);
 }
 
-/* Title: use GLOBAL .title class for sizing + color
-   Keep this class only for spacing. */
 .title {
   margin: 0;
   padding-bottom: 16px;
   line-height: 1.05;
 }
 
-/* Description: use GLOBAL .text/.description for typography
-   Keep this class only for spacing. */
 .desc {
   margin: 0 0 32px;
 }
@@ -205,18 +213,8 @@
   }
 }
 
-/* CTA button: relies on global .button; only adds subtle border tweak */
 .ctaBtn {
   border-color: var(--btn-border);
-}
-
-/* Arrow inside CTA */
-.ctaArrow {
-  transition: transform 0.2s ease;
-}
-
-.ctaBtn:hover .ctaArrow {
-  transform: translateX(2px);
 }
 
 /* Regulation row */
@@ -234,7 +232,6 @@
   }
 }
 
-/* Regulation pill (glass, theme-safe) */
 .regBox {
   position: relative;
   display: inline-flex;
@@ -276,16 +273,11 @@
   opacity: 0.85;
 }
 
-/* sheen */
 .regSheen {
   pointer-events: none;
   position: absolute;
   inset: 0;
   border-radius: 16px;
-  background: linear-gradient(
-    to bottom,
-    var(--glass-reflection-strong),
-    transparent
-  );
+  background: linear-gradient(to bottom, var(--glass-reflection-strong), transparent);
   opacity: 0.35;
 }

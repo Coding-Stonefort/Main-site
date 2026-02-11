@@ -35,12 +35,9 @@ export default function ChatWidget() {
   ]);
 
   const listRef = useRef<HTMLDivElement | null>(null);
-
   const canSend = useMemo(() => input.trim().length > 0 && !loading, [input, loading]);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!open) return;
@@ -65,7 +62,6 @@ export default function ChatWidget() {
       });
 
       const data = (await res.json()) as ApiResponse;
-
       if (!res.ok) throw new Error(data?.reply || "Request failed");
 
       setMsgs((prev) => [
@@ -100,27 +96,15 @@ export default function ChatWidget() {
     <div
       className={styles.wrap}
       data-open={open ? "1" : "0"}
-      style={{
-        position: "fixed",
-        right: 18,
-        bottom: 18,
-        top: "auto",
-        left: "auto",
-        zIndex: 2147483647,
-        pointerEvents: "none",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-end",
-        gap: 12,
-      }}
+
     >
-      {/*  Panel FIRST so it opens UPWARDS */}
+      {/* Panel FIRST so it opens UPWARDS */}
       <div
         id="stonefort-chat-panel"
         className={styles.panel}
         role="dialog"
         aria-label="Chatbot"
-        style={{ pointerEvents: open ? "auto" : "none" }}
+        // style={{ pointerEvents: open ? "auto" : "none" }}
       >
         <div className={styles.header}>
           <div className={styles.titleBlock}>
@@ -142,7 +126,7 @@ export default function ChatWidget() {
           </button>
         </div>
 
-        {/*  Messages */}
+        {/* Messages */}
         <div className={styles.list} ref={listRef}>
           {msgs.map((m, idx) => (
             <div key={idx} className={`${styles.msg} ${m.role === "user" ? styles.user : styles.bot}`}>
@@ -185,7 +169,7 @@ export default function ChatWidget() {
           )}
         </div>
 
-        {/*  Input footer */}
+        {/* Input footer */}
         <div className={styles.footer}>
           <input
             className={styles.input}
@@ -201,17 +185,153 @@ export default function ChatWidget() {
         </div>
       </div>
 
-      {/*  Button LAST so it stays bottom-right */}
+      {/* ===== FAB: LIQUID WAVY RING (no SVG needed) ===== */}
+ {/* ===== FAB: FLUFFY WAVY RING (SVG displacement) ===== */}
+<svg className={styles.fabSvg} aria-hidden="true">
+  <filter id="sf-fab-wobble" x="-35%" y="-35%" width="170%" height="170%">
+    <feTurbulence
+      type="fractalNoise"
+      baseFrequency="0.9"
+      numOctaves="2"
+      seed="8"
+      result="noise"
+    >
+      {/* This makes the “fluff” move all around */}
+      <animate
+        attributeName="baseFrequency"
+        dur="2.8s"
+        values="0.65;1.05;0.65"
+        repeatCount="indefinite"
+      />
+    </feTurbulence>
+
+    <feDisplacementMap
+      in="SourceGraphic"
+      in2="noise"
+      scale="18"
+      xChannelSelector="R"
+      yChannelSelector="G"
+    >
+      <animate
+        attributeName="scale"
+        dur="2.8s"
+        values="12;22;12"
+        repeatCount="indefinite"
+      />
+    </feDisplacementMap>
+  </filter>
+</svg>
+
+{/* ===== FAB: TRUE WAVY RING (SVG) ===== */}
 <button
   type="button"
   className={styles.fab}
+  data-open={open ? "1" : "0"}
   onClick={() => setOpen((v) => !v)}
   aria-expanded={open}
   aria-controls="stonefort-chat-panel"
+  aria-label={open ? "Close chat" : "Open chat"}
   style={{ pointerEvents: "auto" }}
 >
-  {open ? "×" : <span className={styles.fabLabel}>WEB SEARCH</span>}
+  {/* Wavy ring lives as SVG so the SHAPE becomes waves */}
+  <svg className={styles.fabRingSvg} viewBox="0 0 100 100" aria-hidden="true">
+    <defs>
+      <filter id="sfWavyStroke" x="-40%" y="-40%" width="180%" height="180%">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.012"
+          numOctaves="2"
+          seed="9"
+          result="noise"
+        >
+          {/* noise motion = waves moving */}
+          <animate
+            attributeName="baseFrequency"
+            dur="2.4s"
+            values="0.010;0.016;0.010"
+            repeatCount="indefinite"
+          />
+        </feTurbulence>
+
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="noise"
+          scale="18"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        >
+          {/* wave intensity pulsing */}
+          <animate
+            attributeName="scale"
+            dur="2.4s"
+            values="14;22;14"
+            repeatCount="indefinite"
+          />
+        </feDisplacementMap>
+      </filter>
+
+      {/* soft glow blur */}
+      <filter id="sfGlow" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="1.2" result="b" />
+        <feMerge>
+          <feMergeNode in="b" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+
+    {/* rotate the WHOLE distorted ring, so waves travel around */}
+    <g filter="url(#sfWavyStroke)">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 50 50"
+        to="360 50 50"
+        dur="3.2s"
+        repeatCount="indefinite"
+      />
+
+      {/* main ring stroke */}
+      <circle
+        cx="50"
+        cy="50"
+        r="38"
+        fill="none"
+        stroke="url(#sfGrad)"
+        strokeWidth="10"
+        strokeLinecap="round"
+      />
+    </g>
+
+    {/* gradient definition AFTER usage is OK in SVG */}
+    <defs>
+      <radialGradient id="sfGrad" cx="50%" cy="50%" r="60%">
+        <stop offset="0%" stopColor="rgba(140,240,255,0.95)" />
+        <stop offset="55%" stopColor="rgba(0,150,255,0.65)" />
+        <stop offset="100%" stopColor="rgba(30,90,255,0.45)" />
+      </radialGradient>
+    </defs>
+
+    {/* extra outer glow ring */}
+    <g filter="url(#sfGlow)" opacity="0.75">
+      <circle
+        cx="50"
+        cy="50"
+        r="38"
+        fill="none"
+        stroke="rgba(80,220,255,0.55)"
+        strokeWidth="10"
+      />
+    </g>
+  </svg>
+
+  {/* inner disk */}
+  <span className={styles.fabCore} aria-hidden="true">
+    <span className={styles.fabText}>{open ? "×" : "Hi"}</span>
+  </span>
 </button>
+
+
     </div>
   );
 

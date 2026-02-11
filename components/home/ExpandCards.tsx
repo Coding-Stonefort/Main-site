@@ -286,14 +286,14 @@ export default function ExpandCards({
 const demoItems: ExpandItem[] = [
   {
     id: 1,
-    image: "/images/withdrawal.webp",
+    image: "/images/InstantWithdrawal.webp",
     number: "01",
     title: "Instant Withdrawal",
     body: <>Experience hassle-free withdrawals with no delays and total transparency.</>,
   },
   {
     id: 2,
-    image: "/images/oneBank.webp",
+    image: "/images/tier1Banking.webp",
     number: "02",
     title: "Tier 1 Banking Partners",
     body: (
@@ -341,7 +341,7 @@ const demoItems: ExpandItem[] = [
   },
   {
     id: 6,
-    image: "/images/globally-regulated.webp",
+    image: "/images/negativeBalance.webp",
     number: "06",
     title: "Negative Balance Protection",
     body: (

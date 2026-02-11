@@ -1,0 +1,209 @@
+.section {
+  position: relative;
+  width: 100%;
+  background: var(--bg);
+  padding: 180px 0;
+  overflow: hidden;
+
+  /* ✅ Increase this to make watermark + stripe bigger on desktop */
+  --rail-height: 320px; /* was 260px */
+
+  --container-w: min(var(--container), 92vw);
+  --container-left: calc((100vw - var(--container-w)) / 2);
+  --rail-left: calc(var(--container-left) + 94px);
+}
+
+/* Stripe */
+.rail {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: var(--rail-left);
+  right: 0;
+  height: var(--rail-height);
+
+  background: #4d6e55;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  z-index: 1;
+}
+
+/* Desktop logo watermark */
+.logoCap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-59.7%);
+  left: var(--rail-left);
+
+  height: var(--rail-height);
+  width: calc(var(--rail-height) * 1.05);
+
+  /*  move logo more into the stripe area */
+  margin-left: calc(var(--rail-height) * -0.74);
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+.logoImg {
+  width: 100%;
+  height: 363px;
+  display: block;
+  object-fit: contain;
+  
+}
+
+/* Content above everything */
+.content {
+  position: relative;
+  z-index: 3;
+}
+
+/* ---------------- DESKTOP TEXT (VISIBLE ON DESKTOP ONLY) ---------------- */
+
+.desktopQuote {
+  display: block;
+}
+
+.quoteWrap {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 20px;
+  max-width: 1050px;
+
+  /* keep your original spacing */
+  padding-left: 150px;
+}
+
+.quoteMark {
+  font-size: 96px;
+  line-height: 1;
+  font-weight: 800;
+  color: var(--brand-soft);
+}
+
+.quoteText {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 850;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.quoteText em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ---------------- MOBILE/TABLET BLOCK (HIDDEN ON DESKTOP) ---------------- */
+
+.twoCol {
+  display: none; /* ✅ important: prevents 2 logos on desktop */
+}
+
+/* ================= TABLET + MOBILE ================= */
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  /* hide desktop stripe system on tablet/mobile */
+  .rail,
+  .logoCap {
+    display: none;
+  }
+
+  /* hide desktop quote on tablet/mobile */
+  .desktopQuote {
+    display: none;
+  }
+
+  /* show 2-column layout */
+  .twoCol {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: stretch;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .logoCol,
+  .textCol {
+    height: 100%;
+    display: flex;
+  }
+
+  .logoCol {
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobileLogoImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .textCol {
+    background: #4d6e55;
+    padding: 28px 22px;
+    align-items: center;
+  }
+
+  .quoteWrapMobile {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 14px;
+    max-width: 100%;
+  }
+
+  .quoteMarkMobile {
+    font-size: 62px;
+    line-height: 1;
+    font-weight: 800;
+    color: var(--brand-soft);
+  }
+
+  .quoteTextMobile {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 850;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+
+  .quoteTextMobile em {
+    font-style: italic;
+    font-weight: 500;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 640px) {
+  .twoCol {
+    grid-template-columns: 110px 1fr;
+  }
+
+  .textCol {
+    padding: 18px 14px;
+  }
+
+  .quoteWrapMobile {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .quoteMarkMobile {
+    font-size: 52px;
+  }
+
+  .quoteTextMobile {
+    font-size: 20px;
+  }
+}

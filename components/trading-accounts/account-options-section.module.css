@@ -1,0 +1,178 @@
+.section {
+  background: var(--bg);
+}
+
+.wrap {
+  display: grid;
+  gap: 40px;
+}
+
+/* Center header */
+.header {
+  text-align: center;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}
+
+.heading {
+  margin: 0;
+  max-width: 22ch;
+}
+
+/* Paragraph similar to screenshot */
+.lead {
+  margin: 0;
+  max-width: 110ch;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* Green highlighted words */
+.accent {
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* 3 boxes */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* Box style */
+.card {
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+
+  padding: 34px 28px;
+  text-align: center;
+
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand);
+}
+
+/* Icon */
+.icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.iconSvg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+/* Titles in boxes */
+.cardTitle {
+  margin: 0 0 10px;
+  line-height: 1.25;
+
+  /* 👇 custom font size */
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Desc */
+.cardDesc {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  .cardTitle {
+    font-size: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .cardTitle {
+    font-size: 22px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .wrap {
+    gap: 32px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    grid-template-areas:
+      "icon title"
+      "icon desc";
+    align-items: start;
+    column-gap: 16px;
+    row-gap: 6px;
+  }
+
+  .icon {
+    grid-area: icon;
+    margin: 0;
+  }
+
+  .cardTitle {
+    grid-area: title;
+    margin: 0;
+  }
+
+  .cardDesc {
+    grid-area: desc;
+    margin: 0;
+    max-width: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .lead {
+    max-width: 70ch;
+  }
+
+  .card {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+
+  .icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+  }
+
+  .iconSvg {
+    width: 26px;
+    height: 26px;
+  }
+}
