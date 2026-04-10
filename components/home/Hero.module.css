@@ -15,15 +15,9 @@
   z-index: -20;
 }
 
-/* NEW: video behaves like Image fill + object-fit cover */
-.bgVideo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
+.bgImage {
   object-fit: cover;
   object-position: center;
-  transform: translateZ(0); /* small perf hint */
 }
 
 /* Overlay: theme-aware using tokens (no hardcoded colors) */

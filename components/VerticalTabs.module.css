@@ -32,14 +32,11 @@
 .shell {
   display: flex;
   flex-direction: column;
-
   border-radius: 32px;
   overflow: hidden;
-
-  /* background: var(--surface); */
-  border: 1px solid var(--border);
+  background: #101711;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: var(--shadow-md);
-
   isolation: isolate;
 }
 
@@ -54,10 +51,9 @@
   position: relative;
   width: 100%;
   flex: 0 0 auto;
-
   padding: 16px;
-  background: transparent;
-  border-bottom: 1px solid var(--border);
+  background: #101711;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 768px) {
@@ -65,7 +61,7 @@
     width: 320px;
     padding: 24px;
     border-bottom: 0;
-    border-right: 1px solid var(--border);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -79,7 +75,7 @@
   height: 280px;
   top: -70px;
   left: -70px;
-  background: color-mix(in srgb, var(--surface) 65%, white);
+  background: rgba(77, 110, 85, 0.14);
 }
 
 .railGlowBottom {
@@ -87,7 +83,7 @@
   height: 220px;
   bottom: -60px;
   left: -60px;
-  background: color-mix(in srgb, var(--brand) 12%, var(--surface));
+  background: rgba(135, 171, 147, 0.1);
 }
 
 /* Tabs list */
@@ -102,29 +98,29 @@
 .tabBtn {
   width: 100%;
   text-align: left;
-
   border-radius: 999px;
   padding: 14px 18px;
-
-  border: 1px solid var(--border);
-  /* background: var(--surface); */
-  color: var(--text);
-
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  color: #eaf0f2;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
-    background 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .tabBtn:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
-  border-color: color-mix(in srgb, var(--border) 60%, var(--text));
+  border-color: rgba(135, 171, 147, 0.28);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .tabBtn:focus-visible {
@@ -133,8 +129,8 @@
 }
 
 .tabBtnActive {
-  background: var(--vt-accent);
-  border-color: color-mix(in srgb, var(--vt-accent) 85%, var(--border));
+  background: #4d6e55;
+  border-color: #4d6e55;
   color: #fff;
 }
 
@@ -155,16 +151,16 @@
   width: 36px;
   height: 36px;
   border-radius: 999px;
-
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-
-  background: color-mix(in srgb, var(--surface-2) 85%, transparent);
-  border: 1px solid var(--border);
-  color: var(--text);
-
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease,
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #eaf0f2;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
     color 0.2s ease;
 }
 
@@ -173,9 +169,9 @@
 }
 
 .tabArrowActive {
-  /* background: var(--surface); */
-  border-color: rgba(255, 255, 255, 0.65);
-  color: var(--text);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
 }
 
 /* Right panel */
@@ -184,7 +180,7 @@
   flex: 1;
   min-width: 0;
   padding: 16px;
-  /* background: var(--surface-2); */
+  background: #101711;
 }
 
 @media (min-width: 768px) {
@@ -196,10 +192,17 @@
 .panelInner {
   height: 100%;
   border-radius: 26px;
-  /* background: var(--surface); */
-
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(77, 110, 85, 0.08) 0%,
+      rgba(16, 23, 17, 1) 32%,
+      rgba(16, 23, 17, 1) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
   padding: 16px;
 }
 
@@ -221,7 +224,7 @@
 .panelTitle {
   margin: 0;
   font-weight: 800;
-  color: var(--text-strong);
+  color: #ffffff;
   font-size: 24px;
 }
 
@@ -233,7 +236,7 @@
 
 .panelDesc {
   margin: 10px 0 0;
-  color: var(--text-body);
+  color: rgba(234, 240, 242, 0.78);
   font-size: 16px;
   line-height: 1.65;
 }
@@ -242,9 +245,9 @@
 .mediaCard {
   border-radius: 18px;
   overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  background: #0f1510;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Fit image helper */
@@ -265,7 +268,7 @@
 }
 
 .ctaBtn {
-  width: auto; /* override global 240px */
+  width: auto;
 }
 
 .ctaIcon {
@@ -277,4 +280,3 @@
 .ctaBtn:hover .ctaIcon {
   transform: translateX(3px);
 }
-

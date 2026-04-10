@@ -1,6 +1,8 @@
 "use client";
 
 import styles from "./HowItWorks.module.css";
+import OnboardingDashboard from "@/components/metals/OnboardingDashboard";
+
 
 export default function HowItWorks() {
   return (
@@ -25,7 +27,8 @@ export default function HowItWorks() {
         {/* =================== Video Box =================== */}
         <div className={styles.videoBox}>
           <div className={styles.videoPlaceholder}>
-            [ Video Here ]
+          
+            <OnboardingDashboard />
           </div>
         </div>
 

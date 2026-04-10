@@ -101,9 +101,9 @@ return (
       {
         heading: "Account Types",
         items: [
-          { label: "Stonefort Accounts", href: "/trading-account" }, // ✅ NEW
-          { label: "Starter", href: "/trading/starter" },
-          { label: "Advance", href: "/trading/advance" },
+          { label: "Stonefort Accounts", href: "/trading-account" }, 
+          { label: "Starter", href: "/trading-account/starteraccount" },
+          { label: "Advance", href: "/trading-account/advanceaccount" },
           { label: "Elite", href: "/trading/elite" },
           { label: "Demo", href: "/trading/demo" },
           { label: "PAMM", href: "/trading/pamm" },

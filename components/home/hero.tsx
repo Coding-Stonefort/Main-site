@@ -1,9 +1,7 @@
 import Image from "next/image";
 import styles from "./Hero.module.css";
 
-// REMOVE old bg image import
-// import HeroBg from "@/public/images/herobg.webp";
-
+import HeroBg from "@/public/images/homeherobanner.webp";
 import TradingElement from "@/public/images/trading-element.webp";
 
 // Flags
@@ -15,19 +13,15 @@ import FlagStVincent from "@/public/images/flags/st-vincent-and-the-grenadines.p
 export default function Hero() {
   return (
     <section className={`section ${styles.hero}`}>
-      {/* Background (VIDEO) */}
+      {/* Background (IMAGE) */}
       <div className={styles.bg} aria-hidden="true">
-        <video
-          className={styles.bgVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        >
-          {/* Put your webm here */}
-          <source src="/videos/herobg.webm" type="video/webm" />
-        </video>
+        <Image
+          src={HeroBg}
+          alt=""
+          fill
+          priority
+          className={styles.bgImage}
+        />
 
         {/* Overlay stays on top for readability */}
         {/* <div className={styles.bgOverlay} aria-hidden="true" /> */}
@@ -50,7 +44,6 @@ export default function Hero() {
           <div className={styles.badgeRow} data-aos="fade-down">
             <a className={`badge ${styles.badgeLink}`} href="#">
               Powering Your Trading Journey
-             
             </a>
           </div>
 
@@ -59,7 +52,11 @@ export default function Hero() {
             With Stonefort Securities
           </h1>
 
-          <p className={`text ${styles.desc}`} data-aos="fade-down" data-aos-delay="200">
+          <p
+            className={`text ${styles.desc}`}
+            data-aos="fade-down"
+            data-aos-delay="200"
+          >
             Unlock global market potential with our secure platform, expert support, and
             innovative trading tools; your gateway to smarter, more confident investing.
           </p>

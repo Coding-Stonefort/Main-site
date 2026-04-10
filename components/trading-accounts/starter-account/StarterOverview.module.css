@@ -1,0 +1,415 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      760px 420px at 10% 35%,
+      color-mix(in srgb, var(--brand) 10%, transparent),
+      transparent 72%
+    ),
+    radial-gradient(
+      680px 420px at 92% 50%,
+      color-mix(in srgb, var(--brand) 8%, transparent),
+      transparent 74%
+    );
+  opacity: 0.95;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.9fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.leftColumn {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 28px;
+}
+
+.content {
+  max-width: 660px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.badge {
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+.title {
+  margin: 0;
+  max-width: 30ch;
+  color: var(--text);
+}
+
+.text {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--text-body);
+}
+
+.laptopCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 94%, transparent) 0%,
+      color-mix(in srgb, var(--surface-2) 98%, transparent) 100%
+    );
+  box-shadow: var(--shadow-md);
+  min-height: 240px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 26px 24px 0;
+}
+
+
+
+
+.rightColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.mobileStage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.mobileStage::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 420px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.22) 0%,
+    rgba(0, 0, 0, 0.12) 38%,
+    transparent 72%
+  );
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.phone {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 300px);
+  border-radius: 40px;
+  padding: 9px;
+  background:
+    linear-gradient(180deg, #0d1116 0%, #2b3138 18%, #171c22 55%, #0d1116 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.22);
+}
+
+.phone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.03) 14%,
+      transparent 30%
+    );
+  opacity: 0.85;
+}
+
+.phone::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 39px;
+  pointer-events: none;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  box-shadow:
+    inset 0 0 24px rgba(0, 0, 0, 0.2),
+    inset 0 -8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.phoneTop {
+  display: flex;
+  justify-content: center;
+  padding: 7px 0 10px;
+}
+
+.camera {
+  width: 74px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-block;
+}
+
+.screen {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 18px 16px 16px;
+  min-height: 610px;
+  background:
+    radial-gradient(
+      180px 110px at 50% 0%,
+      rgba(135, 171, 147, 0.08),
+      transparent 72%
+    ),
+    linear-gradient(180deg, #111812 0%, #0d120e 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    inset 0 0 24px rgba(0, 0, 0, 0.28);
+}
+
+.screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.22),
+    inset 0 18px 28px rgba(255, 255, 255, 0.015),
+    inset 0 -20px 28px rgba(0, 0, 0, 0.16);
+}
+
+.screenHeader {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 16px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.screenBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(135, 171, 147, 0.22);
+  background: rgba(135, 171, 147, 0.08);
+  color: #d6eadc;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.screenTitle {
+  margin: 14px 0 0;
+  font-size: 25px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.screenList {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.screenRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transform: scale(1);
+  animation: rowPulse 14s ease-in-out infinite;
+  will-change: transform, box-shadow, border-color, background;
+}
+.screenRow:nth-child(1) { animation-delay: 0s; }
+.screenRow:nth-child(2) { animation-delay: 1.5s; }
+.screenRow:nth-child(3) { animation-delay: 3s; }
+.screenRow:nth-child(4) { animation-delay: 4.5s; }
+.screenRow:nth-child(5) { animation-delay: 6s; }
+.screenRow:nth-child(6) { animation-delay: 7.5s; }
+.screenRow:nth-child(7) { animation-delay: 9s; }
+
+@keyframes rowPulse {
+  0% {
+    transform: scale(1);
+    border-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.025);
+    box-shadow: inset 0 0 0 rgba(135, 171, 147, 0);
+  }
+
+  8% {
+    transform: scale(1.025);
+    border-color: rgba(135, 171, 147, 0.28);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow:
+      0 0 18px rgba(135, 171, 147, 0.12),
+      inset 0 0 18px rgba(135, 171, 147, 0.06);
+  }
+
+  16% {
+    transform: scale(1.018);
+    border-color: rgba(135, 171, 147, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow:
+      0 0 12px rgba(135, 171, 147, 0.08),
+      inset 0 0 12px rgba(135, 171, 147, 0.04);
+  }
+
+  24% {
+    transform: scale(1);
+    border-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.025);
+    box-shadow: inset 0 0 0 rgba(135, 171, 147, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    border-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.025);
+    box-shadow: inset 0 0 0 rgba(135, 171, 147, 0);
+  }
+}
+
+.screenLabel {
+  font-size: 13px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 500;
+}
+
+.screenValue {
+  font-size: 15px;
+  line-height: 1.2;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.screenFooter {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.footerDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #87ab93;
+  box-shadow: 0 0 12px rgba(135, 171, 147, 0.45);
+}
+
+.footerText {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rightColumn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout,
+  .leftColumn {
+    gap: 20px;
+  }
+
+  .title,
+  .text {
+    max-width: 100%;
+  }
+
+  .laptopCard {
+    border-radius: 22px;
+    min-height: auto;
+    padding: 20px 14px 0;
+  }
+
+  .phone {
+    width: min(100%, 100%);
+    border-radius: 34px;
+  }
+
+  .phone::after {
+    border-radius: 33px;
+  }
+
+  .screen {
+    min-height: auto;
+    padding: 18px 14px 16px;
+    border-radius: 24px;
+  }
+
+  .screenTitle {
+    font-size: 22px;
+  }
+
+  .screenRow {
+    min-height: 44px;
+    padding: 0 12px;
+  }
+
+  .screenLabel {
+    font-size: 12px;
+  }
+
+  .screenValue {
+    font-size: 14px;
+  }
+}

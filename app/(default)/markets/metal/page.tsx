@@ -3,6 +3,7 @@ import MarketsLiveOverview from "@/components/market/MarketsLiveOverview";
 import WhyTradeCFDsMetals from "@/components/metals/WhyTradeCFDsMetals";
 // import MetalsFlipCards from "@/components/metals/MetalsFlipCards";
 import TradingWithStonefort from "@/components/ForexCFD/TradingWithStonefort";
+
 import MetalsCards from "@/components/metals/MetalsCards";
 import HowMetalsWorks from "@/components/metals/HowMetalsWorks";
 import WhyTradeMetals from "@/components/metals/WhyTradeMetals"
@@ -373,12 +374,14 @@ export default function metal() {
     return(
         <>
         <MetalsHero />
+
         <section id="metals-pairs">
             <MarketsLiveOverview />
         </section>
         <WhyTradeCFDsMetals />
         {/* <MetalsFlipCards /> */}
         <TradingWithStonefort />
+
         <MetalsCards />
         {/* <HowMetalsWorks /> */}
         <MetalsTabMockup />
@@ -393,6 +396,7 @@ export default function metal() {
             initiallyOpenIndex={null}
             />
             <GetStartedMetals />
+            
 
         </>
     )

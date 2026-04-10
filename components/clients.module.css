@@ -1,11 +1,23 @@
-/* components/clients.module.css */
-
 .section {
   position: relative;
   overflow: hidden;
-
-  /* fallback base color (works with both themes) */
-  background: var(--bg);
+  background:
+    radial-gradient(
+      700px 420px at 12% 18%,
+      rgba(77, 110, 85, 0.18),
+      transparent 62%
+    ),
+    radial-gradient(
+      620px 360px at 88% 26%,
+      rgba(135, 171, 147, 0.08),
+      transparent 64%
+    ),
+    radial-gradient(
+      760px 420px at 50% 100%,
+      rgba(77, 110, 85, 0.1),
+      transparent 70%
+    ),
+    #101711;
 }
 
 /* Right-side background image */
@@ -15,14 +27,14 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-
   background-image: url("/images/payment-bg.webp");
   background-repeat: no-repeat;
   background-position: right center;
   background-size: auto 100%;
+  opacity: 0.3;
 }
 
-/* subtle overlay so text stays crisp in both themes */
+/* overlay for readability */
 .section::after {
   content: "";
   position: absolute;
@@ -30,12 +42,12 @@
   z-index: 0;
   pointer-events: none;
   background: linear-gradient(
-    to right,
-    var(--bg) 0%,
-    var(--bg) 48%,
-    rgba(0, 0, 0, 0) 100%
+    90deg,
+    rgba(16, 23, 17, 0.98) 0%,
+    rgba(16, 23, 17, 0.94) 42%,
+    rgba(16, 23, 17, 0.7) 72%,
+    rgba(16, 23, 17, 0.22) 100%
   );
-  opacity: 0.85;
 }
 
 .inner {
@@ -62,14 +74,14 @@
 }
 
 .title {
-  color: var(--text-strong);
+  color: #f4f8f5;
   padding-bottom: 14px;
 }
 
 .subtitle {
   max-width: 760px;
   margin: 0 auto;
-  color: var(--text-body);
+  color: rgba(234, 240, 242, 0.78);
 }
 
 /* bullet boxes */
@@ -85,23 +97,22 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   padding: 14px 18px;
   border-radius: 14px;
-
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-
-  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  color: #edf3ef;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .icon {
-  color: var(--brand);
+  color: #87ab93;
 }
 
 .iconSuccess {
-  color: var(--success);
+  color: #87ab93;
 }
 
 /* ===== Particles ===== */
@@ -123,11 +134,9 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-
   height: 60px;
   overflow: hidden;
 
-  /* mask fade edges */
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0,
@@ -156,7 +165,6 @@
   justify-content: center;
   flex-shrink: 0;
   min-width: 100%;
-
   animation: infiniteScroll 40s linear infinite;
 }
 
@@ -166,6 +174,10 @@
   justify-content: center;
   margin: 0 32px;
   height: 60px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -178,10 +190,11 @@
   height: 60px;
   width: auto;
   object-fit: contain;
-  border-radius: 10px;
-
-  /* keeps logos readable on both themes */
-  /* background: var(--bg); */
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.18));
 }
 
 @media (min-width: 768px) {

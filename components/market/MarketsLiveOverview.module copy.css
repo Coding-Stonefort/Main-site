@@ -1,0 +1,115 @@
+.markets-section {
+  padding: 120px 0 80px;
+  background: var(--bg);
+
+}
+
+/* vertical stack + center */
+.markets-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.markets-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.markets-title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.markets-title span {
+  color: var(--brand);
+}
+
+.markets-subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+/* Tabs */
+
+.markets-tabs-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.markets-tab {
+  padding: 8px 16px;
+  border-radius: 999px;
+
+  border: 1px solid var(--border);
+  background: var(--surface);
+
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-strong);
+
+  cursor: pointer;
+  transition: background 0.15s ease-out, border-color 0.15s ease-out,
+    box-shadow 0.15s ease-out, transform 0.15s ease-out;
+}
+
+.markets-tab:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.markets-tab--active {
+  border-color: var(--brand-border);
+  background: var(--brand-soft);
+  box-shadow: 0 12px 30px rgba(77, 110, 85, 0.25);
+}
+
+/* Widget card */
+
+.markets-widget-card {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+
+  /* padding-top: 100px; */
+  border-radius: 18px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+
+  overflow: hidden;
+}
+
+.tradingview-widget-container {
+  width: 100%;
+}
+
+/* Optional: better mobile spacing */
+@media (max-width: 640px) {
+  .markets-section {
+    padding: 84px 0 56px;
+  }
+  .markets-tab {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+  .markets-widget-card {
+    padding-top: 72px;
+    border-radius: 16px;
+  }
+}
