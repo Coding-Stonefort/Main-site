@@ -14,7 +14,14 @@ const accountDetails = [
   { key: "margincall", label: "Margin Call", value: "50%" },
 ];
 
-const chatSequence = [
+type ChatMessage = {
+  type: "user" | "bot";
+  text: string;
+  time: string;
+  metaKey: string;
+};
+
+const chatSequence: ChatMessage[] = [
   {
     type: "user",
     text: "Hi Stonefort, what is the minimum deposit for the Starter Account?",
@@ -120,9 +127,7 @@ function TypingBubble({ side }: { side: "user" | "bot" }) {
 
 export default function AdvancedAccountMobileShowcase() {
   const [visibleCount, setVisibleCount] = useState(0);
-  const [typingMessage, setTypingMessage] = useState<(typeof chatSequence)[number] | null>(
-    null
-  );
+  const [typingMessage, setTypingMessage] = useState<ChatMessage | null>(null);
   const [activeMetaKey, setActiveMetaKey] = useState<string>("deposit");
 
   const chatBodyRef = useRef<HTMLDivElement | null>(null);

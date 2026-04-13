@@ -13,7 +13,14 @@ const accountDetails = [
   { key: "margincall", label: "Margin Call", value: "70%" },
 ];
 
-const chatSequence = [
+type ChatMessage = {
+  type: "user" | "bot";
+  text: string;
+  time: string;
+  metaKey: string;
+};
+
+const chatSequence: ChatMessage[] = [
   {
     type: "user",
     text: "Hi Stonefort, what is the minimum deposit for the Elite Account?",
@@ -87,7 +94,6 @@ const chatSequence = [
     metaKey: "margincall",
   },
 ];
-
 function PhoneTopBar() {
   return (
     <div className={styles.topBar}>
@@ -119,9 +125,7 @@ function TypingBubble({ side }: { side: "user" | "bot" }) {
 
 export default function EliteAccountMobileShowcase() {
   const [visibleCount, setVisibleCount] = useState(0);
-  const [typingMessage, setTypingMessage] = useState<(typeof chatSequence)[number] | null>(
-    null
-  );
+ const [typingMessage, setTypingMessage] = useState<ChatMessage | null>(null);
   const [activeMetaKey, setActiveMetaKey] = useState<string>("deposit");
 
   const chatBodyRef = useRef<HTMLDivElement | null>(null);
