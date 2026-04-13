@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import styles from "../advance-accounts/AdvancedAccountMobileShowcase.module.css";
+import styles from "./AdvancedAccountMobileShowcase.module.css";
 import Image from "next/image";
 
 const accountDetails = [
@@ -17,13 +17,13 @@ const accountDetails = [
 const chatSequence = [
   {
     type: "user",
-    text: "Hi Stonefort, what is the minimum deposit for the Starter Account?",
+    text: "Hi Stonefort, what is the minimum deposit for the Advanced Account?",
     time: "09:14",
     metaKey: "deposit",
   },
   {
     type: "bot",
-    text: "The minimum deposit for the Starter Account is $50.",
+    text: "The minimum deposit for the Advanced Account is $3,000.",
     time: "09:14",
     metaKey: "deposit",
   },
@@ -35,7 +35,7 @@ const chatSequence = [
   },
   {
     type: "bot",
-    text: "Spreads start from 1.3 pips on the Starter Account.",
+    text: "Spreads start from 1.0 pips on the Advanced Account.",
     time: "09:15",
     metaKey: "spreads",
   },
@@ -59,7 +59,7 @@ const chatSequence = [
   },
   {
     type: "bot",
-    text: "No, the Starter Account comes with 0 commission.",
+    text: "No, the Advanced Account comes with 0 commission.",
     time: "09:17",
     metaKey: "commission",
   },
@@ -71,7 +71,7 @@ const chatSequence = [
   },
   {
     type: "bot",
-    text: "The Starter Account is available on MT5.",
+    text: "The Advanced Account is available on MT5.",
     time: "09:18",
     metaKey: "platform",
   },
@@ -171,12 +171,12 @@ export default function AdvancedAccountMobileShowcase() {
     <section className={`section ${styles.section}`}>
       <div className={`container ${styles.container}`}>
         <div className={styles.headContent}>
-          <span className="badge">Starter Account</span>
+          <span className="badge">Advanced Account</span>
           <h2 className={`title ${styles.title}`}>
-          Everything You Need to Get Started
+           Built for Traders Ready to Go Further
           </h2>
           <p className={`description ${styles.description}`}>
-              Built for flexibility and ease of entry, the Starter Account gives traders access to global markets through a professional trading environment. It is ideal for those looking for transparent trading conditions and a lower starting commitment.
+             The Advanced Account is ideal for traders who want improved pricing conditions and a stronger account setup while maintaining a simple and transparent structure. It combines competitive spreads, fast execution, and access to global markets through a secure trading environment.
           </p>
         </div>
 
@@ -189,7 +189,7 @@ export default function AdvancedAccountMobileShowcase() {
               <div className={styles.specHeader}>
                 <div>
                   {/* <p className={styles.eyebrow}>Account Overview</p> */}
-                  <h3 className={styles.phoneTitle}>Starter Account</h3>
+                  <h3 className={styles.phoneTitle}>Advanced Account</h3>
                 </div>
                 <div className={styles.pill}>MT5</div>
               </div>

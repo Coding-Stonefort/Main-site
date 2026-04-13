@@ -1,12 +1,12 @@
 import Image from "next/image";
 import styles from "../advance-accounts/AdvancedAccountHero.module.css";
 
-export default function AdvancedAccountHero() {
+export default function EliteAccountHero() {
   return (
     <section className={`section ${styles.section}`}>
       <div className={styles.bgWrap} aria-hidden="true">
         <Image
-          src="/images/advanceaccounfbg.webp"
+          src="/images/maximiseTrading.webp"
           alt=""
           fill
           priority
@@ -22,14 +22,19 @@ export default function AdvancedAccountHero() {
 
           <div className={styles.content}>
             <div className={styles.copy}>
-              <div className={`badge ${styles.badgeCustom}`}>Starter Account</div>
+              <div className={`badge ${styles.badgeCustom}`}>Elite Account</div>
 
               <h2 className={`heading ${styles.headingCustom}`}>
-                A Smart First Step into  <span className={styles.highlight}> Trading</span>
+                Premium Conditions for{" "}
+                <span className={styles.highlight}>Experienced Traders</span>
               </h2>
 
               <p className={`text ${styles.textCustom}`}>
-                 The Starter Account is suited for traders who want to begin with a lower deposit while still benefiting from fast execution, secure platform access, and flexible trading conditions. It is a strong option for new traders and for anyone looking for a straightforward account structure without added complexity.
+                The Elite Account is designed for experienced traders who want
+                tighter spreads, premium trading conditions, and a more refined
+                trading environment. With professional-grade execution, secure
+                MT5 access, and stronger account parameters, it delivers a more
+                exclusive trading experience.
               </p>
 
               <div className={styles.actions}>
@@ -46,8 +51,8 @@ export default function AdvancedAccountHero() {
               <div className={styles.mockupWrap}>
                 <div className={styles.backPhone}>
                   <Image
-                    src="/images/advancemobilem.webp"
-                    alt="Trading app mockup"
+                    src="/images/howforexwork1a.webp"
+                    alt="Elite trading app mockup"
                     width={700}
                     height={900}
                     priority
@@ -56,8 +61,8 @@ export default function AdvancedAccountHero() {
 
                 <div className={styles.frontPhone}>
                   <Image
-                    src="/images/advancemobilem.webp"
-                    alt="Trading app mockup"
+                    src="/images/sfx-mobile.webp"
+                    alt="Elite trading app mockup"
                     width={700}
                     height={900}
                     priority

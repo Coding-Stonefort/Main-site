@@ -1,34 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./AdvancedHero.module.css";
+import styles from "./DemoaccountHero.module.css";
 
-export default function AdvancedHero() {
+export default function DemoaccountHero() {
   return (
     <section className={styles.hero}>
       <div className={`container ${styles.container}`}>
         <div className={styles.grid}>
           <div className={styles.left}>
-            <div className={`badge ${styles.eyebrow}`}>Advanced Account</div>
+            <div className={`badge ${styles.eyebrow}`}>Demo Account</div>
 
             <h1 className={`title ${styles.title}`}>
-              More Flexibility for
-              <span className={styles.highlight}> Growing Traders</span>
+              Practice Trading with
+              <span className={styles.highlight}> Confidence</span>
             </h1>
 
             <p className={`description ${styles.description}`}>
-              The Stonefort Advanced Account is designed for traders who are
-              ready to take the next step. With tighter spreads, higher trading
-              capacity, zero commission, and secure MT5 access, it offers a more
-              refined trading experience for those seeking greater flexibility
-              and stronger trading conditions.
+              The Stonefort Demo Account is designed for traders who want to
+              explore the platform, test strategies, and build confidence before
+              moving to live markets. It gives you a risk-free way to experience
+              MT5, understand market conditions, and practice trading in a
+              secure simulated environment.
             </p>
 
             <div className={styles.actions}>
               <Link href="/register" className="button">
-                Open An Account
+                Open Demo Account
               </Link>
-
-
             </div>
           </div>
 
@@ -37,8 +35,8 @@ export default function AdvancedHero() {
               <div className={styles.glow} aria-hidden="true" />
 
               <Image
-                src="/images/advanceaccountbanner.webp"
-                alt="Stonefort Advanced Account"
+                src="/images/payment-bg.webp"
+                alt="Stonefort Demo Account"
                 width={720}
                 height={620}
                 priority

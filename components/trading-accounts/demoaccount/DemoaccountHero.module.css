@@ -1,0 +1,175 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 0 72px;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.10fr) minmax(0, 0.90fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.left {
+  max-width: 740px;
+}
+
+.eyebrow {
+  margin-bottom: 18px;
+}
+
+.title {
+  margin: 0 0 18px;
+  max-width: 15ch;
+  line-height: 1.08;
+}
+
+.highlight {
+  color: var(--brand);
+}
+
+.description {
+  max-width: 62ch;
+  color: var(--text-body);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+.actions a {
+    white-space: nowrap;
+    width: auto;
+    min-width: fit-content;
+
+}
+
+.right {
+  position: relative;
+}
+
+.visualWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 520px;
+}
+
+.glow {
+  position: absolute;
+  inset: auto;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(135, 171, 147, 0.28) 0%,
+      rgba(77, 110, 85, 0.18) 38%,
+      rgba(77, 110, 85, 0.08) 62%,
+      transparent 78%
+    );
+  filter: blur(34px);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.visual {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 720px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.18));
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    padding: 72px 0 60px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .left {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+
+  .description {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .visualWrap {
+    min-height: 460px;
+  }
+
+  .glow {
+    width: 460px;
+    height: 460px;
+  }
+
+  .visual {
+    width: min(100%, 620px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 56px 0 42px;
+  }
+
+  .grid {
+    gap: 24px;
+  }
+
+  .eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .title {
+    margin-bottom: 14px;
+  }
+
+  .actions {
+    margin-top: 24px;
+  }
+
+  .visualWrap {
+    min-height: 320px;
+  }
+
+  .glow {
+    width: 320px;
+    height: 320px;
+    filter: blur(24px);
+  }
+
+  .visual {
+    width: min(100%, 440px);
+  }
+}

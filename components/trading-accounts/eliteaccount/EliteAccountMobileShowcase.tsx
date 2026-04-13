@@ -2,28 +2,27 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "../advance-accounts/AdvancedAccountMobileShowcase.module.css";
-import Image from "next/image";
 
 const accountDetails = [
-  { key: "deposit", label: "Minimum Deposit", value: "$3,000" },
-  { key: "spreads", label: "Spreads", value: "From 1.0 pips" },
-  { key: "leverage", label: "Leverage", value: "Up to 1:500" },
-  { key: "commission", label: "Commission", value: "0" },
+  { key: "deposit", label: "Minimum Deposit", value: "$10,000" },
+  { key: "spreads", label: "Spreads", value: "From 0.1 pips" },
+  { key: "leverage", label: "Leverage", value: "1:200" },
+  { key: "commission", label: "Commission", value: "$8" },
   { key: "platform", label: "Platform", value: "MT5" },
-  { key: "stopout", label: "Stop-Out", value: "20%" },
-  { key: "margincall", label: "Margin Call", value: "50%" },
+  { key: "stopout", label: "Stop-Out", value: "50%" },
+  { key: "margincall", label: "Margin Call", value: "70%" },
 ];
 
 const chatSequence = [
   {
     type: "user",
-    text: "Hi Stonefort, what is the minimum deposit for the Starter Account?",
+    text: "Hi Stonefort, what is the minimum deposit for the Elite Account?",
     time: "09:14",
     metaKey: "deposit",
   },
   {
     type: "bot",
-    text: "The minimum deposit for the Starter Account is $50.",
+    text: "The minimum deposit for the Elite Account is $10,000.",
     time: "09:14",
     metaKey: "deposit",
   },
@@ -35,7 +34,7 @@ const chatSequence = [
   },
   {
     type: "bot",
-    text: "Spreads start from 1.3 pips on the Starter Account.",
+    text: "Spreads start from 0.1 pips on the Elite Account.",
     time: "09:15",
     metaKey: "spreads",
   },
@@ -47,7 +46,7 @@ const chatSequence = [
   },
   {
     type: "bot",
-    text: "You can trade with leverage up to 1:500, subject to applicable conditions.",
+    text: "The Elite Account offers leverage up to 1:200, subject to applicable conditions.",
     time: "09:16",
     metaKey: "leverage",
   },
@@ -59,7 +58,7 @@ const chatSequence = [
   },
   {
     type: "bot",
-    text: "No, the Starter Account comes with 0 commission.",
+    text: "Yes, the Elite Account includes a commission of $8.",
     time: "09:17",
     metaKey: "commission",
   },
@@ -71,7 +70,7 @@ const chatSequence = [
   },
   {
     type: "bot",
-    text: "The Starter Account is available on MT5.",
+    text: "The Elite Account is available on MT5.",
     time: "09:18",
     metaKey: "platform",
   },
@@ -83,7 +82,7 @@ const chatSequence = [
   },
   {
     type: "bot",
-    text: "Margin Call is 50% and Stop-Out is 20%.",
+    text: "Margin Call is 70% and Stop-Out is 50%.",
     time: "09:19",
     metaKey: "margincall",
   },
@@ -118,7 +117,7 @@ function TypingBubble({ side }: { side: "user" | "bot" }) {
   );
 }
 
-export default function AdvancedAccountMobileShowcase() {
+export default function EliteAccountMobileShowcase() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [typingMessage, setTypingMessage] = useState<(typeof chatSequence)[number] | null>(
     null
@@ -171,36 +170,38 @@ export default function AdvancedAccountMobileShowcase() {
     <section className={`section ${styles.section}`}>
       <div className={`container ${styles.container}`}>
         <div className={styles.headContent}>
-          <span className="badge">Starter Account</span>
+          <span className="badge">Elite Account</span>
           <h2 className={`title ${styles.title}`}>
-          Everything You Need to Get Started
+            Premium Conditions for Experienced Traders
           </h2>
           <p className={`description ${styles.description}`}>
-              Built for flexibility and ease of entry, the Starter Account gives traders access to global markets through a professional trading environment. It is ideal for those looking for transparent trading conditions and a lower starting commitment.
+            The Elite Account is designed for experienced traders who require
+            tighter spreads, premium execution conditions, and a more refined
+            trading environment. It offers strong account parameters with secure
+            MT5 access for a higher-level trading experience.
           </p>
         </div>
 
         <div className={styles.mockupWrap}>
-          {/* LEFT PHONE */}
           <div className={styles.phone}>
             <PhoneTopBar />
 
             <div className={styles.screen}>
               <div className={styles.specHeader}>
                 <div>
-                  {/* <p className={styles.eyebrow}>Account Overview</p> */}
-                  <h3 className={styles.phoneTitle}>Starter Account</h3>
+                  <h3 className={styles.phoneTitle}>Elite Account</h3>
                 </div>
                 <div className={styles.pill}>MT5</div>
               </div>
 
               <div className={styles.heroCard}>
                 <div className={styles.heroGlow} />
-                    <p className={styles.heroLabel}>Account Overview</p>
-                    <p className={styles.heroText}>
-                    Better pricing, fast execution, and a stronger structure - all streamlined.
-                    </p>
-                </div>
+                <p className={styles.heroLabel}>Account Overview</p>
+                <p className={styles.heroText}>
+                  Premium pricing, tighter spreads, and stronger trading
+                  conditions for serious traders.
+                </p>
+              </div>
 
               <div className={styles.specList}>
                 {accountDetails.map((item) => {
@@ -229,18 +230,17 @@ export default function AdvancedAccountMobileShowcase() {
             </div>
           </div>
 
-          {/* RIGHT PHONE */}
           <div className={styles.phone}>
             <PhoneTopBar />
 
             <div className={styles.screen}>
               <div className={styles.chatHeader}>
                 <div className={styles.chatAvatar}>
-                    <img
-                        src="/images/stonefortappfav.ico"
-                        alt="Stonefort"
-                        className={styles.chatAvatarImage}
-                    />
+                  <img
+                    src="/images/stonefortappfav.ico"
+                    alt="Stonefort"
+                    className={styles.chatAvatarImage}
+                  />
                 </div>
                 <div>
                   <h3 className={styles.chatTitle}>Stonefort Support</h3>

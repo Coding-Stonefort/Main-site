@@ -104,9 +104,9 @@ return (
           { label: "Stonefort Accounts", href: "/trading-account" }, 
           { label: "Starter", href: "/trading-account/starteraccount" },
           { label: "Advance", href: "/trading-account/advanceaccount" },
-          { label: "Elite", href: "/trading/elite" },
-          { label: "Demo", href: "/trading/demo" },
-          { label: "PAMM", href: "/trading/pamm" },
+          { label: "Elite", href: "/trading-account/eliteaccount" },
+          { label: "Demo", href: "/trading-account/demoaccount" },
+          { label: "PAMM", href: "/trading-account/pamm" },
         ],
       },
       {

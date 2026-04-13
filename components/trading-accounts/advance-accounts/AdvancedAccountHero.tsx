@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../advance-accounts/AdvancedAccountHero.module.css";
+import styles from "./AdvancedAccountHero.module.css";
 
 export default function AdvancedAccountHero() {
   return (
@@ -22,14 +22,17 @@ export default function AdvancedAccountHero() {
 
           <div className={styles.content}>
             <div className={styles.copy}>
-              <div className={`badge ${styles.badgeCustom}`}>Starter Account</div>
+              <div className={`badge ${styles.badgeCustom}`}>Advanced Account</div>
 
               <h2 className={`heading ${styles.headingCustom}`}>
-                A Smart First Step into  <span className={styles.highlight}> Trading</span>
+                A Balanced Account for <span className={styles.highlight}> Serious Trading</span>
               </h2>
 
               <p className={`text ${styles.textCustom}`}>
-                 The Starter Account is suited for traders who want to begin with a lower deposit while still benefiting from fast execution, secure platform access, and flexible trading conditions. It is a strong option for new traders and for anyone looking for a straightforward account structure without added complexity.
+                The Advanced Account offers tighter spreads than entry-level
+                options, with zero commission and flexible leverage - ideal for
+                growing traders needing active, straightforward trading
+                conditions.
               </p>
 
               <div className={styles.actions}>

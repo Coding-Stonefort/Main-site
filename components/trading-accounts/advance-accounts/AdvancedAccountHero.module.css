@@ -1,0 +1,395 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg);
+}
+
+.bgWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.14) 0%,
+      rgba(0, 0, 0, 0.18) 100%
+    );
+}
+
+.section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg);
+}
+
+.bgWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.14) 0%,
+      rgba(0, 0, 0, 0.18) 100%
+    );
+}
+
+/* MAIN FADE LAYER */
+.bgBlend {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 88%, transparent) 10%,
+      color-mix(in srgb, var(--bg) 58%, transparent) 22%,
+      transparent 38%,
+      transparent 62%,
+      color-mix(in srgb, var(--bg) 58%, transparent) 78%,
+      color-mix(in srgb, var(--bg) 88%, transparent) 90%,
+      var(--bg) 100%
+    ),
+    linear-gradient(to bottom,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 82%, transparent) 10%,
+      color-mix(in srgb, var(--bg) 42%, transparent) 22%,
+      transparent 36%,
+      transparent 64%,
+      color-mix(in srgb, var(--bg) 42%, transparent) 78%,
+      color-mix(in srgb, var(--bg) 82%, transparent) 90%,
+      var(--bg) 100%
+    );
+  pointer-events: none;
+}
+
+
+.panel {
+  position: relative;
+  overflow: visible;
+  border: 1px solid var(--glass-border);
+  border-radius: 32px;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-md);
+}
+
+.glassHighlight {
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      135deg,
+      var(--glass-reflection-strong) 0%,
+      var(--glass-reflection-soft) 18%,
+      transparent 42%
+    );
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  align-items: center;
+  gap: 28px;
+  min-height: 460px;
+  padding: 52px 56px;
+}
+
+.copy {
+  max-width: 760px;
+}
+
+.badgeCustom {
+  margin-bottom: 18px;
+}
+
+.headingCustom {
+  max-width: 760px;
+  color: #000 !important;
+  font-size: 56px;
+  text-shadow: 0 0 0 1 rgba(0, 0, 0, 1);
+}
+.highlight {
+  color: var(--brand);
+}
+.textCustom {
+  max-width: 690px;
+  margin-top: 18px;
+  color: #000 !important;
+}
+
+html[data-theme="dark"] .headingCustom {
+  color: var(--text-strong);
+}
+
+html[data-theme="dark"] .headingCustom {
+  color: #fff !important;
+}
+
+html[data-theme="dark"] .textCustom {
+  color: rgba(234, 240, 246, 0.82) !important;
+}
+
+html:not([data-theme="dark"]) .headingCustom {
+  color: #ffffff !important;
+}
+
+html:not([data-theme="dark"]) .textCustom {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.primaryBtn {
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--brand) 35%, transparent);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--btn-width);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border-radius: var(--btn-radius);
+  border: 1px solid color-mix(in srgb, var(--brand) 55%, transparent);
+  background: color-mix(in srgb, var(--surface) 16%, transparent);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--surface) 30%, transparent);
+}
+
+html[data-theme="dark"] .secondaryBtn {
+  color: var(--text-strong);
+}
+
+html:not([data-theme="dark"]) .secondaryBtn {
+  color: #ffffff;
+}
+
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 430px;
+}
+
+.mockupWrap {
+  position: relative;
+  width: 420px;
+  height: 480px;
+}
+
+.backPhone,
+.frontPhone {
+  position: absolute;
+}
+
+.backPhone {
+  top: 4px;
+  right: 10px;
+  z-index: 1;
+  width: 236px;
+  transform: rotate(8deg);
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.55));
+}
+
+.frontPhone {
+  left: 8px;
+  bottom: -6px;
+  z-index: 2;
+  width: 258px;
+  transform: rotate(-10deg);
+  filter: drop-shadow(0 28px 44px rgba(0, 0, 0, 0.62));
+}
+
+.backPhone img,
+.frontPhone img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.phoneGlow {
+  position: absolute;
+  left: 52%;
+  top: 54%;
+  z-index: 0;
+  width: 240px;
+  height: 240px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle,
+      color-mix(in srgb, var(--brand) 28%, transparent) 0%,
+      color-mix(in srgb, var(--brand) 18%, transparent) 35%,
+      transparent 72%
+    );
+  filter: blur(40px);
+}
+
+@media (max-width: 1200px) {
+  .content {
+    grid-template-columns: 1fr 0.9fr;
+    padding: 44px 40px;
+  }
+
+  .mockupWrap {
+    width: 360px;
+    height: 420px;
+  }
+
+  .backPhone {
+    width: 205px;
+  }
+
+  .frontPhone {
+    width: 224px;
+  }
+}
+
+@media (max-width: 991px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    min-height: auto;
+    padding: 40px 28px 32px;
+  }
+
+  .copy {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .headingCustom,
+  .textCustom {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .visual {
+    min-height: 360px;
+    margin-top: 8px;
+  }
+
+  .mockupWrap {
+    width: 320px;
+    height: 360px;
+  }
+
+  .backPhone {
+    right: 18px;
+    width: 180px;
+  }
+
+  .frontPhone {
+    left: 8px;
+    width: 194px;
+  }
+}
+
+@media (max-width: 640px) {
+  .panel {
+    border-radius: 24px;
+  }
+
+  .glassHighlight {
+    border-radius: 24px;
+  }
+
+  .content {
+    padding: 28px 18px 22px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: min(100%, var(--btn-width-mobile));
+    font-size: 16px;
+  }
+
+  .visual {
+    min-height: 300px;
+  }
+
+  .mockupWrap {
+    width: 270px;
+    height: 300px;
+  }
+
+  .backPhone {
+    top: 10px;
+    right: 6px;
+    width: 150px;
+  }
+
+  .frontPhone {
+    left: 0;
+    bottom: 0;
+    width: 164px;
+  }
+
+  .phoneGlow {
+    width: 180px;
+    height: 180px;
+  }
+  
+.headingCustom {
+
+  font-size: 28px;
+}
+}

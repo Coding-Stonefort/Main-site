@@ -1,0 +1,465 @@
+.section {
+  position: relative;
+  overflow: hidden;
+ 
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.topContent {
+  max-width: 920px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.badgeCustom {
+  margin-bottom: 18px;
+}
+
+.title {
+  margin: 0 0 16px;
+  color: var(--text-strong);
+}
+
+.highlight {
+  color: var(--brand);
+}
+
+.description {
+  max-width: 860px;
+  margin: 0 auto;
+  color: var(--text-body);
+}
+
+/* layout */
+.flowLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.column {
+  position: relative;
+}
+
+.columnLabel {
+  margin-bottom: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+/* left investor stack */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.investorCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 20px;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.investorCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.investorCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(77, 110, 85, 0.12),
+    transparent 42%
+  );
+  pointer-events: none;
+}
+
+.cardIndex {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(77, 110, 85, 0.1);
+  border: 1px solid rgba(77, 110, 85, 0.18);
+  color: var(--brand);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.cardMeta {
+  position: relative;
+  z-index: 1;
+}
+
+.cardTitle {
+  margin: 0 0 4px;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--text-strong);
+}
+
+.cardValue {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-body);
+}
+
+/* center */
+.centerZone {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.connectorLine {
+  position: absolute;
+  left: -80px;
+  right: -80px;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    90deg,
+    rgba(77, 110, 85, 0.12) 0%,
+    rgba(25, 211, 211, 0.8) 50%,
+    rgba(77, 110, 85, 0.12) 100%
+  );
+  pointer-events: none;
+}
+
+.pulseDot {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #19d3d3;
+  box-shadow: 0 0 18px rgba(25, 211, 211, 0.45);
+  transform: translateY(-50%);
+  animation: travel 3.2s linear infinite;
+}
+
+.pulseDot:nth-child(1) {
+  left: 12%;
+  animation-delay: 0s;
+}
+
+.pulseDot:nth-child(2) {
+  left: 42%;
+  animation-delay: 1s;
+}
+
+.pulseDot:nth-child(3) {
+  left: 72%;
+  animation-delay: 2s;
+}
+
+.hubCard {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 370px);
+  padding: 34px 28px;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--card-shadow, var(--shadow-md));
+  overflow: hidden;
+  text-align: center;
+}
+
+.hubCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(25, 211, 211, 0.12), transparent 40%),
+    linear-gradient(180deg, rgba(77, 110, 85, 0.08), transparent 42%);
+  pointer-events: none;
+}
+
+.hubGlow {
+  position: absolute;
+  inset: auto 50% -60px auto;
+  width: 220px;
+  height: 220px;
+  transform: translateX(50%);
+  border-radius: 50%;
+  background: rgba(25, 211, 211, 0.16);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.hubIcon {
+  position: relative;
+  z-index: 1;
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 18px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(180deg, rgba(25, 211, 211, 0.16), rgba(77, 110, 85, 0.12));
+  border: 1px solid rgba(25, 211, 211, 0.18);
+}
+
+.hubBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  height: 34px;
+}
+
+.hubBars span {
+  width: 10px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #19d3d3, var(--brand));
+  animation: bars 1.8s ease-in-out infinite;
+}
+
+.hubBars span:nth-child(1) {
+  height: 18px;
+}
+
+.hubBars span:nth-child(2) {
+  height: 30px;
+  animation-delay: 0.2s;
+}
+
+.hubBars span:nth-child(3) {
+  height: 24px;
+  animation-delay: 0.4s;
+}
+
+.hubText {
+  position: relative;
+  z-index: 1;
+}
+
+.hubEyebrow {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-body);
+}
+
+.hubTitle {
+  margin: 0 0 8px;
+  font-size: 30px;
+  line-height: 1.15;
+  color: var(--text-strong);
+}
+
+.hubValue {
+  font-size: 34px;
+  line-height: 1;
+  color: var(--text-strong);
+}
+
+.profitBadge {
+  position: relative;
+  z-index: 1;
+  margin-top: 22px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 22px;
+  border-radius: 18px;
+  background: rgba(43, 232, 166, 0.08);
+  border: 1px solid rgba(43, 232, 166, 0.18);
+}
+
+.profitTag {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-body);
+}
+
+.profitValue {
+  font-size: 28px;
+  color: #2be8a6;
+}
+
+/* right */
+.payoutPanel {
+  position: relative;
+  padding: 14px;
+  border-radius: 26px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.payoutRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.payoutRow:last-child {
+  border-bottom: none;
+}
+
+.payoutLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.payoutDot {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 14px rgba(77, 110, 85, 0.25);
+}
+
+.payoutLabel {
+  font-size: 17px;
+  color: var(--text-body);
+}
+
+.payoutValue {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.positive {
+  color: var(--text-strong);
+}
+
+.negative {
+  color: var(--text-strong);
+}
+
+/* dark theme tuning */
+html[data-theme="dark"] .hubCard,
+html[data-theme="dark"] .investorCard,
+html[data-theme="dark"] .payoutPanel {
+  background: var(--surface);
+}
+
+html[data-theme="dark"] .connectorLine {
+  background: linear-gradient(
+    90deg,
+    rgba(135, 171, 147, 0.1) 0%,
+    rgba(25, 211, 211, 0.85) 50%,
+    rgba(135, 171, 147, 0.1) 100%
+  );
+}
+
+/* animations */
+@keyframes travel {
+  0% {
+    opacity: 0.25;
+    transform: translateY(-50%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  100% {
+    opacity: 0.25;
+    transform: translateY(-50%) scale(0.8);
+  }
+}
+
+@keyframes bars {
+  0%, 100% {
+    transform: scaleY(0.85);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scaleY(1.08);
+    opacity: 1;
+  }
+}
+
+/* responsive */
+@media (max-width: 1180px) {
+  .flowLayout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .centerZone {
+    min-height: auto;
+    padding: 18px 0;
+  }
+
+  .connectorLine {
+    left: 10%;
+    right: 10%;
+  }
+}
+
+@media (max-width: 767px) {
+  .topContent {
+    margin-bottom: 36px;
+  }
+
+  .hubCard {
+    width: 100%;
+    padding: 28px 20px;
+  }
+
+  .hubTitle {
+    font-size: 26px;
+  }
+
+  .hubValue {
+    font-size: 30px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .cardValue,
+  .payoutValue {
+    font-size: 18px;
+  }
+
+  .payoutRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
