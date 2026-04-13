@@ -59,7 +59,7 @@ function Phone({ account }: { account: (typeof accounts)[number] }) {
           <div className={styles.appTop}>
             <div>
               <p className={styles.appKicker}>{account.label}</p>
-              <h3 className={styles.appHeading}>{account.heading}</h3>
+              {/* <h3 className={styles.appHeading}>{account.heading}</h3> */}
             </div>
             <div className={styles.appBadge}>MT5</div>
           </div>

@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./AdvancedAccountMobileShowcase.module.css";
-import Image from "next/image";
 
 const accountDetails = [
   { key: "deposit", label: "Minimum Deposit", value: "$3,000" },
@@ -14,7 +13,14 @@ const accountDetails = [
   { key: "margincall", label: "Margin Call", value: "50%" },
 ];
 
-const chatSequence = [
+type ChatMessage = {
+  type: "user" | "bot";
+  text: string;
+  time: string;
+  metaKey: string;
+};
+
+const chatSequence: ChatMessage[] = [
   {
     type: "user",
     text: "Hi Stonefort, what is the minimum deposit for the Advanced Account?",
@@ -120,15 +126,14 @@ function TypingBubble({ side }: { side: "user" | "bot" }) {
 
 export default function AdvancedAccountMobileShowcase() {
   const [visibleCount, setVisibleCount] = useState(0);
-  const [typingMessage, setTypingMessage] = useState<(typeof chatSequence)[number] | null>(
-    null
-  );
+  const [typingMessage, setTypingMessage] = useState<ChatMessage | null>(null);
   const [activeMetaKey, setActiveMetaKey] = useState<string>("deposit");
 
   const chatBodyRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!chatBodyRef.current) return;
+
     const el = chatBodyRef.current;
     el.scrollTo({
       top: el.scrollHeight,
@@ -145,6 +150,7 @@ export default function AdvancedAccountMobileShowcase() {
         setTypingMessage(null);
         setActiveMetaKey("deposit");
       }, 2200);
+
       return () => clearTimeout(timer);
     }
 
@@ -162,58 +168,67 @@ export default function AdvancedAccountMobileShowcase() {
     return () => clearTimeout(timer);
   }, [visibleCount]);
 
-  const visibleMessages = useMemo(
-    () => chatSequence.slice(0, visibleCount),
-    [visibleCount]
-  );
+  const visibleMessages = useMemo(() => {
+    return chatSequence.slice(0, visibleCount);
+  }, [visibleCount]);
 
   return (
     <section className={`section ${styles.section}`}>
       <div className={`container ${styles.container}`}>
         <div className={styles.headContent}>
           <span className="badge">Advanced Account</span>
+
           <h2 className={`title ${styles.title}`}>
-           Built for Traders Ready to Go Further
+            Built for Traders Ready to Go Further
           </h2>
+
           <p className={`description ${styles.description}`}>
-             The Advanced Account is ideal for traders who want improved pricing conditions and a stronger account setup while maintaining a simple and transparent structure. It combines competitive spreads, fast execution, and access to global markets through a secure trading environment.
+            The Advanced Account is ideal for traders who want improved pricing
+            conditions and a stronger account setup while maintaining a simple
+            and transparent structure. It combines competitive spreads, fast
+            execution, and access to global markets through a secure trading
+            environment.
           </p>
         </div>
 
         <div className={styles.mockupWrap}>
-          {/* LEFT PHONE */}
           <div className={styles.phone}>
             <PhoneTopBar />
 
             <div className={styles.screen}>
               <div className={styles.specHeader}>
                 <div>
-                  {/* <p className={styles.eyebrow}>Account Overview</p> */}
                   <h3 className={styles.phoneTitle}>Advanced Account</h3>
                 </div>
+
                 <div className={styles.pill}>MT5</div>
               </div>
 
               <div className={styles.heroCard}>
                 <div className={styles.heroGlow} />
-                    <p className={styles.heroLabel}>Account Overview</p>
-                    <p className={styles.heroText}>
-                    Better pricing, fast execution, and a stronger structure - all streamlined.
-                    </p>
-                </div>
+                <p className={styles.heroLabel}>Account Overview</p>
+                <p className={styles.heroText}>
+                  Better pricing, fast execution, and a stronger structure - all
+                  streamlined.
+                </p>
+              </div>
 
               <div className={styles.specList}>
                 {accountDetails.map((item) => {
                   const isActive = activeMetaKey === item.key;
+
                   return (
                     <div
                       key={item.key}
-                      className={`${styles.specItem} ${isActive ? styles.specItemActive : ""}`}
+                      className={`${styles.specItem} ${
+                        isActive ? styles.specItemActive : ""
+                      }`}
                     >
                       <div className={styles.specLeft}>
                         <span className={styles.specDot} />
                         <span className={styles.specLabel}>{item.label}</span>
                       </div>
+
                       <span className={styles.specValue}>{item.value}</span>
                     </div>
                   );
@@ -229,23 +244,24 @@ export default function AdvancedAccountMobileShowcase() {
             </div>
           </div>
 
-          {/* RIGHT PHONE */}
           <div className={styles.phone}>
             <PhoneTopBar />
 
             <div className={styles.screen}>
               <div className={styles.chatHeader}>
                 <div className={styles.chatAvatar}>
-                    <img
-                        src="/images/stonefortappfav.ico"
-                        alt="Stonefort"
-                        className={styles.chatAvatarImage}
-                    />
+                  <img
+                    src="/images/stonefortappfav.ico"
+                    alt="Stonefort"
+                    className={styles.chatAvatarImage}
+                  />
                 </div>
+
                 <div>
                   <h3 className={styles.chatTitle}>Stonefort Support</h3>
                   <p className={styles.chatStatus}>Online</p>
                 </div>
+
                 <button className={styles.chatAction} aria-label="Call support">
                   <svg viewBox="0 0 24 24" fill="none">
                     <path
@@ -263,7 +279,9 @@ export default function AdvancedAccountMobileShowcase() {
                 {visibleMessages.map((msg, index) => (
                   <div
                     key={`${msg.time}-${index}`}
-                    className={msg.type === "user" ? styles.userRow : styles.botRow}
+                    className={
+                      msg.type === "user" ? styles.userRow : styles.botRow
+                    }
                   >
                     <div
                       className={
@@ -281,7 +299,9 @@ export default function AdvancedAccountMobileShowcase() {
                 {typingMessage && (
                   <div
                     className={
-                      typingMessage.type === "user" ? styles.userRow : styles.botRow
+                      typingMessage.type === "user"
+                        ? styles.userRow
+                        : styles.botRow
                     }
                   >
                     <TypingBubble side={typingMessage.type} />
@@ -293,6 +313,7 @@ export default function AdvancedAccountMobileShowcase() {
                 <span className={styles.inputPlaceholder}>
                   Ask about spreads, leverage, margin call...
                 </span>
+
                 <button className={styles.sendBtn} aria-label="Send message">
                   <svg viewBox="0 0 24 24" fill="none">
                     <path
