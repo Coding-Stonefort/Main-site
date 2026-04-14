@@ -24,7 +24,7 @@ const marketFaqs: FAQItem[] = [
   {
     question: "Is the Starter Account suitable for beginners?",
     answer:
-      "Yes, it is designed as an accessible option for traders starting their journey.",
+      "Yes, it is designed as an accessible option for traders starting their journey",
   },
 
 ];
